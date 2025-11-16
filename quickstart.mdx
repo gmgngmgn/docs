@@ -1,80 +1,191 @@
 ---
 title: "Quickstart"
-description: "Start building awesome documentation in minutes"
+description: "Build your AI workforce and start automating tasks in minutes"
 ---
 
 ## Get started in three steps
 
-Get your documentation site running locally and make your first customization.
+Set up your Utari workspace, configure your first AI agents, and run your first automated task.
 
-### Step 1: Set up your local environment
+### Step 1: Create your workspace
 
 <AccordionGroup>
-  <Accordion icon="copy" title="Clone your docs locally">
-    During the onboarding process, you created a GitHub repository with your docs content if you didn't already have one. You can find a link to this repository in your [dashboard](https://dashboard.mintlify.com).
+  <Accordion icon="user-plus" title="Sign up and create your account">
+    1. Visit [utari.ai](https://utari.ai) in your browser
+    2. Click **"Get started"** and sign up using Google, GitHub, or email
+    3. Complete email verification if required
+    4. Wait while Utari sets up your workspace automatically
     
-    To clone the repository locally so that you can make and preview changes to your docs, follow the [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) guide in the GitHub docs.
+    <Tip>Your workspace is your private environment where agents, data, and settings live.</Tip>
   </Accordion>
-  <Accordion icon="rectangle-terminal" title="Start the preview server">
-    1. Install the Mintlify CLI: `npm i -g mint`
-    2. Navigate to your docs directory and run: `mint dev`
-    3. Open `http://localhost:3000` to see your docs live!
+
+  <Accordion icon="sparkles" title="Complete first-time onboarding">
+    Follow the guided setup to personalize your AI workforce:
     
-    <Tip>Your preview updates automatically as you edit files.</Tip>
+    1. **Choose your usage type**: Individual or company/team
+    2. **Select starter agents**: Pick from research, operations, content, or technical agents
+    3. **Configure agent settings** (optional):
+       - Set names and roles
+       - Define primary goals
+       - Choose tone and style (formal, concise, friendly)
+    4. Click **"Start Working"** to reach your dashboard
+    
+    <Note>You can refine or add agents anytime—this setup just gets you productive fast.</Note>
   </Accordion>
 </AccordionGroup>
 
-### Step 2: Deploy your changes
+### Step 2: Run your first task
 
 <AccordionGroup>
-  <Accordion icon="github" title="Install our GitHub app">
-    Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app).
+  <Accordion icon="message" title="Start a conversation with an agent">
+    1. From your dashboard, click **"New Thread"** or open an existing thread
+    2. Select your primary agent (e.g., your generalist agent)
+    3. Describe your goal clearly:
+       - **What you want**: "Summarize this market report into a 1-page executive brief"
+       - **Context**: Who it's for, length, tone, deadline
     
-    Our GitHub app automatically deploys your changes to your docs site, so you don't need to manage deployments yourself.
-</Accordion>
-<Accordion icon="palette" title="Update your site name and colors">
-    For a first change, let's update the name and colors of your docs site.
+    <Tip>Attach files or links using the upload button to give your agent source material.</Tip>
+  </Accordion>
 
-    1. Open `docs.json` in your editor.
-    2. Change the `"name"` field to your project name.
-    3. Update the `"colors"` to match your brand.
-    4. Save and see your changes instantly at `http://localhost:3000`.
-
-    <Tip>Try changing the primary color to see an immediate difference!</Tip>
+  <Accordion icon="wand-magic-sparkles" title="Let your agent work and iterate">
+    Your agent will:
+    - Read your files and analyze content
+    - Browse or research (if tools are enabled)
+    - Generate structured output (summaries, plans, drafts, checklists)
+    
+    **Refine the output** with follow-ups:
+    - "Make this shorter and more executive-friendly"
+    - "Turn this into an email for my team"
+    - "Highlight the top 3 risks and mitigations"
+    
+    <Tip>All context stays in the thread—agents remember everything!</Tip>
   </Accordion>
 </AccordionGroup>
 
-### Step 3: Go live
+### Step 3: Customize your AI workforce
 
-<Accordion icon="rocket" title="Publish your docs">
-  1. Commit and push your changes.
-  2. Your docs will update and be live in moments!
+<Accordion icon="users-gear" title="Refine and expand your team">
+  **Edit existing agents:**
+  1. Go to **Agents / Workforce** section
+  2. Open an agent and update:
+     - Description and expertise areas
+     - Preferred output formats
+     - Tone and communication style
+  
+  **Create specialized agents** for recurring workflows:
+  - **Research Analyst**: Market and competitor research
+  - **Operations Coordinator**: SOPs, process docs, checklists
+  - **Client Delivery Assistant**: Client-ready deliverables
+  
+  <Tip>When an agent produces great output, save it as an example to guide future work.</Tip>
 </Accordion>
+
+## Core concepts
+
+<CardGroup cols={2}>
+  <Card title="Workspace" icon="building">
+    Your private environment where agents, data, and settings live. Invite teammates when team features are enabled.
+  </Card>
+  
+  <Card title="AI Agents" icon="robot">
+    Specialized AI workers configured with goals, tone, and tool access to handle specific workflows.
+  </Card>
+  
+  <Card title="Threads" icon="comments">
+    Persistent conversations that keep history, context, and files so agents can pick up where they left off.
+  </Card>
+  
+  <Card title="Tools" icon="wrench">
+    External capabilities like web browsing, data APIs, and sandboxes that let agents act, not just chat.
+  </Card>
+</CardGroup>
+
+## Common workflows
+
+<AccordionGroup>
+  <Accordion icon="magnifying-glass" title="Research & synthesis">
+    **Example**: "Research the top 5 vendors for X, summarize their offerings, pricing ranges, and pros/cons in a table."
+    
+    Agents can browse the web, pull data, and create comprehensive comparison reports.
+  </Accordion>
+
+  <Accordion icon="list-check" title="Operations & processes">
+    **Example**: "Take these meeting notes and turn them into an action plan with owners and deadlines."
+    
+    Transform raw notes into structured workflows, SOPs, and trackable deliverables.
+  </Accordion>
+
+  <Accordion icon="file-contract" title="Client deliverables">
+    **Example**: "Convert this technical analysis into a client-ready summary in simple language."
+    
+    Repackage internal work into polished, stakeholder-appropriate documents.
+  </Accordion>
+
+  <Accordion icon="calendar-days" title="Personal productivity">
+    **Example**: "Help me plan my week based on these tasks; prioritize and group them, then create a schedule."
+    
+    Let agents handle planning, prioritization, and time management.
+  </Accordion>
+</AccordionGroup>
+
+## Advanced features
+
+### Connect tools and data
+
+Unlock powerful capabilities by connecting external tools:
+
+<Steps>
+  <Step title="Enable web & data tools">
+    Allow agents to research the web, pull public data, and enrich information with search and crawling capabilities.
+  </Step>
+  
+  <Step title="Add execution tools">
+    Enable code execution and sandboxes for data analysis, transformations, and automation tasks.
+  </Step>
+  
+  <Step title="Integrate external systems">
+    Connect your existing tools so agents can read/write data, sync projects, and trigger automations.
+  </Step>
+</Steps>
+
+<Warning>Start with **view-only / low-risk access**, validate agent behavior, then gradually expand permissions.</Warning>
 
 ## Next steps
 
-Now that you have your docs running, explore these key features:
-
 <CardGroup cols={2}>
-
-<Card title="Write Content" icon="pen-to-square" href="/essentials/markdown">
-  Learn MDX syntax and start writing your documentation.
-</Card>
-
-<Card title="Customize style" icon="palette" href="/essentials/settings">
-  Make your docs match your brand perfectly.
-</Card>
-
-<Card title="Add code examples" icon="square-code" href="/essentials/code">
-  Include syntax-highlighted code blocks.
-</Card>
-
-<Card title="API documentation" icon="code" href="/api-reference/introduction">
-  Auto-generate API docs from OpenAPI specs.
-</Card>
-
+  <Card title="Run real tasks" icon="rocket">
+    Complete 3–5 real tasks with your primary agent (research, planning, writing).
+  </Card>
+  
+  <Card title="Create specialized agents" icon="user-plus">
+    Build one agent for a recurring workflow you care about.
+  </Card>
+  
+  <Card title="Connect tools" icon="plug">
+    Enable web, data, or sandbox tools to unlock powerful workflows.
+  </Card>
+  
+  <Card title="Invite your team" icon="users">
+    Share threads and agents to make your AI workforce a shared asset.
+  </Card>
 </CardGroup>
 
 <Note>
-  **Need help?** See our [full documentation](https://mintlify.com/docs) or join our [community](https://mintlify.com/community).
+  **Treat agents like teammates**: Give them clear roles, good context, and feedback—then let them own entire workflows, not just single prompts.
 </Note>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion icon="rotate" title="Can't see agents or threads?">
+    Try refreshing your dashboard. If the issue persists, check your workspace settings.
+  </Accordion>
+
+  <Accordion icon="triangle-exclamation" title="Setup issue during account creation?">
+    Continue to the dashboard and retry setup later from your settings.
+  </Accordion>
+
+  <Accordion icon="life-ring" title="Need more help?">
+    Use the in-app support channels or join our community (Discord/email) linked from the Utari interface.
+  </Accordion>
+</AccordionGroup>
