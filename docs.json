@@ -26,13 +26,13 @@
             "pages": [
               "workers/creating-a-new-worker",
               "workers/worker-instructions-explained",
-              "workers/tools",
+              "workers/tools/task-management-tool",
               "workers/integrations/how-to-use-integrations",
               "workers/integrations/using-integrations-in-workers",
-            "workers/knowledge/how-to-add-knowledge-to-your-worker",
+              "workers/knowledge/how-to-add-knowledge-to-your-worker",
               "workers/knowledge/how-to-use-jeremy-sop",
               "workers/knowledge/using-your-knowledge-in-a-worker",
-              "workers/triggers"
+              "workers/triggers/agent-triggers"
             ]
           },
           {
