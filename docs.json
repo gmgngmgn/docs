@@ -78,20 +78,20 @@
       "anchors": [
         {
           "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
+          "href": "https://docs.utari.ai",
           "icon": "book-open-cover"
         },
         {
           "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
+          "href": "https://blog.utari.ai",
           "icon": "newspaper"
         }
       ]
     }
   },
   "logo": {
-    "light": "/logo/Utari-logo-white.svg",
-    "dark": "/logo/Utari-logo-black.svg"
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
   },
   "navbar": {
     "links": [
@@ -103,7 +103,7 @@
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "href": "https://utari.ai/dashboard"
     }
   },
   "contextual": {
