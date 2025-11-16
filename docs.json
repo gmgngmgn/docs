@@ -3,8 +3,8 @@
   "theme": "aspen",
   "name": "Utari Docs",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
+    "primary": "#0080ff",
+    "light": "#0073fe",
     "dark": "#15803D"
   },
   "favicon": "/favicon.svg",
