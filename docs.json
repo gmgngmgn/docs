@@ -31,7 +31,32 @@
           {
             "group": "Worker Tools",
             "pages": [
-              "workers/tools/task-management-tool"
+              "workers/tools/worker-tools-explained",
+              "workers/tools/task-management-tool",
+              "workers/tools/files-and-folders-tool",
+              "workers/tools/terminal-tool",
+              "workers/tools/web-search-tool",
+              "workers/tools/image-vision-tool",
+              "workers/tools/image-editor-tool",
+              "workers/tools/web-browser-tool",
+              "workers/tools/presentation-tool",
+              "workers/tools/port-exposure-tool",
+              "workers/tools/image-search-tool",
+              "workers/tools/data-provider-tool",
+              "workers/tools/agent-config-tool",
+              "workers/tools/trigger-and-automation-tool",
+              "workers/tools/mcp-server-tool",
+              "workers/tools/credential-manager-tool",
+              "workers/tools/agent-builder-tool",
+              "workers/tools/knowledgebase-tool",
+              "workers/tools/design-and-graphics-tool",
+              "workers/tools/document-creator",
+              "workers/tools/file-upload-tool",
+              "workers/tools/people-research-tool",
+              "workers/tools/company-research-tool",
+              "workers/tools/academic-research-tool",
+              "workers/tools/voice-call-tool",
+              "workers/tools/chat-messages-tool"
             ]
           },
           {
