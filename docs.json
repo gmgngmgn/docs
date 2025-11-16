@@ -22,13 +22,18 @@
             ]
           },
           {
-          "group": "Knowledgebase",
-          "pages":[
-            "knowledgebase/how-to-use-jeremy-sop"
-          ]
+            "group":"Workers",
+            "pages": [
+              "workers/creating-a-new-worker",
+              "workers/worker-instructions-explained",
+              "workers/tools",
+              "workers/integrations",
+            "workers/knowledge",
+              "workers/triggers"
+            ]
           },
           {
-            "group": "Customization",
+            "group": "Best practices",
             "pages": [
               "essentials/settings",
               "essentials/navigation"
@@ -44,7 +49,7 @@
             ]
           },
           {
-            "group": "AI tools",
+            "group": "AI Models",
             "pages": [
               "ai-tools/cursor",
               "ai-tools/claude-code",
