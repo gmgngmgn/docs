@@ -22,6 +22,12 @@
             ]
           },
           {
+          "group": "Knowledgebase",
+          "pages":[
+            "knowledgebase/how-to-use-jeremy-sops"
+          ]
+          },
+          {
             "group": "Customization",
             "pages": [
               "essentials/settings",
