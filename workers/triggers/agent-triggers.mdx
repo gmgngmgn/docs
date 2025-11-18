@@ -1,4 +1,560 @@
 ---
-title: "Adding Triggers To Worker Agents"
-description: "Description of your new file."
+title: "Create and Manage Triggers"
+description: "Learn how to automate your Utari workers with scheduled and event-based triggers to streamline workflows and execute tasks automatically without manual intervention."
 ---
+
+## Overview
+
+Triggers enable you to automate your Utari workers by scheduling them to run at specific times or in response to events. This powerful automation capability allows your workers to perform tasks daily, hourly, or on custom schedules—completely hands-free. Whether you need daily reports, regular monitoring, or event-driven responses, triggers make it possible.
+
+<iframe width="700px" height="400px" src="https://embed.app.guidde.com/playbooks/kvfyeUanbjGNk9A8fBDR34?mode=videoOnly" title="Create And Manage Scheduled Triggers In Utari" frameBorder="0" referrerPolicy="unsafe-url" allowFullScreen allow="clipboard-write" sandbox="allow-popups allow-popups-to-escape-sandbox allow-scripts allow-forms allow-same-origin allow-presentation" style={{ borderRadius:"10px" }} />
+
+## Types of Triggers
+
+Utari supports two types of triggers for different automation needs:
+
+<CardGroup cols={2}>
+  <Card title="Schedule Trigger" icon="clock">
+    Execute workers on a time-based schedule—daily, hourly, weekly, or custom intervals
+  </Card>
+  <Card title="Event-Based Trigger" icon="bolt">
+    Activate workers automatically when specific events occur in connected apps
+  </Card>
+</CardGroup>
+
+<Info>
+  This guide focuses on schedule triggers. Event-based triggers documentation is coming soon.
+</Info>
+
+## Where to Create Triggers
+
+You can create triggers from two locations in Utari:
+
+### Option 1: Within the Worker
+
+<Steps>
+  <Step title="Select Your Worker">
+    Navigate to the worker you want to automate.
+  </Step>
+  <Step title="Find Triggers Section">
+    Click on the **Triggers** tab within the worker's configuration.
+  </Step>
+  <Step title="Create New Trigger">
+    Click **Create new** to start configuring a trigger for this specific worker.
+  </Step>
+</Steps>
+
+### Option 2: From Triggers Tab
+
+<Steps>
+  <Step title="Navigate to Triggers">
+    Go to the main **Triggers** tab in your Utari dashboard.
+  </Step>
+  <Step title="Add New Trigger">
+    Click **Add new trigger** to create a trigger.
+  </Step>
+  <Step title="Select Worker">
+    Choose which worker this trigger should activate.
+  </Step>
+</Steps>
+
+<Tip>
+  Both methods achieve the same result. Use the worker-specific method when configuring a single worker, or the main Triggers tab when managing multiple trigger workflows.
+</Tip>
+
+## Creating a Schedule Trigger
+
+Let's create a schedule trigger step by step:
+
+<Steps>
+  <Step title="Select Trigger Type">
+    Choose **Schedule Trigger** from the available trigger types.
+  </Step>
+  <Step title="Select Agent/Worker">
+    Choose the worker that will be activated by this trigger. Make sure the worker has all necessary tools and integrations configured.
+  </Step>
+  <Step title="Name Your Trigger">
+    Provide a clear, descriptive name for the trigger (e.g., "Daily AI News Research" or "Weekly Report Generation").
+
+    Optionally, add a description to document the trigger's purpose.
+  </Step>
+  <Step title="Configure Schedule">
+    Click **Set schedule and timing** to choose when the trigger runs. You have several options:
+
+    **Quick Options:**
+
+    - Every minute
+    - Every 5 minutes
+    - Every 15 minutes
+    - Every 30 minutes
+    - Every hour
+    - Daily at 9 AM (default)
+
+    **Recurring Schedules:**
+
+    - Daily (choose specific time)
+    - Weekly (choose day and time)
+    - Monthly (choose date and time)
+
+    **One-Time:**
+
+    - Execute once at a specific date and time
+
+    **Advanced:**
+
+    - Custom cron expressions for complex schedules
+  </Step>
+  <Step title="Set Time Zone">
+    **Critical Step**: Adjust the time zone to match your preferred location. The trigger will execute based on the selected time zone.
+
+    For example, if you set "Daily at 9 AM" with Mountain Time, it will run at 9 AM Mountain Time every day.
+  </Step>
+  <Step title="Choose Execution Method">
+    Click **Choose execution method** to proceed to defining what the worker will do.
+  </Step>
+  <Step title="Provide Instructions">
+    Write clear, specific instructions for what the agent should do when triggered. This is the prompt the worker will execute.
+
+    **Example:**
+
+    ```
+        Use the browser tool to research the top 10 AI news stories from today, then create a summary document and save it in the "Daily News Briefs" folder.
+    ```
+
+    Be as specific as possible about:
+
+    - What tools to use
+    - What information to gather
+    - What output to create
+    - Where to save results
+  </Step>
+  <Step title="Create Schedule Task">
+    Click **Create schedule task** to activate your trigger.
+  </Step>
+</Steps>
+
+## Schedule Configuration Options
+
+### Quick Schedules
+
+Pre-configured intervals for common use cases:
+
+<AccordionGroup>
+  <Accordion title="Every Minute" icon="gauge-high">
+    Executes 1,440 times per day
+
+    **Use for:**
+
+    - Real-time monitoring
+    - High-frequency data collection
+    - Urgent alert systems
+  </Accordion>
+  <Accordion title="Every 5 Minutes" icon="forward">
+    Executes 288 times per day
+
+    **Use for:**
+
+    - Frequent status checks
+    - Regular data updates
+    - Near-real-time reporting
+  </Accordion>
+  <Accordion title="Every 15 Minutes" icon="clock-rotate-left">
+    Executes 96 times per day
+
+    **Use for:**
+
+    - Periodic monitoring
+    - Regular data synchronization
+    - Moderate-frequency updates
+  </Accordion>
+  <Accordion title="Every Hour" icon="hourglass">
+    Executes 24 times per day
+
+    **Use for:**
+
+    - Hourly reports
+    - Regular content aggregation
+    - Scheduled data processing
+  </Accordion>
+  <Accordion title="Daily at 9 AM" icon="sun">
+    Executes once per day
+
+    **Use for:**
+
+    - Daily reports and summaries
+    - Morning briefings
+    - Daily content creation
+    - Overnight processing
+  </Accordion>
+</AccordionGroup>
+
+### Recurring Schedules
+
+<CodeGroup>
+
+```text Daily
+Run every day at a specific time
+Example: Every day at 6:00 PM
+```
+
+
+```text Weekly
+Run on specific days of the week
+Example: Every Monday and Friday at 10:00 AM
+```
+
+
+```text Monthly
+Run on specific dates each month
+Example: 1st and 15th of every month at 2:00 PM
+```
+
+</CodeGroup>
+
+### Advanced Scheduling
+
+For complex schedules, use cron expressions:
+
+```text
+0 9 * * 1-5    # Every weekday at 9 AM
+0 */4 * * *    # Every 4 hours
+0 0 1 * *      # First day of every month at midnight
+30 14 * * 0    # Every Sunday at 2:30 PM
+```
+
+<Note>
+  Cron expressions give you precise control over scheduling but require understanding cron syntax. Use online cron generators if needed.
+</Note>
+
+## Writing Effective Trigger Instructions
+
+The instructions you provide determine what your worker does when triggered. Follow these best practices:
+
+### Be Specific and Clear
+
+❌ **Vague Instructions:**
+
+```text
+Research AI news
+```
+
+✅ **Specific Instructions:**
+
+```text
+Use the web search tool to find the top 10 AI news stories published today. For each story, extract the headline, source, and a brief summary. Create a document with all findings and save it in "Daily Briefings/AI News/[DATE]" folder.
+```
+
+### Include All Necessary Steps
+
+```text
+1. Search for "AI industry news today" using web search
+2. Visit the top 5 results and capture screenshots
+3. Extract key points from each article
+4. Compile findings into a formatted report
+5. Save the report as "AI News Digest - [DATE].docx" in the Reports folder
+6. Send a Slack message to #team-updates with a summary
+```
+
+### Specify Tools and Resources
+
+```text
+Using the browser tool and image vision tool, visit competitor websites [URL1, URL2, URL3], take screenshots of their homepages, analyze design changes since last week, and create a comparison document.
+```
+
+### Define Output Requirements
+
+```text
+Create a spreadsheet with columns: Date, Source, Headline, Category, Sentiment. Populate with today's findings and save to Google Sheets "News Tracker" document.
+```
+
+## Managing Triggers
+
+Once created, triggers appear in your triggers list with management options:
+
+### View Trigger Status
+
+<CardGroup cols={3}>
+  <Card title="Active" icon="circle-check">
+    Trigger is running on schedule
+  </Card>
+  <Card title="Paused" icon="circle-pause">
+    Trigger is temporarily disabled
+  </Card>
+  <Card title="Failed" icon="circle-xmark">
+    Last execution encountered an error
+  </Card>
+</CardGroup>
+
+### Trigger Actions
+
+From the triggers list, you can:
+
+<Steps>
+  <Step title="View Details">
+    Click on a trigger to see its configuration, schedule, and execution history.
+  </Step>
+  <Step title="Edit Trigger">
+    Click the **edit icon** to modify:
+
+    - Schedule timing
+    - Time zone
+    - Instructions
+    - Worker selection
+  </Step>
+  <Step title="Pause/Resume">
+    Click the **pause button** to temporarily disable the trigger without deleting it. Resume when needed.
+  </Step>
+  <Step title="Delete Trigger">
+    Click the **delete icon** to permanently remove the trigger.
+  </Step>
+  <Step title="View Execution History">
+    Review past executions to see:
+
+    - Execution timestamps
+    - Success/failure status
+    - Generated outputs
+    - Error logs (if any)
+  </Step>
+</Steps>
+
+## Common Trigger Use Cases
+
+### Daily Reporting
+
+<Card title="Morning Briefings" icon="newspaper">
+  **Schedule:** Daily at 7:00 AM
+
+  **Instructions:**
+
+  ```
+    Search for overnight news in our industry, create a 5-point executive summary, and email it to the leadership team before their 8 AM standup.
+  ```
+</Card>
+
+### Regular Monitoring
+
+<Card title="Competitor Tracking" icon="chart-line">
+  **Schedule:** Every Monday at 10:00 AM
+
+  **Instructions:**
+
+  ```
+    Visit competitor websites, take screenshots of their pricing pages, compare against our prices, and create a weekly competitive analysis report in the "Market Intelligence" folder.
+  ```
+</Card>
+
+### Content Automation
+
+<Card title="Social Media Content" icon="share-nodes">
+  **Schedule:** Every day at 9:00 AM, 1:00 PM, and 5:00 PM
+
+  **Instructions:**
+
+  ```
+    Using our content calendar from Google Sheets, create today's scheduled social media posts, generate accompanying images, and save drafts in the "Social Content/Ready to Post" folder.
+  ```
+</Card>
+
+### Data Processing
+
+<Card title="Analytics Compilation" icon="chart-pie">
+  **Schedule:** Daily at 11:59 PM
+
+  **Instructions:**
+
+  ```
+    Access today's data from Google Analytics integration, compile key metrics (traffic, conversions, top pages), create a daily dashboard update, and save to "Analytics/Daily Reports/[DATE]".
+  ```
+</Card>
+
+### Task Management
+
+<Card title="Project Updates" icon="list-check">
+  **Schedule:** Every Friday at 4:00 PM
+
+  **Instructions:**
+
+  ```
+    Review all tasks in Asana completed this week, create a team accomplishments summary, and post it to the #wins Slack channel.
+  ```
+</Card>
+
+### Reminders and Follow-ups
+
+<Card title="Follow-up Automation" icon="bell">
+  **Schedule:** Every weekday at 9:00 AM
+
+  **Instructions:**
+
+  ```
+    Check Gmail for unanswered emails older than 3 days, create a priority list, and send a Slack DM with follow-up reminders.
+  ```
+</Card>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Test Before Scheduling" icon="flask">
+    Run your worker manually with the same instructions before creating the trigger to ensure it works correctly
+  </Card>
+  <Card title="Start Simple" icon="seedling">
+    Begin with basic triggers and gradually add complexity as you understand the system better
+  </Card>
+  <Card title="Monitor Initially" icon="eye">
+    Watch the first few executions closely to catch any issues early
+  </Card>
+  <Card title="Use Descriptive Names" icon="tag">
+    Name triggers clearly so you can identify their purpose at a glance
+  </Card>
+  <Card title="Set Appropriate Frequency" icon="gauge">
+    Don't over-schedule. Choose the minimum frequency needed for your use case
+  </Card>
+  <Card title="Document Purpose" icon="note-sticky">
+    Use the description field to explain why the trigger exists and what it accomplishes
+  </Card>
+  <Card title="Verify Time Zones" icon="globe">
+    Double-check time zone settings to ensure triggers run when you expect
+  </Card>
+  <Card title="Plan for Failures" icon="triangle-exclamation">
+    Consider what happens if a trigger fails and have a backup plan
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Trigger not executing">
+    Check:
+
+    - Trigger status is "Active" not "Paused"
+    - Schedule settings are correct
+    - Time zone is set properly
+    - Worker has all required tools and integrations
+    - Instructions are valid and clear
+    - View execution history for error messages
+  </Accordion>
+  <Accordion title="Trigger runs at wrong time">
+    Verify:
+
+    - Time zone setting matches your location
+    - Schedule configuration is correct (AM vs PM)
+    - Daylight saving time considerations
+    - Server time vs local time differences
+  </Accordion>
+  <Accordion title="Worker errors during execution">
+    Review:
+
+    - Execution history for specific error messages
+    - Worker has necessary permissions for all tools
+    - Instructions are properly formatted
+    - External services (integrations) are accessible
+    - Test the same instructions manually
+  </Accordion>
+  <Accordion title="Incomplete or incorrect output">
+    Improve by:
+
+    - Making instructions more specific and detailed
+    - Breaking complex tasks into steps
+    - Specifying exact output format and location
+    - Testing instructions manually first
+    - Adding error handling instructions
+  </Accordion>
+  <Accordion title="Can't edit or delete trigger">
+    Try:
+
+    - Pausing the trigger first
+    - Refreshing the page
+    - Checking your permissions
+    - Waiting for current execution to complete
+    - Contact support if issue persists
+  </Accordion>
+  <Accordion title="Too many executions/costs">
+    Consider:
+
+    - Reducing trigger frequency
+    - Making worker tasks more efficient
+    - Consolidating multiple triggers
+    - Pausing unnecessary triggers
+    - Using one-time triggers for testing
+  </Accordion>
+</AccordionGroup>
+
+## Advanced Trigger Strategies
+
+### Chained Workflows
+
+Create multiple triggers that work together:
+
+```text
+Trigger 1 (Daily 6 AM): Collect data from multiple sources
+Trigger 2 (Daily 7 AM): Process and analyze collected data  
+Trigger 3 (Daily 8 AM): Generate and distribute reports
+```
+
+### Conditional Execution
+
+Include conditional logic in instructions:
+
+```text
+Check if today is the first Monday of the month. If yes, generate the monthly executive report. If no, generate the standard daily brief.
+```
+
+### Multi-Step Automation
+
+```text
+1. Morning (7 AM): Gather overnight data
+2. Midday (12 PM): Create progress update
+3. Afternoon (4 PM): Prepare end-of-day summary
+4. Evening (6 PM): Send comprehensive daily report
+```
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Understand the two types of triggers (schedule and event-based)
+</Check>
+
+<Check>
+  Create and configure scheduled triggers with precise timing
+</Check>
+
+<Check>
+  Set appropriate time zones for accurate execution
+</Check>
+
+<Check>
+  Write effective instructions for automated worker execution
+</Check>
+
+<Check>
+  Manage, edit, pause, and delete triggers as needed
+</Check>
+
+<Check>
+  Apply best practices for reliable automation
+</Check>
+
+<Check>
+  Troubleshoot common trigger issues
+</Check>
+
+Triggers transform your Utari workers from on-demand assistants into fully automated team members that work around the clock, executing tasks precisely when needed without any manual intervention.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Worker Configuration" icon="sliders" href="/create-first-worker">
+    Optimize workers for trigger-based execution
+  </Card>
+  <Card title="Integrations" icon="plug" href="/add-integrations">
+    Connect apps for more powerful triggered workflows
+  </Card>
+  <Card title="Task Management" icon="list-check" href="/tools/task-management">
+    Combine triggers with task management for complex workflows
+  </Card>
+  <Card title="Files and Folder" icon="folder" href="/tools/files-folder">
+    Organize outputs from triggered executions
+  </Card>
+</CardGroup>

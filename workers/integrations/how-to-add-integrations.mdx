@@ -1,0 +1,476 @@
+---
+title: "Add Integrations to Workers"
+description: "Learn how to connect third-party applications and MCP servers to your Utari workers to extend their capabilities and automate workflows across platforms."
+---
+
+## Overview
+
+Integrations allow you to connect your Utari workers to external applications and services, dramatically expanding what they can do. By adding integrations, your workers can interact with Gmail, Google Calendar, Slack, Google Sheets, and many other apps to create powerful automation workflows.
+
+<iframe width="700px" height="400px" src="https://embed.app.guidde.com/playbooks/9b3gfabLkcS9EfoZbVPgvS?mode=videoOnly" title="Add Integrations To Workers In Utari Platform" frameBorder="0" referrerPolicy="unsafe-url" allowFullScreen allow="clipboard-write" sandbox="allow-popups allow-popups-to-escape-sandbox allow-scripts allow-forms allow-same-origin allow-presentation" style={{ borderRadius:"10px" }} />
+
+## Types of Integrations
+
+Utari supports two types of integrations:
+
+<CardGroup cols={2}>
+  <Card title="Standard Applications" icon="grid">
+    Pre-built integrations with popular apps like Gmail, Slack, Google Calendar, and more—ready to connect with just a few clicks
+  </Card>
+  <Card title="MCP Servers" icon="server">
+    Custom Model Context Protocol servers that you can build and host to connect specialized tools or proprietary systems
+  </Card>
+</CardGroup>
+
+<Info>
+  **MCP Server Note**: Utari does not host MCP servers. If you're using custom MCP servers, ensure they are hosted and accessible before connecting them to your workers.
+</Info>
+
+## Adding an Integration
+
+<Steps>
+  <Step title="Navigate to Your Worker">
+    Log into your Utari account at [https://utari.ai/dashboard](https://utari.ai/dashboard), go to **Workers**, and select the worker you want to enhance with integrations.
+    
+    For example, select "Facebook Ads Generator" or any other worker.
+  </Step>
+  
+  <Step title="Open Integrations Tab">
+    Click on the **Integrations** tab in the worker's configuration panel. This is where you manage all connected apps for this worker.
+  </Step>
+  
+  <Step title="Browse Available Apps">
+    Click **Browse Apps** to see the full catalog of available integrations, including:
+    - Gmail
+    - Google Calendar
+    - Slack
+    - Google Sheets
+    - Google Drive
+    - Asana
+    - Trello
+    - And many more
+  </Step>
+  
+  <Step title="Search and Select">
+    Search for the application you want to connect, or browse through categories. Once you find it, click **Add** next to the app name.
+  </Step>
+</Steps>
+
+## Connecting an Integration
+
+Let's use Slack as an example:
+
+<Steps>
+  <Step title="Initiate Connection">
+    After clicking **Add**, you'll see a prompt to create a new connection.
+    
+    Click **Create new connection**, then click **Create connection**.
+  </Step>
+  
+  <Step title="Authenticate">
+    Click **Connect** to launch the authentication popup. This will open the app's authorization page.
+  </Step>
+  
+  <Step title="Select Account">
+    In the popup, select the specific account you want to connect to this worker.
+    
+    **Important**: Make sure you select the correct account, especially if you have multiple accounts for the same service.
+    
+    For example, select "Best of AI" workspace if that's the Slack workspace for this worker.
+  </Step>
+  
+  <Step title="Grant Permissions">
+    Review the permissions requested and click **Install** or **Allow** to grant access.
+  </Step>
+  
+  <Step title="Confirm Authentication">
+    Once the popup closes, click **I've completed authentication** to finalize the connection.
+  </Step>
+</Steps>
+
+<Warning>
+  Always verify you're connecting the correct account. Connecting the wrong account could cause the worker to access the wrong data or perform actions in the wrong workspace.
+</Warning>
+
+## Configuring Integration Tools
+
+After connecting an integration, you need to select which specific capabilities (tools) your worker can use:
+
+<Steps>
+  <Step title="Review Available Tools">
+    You'll see a list of all available tools for that integration. For example, Slack might offer:
+    - Add reaction to message
+    - Create reminder
+    - Send message to channel
+    - Post direct message
+    - Upload file
+    - List channels
+    - And more
+  </Step>
+  
+  <Step title="Select Required Tools">
+    Check the boxes next to the tools you want to enable for this worker. Only enable tools that are relevant to the worker's purpose.
+    
+    For example, if your worker only needs to send messages, enable just the messaging tools.
+  </Step>
+  
+  <Step title="Save Configuration">
+    Click **Save tools** to apply your selections. You'll see a confirmation showing how many tools are now enabled (e.g., "6 tools enabled").
+  </Step>
+  
+  <Step title="Modify Settings (Optional)">
+    Click the **settings icon** (gear icon) next to the integration to adjust tool permissions or connection settings at any time.
+  </Step>
+</Steps>
+
+<Tip>
+  Start with the essential tools your worker needs, then add more capabilities as your requirements evolve. Too many tools can overwhelm the worker's decision-making.
+</Tip>
+
+## Common Integrations by Use Case
+
+### Communication & Collaboration
+
+<AccordionGroup>
+  <Accordion title="Slack" icon="slack">
+    **Common Tools to Enable:**
+    - Send message to channel
+    - Send direct message
+    - Add reaction to message
+    - Create reminder
+    - Upload file
+    - Search messages
+    
+    **Use Cases:**
+    - Team notifications
+    - Status updates
+    - Automated reminders
+    - File sharing
+  </Accordion>
+  
+  <Accordion title="Gmail" icon="envelope">
+    **Common Tools to Enable:**
+    - Send email
+    - Read emails
+    - Search emails
+    - Create draft
+    - Add label
+    - Mark as read/unread
+    
+    **Use Cases:**
+    - Automated email responses
+    - Email organization
+    - Follow-up reminders
+    - Email analysis
+  </Accordion>
+  
+  <Accordion title="Microsoft Teams" icon="microsoft">
+    **Common Tools to Enable:**
+    - Send message
+    - Create meeting
+    - Post to channel
+    - Get team info
+    
+    **Use Cases:**
+    - Team collaboration
+    - Meeting scheduling
+    - Announcements
+  </Accordion>
+</AccordionGroup>
+
+### Productivity & Organization
+
+<AccordionGroup>
+  <Accordion title="Google Calendar" icon="calendar">
+    **Common Tools to Enable:**
+    - Create event
+    - Find events
+    - Update event
+    - Delete event
+    - List calendars
+    
+    **Use Cases:**
+    - Meeting scheduling
+    - Calendar management
+    - Availability checking
+    - Event reminders
+  </Accordion>
+  
+  <Accordion title="Asana" icon="list-check">
+    **Common Tools to Enable:**
+    - Create task
+    - Update task
+    - Get task details
+    - Add comment
+    - Search tasks
+    
+    **Use Cases:**
+    - Task management
+    - Project tracking
+    - Team assignments
+    - Progress updates
+  </Accordion>
+  
+  <Accordion title="Trello" icon="trello">
+    **Common Tools to Enable:**
+    - Create card
+    - Move card
+    - Add comment
+    - Update card
+    - List boards
+    
+    **Use Cases:**
+    - Kanban workflows
+    - Project visualization
+    - Task organization
+  </Accordion>
+</AccordionGroup>
+
+### File Management & Documentation
+
+<AccordionGroup>
+  <Accordion title="Google Drive" icon="google-drive">
+    **Common Tools to Enable:**
+    - Upload file
+    - Download file
+    - Search files
+    - Create folder
+    - Share file
+    - Get file content
+    
+    **Use Cases:**
+    - Document storage
+    - File sharing
+    - Backup automation
+    - Content organization
+  </Accordion>
+  
+  <Accordion title="Google Sheets" icon="table">
+    **Common Tools to Enable:**
+    - Read spreadsheet
+    - Write to spreadsheet
+    - Create spreadsheet
+    - Update cells
+    - Get sheet data
+    
+    **Use Cases:**
+    - Data logging
+    - Report generation
+    - Inventory tracking
+    - Analytics
+  </Accordion>
+  
+  <Accordion title="Notion" icon="book">
+    **Common Tools to Enable:**
+    - Create page
+    - Update page
+    - Search pages
+    - Add block
+    - Query database
+    
+    **Use Cases:**
+    - Documentation
+    - Knowledge management
+    - Wiki creation
+    - Database updates
+  </Accordion>
+</AccordionGroup>
+
+## Managing Multiple Integrations
+
+### Best Practices for Multiple Connections
+
+<CardGroup cols={2}>
+  <Card title="Purpose-Specific" icon="bullseye">
+    Connect only integrations relevant to each worker's specific purpose and responsibilities
+  </Card>
+  <Card title="Account Consistency" icon="user-check">
+    Use consistent accounts across related integrations for seamless data flow
+  </Card>
+  <Card title="Tool Selectivity" icon="filter">
+    Enable only necessary tools from each integration to maintain focus
+  </Card>
+  <Card title="Regular Audits" icon="magnifying-glass">
+    Periodically review connected integrations and remove unused ones
+  </Card>
+</CardGroup>
+
+### Example: Marketing Worker Setup
+```text
+Integrations to Connect:
+✓ Google Calendar (scheduling)
+✓ Slack (team communication)
+✓ Google Drive (asset storage)
+✓ Google Sheets (campaign tracking)
+✓ Gmail (client communication)
+
+Tools to Enable:
+- Calendar: Create event, Find events
+- Slack: Send message, Upload file
+- Drive: Upload file, Search files
+- Sheets: Read, Write, Update
+- Gmail: Send email, Read emails
+```
+
+## Custom MCP Servers
+
+For advanced users who need custom integrations:
+
+<Steps>
+  <Step title="Develop Your MCP Server">
+    Build a Model Context Protocol server following the MCP specification for your custom tools or APIs.
+  </Step>
+  
+  <Step title="Host the Server">
+    Deploy and host your MCP server on your own infrastructure. Ensure it's accessible and secure.
+    
+    **Note**: Utari does not provide MCP server hosting.
+  </Step>
+  
+  <Step title="Add to Utari">
+    In the Integrations tab, you can add your custom MCP server by providing its endpoint URL and authentication details.
+  </Step>
+  
+  <Step title="Configure Tools">
+    Select which tools from your custom server should be available to the worker.
+  </Step>
+</Steps>
+
+<Info>
+  Custom MCP servers allow you to integrate proprietary systems, internal databases, or specialized tools that aren't available in the standard integration catalog.
+</Info>
+
+## Integration Security
+
+<Warning>
+  **Security Best Practices:**
+  - Only connect integrations from trusted sources
+  - Review permissions carefully before granting access
+  - Use the principle of least privilege—only enable necessary tools
+  - Regularly audit connected accounts
+  - Revoke access for unused integrations
+  - Use separate accounts for testing vs. production
+  - Follow your organization's security policies
+</Warning>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Authentication popup blocked">
+    Check:
+    - Browser popup blocker settings
+    - Disable popup blocking for Utari temporarily
+    - Try a different browser
+    - Ensure third-party cookies are enabled
+  </Accordion>
+  
+  <Accordion title="Can't find an integration">
+    Verify:
+    - The app is supported by Utari (check browse apps)
+    - You're searching with the correct name
+    - The integration isn't already added
+    - Contact support if a needed integration is missing
+  </Accordion>
+  
+  <Accordion title="Connection fails during authentication">
+    Try:
+    - Checking your account credentials
+    - Ensuring you have admin/owner permissions for the account
+    - Disconnecting and reconnecting
+    - Clearing browser cache and cookies
+    - Verifying the account isn't locked or suspended
+  </Accordion>
+  
+  <Accordion title="Tools not appearing after connection">
+    Ensure:
+    - You clicked "I've completed authentication"
+    - The page fully loaded after authentication
+    - Refresh the page if needed
+    - Try disconnecting and reconnecting the integration
+  </Accordion>
+  
+  <Accordion title="Integration permissions insufficient">
+    Check:
+    - The permissions granted during initial connection
+    - Some tools may require additional permissions
+    - Disconnect and reconnect with full permissions
+    - Verify your account role in the connected app
+  </Accordion>
+  
+  <Accordion title="Wrong account connected">
+    To fix:
+    - Click the settings icon for the integration
+    - Disconnect the integration
+    - Click Add again and select the correct account
+    - Complete authentication with the right account
+  </Accordion>
+</AccordionGroup>
+
+## Modifying Integration Settings
+
+After initial setup, you can modify integration configurations:
+
+<Steps>
+  <Step title="Access Settings">
+    In the Integrations tab, find the connected integration and click the **settings icon** (gear icon).
+  </Step>
+  
+  <Step title="Adjust Tools">
+    Enable or disable specific tools as your needs change.
+  </Step>
+  
+  <Step title="Update Connection">
+    Reconnect if credentials have changed or permissions need updating.
+  </Step>
+  
+  <Step title="Remove Integration">
+    Disconnect the integration if it's no longer needed.
+  </Step>
+</Steps>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Navigate to worker integrations and browse available apps
+</Check>
+
+<Check>
+  Connect third-party applications with proper authentication
+</Check>
+
+<Check>
+  Select and configure specific tools from each integration
+</Check>
+
+<Check>
+  Manage multiple integrations for comprehensive automation
+</Check>
+
+<Check>
+  Understand MCP server integration options
+</Check>
+
+<Check>
+  Apply security best practices for integration management
+</Check>
+
+By strategically adding integrations to your workers, you create powerful automation agents that can seamlessly interact with your entire productivity stack, saving time and reducing manual work across all your platforms.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Using Integrations" icon="play" href="/using-integrations">
+    Learn how to use connected integrations in conversations
+  </Card>
+  <Card title="Automation with Triggers" icon="clock" href="/triggers">
+    Set up automated workflows using integrations
+  </Card>
+  <Card title="Available Integrations" icon="grid" href="/integrations-catalog">
+    Explore the full catalog of supported apps
+  </Card>
+  <Card title="Worker Configuration" icon="sliders" href="/create-first-worker">
+    Optimize your worker setup for best performance
+  </Card>
+</CardGroup>

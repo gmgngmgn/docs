@@ -1,4 +1,527 @@
 ---
-title: "Using Knowledge In A Worker"
-description: "Description of your new file."
+title: "Add Knowledge to Your Knowledge Base"
+description: "Learn how to upload documents, SOPs, and reference materials to your Utari knowledge base to make them available for your workers."
 ---
+
+## Overview
+
+The knowledge base in Utari is your central repository for documents, SOPs, frameworks, and reference materials. By uploading knowledge to your workspace, you make it available for workers to reference, ensuring they have access to your specific guidelines, processes, and information when performing tasks.
+
+<iframe width="700px" height="400px" src="https://embed.app.guidde.com/playbooks/tibQYr6eKvYZibvrQAvE96?mode=videoOnly" title="Add Knowledge To Your Knowledge Base Efficiently" frameBOrder="0" referrerPolicy="unsafe-url" allowFullScreen allow="clipboard-write" sandbox="allow-popups allow-popups-to-escape-sandbox allow-scripts allow-forms allow-same-origin allow-presentation" style={{ borderRadius:"10px" }} />
+
+## Before You Begin
+
+Ensure you have:
+
+<CardGroup cols={3}>
+  <Card title="Files Ready" icon="file">
+    Documents prepared and saved in supported formats
+  </Card>
+  <Card title="Workspace Access" icon="key">
+    Proper permissions to add knowledge to your workspace
+  </Card>
+  <Card title="File Size Check" icon="scale-balanced">
+    Files under the 50MB total limit
+  </Card>
+</CardGroup>
+
+## Accessing Your Knowledge Base
+
+<Steps>
+  <Step title="Open Profile Menu">
+    Click on your **profile icon** in the top navigation of your Utari workspace.
+  </Step>
+  <Step title="Navigate to Knowledge Base">
+    Select **Knowledge Base** from the dropdown menu.
+
+    This opens your workspace's central knowledge repository where all uploaded documents are stored.
+  </Step>
+</Steps>
+
+<Info>
+  Your knowledge base is workspace-wide, meaning all uploaded knowledge is available to any worker you configure—you just need to activate it for specific workers.
+</Info>
+
+## Adding Knowledge to Your Knowledge Base
+
+<Steps>
+  <Step title="Start Upload Process">
+    Click the **Add Knowledge** button to begin adding new content.
+  </Step>
+  <Step title="Select or Create Folder">
+    Choose where to organize your knowledge:
+
+    **Option A: Select Existing Folder**
+
+    - Click on an existing folder from the list
+
+    **Option B: Create New Folder**
+
+    - Click the **plus icon (+)** to create a new folder
+    - Enter a descriptive folder name (e.g., "Marketing SOPs" or "Testing")
+    - The new folder is immediately created and ready to use
+  </Step>
+  <Step title="Choose Upload Method">
+    Select how you want to add knowledge:
+
+    - **Upload Files**: Add documents from your computer
+    - **Text Entry**: Paste or type content directly
+    - **Git Clone**: Import from repositories (coming soon)
+
+    For this guide, we'll focus on **Upload Files**.
+  </Step>
+  <Step title="Select Files to Upload">
+    Click the **file input area** or drag and drop files to upload.
+
+    Browse your computer and select the file(s) you want to add to your knowledge base.
+  </Step>
+  <Step title="Verify Upload">
+    Ensure your files are within the size limit before completing the upload.
+  </Step>
+  <Step title="Complete Upload">
+    Once files are selected and validated, complete the upload process.
+
+    Your knowledge is now available in the knowledge base and can be activated for workers.
+  </Step>
+</Steps>
+
+## File Size Limits
+
+<Warning>
+  **Important Limitation**: The current file size limit is **50MB total** for your knowledge base.
+
+  If you exceed this limit when uploading, you'll see the error: **"File size limit exceeded"**
+</Warning>
+
+### Managing Storage Limits
+
+If you encounter the file size limit:
+
+<Steps>
+  <Step title="Review Current Files">
+    Check your existing knowledge base files to identify:
+
+    - Large files that could be compressed
+    - Outdated files that can be deleted
+    - Duplicate files taking up space
+  </Step>
+  <Step title="Delete Unnecessary Files">
+    Remove files that are:
+
+    - No longer relevant or current
+    - Duplicates of other documents
+    - Replaced by newer versions
+  </Step>
+  <Step title="Optimize Files">
+    Before uploading, consider:
+
+    - Compressing PDF files
+    - Reducing image quality in documents
+    - Splitting large documents into smaller sections
+    - Converting to more efficient file formats
+  </Step>
+  <Step title="Retry Upload">
+    After freeing up space, attempt your upload again.
+  </Step>
+</Steps>
+
+<Tip>
+  **Best Practice**: Regularly audit your knowledge base to remove outdated content and maintain available storage space.
+</Tip>
+
+## Supported File Types
+
+The knowledge base accepts various document formats:
+
+<AccordionGroup>
+  <Accordion title="Document Formats" icon="file-lines">
+    - **PDF** (.pdf) - Portable Document Format
+    - **Word** (.doc, .docx) - Microsoft Word documents
+    - **Text** (.txt) - Plain text files
+    - **Markdown** (.md) - Markdown formatted documents
+    - **Rich Text** (.rtf) - Rich Text Format
+  </Accordion>
+  <Accordion title="Spreadsheet Formats" icon="table">
+    - **Excel** (.xls, .xlsx) - Microsoft Excel spreadsheets
+    - **CSV** (.csv) - Comma-separated values
+    - **Google Sheets** (exported formats)
+  </Accordion>
+  <Accordion title="Presentation Formats" icon="presentation">
+    - **PowerPoint** (.ppt, .pptx) - Microsoft PowerPoint presentations
+    - **Google Slides** (exported formats)
+  </Accordion>
+  <Accordion title="Other Formats" icon="file">
+    - **JSON** (.json) - Structured data
+    - **HTML** (.html) - Web pages
+    - Various other text-based formats
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  For best results, use PDF format for final documents and Word/text formats for documents that may need updates.
+</Note>
+
+## Organizing Your Knowledge Base
+
+### Folder Structure Best Practices
+
+Create a logical hierarchy that makes knowledge easy to find and activate:
+
+<CodeGroup>
+
+```text By Department
+Knowledge Base/
+├── Marketing/
+│   ├── Brand Guidelines/
+│   ├── Campaign SOPs/
+│   ├── Content Templates/
+│   └── Ad Copy Frameworks/
+├── Sales/
+│   ├── Sales Process/
+│   ├── Product Information/
+│   ├── Pitch Decks/
+│   └── Objection Handling/
+├── Operations/
+│   ├── Workflows/
+│   ├── Quality Standards/
+│   └── Compliance/
+└── HR/
+    ├── Onboarding/
+    ├── Policies/
+    └── Training/
+```
+
+
+```text By Content Type
+Knowledge Base/
+├── SOPs/
+│   ├── Marketing SOPs/
+│   ├── Sales SOPs/
+│   └── Operations SOPs/
+├── Templates/
+│   ├── Document Templates/
+│   ├── Email Templates/
+│   └── Report Templates/
+├── Guidelines/
+│   ├── Brand Guidelines/
+│   ├── Style Guides/
+│   └── Quality Standards/
+└── Reference/
+    ├── Product Docs/
+    ├── Research/
+    └── Case Studies/
+```
+
+
+```text By Project
+Knowledge Base/
+├── Product Launch 2024/
+│   ├── Product Specs/
+│   ├── Marketing Plan/
+│   ├── Timeline/
+│   └── Resources/
+├── Website Redesign/
+│   ├── Design Guidelines/
+│   ├── Content Strategy/
+│   └── Technical Specs/
+└── Q4 Campaign/
+    ├── Campaign Brief/
+    ├── Creative Assets/
+    └── Performance Goals/
+```
+
+</CodeGroup>
+
+### Naming Conventions
+
+Use clear, consistent naming for files and folders:
+
+<CardGroup cols={2}>
+  <Card title="Descriptive Names" icon="tag">
+    ✅ "Facebook_Ads_SOP_2024.pdf"
+
+    ✅ "Brand_Voice_Guidelines_v3.pdf"
+
+    ❌ "Document1.pdf"
+
+    ❌ "Untitled.pdf"
+  </Card>
+  <Card title="Version Control" icon="code-branch">
+    ✅ "SEO_Guide_v2.1.pdf"
+
+    ✅ "Product_Specs_2024-11.pdf"
+
+    ❌ "SEO_Guide_final_FINAL.pdf"
+
+    ❌ "Product_Specs_updated.pdf"
+  </Card>
+  <Card title="Date Formats" icon="calendar">
+    ✅ "Report_2024-11-18.pdf"
+
+    ✅ "Q4_2024_Strategy.pdf"
+
+    ❌ "Report_11-18-24.pdf"
+
+    ❌ "Strategy_fall.pdf"
+  </Card>
+  <Card title="Consistent Formatting" icon="align-left">
+    ✅ Use underscores or hyphens
+
+    ✅ "Marketing_Plan" or "Marketing-Plan"
+
+    ❌ Mixed: "Marketing Plan_v2"
+
+    ❌ Spaces only: "Marketing Plan.pdf"
+  </Card>
+</CardGroup>
+
+## Upload Methods in Detail
+
+### Upload Files (Recommended)
+
+<Steps>
+  <Step title="Prepare Files">
+    Gather all documents you want to upload and ensure they're properly named and formatted.
+  </Step>
+  <Step title="Select Folder">
+    Choose the destination folder for organizational purposes.
+  </Step>
+  <Step title="Click Upload Area">
+    Click the file input area or drag files directly onto it.
+  </Step>
+  <Step title="Select Multiple Files">
+    You can select multiple files at once by:
+
+    - Holding Ctrl (Windows) or Cmd (Mac) and clicking files
+    - Holding Shift to select a range of files
+  </Step>
+  <Step title="Monitor Upload">
+    Watch the upload progress, especially for larger files.
+  </Step>
+</Steps>
+
+### Text Entry
+
+For creating knowledge directly in Utari:
+
+<Steps>
+  <Step title="Select Text Entry">
+    Choose the **Text Entry** option instead of Upload Files.
+  </Step>
+  <Step title="Enter Title">
+    Provide a descriptive title for your knowledge entry.
+  </Step>
+  <Step title="Paste or Type Content">
+    Add your content directly:
+
+    - Type original content
+    - Paste from other sources
+    - Format with basic markdown
+  </Step>
+  <Step title="Save Entry">
+    Save the text entry to your knowledge base.
+  </Step>
+</Steps>
+
+<Info>
+  **Use Text Entry for:**
+
+  - Quick notes and reminders
+  - Short guidelines
+  - Temporary reference information
+  - Content that changes frequently
+</Info>
+
+### Git Clone (Coming Soon)
+
+Future functionality will allow importing knowledge directly from Git repositories:
+
+- Import entire documentation repositories
+- Keep knowledge synchronized with your codebase
+- Automatic updates when repository changes
+- Version-controlled knowledge management
+
+## After Uploading Knowledge
+
+Once knowledge is uploaded, you need to activate it for specific workers:
+
+<Steps>
+  <Step title="Navigate to Worker">
+    Go to the worker that should use this knowledge.
+  </Step>
+  <Step title="Open Knowledge Tab">
+    Click on the **Knowledge** tab in the worker's configuration.
+  </Step>
+  <Step title="Activate Knowledge">
+    Check the boxes next to knowledge resources this worker should access.
+  </Step>
+  <Step title="Enable Knowledge Tool">
+    Ensure the **Knowledge Base** tool is enabled in the Tools tab.
+  </Step>
+</Steps>
+
+<Note>
+  For detailed instructions on activating knowledge for workers, see our [Activate and Assign Knowledge](/activate-knowledge) guide.
+</Note>
+
+## Managing Your Knowledge Base
+
+### Updating Knowledge
+
+<Steps>
+  <Step title="Upload New Version">
+    Upload the updated document with a new version number in the filename.
+  </Step>
+  <Step title="Update Worker Assignments">
+    Go to each worker using the old version and:
+
+    - Deactivate the old version
+    - Activate the new version
+  </Step>
+  <Step title="Delete Old Version (Optional)">
+    Once all workers are updated, delete the outdated document to free up space.
+  </Step>
+</Steps>
+
+### Deleting Knowledge
+
+<Warning>
+  **Before Deleting**: Check which workers are using the knowledge you're about to delete. Removing knowledge that's activated for workers may cause errors.
+</Warning>
+
+<Steps>
+  <Step title="Deactivate from Workers">
+    Remove the knowledge from all workers using it.
+  </Step>
+  <Step title="Delete from Knowledge Base">
+    In the knowledge base, select the file and click delete.
+  </Step>
+  <Step title="Verify Deletion">
+    Confirm the knowledge is removed and space is freed.
+  </Step>
+</Steps>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Organize Proactively" icon="folder-tree">
+    Create folder structures before uploading to maintain organization from the start
+  </Card>
+  <Card title="Use Descriptive Names" icon="signature">
+    Name files and folders clearly so you can quickly find what you need
+  </Card>
+  <Card title="Version Documents" icon="code-branch">
+    Include version numbers or dates in filenames for tracking changes
+  </Card>
+  <Card title="Monitor Storage" icon="hard-drive">
+    Regularly check storage usage and clean up outdated files
+  </Card>
+  <Card title="Optimize File Sizes" icon="compress">
+    Compress large files before uploading to maximize available space
+  </Card>
+  <Card title="Document Purpose" icon="note-sticky">
+    Keep a readme or index file explaining what each knowledge resource is for
+  </Card>
+  <Card title="Regular Audits" icon="calendar-check">
+    Schedule periodic reviews to remove outdated knowledge
+  </Card>
+  <Card title="Consistent Formatting" icon="table-columns">
+    Standardize document formats for easier worker processing
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="File size limit exceeded error">
+    Solutions:
+
+    - Delete old or unnecessary files from knowledge base
+    - Compress large PDF files before uploading
+    - Split large documents into smaller sections
+    - Convert images to lower resolution if embedded in documents
+    - Remove duplicate files
+  </Accordion>
+  <Accordion title="Upload fails or times out">
+    Try:
+
+    - Checking your internet connection
+    - Uploading smaller batches of files
+    - Refreshing the page and trying again
+    - Using a different browser
+    - Clearing browser cache
+  </Accordion>
+  <Accordion title="Can't find uploaded knowledge">
+    Verify:
+
+    - Upload completed successfully (check for confirmation)
+    - Looking in the correct folder
+    - File wasn't rejected due to format issues
+    - Page is fully refreshed
+    - Check the main knowledge base view
+  </Accordion>
+  <Accordion title="File won't open or is corrupted">
+    Check:
+
+    - Original file opens correctly on your computer
+    - File format is supported
+    - File isn't password-protected
+    - Try re-uploading the file
+    - Convert to PDF if using unusual format
+  </Accordion>
+  <Accordion title="Can't create new folders">
+    Ensure:
+
+    - You have proper workspace permissions
+    - Folder name doesn't conflict with existing folders
+    - Try using alphanumeric characters only
+    - Refresh the page and try again
+  </Accordion>
+</AccordionGroup>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Access your workspace knowledge base
+</Check>
+
+<Check>
+  Create and organize folders for knowledge management
+</Check>
+
+<Check>
+  Upload files to your knowledge base
+</Check>
+
+<Check>
+  Understand and manage the 50MB storage limit
+</Check>
+
+<Check>
+  Apply naming conventions and organizational best practices
+</Check>
+
+<Check>
+  Prepare knowledge for worker activation
+</Check>
+
+By maintaining a well-organized knowledge base with clear naming conventions and strategic folder structures, you ensure your workers have easy access to the right information when they need it.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Activate Knowledge for Workers" icon="toggle-on" href="/activate-knowledge">
+    Learn how to make uploaded knowledge available to specific workers
+  </Card>
+  <Card title="Jeremy SOPs" icon="book" href="/jeremy-sops">
+    Explore pre-built SOPs available in your knowledge base
+  </Card>
+  <Card title="Worker Configuration" icon="sliders" href="/create-first-worker">
+    Configure workers to use your uploaded knowledge
+  </Card>
+  <Card title="Knowledge Best Practices" icon="lightbulb" href="/knowledge-management">
+    Advanced strategies for knowledge management
+  </Card>
+</CardGroup>

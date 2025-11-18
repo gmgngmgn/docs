@@ -1,4 +1,494 @@
 ---
 title: "Using Integrations in Workers"
-description: "Description of your new file."
+description: "Learn how to leverage integrations within Utari workers to automate tasks, manage calendars, and connect with third-party applications for enhanced productivity."
 ---
+
+## Overview
+
+Integrations extend your Utari workers' capabilities by connecting them to third-party applications and services. Once connected, workers can interact with these apps to check calendars, create events, manage tasks, send emails, and much more—all through natural conversation. This guide shows you how to use integrations effectively within your workers.
+
+<iframe width="700px" height="400px" src="https://embed.app.guidde.com/playbooks/1MTjkpikAjQRhVGEAD5Ruy?mode=videoOnly" title="Use Integrations To Manage Tasks In Utari Workers" frameBorder="0" referrerPolicy="unsafe-url" allowFullScreen allow="clipboard-write" sandbox="allow-popups allow-popups-to-escape-sandbox allow-scripts allow-forms allow-same-origin allow-presentation" style={{ borderRadius:"10px" }} />
+
+## Understanding Integrations
+
+Integrations allow your workers to:
+
+<CardGroup cols={2}>
+  <Card title="Access External Data" icon="cloud">
+    Retrieve information from connected apps like calendars, emails, or databases
+  </Card>
+  <Card title="Perform Actions" icon="bolt">
+    Create events, send messages, update records, and execute tasks in third-party apps
+  </Card>
+  <Card title="Automate Workflows" icon="gears">
+    Connect multiple apps to create sophisticated automation chains
+  </Card>
+  <Card title="Stay Synchronized" icon="arrows-rotate">
+    Keep information current across all your connected platforms
+  </Card>
+</CardGroup>
+
+<Info>
+  Workers can use integrations automatically when needed, or you can explicitly request specific integration actions.
+</Info>
+
+## Adding Integrations to Workers
+
+Before using integrations, you need to connect them to your worker:
+
+<Steps>
+  <Step title="Navigate to Worker Settings">
+    Select your worker and click on the **Integrations** tab.
+  </Step>
+  <Step title="Browse Available Apps">
+    Click **Browse Apps** to see all available integrations.
+  </Step>
+  <Step title="Select and Connect">
+    Choose the integration you want (e.g., Google Calendar) and follow the connection process.
+  </Step>
+  <Step title="Authorize Access">
+    Grant the necessary permissions for Utari to access the app on your behalf.
+  </Step>
+  <Step title="Enable Tools">
+    Select which specific capabilities from that integration you want your worker to use.
+  </Step>
+</Steps>
+
+<Note>
+  For detailed instructions on adding integrations, see our [Create Your First Utari Worker](/create-first-worker#connecting-integrations) guide.
+</Note>
+
+## Using Integrations in Conversations
+
+### Basic Integration Usage
+
+<Steps>
+  <Step title="Start a Chat">
+    Open a conversation with a worker that has integrations connected.
+  </Step>
+  <Step title="Request Integration Action">
+    Simply ask your worker to perform an action using natural language:
+
+    ```
+        Can you please check my calendar and tell me what I have to do today?
+    ```
+  </Step>
+  <Step title="Worker Executes">
+    Your worker will:
+
+    - Identify the relevant integration (Google Calendar)
+    - Call the appropriate tool
+    - Retrieve the information
+    - Present the results in a clear format
+  </Step>
+  <Step title="Review Results">
+    The worker displays your schedule or confirms the action was completed.
+  </Step>
+</Steps>
+
+### Example Interaction
+
+When you ask about your calendar:
+
+```
+User: Can you please check my calendar and tell me what I have to do today?
+
+Worker: [Calling Google Calendar tool]
+[Finding events for Tuesday, November 18th]
+
+Your day is clear today—no scheduled events!
+```
+
+## Creating and Managing Calendar Events
+
+### Creating New Events
+
+<Steps>
+  <Step title="Request Event Creation">
+    Provide event details in natural language:
+
+    ```
+        Please schedule a call between myself and Jeremy for 1 PM Mountain Standard Time (3 PM EST). Just create the event, I will add the location manually.
+    ```
+  </Step>
+  <Step title="Automatic Tool Management">
+    If the worker doesn't have the required capability:
+
+    - It will search available tools
+    - Automatically add the necessary tool (e.g., "Create Event")
+    - Proceed with creating the event
+  </Step>
+  <Step title="Confirmation">
+    The worker confirms the event was created with details:
+
+    - Event title
+    - Date and time
+    - Status
+    - Link to view in your calendar
+  </Step>
+  <Step title="View Event">
+    Click **View Event** to open the event in your connected calendar app.
+  </Step>
+</Steps>
+
+<Tip>
+  **Smart Tool Addition**: Utari can automatically add required integration tools if they're not already enabled, ensuring seamless functionality without manual configuration.
+</Tip>
+
+## Common Integration Commands
+
+### Calendar Management (Google Calendar, Outlook)
+
+<CodeGroup>
+
+```text Check Schedule
+What's on my calendar today?
+Show me my meetings for this week
+Do I have any events tomorrow?
+```
+
+
+```text Create Events
+Schedule a team meeting for Friday at 2 PM
+Create a reminder for project deadline next Monday
+Block out focus time every morning from 9-11 AM
+```
+
+
+```text Update Events
+Move my 3 PM meeting to 4 PM
+Cancel tomorrow's standup meeting
+Add Sarah to the client call on Thursday
+```
+
+
+```text Find Events
+When is my next meeting with the marketing team?
+Find all events scheduled with [person name]
+Show me my appointments for next month
+```
+
+</CodeGroup>
+
+### Email Management (Gmail, Outlook)
+
+<CodeGroup>
+
+```text Read Emails
+Check my unread emails
+Show me emails from [sender] today
+Find emails about [subject]
+```
+
+
+```text Send Emails
+Send an email to [recipient] about [subject]
+Draft a follow-up email to the client meeting
+Email the team about tomorrow's deadline
+```
+
+
+```text Organize Emails
+Mark all emails from [sender] as read
+Create a label for project updates
+Archive old promotional emails
+```
+
+</CodeGroup>
+
+### Task Management (Asana, Trello, Monday.com)
+
+<CodeGroup>
+
+```text View Tasks
+Show me my tasks due today
+What's on my to-do list?
+List all high-priority tasks
+```
+
+
+```text Create Tasks
+Create a task to review the proposal by Friday
+Add "Follow up with client" to my task list
+Set up recurring weekly review tasks
+```
+
+
+```text Update Tasks
+Mark "Finish report" as complete
+Change the due date for [task] to next week
+Assign [task] to [team member]
+```
+
+</CodeGroup>
+
+### Communication (Slack, Teams, Discord)
+
+<CodeGroup>
+
+```text Send Messages
+Send a message to the #marketing channel
+DM John about the project update
+Post the weekly summary in #general
+```
+
+
+```text Check Messages
+Show me recent messages in #engineering
+Find messages mentioning me
+Check for any urgent DMs
+```
+
+</CodeGroup>
+
+## Automatic Tool Management
+
+One of Utari's powerful features is automatic tool addition:
+
+### How It Works
+
+<Steps>
+  <Step title="Worker Identifies Need">
+    When you request an action, the worker determines what integration tools are required.
+  </Step>
+  <Step title="Tool Check">
+    The worker checks if the necessary capability is already enabled.
+  </Step>
+  <Step title="Automatic Addition">
+    If the tool isn't available, the worker automatically:
+
+    - Searches for the required tool
+    - Adds it to the worker's capabilities
+    - Enables the tool
+    - Proceeds with your request
+  </Step>
+  <Step title="Seamless Execution">
+    You don't need to manually configure anything—the worker handles it automatically.
+  </Step>
+</Steps>
+
+<Info>
+  **Example**: If you ask to create a calendar event but only "Find Event" is enabled, the worker will automatically add "Create Event" and complete your request.
+</Info>
+
+## Multi-Step Integration Workflows
+
+### Example: Meeting Preparation Workflow
+
+<Steps>
+  <Step title="Check Calendar">
+    ```
+        What meetings do I have today?
+    ```
+  </Step>
+  <Step title="Gather Context">
+    ```
+        For my 2 PM client meeting, find the email thread with preparation notes
+    ```
+  </Step>
+  <Step title="Create Tasks">
+    ```
+        Create a task to review the proposal before the meeting
+    ```
+  </Step>
+  <Step title="Send Reminder">
+    ```
+        Send a Slack message to the team reminding them about the client meeting
+    ```
+  </Step>
+</Steps>
+
+### Example: Project Update Workflow
+
+<Steps>
+  <Step title="Gather Information">
+    ```
+        Check our project board for completed tasks this week
+    ```
+  </Step>
+  <Step title="Create Summary">
+    ```
+        Write a project update email summarizing this week's progress
+    ```
+  </Step>
+  <Step title="Schedule Send">
+    ```
+        Schedule the email to send Friday at 4 PM
+    ```
+  </Step>
+  <Step title="Calendar Block">
+    ```
+        Block 30 minutes on my calendar next Monday for project planning
+    ```
+  </Step>
+</Steps>
+
+## Available Integrations
+
+Common integrations supported by Utari include:
+
+<AccordionGroup>
+  <Accordion title="Productivity Apps" icon="list-check">
+    - **Google Calendar**: Manage events and schedules
+    - **Outlook Calendar**: Microsoft calendar management
+    - **Asana**: Task and project management
+    - **Trello**: Board-based task organization
+    - **Monday.com**: Work operating system
+    - **Notion**: Workspace and documentation
+  </Accordion>
+  <Accordion title="Communication Tools" icon="comments">
+    - **Gmail**: Email management
+    - **Outlook Email**: Microsoft email
+    - **Slack**: Team communication
+    - **Microsoft Teams**: Collaboration platform
+    - **Discord**: Community communication
+  </Accordion>
+  <Accordion title="Storage & Docs" icon="folder">
+    - **Google Drive**: File storage and docs
+    - **Dropbox**: Cloud file storage
+    - **OneDrive**: Microsoft cloud storage
+    - **Box**: Enterprise content management
+  </Accordion>
+  <Accordion title="CRM & Sales" icon="handshake">
+    - **Salesforce**: Customer relationship management
+    - **HubSpot**: Marketing and sales platform
+    - **Pipedrive**: Sales CRM
+  </Accordion>
+  <Accordion title="Development Tools" icon="code">
+    - **GitHub**: Version control and collaboration
+    - **GitLab**: DevOps platform
+    - **Jira**: Issue tracking and project management
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  For the complete list of available integrations and setup instructions, browse apps in your worker's Integration settings.
+</Note>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Connect What You Need" icon="plug">
+    Only connect integrations relevant to each worker's purpose to maintain focus and performance
+  </Card>
+  <Card title="Use Natural Language" icon="message">
+    Speak naturally—no need to memorize commands or syntax
+  </Card>
+  <Card title="Be Specific" icon="bullseye">
+    Provide clear details like dates, times, recipients, and subjects
+  </Card>
+  <Card title="Verify Permissions" icon="shield-check">
+    Ensure integrations have the necessary permissions for requested actions
+  </Card>
+  <Card title="Trust Auto-Tools" icon="wand-magic-sparkles">
+    Let workers automatically add required tools instead of pre-enabling everything
+  </Card>
+  <Card title="Test Workflows" icon="flask">
+    Test integration workflows before relying on them for critical tasks
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Integration not responding">
+    Check that:
+
+    - The integration is properly connected and authorized
+    - Your account credentials are current
+    - The integration has necessary permissions
+    - Try disconnecting and reconnecting the integration
+  </Accordion>
+  <Accordion title="Worker can't find required tool">
+    Ensure:
+
+    - The integration is added to the worker
+    - You've granted appropriate access during connection
+    - The specific capability exists for that integration
+    - Try explicitly requesting the worker to add the tool
+  </Accordion>
+  <Accordion title="Events not appearing in calendar">
+    Verify:
+
+    - The correct calendar is connected
+    - You're checking the right date/time
+    - Calendar sync is working (may have a slight delay)
+    - Refresh your calendar app
+  </Accordion>
+  <Accordion title="Permission errors">
+    Try:
+
+    - Reviewing the permissions granted during connection
+    - Reconnecting the integration with full permissions
+    - Checking if your organization restricts certain actions
+    - Verifying you're the calendar/account owner
+  </Accordion>
+  <Accordion title="Automatic tool addition not working">
+    Consider:
+
+    - Manually enabling the required tool in integration settings
+    - Checking if the integration supports that capability
+    - Verifying the worker has permission to modify its own tools
+    - Restarting the conversation if needed
+  </Accordion>
+</AccordionGroup>
+
+## Privacy and Security
+
+<Warning>
+  **Important Considerations:**
+
+  - Only grant integrations the minimum permissions needed
+  - Review what data each integration can access
+  - Regularly audit connected integrations
+  - Disconnect unused integrations
+  - Be cautious with sensitive information in connected apps
+  - Follow your organization's security policies
+</Warning>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Use integrations within worker conversations
+</Check>
+
+<Check>
+  Request actions across connected third-party apps
+</Check>
+
+<Check>
+  Manage calendar events through natural language commands
+</Check>
+
+<Check>
+  Leverage automatic tool addition for seamless functionality
+</Check>
+
+<Check>
+  Create multi-step workflows using multiple integrations
+</Check>
+
+<Check>
+  Apply best practices for effective integration usage
+</Check>
+
+Integrations transform your Utari workers into powerful automation hubs, connecting your entire productivity stack and enabling sophisticated workflows through simple conversational commands.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Connect More Integrations" icon="puzzle-piece" href="/integrations">
+    Explore and connect additional apps to expand capabilities
+  </Card>
+  <Card title="Automation with Triggers" icon="clock" href="/triggers">
+    Set up automated workflows using integrations and triggers
+  </Card>
+  <Card title="Worker Configuration" icon="sliders" href="/create-first-worker">
+    Learn to configure workers with optimal integration setups
+  </Card>
+  <Card title="Task Management" icon="list-check" href="/tools/task-management">
+    Combine integrations with task management for complex workflows
+  </Card>
+</CardGroup>

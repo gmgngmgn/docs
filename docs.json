@@ -60,8 +60,9 @@
           {
             "group": "Worker Integrations",
             "pages": [
-              "workers/integrations/how-to-use-integrations",
-              "workers/integrations/using-integrations-in-workers"
+              "workers/integrations/how-to-add-integrations",
+              "workers/integrations/using-integrations-in-workers",
+              "workers/integrations/how-to-use-mcp-integrations"
             ]
           },
           {

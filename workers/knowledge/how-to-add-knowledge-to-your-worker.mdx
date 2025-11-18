@@ -1,4 +1,509 @@
 ---
-title: "Adding Knowledge To Your Worker"
-description: "Description of your new file."
+title: "Activate and Assign Knowledge"
+description: "Learn how to provide your Utari workers with access to custom knowledge bases, SOPs, and documents to enhance their performance with your specific frameworks and information."
 ---
+
+## Overview
+
+Knowledge in Utari allows you to give your workers access to your own documents, SOPs (Standard Operating Procedures), frameworks, and reference materials. By activating knowledge for a worker, you enable it to reference your specific guidelines, methodologies, and information when performing tasks—ensuring outputs align with your standards and processes.
+
+<iframe width="700px" height="400px" src="https://embed.app.guidde.com/playbooks/1fTnCYTtW1wsu7DQrX7Ns7?mode=videoOnly" title="Activate And Assign Knowledge In Utari Workers" frameBorder="0" referrerPolicy="unsafe-url" allowFullScreen allow="clipboard-write" sandbox="allow-popups allow-popups-to-escape-sandbox allow-scripts allow-forms allow-same-origin allow-presentation" style={{ borderRadius:"10px" }} />
+
+## What is Knowledge?
+
+Knowledge in Utari refers to:
+
+<CardGroup cols={2}>
+  <Card title="SOPs" icon="book-open">
+    Standard Operating Procedures that define how tasks should be completed
+  </Card>
+  <Card title="Reference Documents" icon="file-pdf">
+    PDFs, documents, and guides that provide context and information
+  </Card>
+  <Card title="Frameworks" icon="diagram-project">
+    Methodologies and structures for approaching specific types of work
+  </Card>
+  <Card title="Templates" icon="file-lines">
+    Standardized formats and examples for consistent output
+  </Card>
+  <Card title="Guidelines" icon="list-check">
+    Brand voice, style guides, and quality standards
+  </Card>
+  <Card title="Training Materials" icon="graduation-cap">
+    Educational content and best practices documentation
+  </Card>
+</CardGroup>
+
+<Info>
+  Workers use activated knowledge as reference material to inform their responses, ensuring they follow your specific processes and standards.
+</Info>
+
+## Prerequisites
+
+Before assigning knowledge to a worker, ensure:
+
+1. **Knowledge is uploaded** to your Utari knowledge base
+2. **Knowledge base tool is enabled** for the worker
+3. **Worker is properly configured** with necessary tools and capabilities
+
+## Activating Knowledge for Workers
+
+<Steps>
+  <Step title="Select Your Worker">
+    Navigate to the worker you want to enhance with knowledge (e.g., "Facebook Ads Generator").
+  </Step>
+  
+  <Step title="Open Knowledge Tab">
+    Click on the **Knowledge** tab in the worker's configuration panel.
+  </Step>
+  
+  <Step title="Browse Available Knowledge">
+    You'll see all folders and resources available in your knowledge base:
+    - Organized folders
+    - Individual SOPs
+    - PDF documents
+    - Other uploaded resources
+  </Step>
+  
+  <Step title="Select Knowledge Resources">
+    Click the **checkbox** next to each knowledge resource you want to activate for this worker.
+    
+    The worker will have access to all checked resources during conversations.
+  </Step>
+  
+  <Step title="Verify Tool Activation">
+    **Critical Step**: Navigate to the **Tools** tab and ensure the **Knowledge Base** tool is enabled.
+    
+    Click the checkbox next to "Knowledge Base" if it's not already activated.
+  </Step>
+</Steps>
+
+<Warning>
+  **Important**: If the Knowledge Base tool is not enabled in the Tools tab, the worker will fail when trying to access knowledge, even if specific resources are activated in the Knowledge tab.
+</Warning>
+
+## Understanding Context Limits
+
+When activating knowledge for workers, be aware of context limits:
+
+<Note>
+  **Context Window Consideration**: The more knowledge you activate for a worker, the more of its context window is consumed by reference material. This may reduce the space available for:
+  - Your prompts and instructions
+  - Conversation history
+  - Generated responses
+  - Tool outputs
+</Note>
+
+### Finding the Right Balance
+
+<CardGroup cols={2}>
+  <Card title="Focused Knowledge" icon="bullseye">
+    **Best Practice**: Activate only knowledge directly relevant to the worker's specific purpose
+    
+    **Benefits**:
+    - More space for conversation
+    - Faster response times
+    - More focused outputs
+    - Reduced confusion
+  </Card>
+  
+  <Card title="Comprehensive Knowledge" icon="books">
+    **Use When**: Worker handles diverse tasks requiring multiple frameworks
+    
+    **Trade-offs**:
+    - Less space for prompts
+    - Potentially slower responses
+    - May need to reference specific docs explicitly
+  </Card>
+</CardGroup>
+
+## Knowledge Activation Strategies
+
+### Strategy 1: Purpose-Specific Workers
+
+Create specialized workers with targeted knowledge:
+```text
+Content Writer Worker:
+✓ Brand Voice Guidelines
+✓ SEO Writing SOP
+✓ Content Style Guide
+✗ Sales Process SOP (not relevant)
+✗ Technical Documentation Standards (not needed)
+```
+
+### Strategy 2: Role-Based Knowledge
+
+Assign knowledge based on worker roles:
+
+<AccordionGroup>
+  <Accordion title="Marketing Worker" icon="bullhorn">
+    **Activate:**
+    - Marketing campaign SOPs
+    - Brand guidelines
+    - Target audience profiles
+    - Content calendars
+    - Ad copy frameworks
+  </Accordion>
+  
+  <Accordion title="Sales Worker" icon="handshake">
+    **Activate:**
+    - Sales process documentation
+    - Objection handling scripts
+    - Product information sheets
+    - Pricing guidelines
+    - CRM usage SOPs
+  </Accordion>
+  
+  <Accordion title="Support Worker" icon="headset">
+    **Activate:**
+    - Product documentation
+    - Troubleshooting guides
+    - Common issues database
+    - Customer service standards
+    - Escalation procedures
+  </Accordion>
+  
+  <Accordion title="Operations Worker" icon="gears">
+    **Activate:**
+    - Process documentation
+    - Quality standards
+    - Workflow guidelines
+    - Reporting templates
+    - Compliance procedures
+  </Accordion>
+</AccordionGroup>
+
+### Strategy 3: Project-Specific Workers
+
+Create workers for specific projects with relevant knowledge only:
+```text
+Product Launch Worker:
+✓ Product specifications
+✓ Launch timeline
+✓ Marketing materials
+✓ Target market research
+✓ Launch day checklist
+```
+
+## Using Activated Knowledge
+
+Once knowledge is activated, workers can reference it automatically or when prompted:
+
+### Automatic Reference
+
+Workers intelligently reference activated knowledge when relevant:
+```text
+User: Write an ad for our new product
+
+Worker: [References brand voice guidelines and ad copy framework]
+[Creates ad following activated SOPs]
+```
+
+### Explicit Reference
+
+You can explicitly request knowledge use:
+
+<CodeGroup>
+```text Reference Specific SOP
+Using the Facebook Ads SOP in your knowledge base, create a campaign for our new product launch.
+```
+```text Follow Framework
+Apply the content creation framework from your knowledge to write a blog post about AI trends.
+```
+```text Check Against Guidelines
+Review this ad copy against our brand guidelines and suggest improvements.
+```
+```text Use Multiple Resources
+Combine insights from the marketing SOP and audience research document to create a strategy.
+```
+</CodeGroup>
+
+## Managing Knowledge Resources
+
+### Organizing Your Knowledge Base
+
+Keep your knowledge base well-organized for easy activation:
+
+<Steps>
+  <Step title="Create Logical Folders">
+```
+    Knowledge Base/
+    ├── Marketing/
+    │   ├── Brand Guidelines/
+    │   ├── Campaign SOPs/
+    │   └── Ad Copy Frameworks/
+    ├── Sales/
+    │   ├── Sales Process/
+    │   ├── Product Info/
+    │   └── Scripts/
+    ├── Operations/
+    │   ├── Workflows/
+    │   └── Quality Standards/
+    └── Templates/
+        ├── Content Templates/
+        └── Report Templates/
+```
+  </Step>
+  
+  <Step title="Use Clear Naming">
+    Name files descriptively:
+    - ✅ "Facebook_Ads_SOP_v2.pdf"
+    - ✅ "Brand_Voice_Guidelines_2024.pdf"
+    - ❌ "Document1.pdf"
+    - ❌ "Untitled.pdf"
+  </Step>
+  
+  <Step title="Version Control">
+    Include version numbers or dates:
+    - "SEO_Guidelines_v3.pdf"
+    - "Product_Specs_2024-11.pdf"
+  </Step>
+  
+  <Step title="Regular Updates">
+    Keep knowledge current by:
+    - Updating documents as processes change
+    - Removing outdated information
+    - Adding new frameworks and guidelines
+  </Step>
+</Steps>
+
+### Updating Knowledge for Active Workers
+
+When you update knowledge resources:
+
+<Steps>
+  <Step title="Upload New Version">
+    Upload the updated document to your knowledge base.
+  </Step>
+  
+  <Step title="Deactivate Old Version">
+    Uncheck the outdated document in the worker's Knowledge tab.
+  </Step>
+  
+  <Step title="Activate New Version">
+    Check the updated document to activate it.
+  </Step>
+  
+  <Step title="Test Worker">
+    Run a test conversation to ensure the worker uses the updated knowledge correctly.
+  </Step>
+</Steps>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Activate Selectively" icon="filter">
+    Only activate knowledge directly relevant to each worker's purpose—quality over quantity
+  </Card>
+  
+  <Card title="Enable Knowledge Tool" icon="toggle-on">
+    Always verify the Knowledge Base tool is enabled in the Tools tab before using knowledge
+  </Card>
+  
+  <Card title="Test After Activation" icon="vial">
+    Test your worker after activating knowledge to ensure it references materials correctly
+  </Card>
+  
+  <Card title="Monitor Context Usage" icon="gauge">
+    Watch for signs of context limitation and reduce knowledge if needed
+  </Card>
+  
+  <Card title="Keep Knowledge Current" icon="arrows-rotate">
+    Regularly update knowledge resources to maintain accuracy and relevance
+  </Card>
+  
+  <Card title="Document Purpose" icon="note-sticky">
+    Maintain documentation about which workers use which knowledge and why
+  </Card>
+  
+  <Card title="Organize Logically" icon="folder-tree">
+    Structure your knowledge base with clear folders and naming conventions
+  </Card>
+  
+  <Card title="Version Documents" icon="code-branch">
+    Use version numbers to track and manage knowledge updates
+  </Card>
+</CardGroup>
+
+## Common Use Cases
+
+### Brand Consistency
+
+<Card title="Maintaining Brand Voice" icon="message">
+  **Activated Knowledge:**
+  - Brand voice and tone guidelines
+  - Approved messaging frameworks
+  - Style guide (grammar, punctuation, formatting)
+  - Visual identity guidelines
+  - Do's and don'ts document
+  
+  **Result**: All content created by the worker maintains consistent brand standards
+</Card>
+
+### Process Adherence
+
+<Card title="Following Established Workflows" icon="diagram-project">
+  **Activated Knowledge:**
+  - Step-by-step process SOPs
+  - Quality checkpoints
+  - Approval workflows
+  - Compliance requirements
+  - Best practice guidelines
+  
+  **Result**: Worker follows your specific processes exactly as documented
+</Card>
+
+### Expertise Transfer
+
+<Card title="Applying Specialized Knowledge" icon="brain">
+  **Activated Knowledge:**
+  - Industry-specific methodologies
+  - Technical frameworks
+  - Research findings
+  - Case studies and examples
+  - Expert guidelines
+  
+  **Result**: Worker applies specialized expertise to tasks
+</Card>
+
+### Template-Based Work
+
+<Card title="Consistent Output Formats" icon="clone">
+  **Activated Knowledge:**
+  - Document templates
+  - Report structures
+  - Presentation formats
+  - Email templates
+  - Standard forms
+  
+  **Result**: All outputs follow your established formats
+</Card>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Worker can't find activated knowledge">
+    Verify:
+    - Knowledge Base tool is enabled in Tools tab
+    - Specific knowledge resource is checked in Knowledge tab
+    - Knowledge file is properly uploaded and not corrupted
+    - You're referencing the correct document name
+    - Try re-checking the knowledge resource
+  </Accordion>
+  
+  <Accordion title="Worker isn't following knowledge guidelines">
+    Try:
+    - Being more explicit in prompts: "Use the [specific SOP] to..."
+    - Checking if multiple conflicting knowledge sources are active
+    - Ensuring the knowledge document is clear and well-structured
+    - Testing with simpler, more direct references
+    - Reducing other activated knowledge to minimize confusion
+  </Accordion>
+  
+  <Accordion title="Context limit errors or truncated responses">
+    Reduce context usage by:
+    - Deactivating non-essential knowledge
+    - Breaking up large documents into focused sections
+    - Creating specialized workers with subset of knowledge
+    - Using shorter prompts
+    - Starting new conversations more frequently
+  </Accordion>
+  
+  <Accordion title="Knowledge not updating after changes">
+    Steps to resolve:
+    - Deactivate the old version in Knowledge tab
+    - Ensure new version is fully uploaded
+    - Activate the new version
+    - Start a fresh conversation
+    - Clear browser cache if needed
+  </Accordion>
+  
+  <Accordion title="Multiple workers need same knowledge">
+    This is normal and supported:
+    - Same knowledge can be activated for multiple workers
+    - Each worker interprets knowledge based on its role and instructions
+    - No conflict or duplication issues
+    - Update knowledge once, affects all workers using it
+  </Accordion>
+</AccordionGroup>
+
+## Advanced Knowledge Strategies
+
+### Layered Knowledge
+
+Combine different types of knowledge for comprehensive guidance:
+```text
+Base Layer: General brand guidelines (all workers)
+Role Layer: Department-specific SOPs (role-specific workers)
+Task Layer: Project-specific documentation (project workers)
+```
+
+### Dynamic Knowledge Selection
+
+Create multiple versions of workers with different knowledge sets:
+```text
+Blog Writer (Beginner): Basic writing guidelines only
+Blog Writer (Advanced): Full SEO SOP + style guide + examples
+Blog Writer (Technical): Technical writing standards + product docs
+```
+
+### Knowledge + Triggers
+
+Combine activated knowledge with scheduled triggers:
+```text
+Daily Report Worker:
+- Activated: Reporting template + data sources guide
+- Trigger: Daily at 8 AM
+- Result: Consistent daily reports following template
+```
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Navigate to and access the Knowledge tab for workers
+</Check>
+
+<Check>
+  Activate specific knowledge resources for individual workers
+</Check>
+
+<Check>
+  Enable the Knowledge Base tool for proper functionality
+</Check>
+
+<Check>
+  Understand and manage context limits with knowledge activation
+</Check>
+
+<Check>
+  Apply knowledge activation strategies for different worker types
+</Check>
+
+<Check>
+  Organize and maintain your knowledge base effectively
+</Check>
+
+<Check>
+  Troubleshoot common knowledge-related issues
+</Check>
+
+By strategically activating knowledge for your workers, you ensure they have the exact information and guidelines needed to perform tasks according to your standards, creating consistent, high-quality outputs that align with your processes and brand.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Upload Knowledge" icon="cloud-arrow-up" href="/knowledge">
+    Learn how to add SOPs and documents to your knowledge base
+  </Card>
+  <Card title="Jeremy SOPs" icon="book" href="/jeremy-sops">
+    Access and utilize pre-built Jeremy SOPs for your workers
+  </Card>
+  <Card title="Worker Configuration" icon="sliders" href="/create-first-worker">
+    Optimize overall worker setup with knowledge integration
+  </Card>
+  <Card title="Tools Setup" icon="toolbox" href="/tools">
+    Configure additional tools to complement your knowledge
+  </Card>
+</CardGroup>
