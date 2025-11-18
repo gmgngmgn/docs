@@ -1,4 +1,494 @@
 ---
 title: "Web Search Tool"
-description: "Description of your new file."
+description: "Learn how to activate and use the web search tool to enable your Utari workers to gather current information, research topics, and access real-time data from the internet."
 ---
+
+## Overview
+
+The web search tool empowers your Utari workers to search the internet and gather current information beyond their training data. This essential capability enables research, fact-checking, competitive analysis, and content creation based on up-to-date web information.
+
+<iframe width="700px" height="400px" src="https://embed.app.guidde.com/playbooks/sHL7eE4kCXaYUZm1VQ6GiW?mode=videoOnly" title="Activate And Use Web Search Tool In Utari Efficiently" frameBFrame="0" referrerPolicy="unsafe-url" allowFullScreen allow="clipboard-write" sandbox="allow-popups allow-popups-to-escape-sandbox allow-scripts allow-forms allow-same-origin allow-presentation" style={{ borderRadius:"10px" }} />
+
+## Web Search Capabilities
+
+When you enable the web search tool, your worker gains two powerful capabilities:
+
+<CardGroup cols={2}>
+  <Card title="Web Search" icon="magnifying-glass">
+    Search the internet for information, news, data, and insights across billions of web pages
+  </Card>
+  <Card title="Scrape Web Page" icon="globe">
+    Extract and analyze content from specific URLs and web pages
+  </Card>
+</CardGroup>
+
+<Info>
+  The web search tool extends your worker's knowledge beyond its training cutoff date, providing access to current events, recent developments, and real-time information.
+</Info>
+
+## Enabling Web Search
+
+<Steps>
+  <Step title="Select Your Worker">
+    Navigate to the worker you want to configure and click on the **Tools** tab.
+  </Step>
+  <Step title="Find Web Search Tool">
+    Scroll through the available tools to locate **Web Search**.
+  </Step>
+  <Step title="Enable the Tool">
+    Check the box next to Web Search to activate both capabilities:
+
+    - Web search
+    - Scrape web page
+  </Step>
+  <Step title="Customize Options (Optional)">
+    Click on the tool settings to enable or disable specific capabilities if you only want one feature.
+  </Step>
+  <Step title="Save Configuration">
+    Your changes are automatically saved. The worker can now search the web and scrape pages.
+  </Step>
+</Steps>
+
+## Using Web Search
+
+Once enabled, your worker can automatically search the web when needed or you can explicitly request searches.
+
+### Basic Web Search
+
+<Steps>
+  <Step title="Start a Chat">
+    Open a conversation with a worker that has web search enabled.
+  </Step>
+  <Step title="Enter Your Query">
+    Ask your worker to search for information. For example:
+
+    ```
+        Search who Jeremy Haynes is
+    ```
+  </Step>
+  <Step title="Watch the Search Process">
+    Your worker will:
+
+    - Interpret your query
+    - Execute web searches
+    - Gather relevant information
+    - Display search activity in the right-hand panel
+  </Step>
+  <Step title="Review Results">
+    The worker will provide a comprehensive summary based on the search results, including:
+
+    - Text descriptions
+    - Relevant images
+    - Multiple perspectives or sources
+    - Organized information
+  </Step>
+</Steps>
+
+### Refining Search Results
+
+If search results include multiple matches or need clarification:
+
+```text
+Only tell me about Jeremy Haynes the digital marketer
+```
+
+Your worker will conduct additional research focused specifically on your refined criteria.
+
+## Search Query Examples
+
+### People and Biography Research
+
+<CodeGroup>
+
+```text Professional Background
+Search for information about [person name] and their career background.
+```
+
+
+```text Expertise and Achievements
+Find details about [expert name]'s contributions to [field/industry].
+```
+
+
+```text Recent Activities
+What has [person name] been working on recently?
+```
+
+</CodeGroup>
+
+### Industry and Market Research
+
+<CodeGroup>
+
+```text Trends
+Search for the latest trends in [industry] for 2024.
+```
+
+
+```text Competitive Analysis
+Find information about [company]'s competitors and market position.
+```
+
+
+```text Market Data
+What is the current market size for [product/service category]?
+```
+
+</CodeGroup>
+
+### Current Events and News
+
+<CodeGroup>
+
+```text Breaking News
+Search for recent news about [topic/event].
+```
+
+
+```text Industry Updates
+Find the latest developments in [industry/technology].
+```
+
+
+```text Product Launches
+Search for information about [company]'s new product releases.
+```
+
+</CodeGroup>
+
+### Technical Information
+
+<CodeGroup>
+
+```text Best Practices
+Search for current best practices in [technical area].
+```
+
+
+```text Tool Comparisons
+Find comparisons between [tool A] and [tool B].
+```
+
+
+```text Technical Documentation
+Search for documentation about [technology/framework].
+```
+
+</CodeGroup>
+
+## Scraping Web Pages
+
+In addition to searching, your worker can extract content from specific URLs:
+
+### How to Use Web Scraping
+
+```text
+Scrape the content from https://example.com and summarize the main points.
+```
+
+```text
+Extract the pricing information from [URL] and create a comparison table.
+```
+
+```text
+Get the article from [URL] and rewrite it in a more casual tone.
+```
+
+<Warning>
+  Only scrape publicly accessible web pages. Workers cannot access content behind paywalls, login walls, or private systems.
+</Warning>
+
+## Real-World Use Cases
+
+### Content Creation with Research
+
+<Steps>
+  <Step title="Research Phase">
+    ```
+        Search for the top 5 trends in AI automation for 2024.
+    ```
+  </Step>
+  <Step title="Deeper Analysis">
+    ```
+        For each trend, find specific examples and case studies.
+    ```
+  </Step>
+  <Step title="Content Generation">
+    ```
+        Based on the research, write a comprehensive blog post about AI automation trends.
+    ```
+  </Step>
+</Steps>
+
+### Competitive Intelligence
+
+<Steps>
+  <Step title="Company Research">
+    ```
+        Search for information about [competitor company] and their main products.
+    ```
+  </Step>
+  <Step title="Market Position">
+    ```
+        Find recent news about [competitor]'s market strategy and customer reception.
+    ```
+  </Step>
+  <Step title="Analysis Report">
+    ```
+        Create a competitive analysis document comparing our features to [competitor]'s offerings.
+    ```
+  </Step>
+</Steps>
+
+### Fact-Checking and Verification
+
+```text
+Search for recent statistics about [topic] and verify the claims in this document.
+```
+
+```text
+Find credible sources to support or refute the statement: "[claim]"
+```
+
+### Event and Conference Research
+
+```text
+Search for upcoming marketing conferences in 2024 and create a list with dates and locations.
+```
+
+```text
+Find information about [conference name] including speakers, agenda, and registration details.
+```
+
+## Combining Web Search with Other Tools
+
+Web search becomes even more powerful when combined with other Utari capabilities:
+
+<CardGroup cols={2}>
+  <Card title="+ Knowledge Base" icon="database">
+    Compare web findings against your internal SOPs and guidelines for comprehensive analysis
+  </Card>
+  <Card title="+ Document Creator" icon="file-word">
+    Research topics online, then generate professional documents with the findings
+  </Card>
+  <Card title="+ Files and Folder" icon="folder">
+    Save research results in organized folders for future reference
+  </Card>
+  <Card title="+ Task Management" icon="list-check">
+    Create task lists for multi-step research projects with web search at each stage
+  </Card>
+</CardGroup>
+
+### Example Combined Workflow
+
+```text
+Search for the latest content marketing strategies, then use our content style guide from the knowledge base to create a blog post, and save it in the "Blog Drafts/Q4" folder.
+```
+
+## Search Result Interpretation
+
+Your worker will present search results in various formats:
+
+### Text Summaries
+
+Comprehensive written summaries synthesizing information from multiple sources:
+
+```
+Based on web search, Jeremy Haynes is a digital marketing expert specializing in...
+```
+
+### Visual Results
+
+When relevant, workers may include images from search results to provide visual context.
+
+### Multiple Perspectives
+
+If a search query has multiple interpretations, workers present all relevant results:
+
+```
+There are several people named Jeremy Haynes in the United States. Here's information about each...
+```
+
+### Source Attribution
+
+Workers reference where information was found, allowing you to verify sources if needed.
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Be Specific" icon="bullseye">
+    Provide clear, specific search queries to get the most relevant results
+  </Card>
+  <Card title="Refine as Needed" icon="filter">
+    If initial results are too broad, add clarifying details to narrow the search
+  </Card>
+  <Card title="Verify Critical Info" icon="shield-check">
+    For important decisions, ask workers to find multiple sources confirming key facts
+  </Card>
+  <Card title="Use Time Qualifiers" icon="calendar">
+    Add temporal context like "recent," "2024," or "latest" for current information
+  </Card>
+  <Card title="Combine Searches" icon="layer-group">
+    Build comprehensive research by asking follow-up questions and conducting multiple searches
+  </Card>
+  <Card title="Save Research" icon="bookmark">
+    Use files and folder tool to preserve valuable research for future reference
+  </Card>
+</CardGroup>
+
+## When to Use Web Search
+
+### ✅ Great Use Cases
+
+- Researching current events and news
+- Finding recent statistics and data
+- Competitive and market analysis
+- Verifying facts and claims
+- Gathering examples and case studies
+- Researching people, companies, or products
+- Finding current best practices
+- Checking pricing and availability
+- Discovering trends and insights
+
+### ❌ Not Recommended For
+
+- Questions about internal company information (use knowledge base)
+- Personal or private data
+- Content behind paywalls or login walls
+- Real-time data requiring authentication (stock trading, private dashboards)
+- Highly specialized information better suited for expert databases
+
+## Advanced Search Techniques
+
+### Multi-Step Research
+
+Break complex research into stages:
+
+```text
+1. First, search for the top AI tools in 2024
+2. Then, for each tool, find pricing information
+3. Finally, create a comparison table with features and costs
+```
+
+### Comparative Research
+
+```text
+Search for both [Option A] and [Option B], then create a side-by-side comparison of their features, pricing, and customer reviews.
+```
+
+### Deep Dive Analysis
+
+```text
+Search for comprehensive information about [topic], including history, current state, future predictions, and expert opinions.
+```
+
+### Source-Specific Requests
+
+```text
+Search for information about [topic] from academic or research sources.
+```
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Search not returning relevant results">
+    Try:
+
+    - Making your query more specific
+    - Adding context or qualifiers
+    - Breaking complex queries into simpler searches
+    - Using different keywords or phrases
+    - Specifying time frames (recent, 2024, latest)
+  </Accordion>
+  <Accordion title="Worker not using web search automatically">
+    Ensure:
+
+    - Web search tool is enabled in worker configuration
+    - Your query requires current information beyond AI training data
+    - You explicitly request a search if the worker doesn't automatically use it
+    - The query is clear that it needs external information
+  </Accordion>
+  <Accordion title="Getting multiple irrelevant results">
+    Provide more context:
+
+    - Add industry or field qualifiers
+    - Specify geographic location if relevant
+    - Include time period or recency requirements
+    - Clarify which specific aspect you're interested in
+  </Accordion>
+  <Accordion title="Can't access specific website">
+    Check if:
+
+    - The website requires login or subscription
+    - Content is behind a paywall
+    - Site blocks automated access
+    - Try requesting a search for the topic instead of scraping the specific URL
+  </Accordion>
+  <Accordion title="Search results seem outdated">
+    Try:
+
+    - Adding "recent" or "2024" to your query
+    - Explicitly asking for latest/current information
+    - Requesting news or recent developments
+    - Refining the search with more specific timing
+  </Accordion>
+</AccordionGroup>
+
+## Privacy and Ethics
+
+<Warning>
+  **Important Considerations:**
+
+  - Only search for publicly available information
+  - Respect website terms of service when scraping
+  - Don't use web search to gather private or sensitive personal information
+  - Be mindful of copyright when using found content
+  - Verify important information from multiple sources
+</Warning>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Enable and configure the web search tool for your workers
+</Check>
+
+<Check>
+  Execute effective web searches for various types of information
+</Check>
+
+<Check>
+  Scrape and analyze content from specific web pages
+</Check>
+
+<Check>
+  Refine search results for more relevant information
+</Check>
+
+<Check>
+  Combine web search with other Utari tools for powerful workflows
+</Check>
+
+<Check>
+  Apply best practices for efficient and effective web research
+</Check>
+
+The web search tool transforms your Utari workers into powerful research assistants, capable of finding current information, verifying facts, and gathering insights from across the internet to enhance your content and decision-making.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Knowledge Base" icon="database" href="/knowledge">
+    Combine web research with internal SOPs and guidelines
+  </Card>
+  <Card title="Document Creator" icon="file-word" href="/tools/document-creator">
+    Turn research findings into professional documents
+  </Card>
+  <Card title="Task Management" icon="list-check" href="/tools/task-management">
+    Create multi-step research workflows
+  </Card>
+  <Card title="Files and Folder" icon="folder" href="/tools/files-folder">
+    Organize and save your research results
+  </Card>
+</CardGroup>
