@@ -23,8 +23,7 @@
           {
             "group":"Getting Started With Workers",
             "pages": [
-              "workers/creating-a-new-worker",
-              "workers/worker-instructions-explained"
+              "workers/creating-a-new-worker"
             ]
           },
           {
