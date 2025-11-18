@@ -1,4 +1,529 @@
 ---
 title: "Image Vision Tool"
-description: "Description of your new file."
+description: "Learn how to activate and use the image vision tool to enable your Utari workers to analyze, describe, and interpret images within conversations."
 ---
+
+## Overview
+
+The image vision tool empowers your Utari workers to "see" and analyze images. This capability enables workers to describe visual content, extract information from images, answer questions about pictures, and provide detailed analysis of visual elements. It's essential for any workflow involving visual content, design review, image analysis, or visual data extraction.
+
+<iframe width="700px" height="400px" src="https://embed.app.guidde.com/playbooks/uhRLRUVXWf56tWTNivKLoU?mode=videoOnly" title="Activate And Use Image Vision Tool Features In Utari" frameBorder="0" referrerPolicy="unsafe-url" allowFullScreen allow="clipboard-write" sandbox="allow-popups allow-popups-to-escape-sandbox allow-scripts allow-forms allow-same-origin allow-presentation" style={{ borderRadius:"10px" }} />
+
+## Image Vision Capabilities
+
+When you enable the image vision tool, your worker gains two essential capabilities:
+
+<CardGroup cols={2}>
+  <Card title="Load Images" icon="image">
+    Upload and analyze images from files or URLs for visual analysis and interpretation
+  </Card>
+  <Card title="Clear Images from Context" icon="eraser">
+    Remove images from the conversation to manage the 3-image limit and free up space for new images
+  </Card>
+</CardGroup>
+
+<Warning>
+  **Important Limitation**: Workers can only process up to **3 images** at a time in a single conversation. Use the "clear images from context" capability to remove images when you reach this limit.
+</Warning>
+
+## Enabling Image Vision
+
+<Steps>
+  <Step title="Select Your Worker">
+    Navigate to the worker you want to configure and click on the **Tools** tab.
+  </Step>
+  <Step title="Find Image Vision Tool">
+    Scroll through the available tools to locate **Image Vision**.
+  </Step>
+  <Step title="Enable the Tool">
+    Check the box next to Image Vision to activate both capabilities:
+
+    - Load images
+    - Clear images from context
+  </Step>
+  <Step title="Verify Capabilities">
+    Ensure both capabilities are enabled so your worker can both upload and manage images effectively.
+  </Step>
+  <Step title="Save Configuration">
+    Your changes are automatically saved. The worker can now analyze images.
+  </Step>
+</Steps>
+
+## Using Image Vision
+
+### Uploading and Analyzing Images
+
+<Steps>
+  <Step title="Start a Chat">
+    Open a conversation with a worker that has image vision enabled.
+  </Step>
+  <Step title="Upload an Image">
+    Click the **Attach files** button and select an image from your computer, or provide an image URL.
+  </Step>
+  <Step title="Request Analysis">
+    Ask your worker to analyze the image. For example:
+
+    ```
+        Can you please explain this image to me?
+    ```
+  </Step>
+  <Step title="Review the Analysis">
+    Your worker will:
+
+    - Load and process the image
+    - Analyze visual elements
+    - Provide a detailed description
+    - Answer specific questions about the content
+  </Step>
+</Steps>
+
+### Example Analysis Output
+
+When analyzing an image, your worker provides detailed descriptions such as:
+
+```
+This is a striking graphic design with bold red, orange, and black color scheme, split into two contrasting scenes:
+
+Left side: Urban market scene with vibrant colors and busy atmosphere
+Right side: A solitary figure against a darker background
+
+The composition creates a dramatic contrast between communal energy and individual isolation.
+```
+
+## Image Management Features
+
+### Viewing Image Controls
+
+Once an image is uploaded, you have several controls:
+
+<CardGroup cols={3}>
+  <Card title="Enlarge" icon="magnifying-glass-plus">
+    Click to view the image at a larger size
+  </Card>
+  <Card title="Minimize" icon="magnifying-glass-minus">
+    Click to reduce the image size
+  </Card>
+  <Card title="Download" icon="download">
+    Save the image to your device
+  </Card>
+</CardGroup>
+
+### Managing the 3-Image Limit
+
+When you reach the 3-image limit:
+
+<Steps>
+  <Step title="Recognize the Limit">
+    You'll be unable to upload additional images once 3 are loaded in the conversation.
+  </Step>
+  <Step title="Clear Images">
+    Request your worker to clear images:
+
+    ```
+        Can you please clear the images from the context?
+    ```
+  </Step>
+  <Step title="Upload New Images">
+    Once cleared, you can upload up to 3 new images to continue your work.
+  </Step>
+</Steps>
+
+<Tip>
+  Clear images strategically. If you need to reference previous images later, save your analysis or download the images before clearing them.
+</Tip>
+
+## Use Cases for Image Vision
+
+### Design and Creative Review
+
+<Card title="Design Feedback" icon="palette">
+  Upload design mockups, logos, or graphics and ask:
+
+  - "Analyze this logo design and provide feedback on color choice and composition"
+  - "What design principles are demonstrated in this layout?"
+  - "Compare these two design options and recommend improvements"
+</Card>
+
+### Content Analysis
+
+<Card title="Visual Content Understanding" icon="eye">
+  Analyze images for content creation:
+
+  - "Describe this image for an alt text description"
+  - "What emotions does this image convey?"
+  - "Identify the key visual elements in this photo"
+</Card>
+
+### Data Extraction
+
+<Card title="Information Extraction" icon="table">
+  Extract text and data from images:
+
+  - "Read the text from this screenshot"
+  - "Extract the data from this chart or graph"
+  - "Transcribe the information from this document photo"
+</Card>
+
+### Product Analysis
+
+<Card title="Product Review" icon="box">
+  Analyze product images:
+
+  - "Describe this product and its features"
+  - "What are the key selling points visible in this product image?"
+  - "Compare these product photos for quality and presentation"
+</Card>
+
+### Educational Content
+
+<Card title="Image Explanation" icon="graduation-cap">
+  Explain complex visual content:
+
+  - "Explain what's happening in this diagram"
+  - "Describe the components shown in this technical illustration"
+  - "What does this infographic communicate?"
+</Card>
+
+## Advanced Image Analysis Requests
+
+### Detailed Descriptions
+
+<CodeGroup>
+
+```text Comprehensive Analysis
+Provide a detailed analysis of this image, including composition, color palette, mood, and visual elements.
+```
+
+
+```text Technical Description
+Describe the technical aspects of this image including resolution quality, lighting, and composition techniques.
+```
+
+
+```text Artistic Interpretation
+Analyze this artwork's style, influences, and artistic techniques.
+```
+
+</CodeGroup>
+
+### Comparative Analysis
+
+<CodeGroup>
+
+```text Side-by-Side Comparison
+Compare these two images and highlight the differences in style, composition, and effectiveness.
+```
+
+
+```text Before/After Analysis
+Analyze the differences between these before and after images.
+```
+
+
+```text A/B Testing
+Which of these two design options is more effective and why?
+```
+
+</CodeGroup>
+
+### Specific Element Analysis
+
+<CodeGroup>
+
+```text Color Analysis
+Analyze the color scheme in this image and suggest complementary colors.
+```
+
+
+```text Text Extraction
+Extract all visible text from this image and format it as a list.
+```
+
+
+```text Object Identification
+Identify and list all objects visible in this image.
+```
+
+</CodeGroup>
+
+### Contextual Questions
+
+<CodeGroup>
+
+```text Purpose Assessment
+What is the likely purpose of this image? Who is the target audience?
+```
+
+
+```text Improvement Suggestions
+What could be improved about this image for better visual impact?
+```
+
+
+```text Use Case Identification
+Where would this image be most effectively used? (social media, print, web, etc.)
+```
+
+</CodeGroup>
+
+## Combining Image Vision with Other Tools
+
+Image vision becomes even more powerful when combined with other Utari capabilities:
+
+<CardGroup cols={2}>
+  <Card title="+ Document Creator" icon="file-word">
+    Analyze images and create comprehensive reports or descriptions in document format
+  </Card>
+  <Card title="+ Web Search" icon="magnifying-glass">
+    Compare uploaded images with similar images found online for context
+  </Card>
+  <Card title="+ Files and Folder" icon="folder">
+    Save image analyses and descriptions in organized folders for future reference
+  </Card>
+  <Card title="+ Knowledge Base" icon="database">
+    Apply brand guidelines or design SOPs when analyzing images
+  </Card>
+</CardGroup>
+
+### Example Combined Workflows
+
+```text
+Analyze this product image using our brand guidelines from the knowledge base, then create a detailed product description document and save it in the "Product Descriptions" folder.
+```
+
+```text
+Compare this logo design to similar logos online using web search, then provide a comprehensive analysis document with recommendations.
+```
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Be Specific" icon="bullseye">
+    Ask clear, specific questions about what you want to know about the image
+  </Card>
+  <Card title="Provide Context" icon="circle-info">
+    Give background information about the image's purpose or intended use
+  </Card>
+  <Card title="Manage Limits" icon="gauge-high">
+    Track your image count and clear when necessary to avoid hitting the 3-image limit
+  </Card>
+  <Card title="Use High Quality" icon="image">
+    Upload clear, high-resolution images for better analysis results
+  </Card>
+  <Card title="Ask Follow-ups" icon="comments">
+    Ask multiple questions about the same image to get comprehensive insights
+  </Card>
+  <Card title="Save Important Analysis" icon="floppy-disk">
+    Save or document important image analyses before clearing images from context
+  </Card>
+</CardGroup>
+
+## Image Formats and Requirements
+
+### Supported Formats
+
+The image vision tool works with common image formats:
+
+- **JPEG/JPG**: Standard photo format
+- **PNG**: Graphics and screenshots
+- **GIF**: Animated or static images
+- **WebP**: Modern web image format
+- **BMP**: Bitmap images
+
+### Quality Recommendations
+
+<Info>
+  For best results:
+
+  - Use high-resolution images when possible
+  - Ensure text in images is clear and legible
+  - Avoid extremely large file sizes (compress if needed)
+  - Use well-lit, focused images for better analysis
+</Info>
+
+## Workflow Examples
+
+### Design Review Process
+
+<Steps>
+  <Step title="Upload Design">
+    ```
+        [Upload design mockup]
+        Analyze this website design mockup for usability and visual appeal.
+    ```
+  </Step>
+  <Step title="Detailed Feedback">
+    ```
+        What specific improvements would you suggest for the navigation layout?
+    ```
+  </Step>
+  <Step title="Color Analysis">
+    ```
+        Analyze the color palette and suggest alternatives that might improve contrast.
+    ```
+  </Step>
+  <Step title="Document Feedback">
+    ```
+        Create a design review document with all the feedback and save it to "Design Reviews" folder.
+    ```
+  </Step>
+</Steps>
+
+### Content Creation Assistant
+
+<Steps>
+  <Step title="Image Upload">
+    ```
+        [Upload product photo]
+        Describe this product in detail for an e-commerce listing.
+    ```
+  </Step>
+  <Step title="Alt Text Creation">
+    ```
+        Create an SEO-optimized alt text description for this image.
+    ```
+  </Step>
+  <Step title="Social Media Caption">
+    ```
+        Write three different social media captions for this image, each with a different tone.
+    ```
+  </Step>
+</Steps>
+
+### Batch Image Analysis
+
+<Steps>
+  <Step title="First Set">
+    ```
+        [Upload 3 images]
+        Analyze these three product images and rank them by visual appeal.
+    ```
+  </Step>
+  <Step title="Clear and Continue">
+    ```
+        Clear the images from context, please.
+    ```
+  </Step>
+  <Step title="Second Set">
+    ```
+        [Upload 3 new images]
+        Analyze these next three images using the same criteria.
+    ```
+  </Step>
+  <Step title="Comprehensive Report">
+    ```
+        Based on all six images we've reviewed, create a comprehensive analysis document.
+    ```
+  </Step>
+</Steps>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Worker can't see the image">
+    Verify that:
+
+    - Image vision tool is enabled for the worker
+    - The image uploaded successfully (check for upload confirmation)
+    - The image format is supported
+    - The file isn't corrupted
+    - Try re-uploading the image
+  </Accordion>
+  <Accordion title="Can't upload more images">
+    You've likely hit the 3-image limit:
+
+    - Ask the worker to clear images from context
+    - Wait for confirmation that images are cleared
+    - Upload new images
+    - Consider starting a new conversation for fresh context
+  </Accordion>
+  <Accordion title="Analysis is too vague or generic">
+    Improve your requests:
+
+    - Ask more specific questions
+    - Provide context about what you're looking for
+    - Break down your analysis into multiple focused questions
+    - Specify the type of details you want (colors, composition, objects, etc.)
+  </Accordion>
+  <Accordion title="Worker describes wrong image">
+    Check:
+
+    - Which image you're referencing in your question
+    - If multiple images are uploaded, specify "the first image" or "the image showing [subject]"
+    - Consider clearing old images to avoid confusion
+  </Accordion>
+  <Accordion title="Text in image not recognized">
+    Try:
+
+    - Uploading a higher resolution version
+    - Ensuring text is clearly visible and not too small
+    - Checking that text isn't obscured or distorted
+    - Explicitly asking "extract the text from this image"
+  </Accordion>
+  <Accordion title="Clear images command not working">
+    Ensure:
+
+    - "Clear images from context" capability is enabled
+    - You're using clear phrasing like "clear the images" or "remove images from context"
+    - Try the exact phrase: "Can you please clear the images from the context?"
+  </Accordion>
+</AccordionGroup>
+
+## Privacy and Security
+
+<Warning>
+  **Important Considerations:**
+
+  - Don't upload images containing sensitive personal information
+  - Avoid uploading confidential business documents without proper authorization
+  - Be aware that images are processed to enable analysis
+  - Clear sensitive images from context after analysis
+  - Follow your organization's data handling policies
+</Warning>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Enable and configure the image vision tool for your workers
+</Check>
+
+<Check>
+  Upload and analyze images within conversations
+</Check>
+
+<Check>
+  Manage the 3-image limit using the clear images capability
+</Check>
+
+<Check>
+  Request different types of image analysis and descriptions
+</Check>
+
+<Check>
+  Combine image vision with other Utari tools for enhanced workflows
+</Check>
+
+<Check>
+  Apply best practices for effective image analysis
+</Check>
+
+The image vision tool transforms your Utari workers into visual analysts, capable of understanding, describing, and extracting insights from images to support your creative, analytical, and content creation workflows.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Image Generation Tool" icon="wand-magic-sparkles" href="/tools/image-generation">
+    Learn to create images with AI
+  </Card>
+  <Card title="Document Creator" icon="file-word" href="/tools/document-creator">
+    Create documents with image analysis
+  </Card>
+  <Card title="Web Search" icon="magnifying-glass" href="/tools/web-search">
+    Find and compare similar images online
+  </Card>
+  <Card title="Files and Folder" icon="folder" href="/tools/files-folder">
+    Organize your image analysis results
+  </Card>
+</CardGroup>
