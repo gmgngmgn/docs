@@ -1,4 +1,357 @@
 ---
-title: "Worker Tools Explained"
-description: "Description of your new file."
+title: "Configure Worker Tools"
+description: "Learn how to activate, configure, and customize tools to enhance your Utari workers' capabilities and optimize performance for specific tasks."
 ---
+
+## Overview
+
+This guide explains how to effectively use Utari worker tools to enhance your agents' capabilities. Tools give workers the ability to perform specific actions like searching the web, creating documents, generating images, and more. You'll learn how to strategically activate and configure tools for optimal performance.
+
+<iframe width="700px" height="400px" src="https://embed.app.guidde.com/playbooks/u7yrat1M5xTaqRyqPRaXKX?mode=videoOnly" title="Configure Utari Worker Tools for Optimal Agent Performance" frameBorder="0" referrerPolicy="unsafe-url" allowFullScreen allow="clipboard-write" sandbox="allow-popups allow-popups-to-escape-sandbox allow-scripts allow-forms allow-same-origin allow-presentation" style={{ borderRadius:"10px" }} />
+
+## Understanding Tools
+
+Tools are capabilities that extend what your workers can do. Each tool serves a specific purpose and adds functionality to your agent's workflow.
+
+<Warning>
+  **Important**: Don't enable all tools by default. Too many tools can impact performance by consuming context space and potentially reducing output quality. Only activate tools that are directly relevant to your worker's primary tasks.
+</Warning>
+
+## Accessing Tool Configuration
+
+<Steps>
+  <Step title="Select Your Worker">
+    Navigate to [Workers](https://utari.ai/dashboard) and select the worker you want to configure.
+  </Step>
+  <Step title="Open Tools Tab">
+    Click on the **Tools** tab in the worker's configuration panel.
+  </Step>
+  <Step title="Review Available Tools">
+    Browse through the list of available tools. Each tool includes a description of its capabilities and use cases.
+  </Step>
+</Steps>
+
+## Activating Tools
+
+<Steps>
+  <Step title="Identify Required Tools">
+    Before activating tools, determine your worker's primary purpose:
+    - **Content Creation**: Document creator, presentation creator, spreadsheet tools
+    - **Research**: Web search, web fetch, knowledge base
+    - **Visual Content**: Image generation, image editing, visual tools
+    - **Analysis**: Data processing, spreadsheet analysis
+    - **Communication**: Email tools, messaging integrations
+  </Step>
+  <Step title="Enable Selected Tools">
+    Click the checkbox next to each tool you want to activate for this worker.
+  </Step>
+  <Step title="Save Configuration">
+    Your selections are automatically saved. The worker can now use these tools during execution.
+  </Step>
+</Steps>
+
+## Customizing Tool Options
+
+Many tools have multiple capabilities that can be individually enabled or disabled.
+
+<Steps>
+  <Step title="Access Tool Settings">
+    Click on **Enable tools** or the settings icon next to a specific tool.
+  </Step>
+  <Step title="Review Available Options">
+    You'll see a list of specific capabilities for that tool. For example, a document tool might have 6 different options for various document operations.
+  </Step>
+  <Step title="Select Specific Capabilities">
+    Deselect any capabilities you don't want this worker to use. This helps maintain focus and reduce context usage.
+  </Step>
+  <Step title="Save Changes">
+    Click outside the settings panel or on a save button to apply your customization.
+  </Step>
+</Steps>
+
+<Tip>
+  Limiting tools to only the capabilities you need helps your worker perform more efficiently and stay focused on its primary tasks.
+</Tip>
+
+## Essential Tools by Use Case
+
+### Content Creation Workers
+
+<CardGroup cols={2}>
+  <Card title="Document Creator" icon="file-word">
+    Create and edit documents like Google Docs, Word files, and text documents
+  </Card>
+  <Card title="Knowledge Base" icon="database">
+    Access SOPs, guidelines, and reference materials during content creation
+  </Card>
+  <Card title="Upload Files" icon="upload">
+    Accept and process images, PDFs, and other resources from users
+  </Card>
+  <Card title="Web Search" icon="magnifying-glass">
+    Research topics and gather current information for content
+  </Card>
+</CardGroup>
+
+### Research & Analysis Workers
+
+<CardGroup cols={2}>
+  <Card title="Web Search" icon="globe">
+    Search the internet for information and sources
+  </Card>
+  <Card title="Web Fetch" icon="download">
+    Retrieve and analyze content from specific URLs
+  </Card>
+  <Card title="Knowledge Base" icon="book">
+    Query internal documentation and knowledge repositories
+  </Card>
+  <Card title="Spreadsheet Tools" icon="table">
+    Analyze data and create reports
+  </Card>
+</CardGroup>
+
+### Visual Content Workers
+
+<CardGroup cols={2}>
+  <Card title="Image Generation" icon="image">
+    Create original images using AI
+  </Card>
+  <Card title="Image Editing" icon="wand-magic-sparkles">
+    Modify and enhance existing images
+  </Card>
+  <Card title="Presentation Creator" icon="presentation">
+    Build visual presentations and slide decks
+  </Card>
+  <Card title="Upload Files" icon="upload">
+    Accept images and visual assets for processing
+  </Card>
+</CardGroup>
+
+### General Purpose Workers
+
+<CardGroup cols={2}>
+  <Card title="Knowledge Base" icon="brain">
+    Essential for accessing organizational knowledge
+  </Card>
+  <Card title="Document Creator" icon="file">
+    Create various document types as needed
+  </Card>
+  <Card title="Upload Files" icon="cloud-arrow-up">
+    Accept user-provided files and resources
+  </Card>
+  <Card title="Web Search" icon="search">
+    Supplement knowledge with current information
+  </Card>
+</CardGroup>
+
+## Recommended Core Tools
+
+These tools are recommended for most workers:
+
+<AccordionGroup>
+  <Accordion title="Knowledge Base" icon="database">
+    **Why enable**: Allows workers to access your SOPs, style guides, and proprietary information.
+    
+    **Use cases**:
+    - Referencing company guidelines
+    - Following established procedures
+    - Maintaining brand consistency
+    - Accessing training materials
+  </Accordion>
+  
+  <Accordion title="Document Creator" icon="file-lines">
+    **Why enable**: Enables workers to create professional documents in various formats.
+    
+    **Use cases**:
+    - Creating reports and proposals
+    - Generating documentation
+    - Building templates
+    - Drafting correspondence
+  </Accordion>
+  
+  <Accordion title="Upload Files" icon="upload">
+    **Why enable**: Allows workers to accept and process files from users.
+    
+    **Use cases**:
+    - Processing uploaded images
+    - Analyzing documents
+    - Working with reference materials
+    - Incorporating user-provided assets
+  </Accordion>
+  
+  <Accordion title="Web Search" icon="magnifying-glass">
+    **Why enable**: Provides access to current information beyond the AI's training data.
+    
+    **Use cases**:
+    - Researching recent developments
+    - Fact-checking information
+    - Finding current examples
+    - Gathering competitive intelligence
+  </Accordion>
+</AccordionGroup>
+
+## Tool Configuration Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Be Selective" icon="filter">
+    Only enable tools that directly support the worker's primary function. Fewer tools = better focus and performance.
+  </Card>
+  <Card title="Test Thoroughly" icon="vial">
+    After enabling tools, test your worker with realistic prompts to ensure it uses tools appropriately.
+  </Card>
+  <Card title="Review Descriptions" icon="book-open">
+    Read each tool's description carefully to understand its capabilities and limitations.
+  </Card>
+  <Card title="Customize Options" icon="sliders">
+    Don't just enable entire tools—customize specific capabilities within each tool for precision.
+  </Card>
+  <Card title="Monitor Usage" icon="chart-line">
+    Observe which tools your worker actually uses and disable those that go unused.
+  </Card>
+  <Card title="Update as Needed" icon="arrows-rotate">
+    As your worker's role evolves, revisit tool configuration to add or remove capabilities.
+  </Card>
+</CardGroup>
+
+## Common Tool Combinations
+
+### Marketing Content Worker
+```text
+✓ Knowledge Base (brand guidelines, style guide)
+✓ Document Creator (content drafts)
+✓ Web Search (research and trends)
+✓ Image Generation (visual assets)
+✓ Upload Files (brand assets)
+```
+
+### Customer Support Worker
+```text
+✓ Knowledge Base (help docs, FAQs)
+✓ Web Search (troubleshooting)
+✓ Document Creator (support responses)
+✓ Upload Files (screenshots, logs)
+```
+
+### Data Analysis Worker
+```text
+✓ Spreadsheet Tools (data processing)
+✓ Web Search (data sources)
+✓ Document Creator (reports)
+✓ Upload Files (data files)
+✓ Knowledge Base (analysis frameworks)
+```
+
+### Social Media Worker
+```text
+✓ Knowledge Base (brand voice, guidelines)
+✓ Image Generation (post graphics)
+✓ Web Search (trending topics)
+✓ Document Creator (content calendar)
+```
+
+## Exploring Individual Tools
+
+For detailed information about specific tools, we have comprehensive guides for each:
+
+<CardGroup cols={3}>
+  <Card title="Web Search" icon="globe" href="/tools/web-search">
+    Search and retrieve web information
+  </Card>
+  <Card title="Image Tools" icon="image" href="/tools/image-generation">
+    Generate and edit images
+  </Card>
+  <Card title="Document Tools" icon="file" href="/tools/document-creator">
+    Create various document types
+  </Card>
+  <Card title="Knowledge Base" icon="database" href="/tools/knowledge-base">
+    Access internal knowledge
+  </Card>
+  <Card title="Spreadsheets" icon="table" href="/tools/spreadsheets">
+    Work with data and calculations
+  </Card>
+  <Card title="Presentations" icon="presentation" href="/tools/presentations">
+    Create slide decks and presentations
+  </Card>
+</CardGroup>
+
+<Note>
+  Check our individual tool documentation to understand the full capabilities and best practices for each tool.
+</Note>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Worker not using enabled tools">
+    Try:
+    - Being more explicit in your prompt about which tool to use
+    - Checking that the tool is actually checked/enabled
+    - Verifying the tool is appropriate for the requested task
+    - Reviewing tool-specific documentation for proper usage
+  </Accordion>
+  
+  <Accordion title="Performance seems slow or degraded">
+    Consider:
+    - Reducing the number of enabled tools
+    - Disabling unused tool capabilities
+    - Checking if too many tools are competing for context space
+    - Simplifying your worker's configuration
+  </Accordion>
+  
+  <Accordion title="Tool options not saving">
+    Ensure:
+    - Changes are properly saved before navigating away
+    - You have proper permissions to modify worker configuration
+    - Browser is not blocking the save action
+    - Try refreshing and reconfiguring
+  </Accordion>
+  
+  <Accordion title="Can't find a specific tool">
+    Check:
+    - Your subscription plan includes that tool
+    - The tool is available in your region
+    - You're looking in the correct worker's tool settings
+    - Contact support if a tool seems missing
+  </Accordion>
+</AccordionGroup>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Access and navigate tool configuration for workers
+</Check>
+
+<Check>
+  Strategically select tools based on worker purpose
+</Check>
+
+<Check>
+  Customize individual tool capabilities for optimal performance
+</Check>
+
+<Check>
+  Apply best practices for tool selection and configuration
+</Check>
+
+<Check>
+  Identify essential tool combinations for common use cases
+</Check>
+
+By thoughtfully configuring your worker's tools, you'll create more focused, efficient agents that excel at their specific tasks. Remember to review and optimize tool selection as your workflows evolve.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Explore Individual Tools" icon="compass" href="/tools">
+    Deep dive into each tool's specific capabilities
+  </Card>
+  <Card title="Configure Integrations" icon="plug" href="/integrations">
+    Connect third-party apps to extend functionality
+  </Card>
+  <Card title="Add Knowledge" icon="book" href="/knowledge">
+    Enhance workers with SOPs and documentation
+  </Card>
+  <Card title="Set Up Triggers" icon="clock" href="/triggers">
+    Automate worker execution with triggers
+  </Card>
+</CardGroup>
