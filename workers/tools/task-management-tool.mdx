@@ -1,4 +1,459 @@
 ---
 title: "Task Management Tool"
-description: "Description of your new file."
+description: "Learn how to enable and use the task management tool to organize, track, and manage multi-step workflows within your Utari workers."
 ---
+
+## Overview
+
+The task management tool enables your workers to break down complex requests into organized, trackable tasks. This tool is essential for multi-step workflows where your worker needs to maintain awareness of progress, sequence actions, and coordinate between different phases of work.
+
+<iframe width="700px" height="400px" src="https://embed.app.guidde.com/playbooks/5HqtYgb8WeXpkhC2PuWAeg?mode=videoOnly" title="Enable And Manage Task Management Tool Features" frameBorder="0" referrerPolicy="unsafe-url" allowFullScreen allow="clipboard-write" sandbox="allow-popups allow-popups-to-escape-sandbox allow-scripts allow-forms allow-same-origin allow-presentation" style={{ borderRadius:"10px" }} />
+
+## How Task Management Works
+
+The task management tool allows your worker to:
+
+1. **Create structured task lists** for complex workflows
+2. **Track progress** through multi-step processes
+3. **Maintain context** about what's been completed and what's remaining
+4. **Coordinate sequential actions** in the correct order
+5. **Visualize workflow progress** in real-time
+
+<Info>
+  Think of the task management tool as giving your worker the ability to create and follow a checklist, ensuring nothing gets missed in complex workflows.
+</Info>
+
+## Enabling the Task Management Tool
+
+<Steps>
+  <Step title="Select Your Worker">
+    Navigate to the worker you want to configure and click on the **Tools** tab.
+  </Step>
+  <Step title="Find Task Management">
+    Scroll through the available tools to locate **Task Management**.
+  </Step>
+  <Step title="Enable the Tool">
+    Check the box next to Task Management to activate it for this worker.
+  </Step>
+  <Step title="Review Capabilities">
+    The task management tool includes five core capabilities:
+
+    - **View tasks**: See all current tasks
+    - **Create tasks**: Add new tasks to the list
+    - **Update tasks**: Modify existing tasks and mark progress
+    - **Delete tasks**: Remove completed or unnecessary tasks
+    - **Clear all**: Reset the entire task list
+  </Step>
+</Steps>
+
+<Note>
+  All five capabilities are typically enabled by default. You can customize which capabilities to enable based on your workflow needs.
+</Note>
+
+## Using Task Management in Workflows
+
+Once enabled, your worker can automatically create and manage tasks during conversations.
+
+### Creating a Task List
+
+<Steps>
+  <Step title="Start a Chat">
+    Open a conversation with your worker that has task management enabled.
+  </Step>
+  <Step title="Request Task Creation">
+    Ask your worker to create a task list for a complex process. For example:
+
+    ```
+        Please create a task list on how to create VSLs
+    ```
+  </Step>
+  <Step title="Watch Task Generation">
+    Your worker will:
+
+    - Understand your request
+    - Break down the process into logical steps
+    - Create tasks in the task panel on the right side
+    - Display the structured task list
+  </Step>
+  <Step title="Review Task Structure">
+    Tasks appear in the right sidebar, organized by category and sequence. For example, a VSL creation workflow might include:
+
+    - Research and Planning
+    - Script Development
+    - Visual Planning
+    - Production
+    - Post-Production
+    - Landing Page Setup
+  </Step>
+</Steps>
+
+### Example Task List Output
+
+When you ask a worker to create a task list for creating VSLs, you might see:
+
+<AccordionGroup>
+  <Accordion title="Research and Planning" icon="magnifying-glass">
+    - Define target audience and pain points
+    - Research competitor VSLs
+    - Identify unique value proposition
+    - Gather supporting data and testimonials
+  </Accordion>
+  <Accordion title="Script Development" icon="file-lines">
+    - Write attention-grabbing hook
+    - Develop problem agitation section
+    - Create solution presentation
+    - Write call-to-action
+    - Review and refine script
+  </Accordion>
+  <Accordion title="Visual Planning" icon="palette">
+    - Storyboard key scenes
+    - Select visual style and tone
+    - Plan graphics and animations
+    - Choose music and sound effects
+  </Accordion>
+  <Accordion title="Production" icon="video">
+    - Record video footage
+    - Create graphics and animations
+    - Record voiceover
+    - Compile B-roll footage
+  </Accordion>
+  <Accordion title="Post-Production" icon="film">
+    - Edit video sequence
+    - Add graphics and transitions
+    - Mix audio and music
+    - Color correction and grading
+    - Final review and exports
+  </Accordion>
+  <Accordion title="Landing Page Setup" icon="browser">
+    - Design landing page layout
+    - Write compelling copy
+    - Embed video player
+    - Set up conversion tracking
+    - A/B testing preparation
+  </Accordion>
+</AccordionGroup>
+
+### Executing Sequential Tasks
+
+After creating a task list, you can guide your worker through each step:
+
+<CodeGroup>
+
+```text Sequential Execution
+Now go through research and planning. After you're done, move to script development.
+```
+
+
+```text Specific Task Focus
+Complete the visual planning tasks from the list.
+```
+
+
+```text Progress Check
+Show me which tasks have been completed and what's remaining.
+```
+
+
+```text Update Request
+Mark research and planning as complete and start on the next task.
+```
+
+</CodeGroup>
+
+## Use Cases for Task Management
+
+### Content Creation Workflows
+
+<Card title="Blog Post Production" icon="newspaper">
+  **Tasks Include:**
+
+  - Topic research and keyword analysis
+  - Outline creation
+  - First draft writing
+  - SEO optimization
+  - Image sourcing and editing
+  - Final review and publishing
+</Card>
+
+### Project Planning
+
+<Card title="Campaign Launch" icon="rocket">
+  **Tasks Include:**
+
+  - Strategy development
+  - Creative asset creation
+  - Channel setup and configuration
+  - Testing and QA
+  - Launch execution
+  - Monitoring and optimization
+</Card>
+
+### Research Projects
+
+<Card title="Market Analysis" icon="chart-line">
+  **Tasks Include:**
+
+  - Define research questions
+  - Identify data sources
+  - Collect and organize data
+  - Analyze findings
+  - Create visualizations
+  - Write executive summary
+</Card>
+
+### Document Development
+
+<Card title="Proposal Creation" icon="file-contract">
+  **Tasks Include:**
+
+  - Gather requirements
+  - Research and data collection
+  - Draft executive summary
+  - Write detailed sections
+  - Create supporting materials
+  - Final review and formatting
+</Card>
+
+## Advanced Task Management Features
+
+### Task Updates and Progress Tracking
+
+Your worker can update tasks as work progresses:
+
+```text
+Update the task "Research and Planning" to completed, and mark "Script Development" as in progress.
+```
+
+### Dynamic Task Adjustment
+
+Tasks can be modified during execution:
+
+```text
+Add a new task for "Competitor Analysis" under Research and Planning.
+```
+
+### Task Dependencies
+
+Create workflows where certain tasks must be completed before others:
+
+```text
+Don't start Production tasks until all Script Development tasks are complete.
+```
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Start with Planning" icon="list-check">
+    Always begin complex workflows by asking your worker to create a comprehensive task list before execution.
+  </Card>
+  <Card title="Break Down Complex Work" icon="scissors">
+    Use task management for any workflow with more than 3-4 major steps to maintain organization.
+  </Card>
+  <Card title="Review Before Execution" icon="eye">
+    Check the generated task list to ensure it covers all necessary steps before proceeding with work.
+  </Card>
+  <Card title="Track Progress Explicitly" icon="chart-gantt">
+    Regularly ask your worker to update task status to maintain accurate progress tracking.
+  </Card>
+  <Card title="Use Clear Task Names" icon="tag">
+    Ensure tasks have descriptive names that make their purpose immediately clear.
+  </Card>
+  <Card title="Combine with Knowledge" icon="brain">
+    Use task management alongside your knowledge base for SOP-driven workflows.
+  </Card>
+</CardGroup>
+
+## Task Management Commands
+
+### View Tasks
+
+```text
+Show me the current task list.
+What tasks are remaining?
+Display all tasks and their status.
+```
+
+### Create Tasks
+
+```text
+Create a task list for [project/workflow].
+Add a new task for [specific action].
+Break down [complex process] into tasks.
+```
+
+### Update Tasks
+
+```text
+Mark [task name] as complete.
+Update the status of [task] to in progress.
+Change [task name] to [new description].
+```
+
+### Delete Tasks
+
+```text
+Remove the [task name] from the list.
+Delete all completed tasks.
+Clear the task for [specific item].
+```
+
+### Clear All Tasks
+
+```text
+Clear all tasks and start fresh.
+Reset the task list.
+Remove all tasks from the current list.
+```
+
+## Combining with Other Tools
+
+Task management works exceptionally well when combined with other Utari tools:
+
+<CardGroup cols={2}>
+  <Card title="+ Knowledge Base" icon="database">
+    Create task lists based on SOPs stored in your knowledge base for consistent execution.
+  </Card>
+  <Card title="+ Document Creator" icon="file">
+    Generate progress reports or project documentation from task lists.
+  </Card>
+  <Card title="+ Web Search" icon="magnifying-glass">
+    Research each task thoroughly before execution using web search capabilities.
+  </Card>
+  <Card title="+ Triggers" icon="clock">
+    Automate task creation on a schedule for recurring workflows.
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Tasks not appearing in sidebar">
+    Verify that:
+
+    - Task management tool is enabled for the worker
+    - All task management capabilities are checked
+    - You've explicitly asked the worker to create tasks
+    - Your browser sidebar is visible and not collapsed
+  </Accordion>
+  <Accordion title="Worker not following task sequence">
+    Try:
+
+    - Being more explicit about sequential execution
+    - Asking the worker to complete one task at a time
+    - Reviewing the task list before starting work
+    - Using clearer language like "first," "then," "after"
+  </Accordion>
+  <Accordion title="Tasks are too vague or generic">
+    Provide more context:
+
+    - Share relevant SOPs or guidelines
+    - Give examples of desired task granularity
+    - Request the worker to break down tasks further
+    - Use knowledge base references for more specific tasks
+  </Accordion>
+  <Accordion title="Can't update or delete tasks">
+    Check that:
+
+    - Update and delete capabilities are enabled
+    - You're using correct task names
+    - The task exists in the current list
+    - Try refreshing the conversation if needed
+  </Accordion>
+</AccordionGroup>
+
+## Workflow Examples
+
+### Content Marketing Campaign
+
+<Steps>
+  <Step title="Initialize Task List">
+    ```
+        Create a task list for launching a content marketing campaign for our new product.
+    ```
+  </Step>
+  <Step title="Review and Refine">
+    Review the generated tasks and request modifications if needed.
+  </Step>
+  <Step title="Execute Sequentially">
+    ```
+        Start with the first task: audience research. Use web search to gather data.
+    ```
+  </Step>
+  <Step title="Track Progress">
+    ```
+        Mark audience research as complete. What's the next task?
+    ```
+  </Step>
+  <Step title="Continue Through List">
+    Work through each task, marking completion and moving forward systematically.
+  </Step>
+</Steps>
+
+### Product Launch Preparation
+
+<Steps>
+  <Step title="Generate Comprehensive List">
+    ```
+        Create a detailed task list for preparing a SaaS product launch, including pre-launch, launch day, and post-launch activities.
+    ```
+  </Step>
+  <Step title="Organize by Phase">
+    Review tasks organized by launch phases.
+  </Step>
+  <Step title="Execute Pre-Launch">
+    ```
+        Complete all pre-launch tasks, starting with market research.
+    ```
+  </Step>
+  <Step title="Monitor Dependencies">
+    Ensure prerequisite tasks are complete before moving to dependent tasks.
+  </Step>
+  <Step title="Document Progress">
+    ```
+        Create a progress report showing completed tasks and remaining work.
+    ```
+  </Step>
+</Steps>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Enable and configure the task management tool
+</Check>
+
+<Check>
+  Create structured task lists for complex workflows
+</Check>
+
+<Check>
+  Track and update task progress during execution
+</Check>
+
+<Check>
+  Use task management for various workflow types
+</Check>
+
+<Check>
+  Combine task management with other Utari tools
+</Check>
+
+The task management tool transforms your workers into organized project managers that can break down complex work, maintain progress awareness, and ensure nothing falls through the cracks in multi-step workflows.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Explore Other Tools" icon="toolbox" href="/tools">
+    Discover additional tools to enhance your workflows
+  </Card>
+  <Card title="Knowledge Base Setup" icon="book" href="/knowledge">
+    Create SOPs for consistent task generation
+  </Card>
+  <Card title="Automation with Triggers" icon="clock" href="/triggers">
+    Automate recurring task-based workflows
+  </Card>
+  <Card title="Worker Templates" icon="copy" href="/templates">
+    Save workers with pre-configured task workflows
+  </Card>
+</CardGroup>
