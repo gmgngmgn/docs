@@ -1,4 +1,482 @@
 ---
 title: "Web Browser Tool"
-description: "Description of your new file."
+description: "Learn how to use the web browser tool to navigate websites, capture screenshots, extract content, and interact with web pages directly within Utari."
 ---
+
+## Overview
+
+The web browser tool gives your Utari workers the ability to actively browse and interact with websites. Unlike web search which finds information, the browser tool allows workers to visit specific URLs, navigate through pages, capture screenshots, and extract content—essentially giving your worker a functional web browser.
+
+<iframe width="700px" height="400px" src="https://embed.app.guidde.com/playbooks/1RdgW6sDdo6tckphg4eDv9?mode=videoOnly" title="Use Web Browser Tool to Capture Screenshots in Utari" frameBorder="0" referrerPolicy="unsafe-url" allowFullScreen allow="clipboard-write" sandbox="allow-popups allow-popups-to-escape-sandbox allow-scripts allow-forms allow-same-origin allow-presentation" style={{ borderRadius:"10px" }} />
+
+## Web Browser Capabilities
+
+When you enable the web browser tool, your worker gains four powerful capabilities:
+
+<CardGroup cols={2}>
+  <Card title="Browser Navigate To" icon="compass">
+    Visit specific URLs and navigate through websites
+  </Card>
+  <Card title="Browser Screenshot" icon="camera">
+    Capture visual screenshots of web pages
+  </Card>
+  <Card title="Browser Extract Content" icon="file-export">
+    Extract text, data, and content from web pages
+  </Card>
+  <Card title="Browser App" icon="window-maximize">
+    Launch and interact with web applications
+  </Card>
+</CardGroup>
+
+<Info>
+  The web browser tool is ideal for tasks that require visual verification, page interaction, or when you need to see exactly how a website appears.
+</Info>
+
+## Enabling the Web Browser Tool
+
+<Steps>
+  <Step title="Navigate to Worker Tools">
+    Select your worker and click on the **Tools** tab.
+  </Step>
+  <Step title="Search for Web Browser">
+    Scroll through available tools or use the search function to find **Web Browser**.
+  </Step>
+  <Step title="Enable the Tool">
+    Check the box next to Web Browser to activate all four capabilities:
+    - Browser app
+    - Browser extract content
+    - Browser navigate to
+    - Browser screenshot
+  </Step>
+  <Step title="Customize Capabilities (Optional)">
+    Click on the tool settings to enable or disable specific capabilities based on your needs.
+  </Step>
+  <Step title="Save Configuration">
+    Your changes are automatically saved. The worker can now browse websites.
+  </Step>
+</Steps>
+
+## Using the Web Browser Tool
+
+### Capturing Screenshots
+
+<Steps>
+  <Step title="Start a Chat">
+    Open a conversation with a worker that has the web browser tool enabled.
+  </Step>
+  <Step title="Request Screenshot">
+    Ask your worker to visit a website and capture a screenshot:
+```
+    Can you go to jeremyhaynes.com and take a screenshot?
+```
+  </Step>
+  <Step title="Handle Preview Warning">
+    You may see a preview warning when the browser activates. Simply click **"I understand"** to dismiss the warning and proceed.
+  </Step>
+  <Step title="Review Screenshot">
+    The worker will:
+    - Navigate to the specified URL
+    - Wait for the page to load
+    - Capture a screenshot
+    - Display the screenshot in the chat
+  </Step>
+</Steps>
+
+### Example Screenshot Request Patterns
+
+<CodeGroup>
+```text Basic Screenshot
+Take a screenshot of example.com
+```
+```text Homepage Capture
+Navigate to our company website and capture the homepage
+```
+```text Specific Page
+Go to example.com/pricing and screenshot the pricing page
+```
+```text Multiple Screenshots
+Visit these three competitor websites and take screenshots of their homepages: [URL1], [URL2], [URL3]
+```
+</CodeGroup>
+
+## Browser Capabilities in Detail
+
+### Navigate To
+
+Direct navigation to specific URLs and pages:
+```text
+Navigate to example.com/about-us
+```
+```text
+Go to the contact page at example.com/contact
+```
+```text
+Visit https://example.com and then navigate to the products section
+```
+
+<Tip>
+  The browser tool can follow links and navigate through multi-page flows, making it perfect for checking user journeys and page sequences.
+</Tip>
+
+### Extract Content
+
+Pull specific information from web pages:
+```text
+Go to example.com/blog and extract all the blog post titles
+```
+```text
+Visit the pricing page and extract all pricing tiers and features
+```
+```text
+Navigate to the about page and extract the team member names and titles
+```
+
+### Browser App
+
+Interact with web applications:
+```text
+Launch the web app at app.example.com and show me the dashboard
+```
+```text
+Open the tool at tools.example.com and navigate to the settings page
+```
+
+## Common Use Cases
+
+### Competitive Analysis
+
+<Card title="Monitor Competitor Websites" icon="chart-line">
+  Take regular screenshots of competitor homepages, pricing pages, or product launches to track changes over time.
+```
+  Take screenshots of our top 3 competitors' pricing pages and save them in the "Competitive Analysis" folder
+```
+</Card>
+
+### Website Monitoring
+
+<Card title="Track Website Changes" icon="eye">
+  Capture periodic screenshots to monitor your own website or detect issues.
+```
+  Visit our production website and take screenshots of the homepage, pricing page, and checkout flow
+```
+</Card>
+
+### Design Review
+
+<Card title="Visual Design Verification" icon="palette">
+  Review how designs appear in actual browsers across different pages.
+```
+  Screenshot our new landing page at staging.example.com and analyze the design layout
+```
+</Card>
+
+### Content Verification
+
+<Card title="Check Published Content" icon="check-circle">
+  Verify that content appears correctly after publishing.
+```
+  Navigate to our latest blog post and confirm the images and formatting are displaying correctly
+```
+</Card>
+
+### Documentation
+
+<Card title="Create Visual Documentation" icon="book">
+  Capture screenshots for tutorials, help docs, or training materials.
+```
+  Take screenshots of each step in the signup process at app.example.com for our user guide
+```
+</Card>
+
+## Advanced Browser Commands
+
+### Multi-Step Navigation
+
+Navigate through complex user flows:
+```text
+1. Go to example.com
+2. Navigate to the login page
+3. Then go to the forgot password page
+4. Take a screenshot of each step
+```
+
+### Content Extraction with Screenshots
+
+Combine visual and textual information:
+```text
+Visit the product page, take a screenshot, and then extract all the product features listed on the page
+```
+
+### Comparative Analysis
+
+Compare multiple pages side by side:
+```text
+Take screenshots of the homepage on example.com, competitor1.com, and competitor2.com, then compare their design approaches
+```
+
+### Scheduled Monitoring
+
+Use with triggers for automated monitoring:
+```text
+Every Monday at 9 AM, visit our pricing page and take a screenshot to archive in "Weekly Monitoring" folder
+```
+
+## Combining with Other Tools
+
+The web browser tool becomes more powerful when combined with other Utari capabilities:
+
+<CardGroup cols={2}>
+  <Card title="+ Image Vision" icon="eye">
+    Capture screenshots, then use image vision to analyze design elements, colors, and layout
+  </Card>
+  <Card title="+ Files and Folder" icon="folder">
+    Save screenshots in organized folders for archiving and comparison
+  </Card>
+  <Card title="+ Document Creator" icon="file-word">
+    Create reports with embedded screenshots from multiple websites
+  </Card>
+  <Card title="+ Web Search" icon="magnifying-glass">
+    Search for websites, then use browser to visit and capture them
+  </Card>
+  <Card title="+ Task Management" icon="list-check">
+    Create multi-step website audits with screenshots at each checkpoint
+  </Card>
+  <Card title="+ Knowledge Base" icon="database">
+    Compare screenshots against brand guidelines or design standards
+  </Card>
+</CardGroup>
+
+### Example Combined Workflows
+```text
+Search for the top 5 SaaS pricing page examples, visit each one to take screenshots, analyze them using image vision, and create a comparative analysis document saved in "Research/Pricing Inspiration"
+```
+```text
+Navigate to our competitor's website, take screenshots of their key pages, extract their main value propositions, and create a competitive analysis report
+```
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Use Full URLs" icon="link">
+    Always provide complete URLs including https:// for reliable navigation
+  </Card>
+  <Card title="Be Patient" icon="clock">
+    Allow time for pages to fully load before requesting screenshots
+  </Card>
+  <Card title="Specify Sections" icon="location-dot">
+    For large pages, specify which section you want captured or extracted
+  </Card>
+  <Card title="Organize Screenshots" icon="folder-tree">
+    Save screenshots systematically in dated folders for easy tracking
+  </Card>
+  <Card title="Document Context" icon="note-sticky">
+    When saving screenshots, include dates and context for future reference
+  </Card>
+  <Card title="Clear Instructions" icon="list-check">
+    Provide step-by-step navigation instructions for complex flows
+  </Card>
+</CardGroup>
+
+## Workflow Examples
+
+### Weekly Competitor Monitoring
+
+<Steps>
+  <Step title="Create Monitoring List">
+```
+    Create a task list for monitoring competitor websites: CompetitorA.com, CompetitorB.com, CompetitorC.com
+```
+  </Step>
+  <Step title="Capture Screenshots">
+```
+    Visit each competitor's homepage and pricing page, taking screenshots of each
+```
+  </Step>
+  <Step title="Organize Results">
+```
+    Save all screenshots in "Competitive Analysis/Week-[DATE]" folder with descriptive names
+```
+  </Step>
+  <Step title="Analysis Report">
+```
+    Analyze all screenshots for notable changes or new features and create a summary report
+```
+  </Step>
+</Steps>
+
+### Website Audit Process
+
+<Steps>
+  <Step title="Homepage Review">
+```
+    Navigate to our website homepage and take a full-page screenshot
+```
+  </Step>
+  <Step title="Key Pages">
+```
+    Visit and screenshot: About, Services, Pricing, Contact, and Blog pages
+```
+  </Step>
+  <Step title="Extract Content">
+```
+    For each page, extract the main headings and calls-to-action
+```
+  </Step>
+  <Step title="Analysis">
+```
+    Using image vision, analyze each screenshot for design consistency and mobile responsiveness indicators
+```
+  </Step>
+  <Step title="Report Generation">
+```
+    Create a comprehensive website audit report with all screenshots and recommendations
+```
+  </Step>
+</Steps>
+
+### Product Launch Documentation
+
+<Steps>
+  <Step title="Pre-Launch">
+```
+    Take screenshots of the product page on staging before launch
+```
+  </Step>
+  <Step title="Launch Day">
+```
+    Navigate to the live product page and capture screenshots at launch time
+```
+  </Step>
+  <Step title="Extract Details">
+```
+    Extract product features, pricing, and key messaging from the page
+```
+  </Step>
+  <Step title="Archive">
+```
+    Save all screenshots and extracted content in "Product Launches/[Product Name]/Launch Day" folder
+```
+  </Step>
+</Steps>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Browser tool not activating">
+    Verify that:
+    - Web browser tool is enabled in worker configuration
+    - All necessary capabilities are checked
+    - You're providing valid, complete URLs
+    - You've dismissed any preview warnings
+  </Accordion>
+  
+  <Accordion title="Screenshots are blank or incomplete">
+    Try:
+    - Waiting a few seconds for the page to fully load
+    - Asking the worker to "wait for the page to load, then take a screenshot"
+    - Checking if the website blocks automated access
+    - Verifying the URL is correct and publicly accessible
+  </Accordion>
+  
+  <Accordion title="Can't access certain websites">
+    Check if:
+    - The website requires login credentials
+    - The site blocks automated browser access
+    - The URL is behind a firewall or VPN
+    - The website has geo-restrictions
+    - Try a different page on the same domain
+  </Accordion>
+  
+  <Accordion title="Preview warning keeps appearing">
+    Remember to:
+    - Click "I understand" each time it appears
+    - This is a security feature to confirm you want the worker to access external websites
+    - The warning protects you from unintended navigation
+  </Accordion>
+  
+  <Accordion title="Extracted content is incomplete">
+    Improve extraction by:
+    - Being more specific about what content to extract
+    - Specifying the section or element you need
+    - Asking for specific data types (headings, prices, lists, etc.)
+    - Trying multiple extraction commands for complex pages
+  </Accordion>
+  
+  <Accordion title="Navigation fails on multi-step processes">
+    Consider:
+    - Breaking down into individual navigation commands
+    - Confirming each step completes before moving to the next
+    - Checking if the site uses redirects or dynamic URLs
+    - Some web apps may not work with automated browsing
+  </Accordion>
+</AccordionGroup>
+
+## Privacy and Security
+
+<Warning>
+  **Important Considerations:**
+  - The browser tool accesses websites on your behalf
+  - Always review the preview warning before proceeding
+  - Don't use the tool to access sensitive or password-protected sites
+  - Be aware of terms of service for websites you're accessing
+  - Screenshots may capture sensitive information—handle accordingly
+  - Respect website robots.txt and terms of service
+</Warning>
+
+## Limitations
+
+<Note>
+  **Current Limitations:**
+  - Cannot interact with pages requiring login
+  - Limited JavaScript interaction capabilities
+  - May not work with all single-page applications (SPAs)
+  - Cannot fill out forms or click buttons (yet)
+  - Works best with publicly accessible, static content
+</Note>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Enable and configure the web browser tool with all four capabilities
+</Check>
+
+<Check>
+  Navigate to specific websites and capture screenshots
+</Check>
+
+<Check>
+  Extract content from web pages for analysis
+</Check>
+
+<Check>
+  Handle browser preview warnings
+</Check>
+
+<Check>
+  Combine browser capabilities with other Utari tools for powerful workflows
+</Check>
+
+<Check>
+  Apply best practices for effective web browsing and monitoring
+</Check>
+
+The web browser tool transforms your Utari workers into visual web researchers, capable of visiting websites, capturing what they see, and extracting information—all within your workflow automation.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Image Vision Tool" icon="eye" href="/tools/image-vision">
+    Analyze captured screenshots in detail
+  </Card>
+  <Card title="Web Search Tool" icon="magnifying-glass" href="/tools/web-search">
+    Find websites before browsing to them
+  </Card>
+  <Card title="Files and Folder" icon="folder" href="/tools/files-folder">
+    Organize your screenshot archives
+  </Card>
+  <Card title="Document Creator" icon="file-word" href="/tools/document-creator">
+    Create reports with embedded screenshots
+  </Card>
+</CardGroup>
