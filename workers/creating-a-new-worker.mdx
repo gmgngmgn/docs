@@ -1,4 +1,349 @@
 ---
-title: "Creating A New Worker"
-description: "Description of your new file."
+title: "Create Your First Utari Worker"
+description: "Learn how to create and configure workers (AI agents) in Utari, including setting up instructions, tools, integrations, knowledge, and automated triggers."
 ---
+
+## Overview
+
+This guide walks you through creating your first Utari worker from scratch. Workers are specialized AI agents that perform specific tasks within your workspace. You'll learn how to configure their capabilities, connect integrations, add knowledge, and set up automated workflows.
+
+<iframe width="700px" height="400px" src="https://embed.app.guidde.com/playbooks/1DSwk4BPvdWTVWhxdDAhmF?mode=videoOnly" title="Create and Configure Your First Utari Worker" frameBorder="0" referrerPolicy="unsafe-url" allowFullScreen allow="clipboard-write" sandbox="allow-popups allow-popups-to-escape-sandbox allow-scripts allow-forms allow-same-origin allow-presentation" style={{ borderRadius:"10px" }} />
+
+## Creating Your Worker
+
+<Steps>
+  <Step title="Access Workers">
+    Log into your Utari account at https://utari.ai/dashboard and click on **Workers** in the main navigation. Think of workers as employees that specialize in specific tasks.
+  </Step>
+  <Step title="Start Creation Process">
+    Click **Add Workers** on the left-hand side. You'll have the option to:
+
+    - Create from scratch
+    - Explore templates
+
+    For this guide, select **Create from scratch**.
+  </Step>
+  <Step title="Name Your Worker">
+    Click on "New Worker" and give your worker a descriptive name (e.g., "VSL Worker").
+
+    You can also:
+
+    - Change the worker's icon
+    - Customize the color scheme
+  </Step>
+  <Step title="Save Initial Configuration">
+    Click **Save changes** to create your worker.
+  </Step>
+</Steps>
+
+## Configuring Instructions
+
+Instructions are the core prompt that guides your worker's behavior.
+
+<Steps>
+  <Step title="Access Instructions">
+    Click on the **Instructions** tab in your worker's configuration.
+  </Step>
+  <Step title="Review Default Prompt">
+    Utari provides a robust default prompt that works well for most use cases. We recommend leaving it as-is and using the **Knowledge** feature to guide specific behaviors.
+  </Step>
+  <Step title="Customize (Optional)">
+    If you need to modify the instructions:
+
+    - Click on the instructions text
+    - Read through the entire prompt carefully
+    - Make targeted changes to specific sections
+    - Click **Save** when done
+  </Step>
+</Steps>
+
+<Warning>
+  The default instructions are comprehensive and tested. Only modify them if you have a specific need and understand the full context of the prompt.
+</Warning>
+
+## Adding Tools
+
+Tools give your worker specific capabilities to perform actions.
+
+<Steps>
+  <Step title="Navigate to Tools">
+    Click on the **Tools** tab in your worker's configuration.
+  </Step>
+  <Step title="Review Available Tools">
+    Browse through the available tools, which include:
+
+    - Web search
+    - Image creation/editing
+    - Presentation creation
+    - Document creation
+    - File uploads
+    - And many more
+  </Step>
+  <Step title="Activate Required Tools">
+    Check the box next to each tool you want to enable for this worker. Only activated tools will be available during execution.
+  </Step>
+  <Step title="Learn About Each Tool">
+    Check our individual tool documentation to understand what each capability does and when to use it.
+  </Step>
+</Steps>
+
+<Tip>
+  Start with essential tools for your worker's primary task, then add more as needed. Too many tools can sometimes slow down decision-making.
+</Tip>
+
+## Connecting Integrations
+
+Integrations allow your worker to access third-party applications.
+
+<Steps>
+  <Step title="Open Integrations">
+    Click on the **Integrations** tab.
+  </Step>
+  <Step title="Browse Available Apps">
+    Click **Browse Apps** to see all available integrations.
+  </Step>
+  <Step title="Add an Integration">
+    For example, to add Google Drive:
+
+    1. Find Google Drive in the list
+    2. Click **Add**
+    3. Click **Create new connection**
+    4. Click **Create connection** then **Connect**
+    5. Select your Google account in the popup
+    6. Click **Continue** to grant permissions
+    7. Click **I've completed authentication**
+  </Step>
+  <Step title="Enable Integration Tools">
+    After connecting:
+
+    - Review the available tools for that integration
+    - Enable the specific tools you want your worker to use
+    - Click **Save tools**
+  </Step>
+  <Step title="Configure Settings (Optional)">
+    Click the settings gear icon to adjust access permissions for specific tools.
+  </Step>
+</Steps>
+
+## Adding Knowledge
+
+Knowledge provides your worker with additional context, SOPs, and frameworks.
+
+<Steps>
+  <Step title="Navigate to Knowledge">
+    Click on the **Knowledge** tab in your worker's configuration.
+  </Step>
+  <Step title="Search for Existing Knowledge">
+    Browse through available SOPs and documents in your knowledge base.
+  </Step>
+  <Step title="Activate Relevant Knowledge">
+    Select the specific documents or SOPs that are relevant to this worker's tasks. For example:
+
+    - For a VSL worker, activate the "Mastering VSLs" SOP
+    - For a content writer, activate your content style guides
+  </Step>
+</Steps>
+
+<Note>
+  Workers can only access knowledge that has been explicitly activated for them. See our [Using Jeremy SOPs in Utari](/jeremy-sops) guide for more details on managing knowledge.
+</Note>
+
+## Setting Up Triggers
+
+Triggers enable your worker to run automatically on a schedule or based on events.
+
+<Steps>
+  <Step title="Create New Trigger">
+    In the **Triggers** tab, click **Create new**.
+  </Step>
+  <Step title="Choose Trigger Type">
+    Select:
+
+    - **Schedule Trigger**: Run on a time-based schedule
+    - **Event-based Trigger**: Run when specific events occur
+  </Step>
+  <Step title="Configure Schedule Trigger">
+    For a scheduled trigger:
+
+    1. Select your worker from the dropdown
+    2. Give the trigger a descriptive name (e.g., "Daily VSL Creation")
+    3. Click **Set schedule and timing**
+    4. Choose frequency:
+       - **Quick**: Pre-set intervals (daily, weekly, etc.)
+       - **Recurring**: Custom recurring patterns
+       - **One time**: Single execution
+       - **Advanced**: Complex schedules
+    5. Set the time and timezone
+  </Step>
+  <Step title="Choose Execution Method">
+    Click **Next** to proceed to the execution configuration.
+  </Step>
+  <Step title="Write Trigger Prompt">
+    Enter the instructions for what the worker should do when triggered. For example:
+
+    ```
+        Every day, create a VSL based on the Mastering VSL doc on how to use AI for business.
+    ```
+  </Step>
+  <Step title="Create and Manage">
+    - Click **Create schedule tasks** to activate
+    - Use the pause button to temporarily disable
+    - Click the settings icon to edit the trigger
+  </Step>
+</Steps>
+
+## Using Your Worker
+
+Once configured, you can interact with your worker through chat.
+
+<Steps>
+  <Step title="Start a Chat">
+    Click **Start Chat** to open a conversation with your worker.
+  </Step>
+  <Step title="Select Worker">
+    Ensure your newly created worker is selected from the dropdown menu.
+  </Step>
+  <Step title="Choose Model (Optional)">
+    Select your preferred AI model from the model dropdown if you want to use something other than the default.
+  </Step>
+  <Step title="Attach Files (Optional)">
+    Click **Attach files** to upload any documents or images needed for the task.
+  </Step>
+  <Step title="Enter Your Prompt">
+    Type your request in the chat. For example:
+
+    ```
+        Please create a VSL on how AI can be used for business using the Mastering VSL doc.
+    ```
+  </Step>
+  <Step title="Review Worker Process">
+    Watch as your worker:
+
+    - Understands your request
+    - Searches its knowledge base
+    - Uses activated tools
+    - Generates the response
+  </Step>
+</Steps>
+
+### Example Prompts
+
+<CodeGroup>
+
+```text Content Creation
+Create a blog post about AI trends using our content style guide.
+```
+
+
+```text Research
+Search the web for the latest developments in quantum computing and summarize the findings.
+```
+
+
+```text Document Processing
+Review the uploaded contract and extract key terms and deadlines.
+```
+
+</CodeGroup>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Start Simple" icon="seedling">
+    Begin with basic tools and add more capabilities as you understand your worker's needs.
+  </Card>
+  <Card title="Name Descriptively" icon="tag">
+    Use clear, task-specific names for your workers to easily identify their purpose.
+  </Card>
+  <Card title="Test Thoroughly" icon="flask">
+    Run test prompts before setting up automated triggers to ensure proper configuration.
+  </Card>
+  <Card title="Organize Knowledge" icon="books">
+    Only activate knowledge that's directly relevant to avoid information overload.
+  </Card>
+  <Card title="Monitor Triggers" icon="clock">
+    Regularly check automated task results to ensure quality output.
+  </Card>
+  <Card title="Use Templates" icon="copy">
+    Once you've perfected a worker configuration, save it as a template for similar tasks.
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Worker not responding as expected">
+    Check that:
+
+    - Required tools are activated
+    - Necessary integrations are connected and authenticated
+    - Relevant knowledge is enabled
+    - Your prompt is clear and specific
+  </Accordion>
+  <Accordion title="Integration connection failed">
+    Try:
+
+    - Clearing browser cache and cookies
+    - Using a different browser
+    - Checking if you have proper permissions on the third-party app
+    - Reconnecting the integration from scratch
+  </Accordion>
+  <Accordion title="Trigger not executing">
+    Verify:
+
+    - The trigger is not paused
+    - Timezone is set correctly
+    - The worker has all necessary tools and knowledge activated
+    - The prompt is properly formatted
+  </Accordion>
+  <Accordion title="Worker can't access knowledge">
+    Ensure:
+
+    - Knowledge is uploaded to the knowledge base
+    - Knowledge is activated in the worker's Knowledge tab
+    - You're referencing the correct document name in your prompt
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Explore Tools" icon="toolbox" href="/tools">
+    Learn about each available tool and when to use them
+  </Card>
+  <Card title="Integration Guides" icon="plug" href="/integrations">
+    Deep dive into connecting and using third-party apps
+  </Card>
+  <Card title="Knowledge Management" icon="book" href="/jeremy-sops">
+    Master the knowledge base and SOP system
+  </Card>
+  <Card title="Advanced Automation" icon="gears" href="/triggers">
+    Create complex workflows with advanced triggers
+  </Card>
+</CardGroup>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Create a new worker from scratch
+</Check>
+
+<Check>
+  Configure instructions, tools, and integrations
+</Check>
+
+<Check>
+  Add knowledge and SOPs to your worker
+</Check>
+
+<Check>
+  Set up automated triggers for scheduled execution
+</Check>
+
+<Check>
+  Use your worker through chat interactions
+</Check>
+
+Your worker is now ready to perform automated tasks and assist with specialized work. Experiment with different configurations to find what works best for your specific use cases.
