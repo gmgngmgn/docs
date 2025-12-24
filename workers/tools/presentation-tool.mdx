@@ -1,4 +1,742 @@
 ---
-title: "Presentation Tool"
-description: "Description of your new file."
+title: "Create Presentations"
+description: "Create professional presentations with custom themes or templates, managing slides, layouts, and exports with AI assistance."
 ---
+
+## Overview
+
+The presentation creation tools enable your Utari workers to build professional slide decks from scratch or using templates. Workers can create individual slides, manage entire presentations, validate layouts, and export to PowerPoint (PPTX) and PDF formats—all through conversational instructions.
+
+## Presentation Creation Capabilities
+
+<CardGroup cols={2}>
+  <Card title="Create Slides" icon="file-powerpoint">
+    Design individual slides with custom layouts, content, and styling
+  </Card>
+  <Card title="Manage Presentations" icon="folder">
+    List, organize, and delete entire presentations and individual slides
+  </Card>
+  <Card title="Use Templates" icon="clone">
+    Apply pre-designed templates for quick, professional presentations
+  </Card>
+  <Card title="Export Formats" icon="download">
+    Export presentations to PPTX and PDF simultaneously
+  </Card>
+  <Card title="Validate Layouts" icon="ruler">
+    Ensure slides fit within standard dimensions without overflow
+  </Card>
+  <Card title="Custom Themes" icon="palette">
+    Create unique presentations with custom color schemes and designs
+  </Card>
+</CardGroup>
+
+## Two Presentation Workflows
+
+### Custom Theme (Default)
+
+The default approach for creating truly unique, brand-aligned presentations:
+
+<Steps>
+  <Step title="Research Phase">
+    - Research the topic and target audience
+    - Identify brand colors and visual identity
+    - Gather relevant visual references
+  </Step>
+  
+  <Step title="Design Phase">
+    - Define custom color scheme
+    - Establish design elements and patterns
+    - Create visual hierarchy
+  </Step>
+  
+  <Step title="Content Phase">
+    - Create content outline
+    - Search for relevant images
+    - Download all required images
+  </Step>
+  
+  <Step title="Build Phase">
+    - Use `create_slide` for each slide
+    - Apply custom styling consistently
+    - Validate each slide
+  </Step>
+</Steps>
+
+<Info>
+  **When to Use Custom Theme**: This is the default workflow. Use it for:
+  - Original, unique presentations
+  - Brand-specific designs
+  - Custom color schemes
+  - When user doesn't explicitly request a template
+  - When creating distinctive visual identities
+</Info>
+
+### Template-Based (On Request)
+
+Use pre-designed templates for faster creation:
+
+<Steps>
+  <Step title="Template Selection">
+    - User explicitly requests a template
+    - Call `list_templates` to show options
+    - User selects their preferred template
+  </Step>
+  
+  <Step title="Load Template">
+    - Use `load_template_design` with presentation name
+    - Template is copied to workspace
+    - All design elements preserved
+  </Step>
+  
+  <Step title="Content Update">
+    - Use `full_file_rewrite` to update text content
+    - Preserve 100% of CSS styling
+    - Keep HTML structure identical
+    - Only modify text and data
+  </Step>
+  
+  <Step title="Export">
+    - Export to PPTX and PDF
+    - Download or store locally
+  </Step>
+</Steps>
+
+<Warning>
+  **CRITICAL**: Only use templates when the user **explicitly requests** them with phrases like:
+  - "Use a template"
+  - "Show me templates"
+  - "Use the minimalist template"
+  - "I want to use a template"
+  
+  Do NOT use templates by default or when the user wants a unique/custom design.
+</Warning>
+
+## Creating Slides
+
+### Create Slide Tool
+
+Create or update individual slides in custom theme presentations.
+
+**Technical Specifications:**
+- Dimensions: 1920×1080 pixels (16:9 aspect ratio)
+- Format: Standalone HTML file
+- Auto-validation: Width ≤1920px, Height ≤1080px
+- Box-sizing: Use `border-box` on padded containers
+
+<Warning>
+  **When to Use create_slide**:
+  - ONLY for custom theme presentations
+  - After completing Phase 3 (research, outline, images downloaded)
+  
+  **When NOT to use create_slide**:
+  - Template-based presentations (use `full_file_rewrite` instead)
+  - Before images are downloaded
+  - Before design phase is complete
+</Warning>
+
+### Slide Creation Example
+```text
+User: Create a presentation about sustainable energy
+
+Worker Process:
+1. Phase 1 - Research:
+   - Research sustainable energy topics
+   - Identify target audience
+   - Analyze visual trends in energy sector
+
+2. Phase 2 - Design:
+   - Custom color scheme: Green (#2D5016), Blue (#0066CC), White (#FFFFFF)
+   - Design elements: Clean, modern, data-focused
+   - Typography: Sans-serif, professional
+
+3. Phase 3 - Content:
+   - Content outline for 10 slides
+   - Image search for relevant visuals
+   - Download all images to workspace
+
+4. Phase 4 - Build:
+   - Create title slide with create_slide
+   - Create content slides with create_slide
+   - Validate each slide with validate_slide
+   - Export presentation
+```
+
+## Working with Templates
+
+### Listing Templates
+
+<Steps>
+  <Step title="User Requests Template">
+```
+    User: "Show me available presentation templates"
+    User: "I want to use a template for my presentation"
+```
+  </Step>
+  
+  <Step title="Call list_templates">
+    Worker calls `list_templates` to display available options.
+  </Step>
+  
+  <Step title="Present Options">
+    Show user the available templates with descriptions:
+    - Minimalist
+    - Corporate
+    - Creative
+    - Educational
+    - Tech-focused
+    - (etc.)
+  </Step>
+  
+  <Step title="User Selects">
+```
+    User: "Use the Minimalist template"
+    User: "I'll go with the Corporate one"
+```
+  </Step>
+</Steps>
+
+### Loading and Using Templates
+
+<Steps>
+  <Step title="Load Template Design">
+```
+    load_template_design(
+      template_name="minimalist",
+      presentation_name="Q4_Sales_Report"
+    )
+```
+    
+    This copies the entire template to `/workspace/presentations/Q4_Sales_Report/`
+  </Step>
+  
+  <Step title="Review Template Structure">
+    Examine the template's:
+    - Color scheme
+    - Typography
+    - Layout patterns
+    - Slide structure
+    - CSS styling
+  </Step>
+  
+  <Step title="Update Content Only">
+    Use `full_file_rewrite` to modify ONLY the text content:
+    - Replace placeholder text
+    - Update data and statistics
+    - Change headings and bullet points
+    - Swap images if needed
+    
+    **CRITICAL**: Preserve 100% of:
+    - CSS styling
+    - Colors and fonts
+    - HTML structure
+    - Layout positioning
+  </Step>
+  
+  <Step title="Validate and Export">
+    Validate slides and export when complete.
+  </Step>
+</Steps>
+
+<Warning>
+  **Template Editing Rules**:
+  - ✅ Change text content
+  - ✅ Update data and numbers
+  - ✅ Replace images
+  - ✅ Modify headings
+  - ❌ Change colors
+  - ❌ Alter fonts
+  - ❌ Modify CSS styling
+  - ❌ Change HTML structure
+  - ❌ Adjust layouts
+</Warning>
+
+## Slide Validation
+
+### Validate Slide Tool
+
+Ensures slides fit within standard presentation dimensions.
+
+<Steps>
+  <Step title="Create Slide">
+    Build your slide with content and styling.
+  </Step>
+  
+  <Step title="Call validate_slide">
+```
+    validate_slide(
+      presentation_name="My_Presentation",
+      slide_number=1
+    )
+```
+  </Step>
+  
+  <Step title="Review Validation">
+    Check if content height exceeds 1080px:
+    - ✅ Valid: Content fits within dimensions
+    - ❌ Invalid: Content overflow detected
+  </Step>
+  
+  <Step title="Fix if Needed">
+    If validation fails:
+    - Reduce content amount
+    - Decrease font sizes
+    - Adjust padding/margins
+    - Use `box-sizing: border-box`
+    - Compress images
+    - Reflow layout
+  </Step>
+  
+  <Step title="Re-validate">
+    Validate again after fixes until passing.
+  </Step>
+</Steps>
+
+<Tip>
+  **Best Practice**: Validate slides immediately after creation to catch dimension issues early. It's easier to fix one slide than to discover overflow issues across an entire presentation later.
+</Tip>
+
+## Managing Presentations
+
+### List Presentations
+
+View all presentations in your workspace:
+```text
+User: Show me all my presentations
+
+Worker: [Calls list_presentations]
+
+Available presentations:
+- Q4_Sales_Report (8 slides)
+- Product_Launch_Deck (15 slides)
+- Team_Training_2024 (12 slides)
+- Marketing_Strategy (10 slides)
+```
+
+### List Slides
+
+View all slides within a specific presentation:
+```text
+User: What slides are in my Q4 Sales Report?
+
+Worker: [Calls list_slides for Q4_Sales_Report]
+
+Q4 Sales Report slides:
+1. Title: Q4 Sales Overview
+2. Executive Summary
+3. Revenue Breakdown
+4. Regional Performance
+5. Top Products
+6. Growth Metrics
+7. Challenges and Opportunities
+8. Q1 Projections
+```
+
+### Delete Slide
+
+Remove a specific slide from a presentation:
+```text
+User: Delete slide 5 from the Product Launch deck
+
+Worker: [Calls delete_slide]
+Slide 5 "Feature Comparison" has been removed from Product_Launch_Deck.
+```
+
+### Delete Presentation
+
+Remove an entire presentation:
+```text
+User: Delete the old Training presentation
+
+Worker: [Calls delete_presentation for Team_Training_2024]
+Presentation "Team_Training_2024" and all 12 slides have been deleted.
+```
+
+<Warning>
+  Deleting presentations and slides is permanent. Ensure you have backups or exports before deleting.
+</Warning>
+
+## Exporting Presentations
+
+### Export Presentation Tool
+
+Export to both PowerPoint (PPTX) and PDF simultaneously:
+
+<Steps>
+  <Step title="Complete Presentation">
+    Ensure all slides are created and validated.
+  </Step>
+  
+  <Step title="Call Export">
+```
+    export_presentation(
+      presentation_name="Q4_Sales_Report",
+      store_locally=True
+    )
+```
+    
+    **Parameters**:
+    - `store_locally=True`: Enables download button for repeated downloads
+    - `store_locally=False`: Returns files directly
+  </Step>
+  
+  <Step title="Parallel Processing">
+    Both formats export simultaneously for faster completion:
+    - PPTX export runs
+    - PDF export runs
+    - Both complete in parallel
+  </Step>
+  
+  <Step title="Download or Store">
+    Depending on settings:
+    - **Stored locally**: Download button available in UI
+    - **Direct return**: Files provided immediately
+  </Step>
+</Steps>
+
+<Info>
+  **Export Benefits**:
+  - Get both formats at once
+  - Faster parallel processing
+  - PPTX for editing
+  - PDF for distribution
+  - Multiple download options
+</Info>
+
+## Presentation Best Practices
+
+### Design Principles
+
+<CardGroup cols={2}>
+  <Card title="Consistent Styling" icon="palette">
+    Use the same colors, fonts, and design elements throughout all slides
+  </Card>
+  
+  <Card title="Visual Hierarchy" icon="layer-group">
+    Establish clear hierarchy with headings, subheadings, and body text
+  </Card>
+  
+  <Card title="White Space" icon="expand">
+    Don't overcrowd slides—use white space for breathing room
+  </Card>
+  
+  <Card title="Readable Fonts" icon="font">
+    Use professional, readable fonts at appropriate sizes (minimum 18pt for body)
+  </Card>
+  
+  <Card title="High Contrast" icon="circle-half-stroke">
+    Ensure text is readable with sufficient color contrast
+  </Card>
+  
+  <Card title="Image Quality" icon="image">
+    Use high-resolution images that support your message
+  </Card>
+  
+  <Card title="Data Visualization" icon="chart-column">
+    Present data clearly with charts and graphs instead of tables when possible
+  </Card>
+  
+  <Card title="Consistent Layout" icon="table-cells">
+    Use similar layouts for similar content types
+  </Card>
+</CardGroup>
+
+### Content Guidelines
+
+<CardGroup cols={2}>
+  <Card title="One Idea Per Slide" icon="lightbulb">
+    Focus each slide on a single concept or message
+  </Card>
+  
+  <Card title="Bullet Points" icon="list">
+    Keep bullet points concise (5-7 words max)
+    
+    Limit to 5-7 bullets per slide
+  </Card>
+  
+  <Card title="Clear Headings" icon="heading">
+    Every slide needs a clear, descriptive heading
+  </Card>
+  
+  <Card title="Supporting Visuals" icon="image">
+    Use images and graphics to reinforce messages
+  </Card>
+</CardGroup>
+
+### Technical Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Box-Sizing" icon="box">
+    Always use `box-sizing: border-box` on containers with padding
+  </Card>
+  
+  <Card title="Validate Early" icon="check-circle">
+    Validate each slide immediately after creation
+  </Card>
+  
+  <Card title="Test Exports" icon="file-export">
+    Export and review presentations before final delivery
+  </Card>
+  
+  <Card title="Image Optimization" icon="compress">
+    Optimize images for web to keep file sizes manageable
+  </Card>
+</CardGroup>
+
+## Common Presentation Types
+
+### Sales and Business
+
+<Accordion title="Sales Pitch Deck">
+  **Typical Structure**:
+  1. Title slide with company logo
+  2. Problem statement
+  3. Solution overview
+  4. Product/service details
+  5. Benefits and ROI
+  6. Case studies/testimonials
+  7. Pricing/packages
+  8. Next steps/CTA
+  
+  **Design Style**: Professional, corporate, clean
+  
+  **Color Scheme**: Brand colors, typically blues/grays for trust
+</Accordion>
+
+### Marketing and Creative
+
+<Accordion title="Marketing Campaign Presentation">
+  **Typical Structure**:
+  1. Campaign overview
+  2. Target audience analysis
+  3. Key message and positioning
+  4. Creative concepts
+  5. Channel strategy
+  6. Timeline and milestones
+  7. Budget breakdown
+  8. Success metrics
+  
+  **Design Style**: Creative, visual, engaging
+  
+  **Color Scheme**: Vibrant, attention-grabbing
+</Accordion>
+
+### Educational and Training
+
+<Accordion title="Training Workshop Deck">
+  **Typical Structure**:
+  1. Welcome and objectives
+  2. Agenda
+  3. Topic introduction
+  4. Core concepts (multiple slides)
+  5. Examples and case studies
+  6. Practice exercises
+  7. Q&A
+  8. Summary and resources
+  
+  **Design Style**: Clear, educational, accessible
+  
+  **Color Scheme**: Friendly, non-threatening colors
+</Accordion>
+
+### Technical and Product
+
+<Accordion title="Product Launch Presentation">
+  **Typical Structure**:
+  1. Title and product reveal
+  2. Market opportunity
+  3. Product overview
+  4. Key features
+  5. Technical specifications
+  6. Competitive advantage
+  7. Go-to-market strategy
+  8. Launch timeline
+  
+  **Design Style**: Modern, tech-forward, sleek
+  
+  **Color Scheme**: Contemporary, often with gradients
+</Accordion>
+
+## Combining with Other Tools
+
+Presentations become more powerful when combined with other Utari capabilities:
+
+<CardGroup cols={2}>
+  <Card title="+ Web Search" icon="magnifying-glass">
+    Research topics, gather statistics, and find current information for presentation content
+  </Card>
+  
+  <Card title="+ Image Editor" icon="wand-magic-sparkles">
+    Generate custom graphics, charts, and visual elements for slides
+  </Card>
+  
+  <Card title="+ Knowledge Base" icon="database">
+    Pull from brand guidelines and templates to ensure consistency
+  </Card>
+  
+  <Card title="+ Files and Folder" icon="folder">
+    Organize presentations in structured folders by project or client
+  </Card>
+</CardGroup>
+
+### Example Combined Workflow
+
+<Steps>
+  <Step title="Research Phase">
+```
+    Use web search to research: "latest AI industry trends 2024"
+    Find statistics, examples, and current data
+```
+  </Step>
+  
+  <Step title="Visual Assets">
+```
+    Generate custom graphics using image editor:
+    - Hero image for title slide
+    - Icons for feature slides
+    - Data visualization backgrounds
+```
+  </Step>
+  
+  <Step title="Brand Alignment">
+```
+    Reference brand guidelines from knowledge base:
+    - Company color palette
+    - Typography standards
+    - Logo usage rules
+```
+  </Step>
+  
+  <Step title="Create Presentation">
+```
+    Build presentation with custom theme using researched content, generated images, and brand guidelines
+```
+  </Step>
+  
+  <Step title="Organize and Export">
+```
+    Save in "Presentations/Q4_2024/" folder
+    Export to PPTX and PDF
+    Store locally for downloads
+```
+  </Step>
+</Steps>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Slide validation fails (content overflow)">
+    Solutions:
+    - Reduce content amount per slide
+    - Split into multiple slides
+    - Decrease font sizes
+    - Reduce padding and margins
+    - Use `box-sizing: border-box` on containers
+    - Compress or resize images
+    - Adjust line-height for tighter spacing
+    - Remove unnecessary whitespace
+  </Accordion>
+  
+  <Accordion title="Template styling changes after edit">
+    Remember:
+    - Use `full_file_rewrite` for templates
+    - Only modify text content
+    - Preserve ALL CSS styling
+    - Don't change HTML structure
+    - Keep colors and fonts identical
+    - Maintain layout positioning
+    - Review template before editing
+  </Accordion>
+  
+  <Accordion title="Export fails or produces errors">
+    Check:
+    - All slides are validated
+    - No missing images or resources
+    - Presentation name is valid
+    - All slides completed successfully
+    - Try exporting again
+    - Check for special characters in file names
+  </Accordion>
+  
+  <Accordion title="Images not displaying in slides">
+    Verify:
+    - Images downloaded to workspace
+    - Correct file paths in HTML
+    - Image formats supported (JPG, PNG, GIF, WebP)
+    - File names don't contain spaces or special characters
+    - Images are properly referenced
+  </Accordion>
+  
+  <Accordion title="Inconsistent design across slides">
+    Ensure:
+    - Using same color scheme variables
+    - Consistent typography settings
+    - Similar layout structure
+    - Reusing CSS classes
+    - Following established design system
+    - Validating against style guide
+  </Accordion>
+  
+  <Accordion title="Can't find created presentation">
+    Try:
+    - Call list_presentations to see all decks
+    - Check spelling of presentation name
+    - Verify presentation wasn't accidentally deleted
+    - Look in `/workspace/presentations/` directory
+    - Check if using correct workspace
+  </Accordion>
+</AccordionGroup>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Understand the two presentation workflows (custom theme vs. template)
+</Check>
+
+<Check>
+  Create custom presentations with unique designs
+</Check>
+
+<Check>
+  Use templates effectively when explicitly requested
+</Check>
+
+<Check>
+  Create and validate individual slides
+</Check>
+
+<Check>
+  Manage presentations and slides (list, delete, organize)
+</Check>
+
+<Check>
+  Export presentations to PPTX and PDF formats
+</Check>
+
+<Check>
+  Apply design best practices for professional presentations
+</Check>
+
+<Check>
+  Combine presentation tools with other Utari capabilities
+</Check>
+
+The presentation creation tools transform your Utari workers into professional slide deck designers, capable of creating polished, branded presentations from research through final export—all through conversational instructions.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Image Editor" icon="wand-magic-sparkles" href="/tools/image-editor">
+    Generate custom graphics for presentations
+  </Card>
+  <Card title="Web Search" icon="magnifying-glass" href="/tools/web-search">
+    Research content for your slides
+  </Card>
+  <Card title="Knowledge Base" icon="database" href="/knowledge">
+    Store brand guidelines and templates
+  </Card>
+  <Card title="Files and Folder" icon="folder" href="/tools/files-folder">
+    Organize your presentation library
+  </Card>
+</CardGroup>

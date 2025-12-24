@@ -1,4 +1,828 @@
 ---
-title: "Data Provider Tool"
-description: "Description of your new file."
+title: "Data Providers"
+description: "Access real-time data from LinkedIn, Yahoo Finance, Amazon, Zillow, and Twitter through specialized API endpoints for research, analysis, and automation."
 ---
+
+## Overview
+
+The Data Providers tool gives your Utari workers access to specialized data from major platforms including LinkedIn, Yahoo Finance, Amazon, Zillow, and Twitter. This powerful capability enables workers to gather market data, analyze trends, research companies, track real estate, and monitor social media—all through simple conversational requests.
+
+## Available Data Providers
+
+<CardGroup cols={2}>
+  <Card title="LinkedIn" icon="linkedin">
+    Access professional profiles, company data, job listings, and business intelligence
+  </Card>
+  <Card title="Yahoo Finance" icon="chart-line">
+    Get stock prices, financial data, market trends, and company fundamentals
+  </Card>
+  <Card title="Amazon" icon="amazon">
+    Retrieve product information, pricing, reviews, and marketplace data
+  </Card>
+  <Card title="Zillow" icon="house">
+    Access real estate listings, property valuations, market trends, and housing data
+  </Card>
+  <Card title="Twitter/X" icon="twitter">
+    Monitor tweets, trends, user profiles, and social media engagement
+  </Card>
+</CardGroup>
+
+<Info>
+  Data Providers offer structured, real-time data from these platforms through API endpoints, providing more reliable and consistent information than web scraping.
+</Info>
+
+## Data Provider Capabilities
+
+### Execute Data Provider Call
+
+Execute calls to specific provider endpoints to retrieve data:
+
+**Use Cases**:
+
+- Get current stock price from Yahoo Finance
+- Retrieve company profile from LinkedIn
+- Fetch product details from Amazon
+- Look up property information from Zillow
+- Monitor tweets or trends from Twitter
+
+### Get Data Provider Endpoints
+
+Discover available endpoints for each provider:
+
+**Use Cases**:
+
+- Explore what data each provider offers
+- Find the right endpoint for your needs
+- Understand available parameters and options
+- Plan data collection workflows
+
+<Steps>
+  <Step title="List Available Endpoints">
+    ```
+        What data can I get from Yahoo Finance?
+        Show me available LinkedIn endpoints
+    ```
+  </Step>
+  <Step title="Review Options">
+    Your worker displays all available endpoints with descriptions and parameters.
+  </Step>
+  <Step title="Select Endpoint">
+    Choose the endpoint that matches your data needs.
+  </Step>
+  <Step title="Execute Call">
+    Make the data request with specific parameters.
+  </Step>
+</Steps>
+
+## Using Data Providers
+
+### Basic Data Retrieval
+
+<Steps>
+  <Step title="Request Data">
+    Ask your worker to retrieve specific data:
+
+    ```
+        Get the current stock price for Apple (AAPL) from Yahoo Finance
+    ```
+  </Step>
+  <Step title="Worker Executes Call">
+    Your worker:
+
+    - Identifies the appropriate data provider (Yahoo Finance)
+    - Selects the correct endpoint (stock quote)
+    - Executes the API call with parameters (symbol: AAPL)
+    - Retrieves the data
+  </Step>
+  <Step title="Receive Structured Data">
+    Data is returned in a structured format:
+
+    ```json
+        {
+          "symbol": "AAPL",
+          "price": 185.92,
+          "change": +2.15,
+          "change_percent": +1.17%,
+          "volume": 52847392,
+          "market_cap": "2.89T"
+        }
+    ```
+  </Step>
+  <Step title="Use Data">
+    The data can be:
+
+    - Displayed in responses
+    - Saved to documents
+    - Used in analysis
+    - Tracked over time
+  </Step>
+</Steps>
+
+## Data Provider Use Cases
+
+### LinkedIn - Professional Intelligence
+
+<AccordionGroup>
+  <Accordion title="Company Research" icon="building">
+    **Available Data**:
+
+    - Company profiles and information
+    - Employee counts and growth
+    - Recent updates and posts
+    - Industry and specialties
+    - Leadership information
+
+    **Example Requests**:
+
+    ```
+        Get LinkedIn company data for Anthropic
+        Find employee count trends for tech companies
+        Research company culture and recent updates
+    ```
+  </Accordion>
+  <Accordion title="Professional Profiles" icon="user">
+    **Available Data**:
+
+    - Public profile information
+    - Professional experience
+    - Skills and endorsements
+    - Education background
+    - Connection insights
+
+    **Example Requests**:
+
+    ```
+        Research professionals in AI/ML space
+        Find common skills in software engineering roles
+        Analyze career progression patterns
+    ```
+  </Accordion>
+  <Accordion title="Job Market Intelligence" icon="briefcase">
+    **Available Data**:
+
+    - Job listings and requirements
+    - Salary ranges
+    - Skills in demand
+    - Hiring trends
+    - Company hiring activity
+
+    **Example Requests**:
+
+    ```
+        Find current job openings for data scientists
+        Analyze most in-demand skills in tech
+        Track hiring trends across industries
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Yahoo Finance - Market Data
+
+<AccordionGroup>
+  <Accordion title="Stock Quotes and Prices" icon="dollar-sign">
+    **Available Data**:
+
+    - Real-time stock prices
+    - Price changes and percentages
+    - Trading volume
+    - Market capitalization
+    - Day high/low prices
+
+    **Example Requests**:
+
+    ```
+        Get current stock price for TSLA
+        Show me price changes for top tech stocks
+        Track NASDAQ performance today
+        Compare stock prices for AAPL, MSFT, GOOGL
+    ```
+  </Accordion>
+  <Accordion title="Company Fundamentals" icon="chart-column">
+    **Available Data**:
+
+    - Financial statements
+    - Revenue and earnings
+    - P/E ratios
+    - Dividend information
+    - Analyst ratings
+
+    **Example Requests**:
+
+    ```
+        Get financial fundamentals for Amazon
+        Compare P/E ratios across semiconductor companies
+        Find high-dividend stocks in utilities sector
+    ```
+  </Accordion>
+  <Accordion title="Market Trends and Analysis" icon="chart-line">
+    **Available Data**:
+
+    - Historical price data
+    - Moving averages
+    - Market indices
+    - Sector performance
+    - Trending stocks
+
+    **Example Requests**:
+
+    ```
+        Show S&P 500 performance over last month
+        Analyze tech sector trends
+        Find top gainers and losers today
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Amazon - Product Intelligence
+
+<AccordionGroup>
+  <Accordion title="Product Information" icon="box">
+    **Available Data**:
+
+    - Product details and descriptions
+    - Pricing and availability
+    - Product specifications
+    - Brand information
+    - Category and classification
+
+    **Example Requests**:
+
+    ```
+        Get product details for wireless headphones
+        Find pricing information for specific ASIN
+        Compare specifications across product variants
+    ```
+  </Accordion>
+  <Accordion title="Reviews and Ratings" icon="star">
+    **Available Data**:
+
+    - Customer reviews
+    - Star ratings
+    - Review sentiment
+    - Top positive/negative feedback
+    - Review trends over time
+
+    **Example Requests**:
+
+    ```
+        Analyze customer reviews for top-selling laptops
+        Find common complaints about smart home devices
+        Track rating trends for new product launches
+    ```
+  </Accordion>
+  <Accordion title="Pricing and Availability" icon="tag">
+    **Available Data**:
+
+    - Current prices
+    - Price history
+    - Stock availability
+    - Seller information
+    - Deal and discount data
+
+    **Example Requests**:
+
+    ```
+        Track price changes for electronics category
+        Find best deals on kitchen appliances
+        Monitor stock availability for popular items
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Zillow - Real Estate Data
+
+<AccordionGroup>
+  <Accordion title="Property Listings" icon="home">
+    **Available Data**:
+
+    - Active listings
+    - Property details
+    - Photos and virtual tours
+    - Listing history
+    - Days on market
+
+    **Example Requests**:
+
+    ```
+        Find homes for sale in San Francisco under $1M
+        Get property details for specific address
+        Search for 3-bedroom homes near good schools
+    ```
+  </Accordion>
+  <Accordion title="Property Valuations" icon="dollar-sign">
+    **Available Data**:
+
+    - Zestimates (home values)
+    - Price history
+    - Value trends
+    - Comparable properties
+    - Rental estimates
+
+    **Example Requests**:
+
+    ```
+        Get Zestimate for 123 Main St
+        Compare property values in different neighborhoods
+        Track home value appreciation over time
+    ```
+  </Accordion>
+  <Accordion title="Market Trends" icon="chart-area">
+    **Available Data**:
+
+    - Median home prices
+    - Market inventory
+    - Price trends
+    - Time to sell
+    - Market competitiveness
+
+    **Example Requests**:
+
+    ```
+        Analyze Austin housing market trends
+        Compare median prices across metro areas
+        Find fastest-growing real estate markets
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Twitter/X - Social Intelligence
+
+<AccordionGroup>
+  <Accordion title="Tweet Monitoring" icon="message">
+    **Available Data**:
+
+    - Recent tweets
+    - Tweet content and media
+    - Engagement metrics
+    - Retweet and quote data
+    - Reply threads
+
+    **Example Requests**:
+
+    ```
+        Monitor tweets about our brand
+        Track mentions of specific keywords
+        Find viral tweets in tech industry
+    ```
+  </Accordion>
+  <Accordion title="Trending Topics" icon="fire">
+    **Available Data**:
+
+    - Trending hashtags
+    - Popular topics
+    - Geographic trends
+    - Trend velocity
+    - Related conversations
+
+    **Example Requests**:
+
+    ```
+        What's trending in technology today?
+        Find trending topics in San Francisco
+        Monitor hashtag performance over time
+    ```
+  </Accordion>
+  <Accordion title="User and Account Data" icon="user-group">
+    **Available Data**:
+
+    - Profile information
+    - Follower counts
+    - Tweet frequency
+    - Engagement rates
+    - Account activity
+
+    **Example Requests**:
+
+    ```
+        Analyze engagement for competitor accounts
+        Track follower growth for influencers
+        Research accounts in specific industry
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Common Workflows
+
+### Market Research Report
+
+<Steps>
+  <Step title="Gather Financial Data">
+    ```
+        Get stock prices and fundamentals for AAPL, MSFT, GOOGL, AMZN from Yahoo Finance
+    ```
+  </Step>
+  <Step title="Analyze Company Profiles">
+    ```
+        Get LinkedIn company data for Apple, Microsoft, Google, Amazon
+    ```
+  </Step>
+  <Step title="Monitor Social Sentiment">
+    ```
+        Search Twitter for mentions and sentiment about these companies
+    ```
+  </Step>
+  <Step title="Compile Report">
+    ```
+        Create a comprehensive market research document with all collected data, including stock performance, company insights, and social sentiment analysis
+    ```
+  </Step>
+</Steps>
+
+### Competitive Analysis
+
+<Steps>
+  <Step title="Product Research">
+    ```
+        Get Amazon product data for top 10 wireless headphones
+        Analyze reviews, ratings, and pricing
+    ```
+  </Step>
+  <Step title="Company Intelligence">
+    ```
+        Research competitor companies on LinkedIn
+        Find employee counts, recent updates, hiring trends
+    ```
+  </Step>
+  <Step title="Social Presence">
+    ```
+        Monitor Twitter engagement for competitor brands
+        Track trending discussions about product categories
+    ```
+  </Step>
+  <Step title="Create Comparison">
+    ```
+        Build competitive analysis spreadsheet with all findings
+    ```
+  </Step>
+</Steps>
+
+### Real Estate Investment Analysis
+
+<Steps>
+  <Step title="Property Search">
+    ```
+        Find properties in target neighborhoods using Zillow
+        Get Zestimates and property details
+    ```
+  </Step>
+  <Step title="Market Analysis">
+    ```
+        Analyze market trends for these areas
+        Compare median prices and appreciation rates
+    ```
+  </Step>
+  <Step title="Financial Assessment">
+    ```
+        Calculate potential ROI using Yahoo Finance for mortgage rates
+    ```
+  </Step>
+  <Step title="Generate Report">
+    ```
+        Create investment analysis report with properties, market data, and financial projections
+    ```
+  </Step>
+</Steps>
+
+### Job Market Intelligence
+
+<Steps>
+  <Step title="Job Listings">
+    ```
+        Get current job listings for Data Scientist roles from LinkedIn
+    ```
+  </Step>
+  <Step title="Skill Analysis">
+    ```
+        Analyze most commonly required skills across listings
+    ```
+  </Step>
+  <Step title="Company Research">
+    ```
+        Research hiring companies - size, industry, growth
+    ```
+  </Step>
+  <Step title="Trend Report">
+    ```
+        Create job market report showing in-demand skills, top hiring companies, and salary trends
+    ```
+  </Step>
+</Steps>
+
+## Combining with Other Tools
+
+Data Providers become more powerful when combined with other Utari capabilities:
+
+<CardGroup cols={2}>
+  <Card title="+ Spreadsheet Tools" icon="table">
+    Export data to spreadsheets for analysis, tracking, and visualization
+  </Card>
+  <Card title="+ Document Creator" icon="file-word">
+    Create professional reports with retrieved data and analysis
+  </Card>
+  <Card title="+ Web Search" icon="magnifying-glass">
+    Supplement data provider information with broader web research
+  </Card>
+  <Card title="+ Files and Folder" icon="folder">
+    Organize data reports and analysis in structured folders
+  </Card>
+  <Card title="+ Task Management" icon="list-check">
+    Create recurring data collection tasks with automated tracking
+  </Card>
+  <Card title="+ Triggers" icon="clock">
+    Schedule automated data collection on daily, weekly, or custom intervals
+  </Card>
+</CardGroup>
+
+### Example Combined Workflow
+
+<Steps>
+  <Step title="Automated Daily Report">
+    ```
+        Trigger: Every weekday at 8 AM
+        
+        1. Get stock prices for portfolio from Yahoo Finance
+        2. Check Twitter for trending topics in finance
+        3. Monitor LinkedIn for relevant job postings
+        4. Compile data into daily brief document
+        5. Save to "Daily Reports/[DATE]" folder
+        6. Send summary via integration (Slack/Email)
+    ```
+  </Step>
+</Steps>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Understand Endpoints" icon="map">
+    Review available endpoints for each provider to know what data you can access
+  </Card>
+  <Card title="Be Specific" icon="bullseye">
+    Provide specific parameters (stock symbols, addresses, keywords) for accurate results
+  </Card>
+  <Card title="Verify Data" icon="check-circle">
+    Cross-reference important data points across multiple sources when possible
+  </Card>
+  <Card title="Respect Rate Limits" icon="gauge">
+    Avoid excessive calls in short periods; space out requests when collecting large datasets
+  </Card>
+  <Card title="Structure Output" icon="table-cells">
+    Organize retrieved data in spreadsheets or documents for easy analysis
+  </Card>
+  <Card title="Track Over Time" icon="clock-rotate-left">
+    Use triggers to collect data regularly for trend analysis
+  </Card>
+  <Card title="Document Sources" icon="link">
+    Always note which provider and endpoint data came from for transparency
+  </Card>
+  <Card title="Privacy Awareness" icon="shield-check">
+    Only access publicly available data and respect platform terms of service
+  </Card>
+</CardGroup>
+
+## Data Provider Examples
+
+### Yahoo Finance Examples
+
+<CodeGroup>
+
+```text Stock Quote
+Get the current stock price and trading volume for Tesla (TSLA)
+```
+
+
+```text Multiple Stocks
+Compare stock prices for AAPL, MSFT, GOOGL, AMZN, and TSLA
+```
+
+
+```text Market Index
+Show current S&P 500 index value and day's change
+```
+
+
+```text Company Financials
+Get revenue, earnings, and P/E ratio for Netflix
+```
+
+
+```text Historical Data
+Retrieve NVIDIA stock price history for the past 30 days
+```
+
+</CodeGroup>
+
+### LinkedIn Examples
+
+<CodeGroup>
+
+```text Company Profile
+Get company information for Anthropic including size, industry, and description
+```
+
+
+```text Job Search
+Find all Data Engineer job listings in San Francisco
+```
+
+
+```text Industry Analysis
+Research top companies in AI/ML industry on LinkedIn
+```
+
+
+```text Hiring Trends
+Track new job postings from major tech companies over the past week
+```
+
+</CodeGroup>
+
+### Amazon Examples
+
+<CodeGroup>
+
+```text Product Details
+Get product information for ASIN B08N5WRWNW including price and availability
+```
+
+
+```text Review Analysis
+Analyze customer reviews for top 5 best-selling Bluetooth speakers
+```
+
+
+```text Price Tracking
+Monitor price changes for specific product over time
+```
+
+
+```text Category Research
+Find best-rated products in "Smart Home" category under $100
+```
+
+</CodeGroup>
+
+### Zillow Examples
+
+<CodeGroup>
+
+```text Property Lookup
+Get Zestimate and property details for 123 Main Street, Austin, TX
+```
+
+
+```text Market Search
+Find 3-bedroom homes for sale in Seattle under $800,000
+```
+
+
+```text Market Trends
+Analyze median home prices in Denver over the past 12 months
+```
+
+
+```text Rental Analysis
+Get rental estimates for properties in specific ZIP code
+```
+
+</CodeGroup>
+
+### Twitter Examples
+
+<CodeGroup>
+
+```text Keyword Monitoring
+Monitor tweets containing "artificial intelligence" and "healthcare"
+```
+
+
+```text Trend Analysis
+What are the top 10 trending topics in technology right now?
+```
+
+
+```text Brand Tracking
+Find recent tweets mentioning our company name or product
+```
+
+
+```text Influencer Research
+Analyze engagement rates for AI/ML thought leaders
+```
+
+</CodeGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Data provider call fails or returns error">
+    Check:
+
+    - Provider endpoint is spelled correctly
+    - Required parameters are provided
+    - Parameter values are in correct format
+    - Data exists for the requested query
+    - Provider service is available
+    - Try with simpler query first
+  </Accordion>
+  <Accordion title="Returned data is incomplete or missing fields">
+    Verify:
+
+    - The endpoint supports the data fields you need
+    - Data exists for that specific entity
+    - You're using the correct endpoint for your needs
+    - Review endpoint documentation for available fields
+    - Try a different, more comprehensive endpoint
+  </Accordion>
+  <Accordion title="Can't find the right endpoint">
+    Solutions:
+
+    - Ask worker to list all available endpoints for the provider
+    - Review endpoint descriptions carefully
+    - Try multiple endpoints to compare results
+    - Describe your data needs and ask for recommendation
+    - Check provider documentation for guidance
+  </Accordion>
+  <Accordion title="Data seems outdated or inaccurate">
+    Consider:
+
+    - Some data updates in real-time, some is delayed
+    - Cross-reference with other sources
+    - Check timestamp of data retrieval
+    - Verify you're querying the right entity (ticker symbol, address, etc.)
+    - Some providers cache data for performance
+  </Accordion>
+  <Accordion title="Rate limit or quota exceeded">
+    Best practices:
+
+    - Space out requests instead of making many at once
+    - Use batch endpoints when available
+    - Cache frequently accessed data
+    - Schedule large data collections during off-peak times
+    - Consider if you really need all the data
+  </Accordion>
+</AccordionGroup>
+
+## Privacy and Compliance
+
+<Warning>
+  **Important Considerations:**
+
+  - Only access publicly available data
+  - Respect platform terms of service
+  - Don't scrape personal information beyond public profiles
+  - Be mindful of data privacy regulations (GDPR, CCPA)
+  - Don't use data for harassment or surveillance
+  - Maintain ethical standards in data collection
+  - Consider data retention policies
+</Warning>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Access data from LinkedIn, Yahoo Finance, Amazon, Zillow, and Twitter
+</Check>
+
+<Check>
+  Discover available endpoints for each data provider
+</Check>
+
+<Check>
+  Execute data provider calls with specific parameters
+</Check>
+
+<Check>
+  Use provider data for research, analysis, and reporting
+</Check>
+
+<Check>
+  Combine data providers with other Utari tools for powerful workflows
+</Check>
+
+<Check>
+  Apply best practices for ethical and effective data collection
+</Check>
+
+<Check>
+  Troubleshoot common data retrieval issues
+</Check>
+
+The Data Providers tool transforms your Utari workers into data analysts and researchers, capable of gathering real-time intelligence from major platforms to support decision-making, market research, competitive analysis, and trend monitoring—all through simple conversational requests.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Spreadsheet Tools" icon="table" href="/tools/spreadsheets">
+    Organize and analyze collected data
+  </Card>
+  <Card title="Document Creator" icon="file-word" href="/tools/document-creator">
+    Create reports with provider data
+  </Card>
+  <Card title="Triggers" icon="clock" href="/triggers">
+    Automate recurring data collection
+  </Card>
+  <Card title="Web Search" icon="magnifying-glass" href="/tools/web-search">
+    Supplement with broader research
+  </Card>
+</CardGroup>

@@ -1,4 +1,702 @@
 ---
-title: "Image Editor Tool"
-description: "Description of your new file."
+title: "Image Editor"
+description: "Generate and edit images with AI assistance using ChatGPT Image Model 1.5, with more models coming soon including Nano Banana and Nano Banana Pro."
 ---
+
+## Overview
+
+The Image Editor tool empowers your Utari workers to create and manipulate images using AI. From generating original artwork to editing existing images, this tool provides powerful visual creation capabilities directly within your workflows. Currently powered by ChatGPT Image Model 1.5, with additional models launching soon.
+
+## Image Editor Capabilities
+
+<CardGroup cols={2}>
+  <Card title="Image Generation" icon="wand-magic-sparkles">
+    Create original images from text descriptions using AI image generation
+  </Card>
+  <Card title="Image Editing" icon="paintbrush">
+    Modify, enhance, and transform existing images with AI assistance
+  </Card>
+  <Card title="Style Transfer" icon="palette">
+    Apply artistic styles and visual effects to images
+  </Card>
+  <Card title="Image Enhancement" icon="sparkles">
+    Improve image quality, adjust colors, and refine details
+  </Card>
+</CardGroup>
+
+## Current Model
+
+### ChatGPT Image Model 1.5
+
+The current default model for image generation and editing:
+
+<Accordion title="ChatGPT Image Model 1.5 Specifications">
+  **Strengths:**
+
+  - High-quality image generation
+  - Strong understanding of natural language prompts
+  - Versatile across different styles and subjects
+  - Good balance of speed and quality
+  - Reliable consistency
+
+  **Best For:**
+
+  - General-purpose image creation
+  - Photorealistic images
+  - Artistic illustrations
+  - Concept visualization
+  - Marketing visuals
+  - Social media graphics
+</Accordion>
+
+## Coming Soon
+
+<CardGroup cols={2}>
+  <Card title="Nano Banana" icon="image">
+    Fast, efficient image generation optimized for speed and lower resource usage
+  </Card>
+  <Card title="Nano Banana Pro" icon="sparkles">
+    Enhanced version offering higher quality and more advanced features
+  </Card>
+</CardGroup>
+
+<Info>
+  Additional models will provide you with more options to choose the right balance of speed, quality, and capabilities for your specific needs.
+</Info>
+
+## Enabling Image Editor
+
+<Steps>
+  <Step title="Navigate to Worker Tools">
+    Select your worker and click on the **Tools** tab.
+  </Step>
+  <Step title="Find Image Editor">
+    Scroll through available tools to locate **Image Editor**.
+  </Step>
+  <Step title="Enable the Tool">
+    Check the box next to Image Editor to activate image generation and editing capabilities.
+  </Step>
+  <Step title="Configure Options (Optional)">
+    Click on tool settings to customize image editor capabilities if needed.
+  </Step>
+  <Step title="Save Configuration">
+    Your changes are automatically saved. The worker can now create and edit images.
+  </Step>
+</Steps>
+
+## Generating Images
+
+### Basic Image Generation
+
+<Steps>
+  <Step title="Start a Chat">
+    Open a conversation with a worker that has the Image Editor tool enabled.
+  </Step>
+  <Step title="Describe Your Image">
+    Provide a detailed description of the image you want to create:
+
+    ```
+        Generate an image of a modern office workspace with a laptop, coffee cup, and natural lighting from a window
+    ```
+  </Step>
+  <Step title="Review Generated Image">
+    Your worker will:
+
+    - Process your description
+    - Generate the image using ChatGPT Image Model 1.5
+    - Display the created image
+    - Provide download options
+  </Step>
+  <Step title="Refine if Needed">
+    Request modifications or variations:
+
+    ```
+        Make the lighting warmer and add some plants in the background
+    ```
+  </Step>
+</Steps>
+
+### Writing Effective Prompts
+
+The quality of generated images depends heavily on prompt quality:
+
+<CardGroup cols={2}>
+  <Card title="Be Specific" icon="bullseye">
+    ❌ "A dog"
+
+    ✅ "A golden retriever puppy sitting in a garden with flowers, soft natural lighting, photorealistic style"
+  </Card>
+  <Card title="Include Style" icon="palette">
+    ❌ "A mountain landscape"
+
+    ✅ "A mountain landscape at sunset, oil painting style, warm colors, impressionist technique"
+  </Card>
+  <Card title="Specify Details" icon="list">
+    ❌ "A product photo"
+
+    ✅ "Professional product photography of a smartwatch on a white background, studio lighting, commercial quality"
+  </Card>
+  <Card title="Define Composition" icon="frame">
+    ❌ "A person working"
+
+    ✅ "A professional businesswoman working at a desk, medium shot, facing camera, modern office background"
+  </Card>
+</CardGroup>
+
+## Image Generation Examples
+
+### Marketing and Advertising
+
+<CodeGroup>
+
+```text Social Media Graphics
+Create a vibrant social media post image featuring our new product launch. Include bold typography saying "New Release", modern gradient background in blue and purple, product mockup centered, professional and eye-catching design.
+```
+
+
+```text Hero Images
+Generate a hero banner image for a tech startup website. Show a diverse team collaborating around a table with laptops and digital displays, bright modern office environment, aspirational and professional mood, wide aspect ratio.
+```
+
+
+```text Product Mockups
+Create a product photography style image of a sleek wireless headphone on a minimalist concrete surface with subtle shadows, neutral gray background, studio lighting, commercial photography quality.
+```
+
+
+```text Advertisement Visuals
+Design an advertisement image for a fitness app. Show an active person using a smartphone while exercising outdoors, energetic and motivating atmosphere, bright natural lighting, dynamic composition.
+```
+
+</CodeGroup>
+
+### Content Creation
+
+<CodeGroup>
+
+```text Blog Post Headers
+Generate a blog header image about sustainable living. Include green plants, natural materials, earth tones, peaceful and eco-friendly aesthetic, horizontal format suitable for blog posts.
+```
+
+
+```text YouTube Thumbnails
+Create an eye-catching YouTube thumbnail for a tech review video. Bold text saying "REVIEW", product image, vibrant background, high contrast, designed to grab attention in search results.
+```
+
+
+```text Infographic Elements
+Design an icon set for an infographic about productivity. Include 5 minimalist icons representing: time management, focus, collaboration, automation, and achievement. Consistent style, blue color scheme.
+```
+
+
+```text Social Media Stories
+Generate a vertical image for Instagram Stories promoting a summer sale. Bright beach-themed background, elegant text overlay reading "Summer Sale - 50% Off", modern and vibrant aesthetic.
+```
+
+</CodeGroup>
+
+### Creative and Artistic
+
+<CodeGroup>
+
+```text Illustrations
+Create an illustration of a futuristic city skyline at night with flying vehicles, neon lights, cyberpunk aesthetic, digital art style, detailed and atmospheric.
+```
+
+
+```text Concept Art
+Generate concept art for a fantasy character: a wise old wizard with a long beard, mystical robes, holding a glowing staff, detailed character design, fantasy art style.
+```
+
+
+```text Abstract Art
+Create an abstract composition using geometric shapes and bold colors. Modern art style, balanced composition, suitable for contemporary interior design.
+```
+
+
+```text Background Patterns
+Design a seamless repeating pattern with botanical elements. Watercolor style, soft pastel colors, suitable for textile or wallpaper design.
+```
+
+</CodeGroup>
+
+### Business and Professional
+
+<CodeGroup>
+
+```text Presentation Graphics
+Create a professional diagram showing a business process flow. Clean design, corporate color scheme (navy and gold), clear visual hierarchy, suitable for business presentations.
+```
+
+
+```text Report Covers
+Generate a cover image for an annual report. Professional and corporate aesthetic, abstract geometric design, company colors, modern and trustworthy feel.
+```
+
+
+```text Team Photos
+Create a professional stock photo style image of a diverse business team in a meeting. Modern conference room, natural lighting, collaborative atmosphere, high-quality corporate photography.
+```
+
+
+```text Data Visualization
+Design an infographic-style image showing growth statistics. Bar charts and trend lines, professional color palette, clear and easy to understand, suitable for business reports.
+```
+
+</CodeGroup>
+
+## Editing Existing Images
+
+### Basic Image Editing
+
+<Steps>
+  <Step title="Upload Image">
+    Attach the image you want to edit to your conversation.
+  </Step>
+  <Step title="Describe Edits">
+    Specify what changes you want:
+
+    ```
+        Remove the background and replace it with a solid white background
+    ```
+  </Step>
+  <Step title="Review Edited Image">
+    Your worker applies the edits and returns the modified image.
+  </Step>
+  <Step title="Request Further Changes">
+    Make additional adjustments as needed:
+
+    ```
+        Increase the brightness by 20% and enhance the colors
+    ```
+  </Step>
+</Steps>
+
+### Common Editing Operations
+
+<AccordionGroup>
+  <Accordion title="Background Removal/Replacement" icon="eraser">
+    ```text
+        Remove the background from this image and replace it with a gradient blue background
+        
+        Cut out the subject and place it on a transparent background
+        
+        Replace the sky in this photo with a dramatic sunset
+    ```
+  </Accordion>
+  <Accordion title="Color Adjustments" icon="droplet">
+    ```text
+        Adjust the colors to make them warmer and more vibrant
+        
+        Convert this image to black and white with high contrast
+        
+        Change the color scheme from blue to green tones
+    ```
+  </Accordion>
+  <Accordion title="Enhancement and Restoration" icon="wand-magic">
+    ```text
+        Enhance the image quality and sharpen details
+        
+        Remove noise and improve overall clarity
+        
+        Brighten the shadows and balance the exposure
+    ```
+  </Accordion>
+  <Accordion title="Adding Elements" icon="plus">
+    ```text
+        Add a logo in the bottom right corner
+        
+        Place text overlay saying "Limited Time Offer" in bold letters
+        
+        Add a soft vignette effect around the edges
+    ```
+  </Accordion>
+  <Accordion title="Removing Elements" icon="trash">
+    ```text
+        Remove the person in the background
+        
+        Erase the watermark from the corner
+        
+        Clean up any blemishes or imperfections
+    ```
+  </Accordion>
+  <Accordion title="Resizing and Cropping" icon="crop">
+    ```text
+        Crop this image to a square format for Instagram
+        
+        Resize to 1920x1080 for a YouTube thumbnail
+        
+        Create a vertical version optimized for Stories
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Image Specifications and Formats
+
+### Aspect Ratios
+
+Request specific aspect ratios for different use cases:
+
+<CardGroup cols={3}>
+  <Card title="Square" icon="square">
+    **1:1**
+
+    Instagram posts, profile pictures, app icons
+  </Card>
+  <Card title="Landscape" icon="rectangle-wide">
+    **16:9**
+
+    YouTube thumbnails, presentations, website headers
+  </Card>
+  <Card title="Portrait" icon="rectangle-vertical">
+    **9:16**
+
+    Instagram Stories, TikTok, mobile screens
+  </Card>
+  <Card title="Widescreen" icon="panorama">
+    **21:9**
+
+    Cinematic banners, ultra-wide displays
+  </Card>
+  <Card title="Classic" icon="image">
+    **4:3**
+
+    Traditional photography, presentations
+  </Card>
+  <Card title="Standard Web" icon="desktop">
+    **3:2**
+
+    Website images, blog posts
+  </Card>
+</CardGroup>
+
+### Common Dimensions
+
+<CodeGroup>
+
+```text Social Media
+Instagram Post: 1080x1080 (square)
+Instagram Story: 1080x1920 (portrait)
+Facebook Cover: 820x312 (landscape)
+Twitter Header: 1500x500 (landscape)
+LinkedIn Banner: 1584x396 (landscape)
+```
+
+
+```text Website and Digital
+Hero Banner: 1920x1080 (16:9)
+Blog Header: 1200x630 (recommended)
+Thumbnail: 300x300 (square)
+Full HD: 1920x1080
+4K: 3840x2160
+```
+
+
+```text Print and Marketing
+Business Card: 3.5x2 inches (89x51mm)
+Flyer: 8.5x11 inches (letter size)
+Poster: 24x36 inches
+Banner: Custom dimensions
+```
+
+</CodeGroup>
+
+## Style and Aesthetic Control
+
+### Art Styles
+
+<AccordionGroup>
+  <Accordion title="Photorealistic" icon="camera">
+    "Photorealistic style, professional photography quality, natural lighting, high detail"
+  </Accordion>
+  <Accordion title="Digital Art" icon="computer">
+    "Digital illustration, clean lines, vibrant colors, modern design, vector style"
+  </Accordion>
+  <Accordion title="Oil Painting" icon="paintbrush">
+    "Oil painting style, visible brushstrokes, rich textures, classical artistic technique"
+  </Accordion>
+  <Accordion title="Watercolor" icon="droplet">
+    "Watercolor painting, soft washes, flowing colors, artistic and delicate"
+  </Accordion>
+  <Accordion title="Sketch/Drawing" icon="pen">
+    "Pencil sketch, hand-drawn style, detailed linework, artistic rendering"
+  </Accordion>
+  <Accordion title="3D Render" icon="cube">
+    "3D rendered, clean geometry, realistic materials and lighting, modern CGI"
+  </Accordion>
+  <Accordion title="Minimalist" icon="minus">
+    "Minimalist design, simple shapes, limited color palette, clean and modern"
+  </Accordion>
+  <Accordion title="Vintage/Retro" icon="clock-rotate-left">
+    "Vintage aesthetic, retro color palette, nostalgic feel, 1970s/80s style"
+  </Accordion>
+</AccordionGroup>
+
+### Mood and Atmosphere
+
+<CodeGroup>
+
+```text Professional
+"Clean, professional, corporate, trustworthy, modern, polished"
+```
+
+
+```text Energetic
+"Dynamic, vibrant, energetic, bold, exciting, eye-catching"
+```
+
+
+```text Calm and Peaceful
+"Serene, peaceful, calm, soft, gentle, tranquil, relaxing"
+```
+
+
+```text Dramatic
+"Dramatic lighting, high contrast, moody, atmospheric, cinematic"
+```
+
+
+```text Whimsical
+"Playful, whimsical, fun, colorful, lighthearted, creative"
+```
+
+
+```text Elegant
+"Elegant, sophisticated, refined, luxury, premium, high-end"
+```
+
+</CodeGroup>
+
+## Combining with Other Tools
+
+The Image Editor becomes more powerful when combined with other Utari capabilities:
+
+<CardGroup cols={2}>
+  <Card title="+ Image Vision" icon="eye">
+    Generate images, then use image vision to analyze and provide detailed descriptions for alt text or documentation
+  </Card>
+  <Card title="+ Files and Folder" icon="folder">
+    Organize generated images in structured folders for easy management and retrieval
+  </Card>
+  <Card title="+ Web Search" icon="magnifying-glass">
+    Search for reference images online, then generate similar images or variations
+  </Card>
+  <Card title="+ Document Creator" icon="file-word">
+    Generate images and automatically include them in professional documents and reports
+  </Card>
+</CardGroup>
+
+### Example Combined Workflows
+
+<Steps>
+  <Step title="Content Marketing Package">
+    ```
+        1. Generate hero image for blog post
+        2. Create 3 social media variations (square, landscape, portrait)
+        3. Save all images in "Marketing/Blog Post - [Topic]" folder
+        4. Create a document listing all images with descriptions and usage notes
+    ```
+  </Step>
+  <Step title="Brand Asset Creation">
+    ```
+        1. Search web for current design trends in our industry
+        2. Generate brand imagery inspired by findings
+        3. Use image vision to analyze and describe each created asset
+        4. Organize in "Brand Assets/2024" folder with metadata document
+    ```
+  </Step>
+  <Step title="Product Launch Visuals">
+    ```
+        1. Generate product mockup images
+        2. Create variations for different platforms
+        3. Edit images to match brand guidelines
+        4. Compile into presentation document with captions
+        5. Save complete package in organized folder structure
+    ```
+  </Step>
+</Steps>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Be Descriptive" icon="comment">
+    Provide detailed, specific descriptions for better results. Include subject, style, mood, colors, and composition.
+  </Card>
+  <Card title="Iterate Progressively" icon="arrows-spin">
+    Start with a basic generation, then refine through iterations rather than trying to get everything perfect in one prompt.
+  </Card>
+  <Card title="Specify Aspect Ratio" icon="expand">
+    Always mention the intended use case or aspect ratio to get properly formatted images.
+  </Card>
+  <Card title="Reference Styles" icon="palette">
+    Mention specific art styles, photography types, or aesthetic references for consistent results.
+  </Card>
+  <Card title="Use Examples" icon="images">
+    Describe similar images or provide reference descriptions to guide the generation.
+  </Card>
+  <Card title="Save Variations" icon="clone">
+    Generate multiple variations of important images to have options to choose from.
+  </Card>
+  <Card title="Organize Output" icon="folder-tree">
+    Use the files and folder tool to keep generated images organized by project or purpose.
+  </Card>
+  <Card title="Test and Refine" icon="flask">
+    Experiment with different prompt structures to find what works best for your needs.
+  </Card>
+</CardGroup>
+
+## Common Use Cases
+
+### Marketing Materials
+
+<Card title="Complete Campaign Assets" icon="bullhorn">
+  Generate a full suite of marketing visuals:
+
+  - Hero images for landing pages
+  - Social media graphics (all formats)
+  - Email header images
+  - Ad banner variations
+  - Product showcase images
+  - Brand lifestyle photography
+</Card>
+
+### Content Creation
+
+<Card title="Blog and Article Visuals" icon="newspaper">
+  Create custom images for content:
+
+  - Featured images for articles
+  - In-content illustrations
+  - Infographic elements
+  - Quote cards
+  - Author photos and avatars
+  - Category icons
+</Card>
+
+### E-commerce
+
+<Card title="Product Imagery" icon="cart-shopping">
+  Enhance product presentations:
+
+  - Lifestyle product shots
+  - Product in use scenarios
+  - Background variations
+  - Seasonal themed images
+  - Scale comparison visuals
+  - Detail highlights
+</Card>
+
+### Presentations and Reports
+
+<Card title="Professional Graphics" icon="presentation">
+  Create presentation-ready visuals:
+
+  - Cover slides
+  - Section dividers
+  - Data visualization backgrounds
+  - Concept illustrations
+  - Team and office imagery
+  - Process diagrams
+</Card>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Generated image doesn't match description">
+    Improve your prompt by:
+
+    - Being more specific about details
+    - Breaking complex scenes into simpler elements
+    - Adding style and mood descriptors
+    - Specifying composition and framing
+    - Trying different phrasings
+    - Generating multiple variations
+  </Accordion>
+  <Accordion title="Image quality is lower than expected">
+    Try:
+
+    - Requesting "high quality" or "professional photography quality"
+    - Specifying "detailed" or "high detail"
+    - Mentioning specific quality standards (4K, HD, commercial)
+    - Being more specific about the intended output
+    - Using the right style keywords for your needs
+  </Accordion>
+  <Accordion title="Wrong aspect ratio or dimensions">
+    Specify clearly:
+
+    - "Square format" or "1:1 aspect ratio"
+    - "Landscape orientation" or "16:9"
+    - "Vertical format for Instagram Stories"
+    - Exact dimensions if needed: "1920x1080 pixels"
+    - Platform: "optimized for YouTube thumbnail"
+  </Accordion>
+  <Accordion title="Edits not applied correctly">
+    Make edits clearer by:
+
+    - Describing exactly what to change
+    - Specifying where changes should occur
+    - Using precise language (remove, replace, enhance, adjust)
+    - Breaking complex edits into separate steps
+    - Providing reference examples when possible
+  </Accordion>
+  <Accordion title="Inconsistent style across images">
+    Maintain consistency by:
+
+    - Using the same style keywords
+    - Referencing previous images: "in the same style as the previous image"
+    - Creating a detailed style guide prompt to reuse
+    - Generating batches together rather than separately
+    - Saving successful prompts for future use
+  </Accordion>
+</AccordionGroup>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Enable and configure the Image Editor tool for your workers
+</Check>
+
+<Check>
+  Generate original images using detailed text descriptions
+</Check>
+
+<Check>
+  Edit and modify existing images with AI assistance
+</Check>
+
+<Check>
+  Write effective prompts for high-quality image generation
+</Check>
+
+<Check>
+  Specify styles, moods, and technical requirements
+</Check>
+
+<Check>
+  Create images optimized for different platforms and use cases
+</Check>
+
+<Check>
+  Combine image generation with other Utari tools for powerful workflows
+</Check>
+
+The Image Editor tool transforms your Utari workers into creative visual assistants, capable of generating professional-quality images for marketing, content creation, e-commerce, and any other visual needs—all through simple conversational requests.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Image Vision Tool" icon="eye" href="/tools/image-vision">
+    Analyze and describe generated images
+  </Card>
+  <Card title="Files and Folder" icon="folder" href="/tools/files-folder">
+    Organize your generated image library
+  </Card>
+  <Card title="Web Search" icon="magnifying-glass" href="/tools/web-search">
+    Research visual trends and references
+  </Card>
+  <Card title="Document Creator" icon="file-word" href="/tools/document-creator">
+    Include generated images in documents
+  </Card>
+</CardGroup>

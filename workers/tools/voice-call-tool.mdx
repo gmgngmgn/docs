@@ -1,4 +1,799 @@
 ---
-title: "Voice Call Tool"
-description: "Description of your new file."
+title: "Voice Calls"
+description: "Make and manage voice phone calls with AI agents that can conduct natural conversations, gather information, and handle phone-based tasks autonomously."
 ---
+
+## Overview
+
+The Voice Calls tool enables your Utari workers to make and manage outbound phone calls using AI voice agents. These agents can conduct natural conversations, answer questions, gather information, schedule appointments, conduct surveys, and handle various phone-based tasks—all while you monitor the conversation in real-time.
+
+## Voice Call Capabilities
+
+<CardGroup cols={2}>
+  <Card title="Make Calls" icon="phone">
+    Initiate outbound phone calls with AI voice agents configured for specific purposes
+  </Card>
+  <Card title="Monitor Calls" icon="headset">
+    Stream real-time transcription and monitor conversations as they happen
+  </Card>
+  <Card title="End Calls" icon="phone-slash">
+    Programmatically terminate calls when needed
+  </Card>
+  <Card title="Get Details" icon="file-lines">
+    Retrieve call transcripts, duration, and outcome information
+  </Card>
+  <Card title="List History" icon="list">
+    View recent calls with status and basic details
+  </Card>
+</CardGroup>
+
+<Warning>
+  **Safety Restrictions**:
+
+  - Emergency numbers (911, 999, 112, etc.) are automatically blocked
+  - Illegal, unethical, or fraudulent activities are prohibited
+  - AI agents will not request sensitive personal or financial information
+  - Calls are monitored for compliance and safety
+</Warning>
+
+## Making Voice Calls
+
+### Basic Call Process
+
+<Steps>
+  <Step title="Configure Call">
+    Set up the AI agent for the call:
+
+    ```
+        Make a phone call to schedule a meeting with the prospect
+        
+        Call the customer to follow up on their inquiry
+        
+        Phone the lead to qualify them for our sales process
+        
+        Call to conduct a customer satisfaction survey
+    ```
+  </Step>
+  <Step title="Provide Call Details">
+    Specify:
+
+    - Phone number to call
+    - Purpose of the call
+    - Key information to convey
+    - Questions to ask
+    - Desired outcome
+    - Agent personality/tone
+  </Step>
+  <Step title="Call Initiated">
+    ```
+        Initiating call...
+        
+        Call ID: call-abc123
+        To: +1-555-0100
+        Purpose: Qualify lead for enterprise software
+        Status: Initiating...
+        
+        Monitoring call in real-time...
+    ```
+  </Step>
+  <Step title="Monitor Real-Time">
+    ```
+        Call connected!
+        
+        [AI Agent]: Hello, this is Alex calling from Acme Corp. 
+                    May I speak with John Smith?
+        
+        [Contact]: This is John.
+        
+        [AI Agent]: Hi John! I'm following up on your inquiry about 
+                    our enterprise software solution. Do you have a 
+                    few minutes to discuss your needs?
+        
+        [Contact]: Sure, I have a few minutes.
+        
+        [AI Agent]: Great! Can you tell me about the main challenges 
+                    you're facing with your current system?
+        
+        [Conversation continues...]
+    ```
+  </Step>
+  <Step title="Call Completes">
+    ```
+        Call ended after 4 minutes, 32 seconds
+        
+        Outcome: Qualified lead
+        - Decision maker: Yes
+        - Budget: $50-100K range
+        - Timeline: Q1 2025
+        - Next step: Schedule demo
+        
+        Full transcript available.
+    ```
+  </Step>
+  <Step title="Retrieve Details">
+    ```
+        Get complete call transcript and details
+        
+        Extract:
+        - Key information gathered
+        - Action items
+        - Sentiment analysis
+        - Call outcome
+        - Recording (if enabled)
+    ```
+  </Step>
+</Steps>
+
+## Common Use Cases
+
+### Sales and Outreach
+
+<AccordionGroup>
+  <Accordion title="Lead Qualification" icon="filter">
+    Qualify leads before sales team engagement:
+
+    ```
+        Call Configuration:
+        Purpose: Qualify inbound lead for enterprise software
+        
+        Agent Instructions:
+        - Confirm they are the decision maker
+        - Ask about current solution and pain points
+        - Determine budget range ($10K-$50K-$100K+)
+        - Identify timeline for implementation
+        - Assess fit for our solution
+        - Schedule demo if qualified, otherwise nurture
+        
+        Agent Personality:
+        - Professional but friendly
+        - Consultative, not pushy
+        - Good listener
+        - Respectful of their time
+        
+        Expected Outcome:
+        - Lead qualification score
+        - Next steps identified
+        - Calendar invite for demo (if qualified)
+    ```
+  </Accordion>
+  <Accordion title="Appointment Setting" icon="calendar-plus">
+    Schedule meetings and appointments:
+
+    ```
+        Call Purpose: Schedule product demo
+        
+        Agent Tasks:
+        1. Confirm contact is interested in demo
+        2. Explain what demo will cover (15 min)
+        3. Offer 3 time slots based on their timezone
+        4. Handle rescheduling if needed
+        5. Confirm email for calendar invite
+        6. Send confirmation immediately after call
+        
+        Handling Objections:
+        - "Not interested": Ask what changed, offer resources
+        - "Too busy": Offer shorter 10-min overview call
+        - "Need to check with team": Offer to call back, get date
+        
+        Success Metric: Meeting scheduled and confirmed
+    ```
+  </Accordion>
+  <Accordion title="Follow-Up Calls" icon="phone-arrow-up-right">
+    Follow up on previous interactions:
+
+    ```
+        Call Context: Following up on demo from last week
+        
+        Agent Script:
+        1. Reference previous demo/conversation
+        2. Ask if they had questions after reviewing
+        3. Address concerns or objections
+        4. Gauge interest level
+        5. Propose next steps based on interest:
+           - High interest: Discuss pricing, timeline
+           - Medium interest: Provide case studies, schedule follow-up
+           - Low interest: Thank them, offer to stay in touch
+        
+        Information to Gather:
+        - Decision-making process
+        - Other stakeholders involved
+        - Timeline expectations
+        - Budget approval status
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Customer Service
+
+<AccordionGroup>
+  <Accordion title="Customer Satisfaction Surveys" icon="star">
+    Gather feedback from customers:
+
+    ```
+        Survey Purpose: Post-purchase satisfaction (CSAT)
+        
+        Questions:
+        1. How satisfied are you with your recent purchase? (1-10)
+        2. How easy was the ordering process? (1-10)
+        3. How would you rate product quality? (1-10)
+        4. How likely are you to recommend us? (NPS: 1-10)
+        5. What could we improve?
+        6. Any other feedback?
+        
+        Agent Behavior:
+        - Thank them for purchase
+        - Keep survey brief (under 3 minutes)
+        - Listen to open-ended feedback
+        - Note any issues for follow-up
+        - Thank them for their time
+        
+        Data Collection:
+        - Record all numeric scores
+        - Transcribe qualitative feedback
+        - Flag urgent issues for immediate attention
+        - Calculate NPS and CSAT scores
+    ```
+  </Accordion>
+  <Accordion title="Appointment Reminders" icon="bell">
+    Reduce no-shows with reminder calls:
+
+    ```
+        Reminder Call: Upcoming appointment confirmation
+        
+        Agent Script:
+        1. Confirm identity
+        2. Remind about appointment:
+           - Date and time
+           - Location or video link
+           - What to bring/prepare
+        3. Ask if they can still make it
+        4. If yes: Confirm and thank them
+        5. If no: Offer to reschedule, get new time
+        6. Send confirmation text/email
+        
+        Timing: Call 24-48 hours before appointment
+        
+        Handles:
+        - Confirmations
+        - Rescheduling requests
+        - Cancellations (log reason)
+        - Questions about appointment
+    ```
+  </Accordion>
+  <Accordion title="Service Updates" icon="circle-info">
+    Notify customers of important updates:
+
+    ```
+        Update Type: Service disruption notification
+        
+        Agent Message:
+        1. Identify themselves and company
+        2. Explain reason for call
+        3. Describe the service issue/update:
+           - What is affected
+           - When it will occur
+           - How long it will last
+           - What they need to do (if anything)
+        4. Answer questions
+        5. Provide reference number
+        6. Apologize for inconvenience (if applicable)
+        
+        Keep concise and informative
+        Log any customer concerns for follow-up
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Research and Data Collection
+
+<AccordionGroup>
+  <Accordion title="Market Research" icon="chart-line">
+    Conduct market research surveys:
+
+    ```
+        Research Topic: Product-market fit assessment
+        
+        Survey Questions:
+        1. What tools do you currently use for [task]?
+        2. What are your biggest challenges with [process]?
+        3. How much do you spend annually on [category]?
+        4. What features are most important to you?
+        5. How do you currently solve [problem]?
+        6. Would you be interested in [solution concept]?
+        7. What would you pay for [solution]?
+        
+        Agent Guidelines:
+        - Neutral tone, not selling
+        - Allow open-ended responses
+        - Probe for details on interesting points
+        - Respect if they decline to answer
+        - Keep under 10 minutes
+        
+        Incentive: Offer $25 gift card for participation
+    ```
+  </Accordion>
+  <Accordion title="Event Attendance" icon="calendar-check">
+    Gauge interest and confirm attendance:
+
+    ```
+        Event: Webinar on [Topic]
+        
+        Call Purpose:
+        1. Confirm they registered for webinar
+        2. Remind of date/time
+        3. Ask what topics they're most interested in
+        4. Answer questions about event
+        5. Confirm they'll attend
+        6. Send calendar invite and joining link
+        
+        If can't attend:
+        - Offer to send recording after
+        - Suggest alternative date if series
+        - Keep on list for future events
+        
+        Collect: Attendance confirmation, topic interests
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Administrative Tasks
+
+<AccordionGroup>
+  <Accordion title="Information Verification" icon="circle-check">
+    Verify and update contact information:
+
+    ```
+        Verification Call: Annual contact update
+        
+        Information to Verify:
+        1. Confirm name and title
+        2. Verify company name
+        3. Confirm phone number
+        4. Verify email address
+        5. Confirm mailing address
+        6. Ask for any changes
+        
+        Update records in real-time
+        Flag any discrepancies
+        Thank them for their time
+        
+        Duration: 2-3 minutes maximum
+    ```
+  </Accordion>
+  <Accordion title="Payment Reminders" icon="money-bill">
+    Gentle reminders for overdue payments:
+
+    ```
+        Reminder: Outstanding invoice
+        
+        Agent Approach:
+        1. Polite, non-confrontational tone
+        2. Mention specific invoice:
+           - Invoice number
+           - Amount due
+           - Original due date
+        3. Ask if there are any issues with payment
+        4. Offer payment options
+        5. Set follow-up date if needed
+        6. Thank them for their business
+        
+        Handle Responses:
+        - "Already paid": Verify and apologize
+        - "Will pay soon": Get specific date
+        - "Dispute": Transfer to accounts team
+        - "Financial difficulty": Discuss payment plan
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Configuring Voice Agents
+
+### Agent Personality and Tone
+
+<Tabs>
+  <Tab title="Professional">
+    ```
+        Tone: Professional, courteous, efficient
+        
+        Best for:
+        - B2B sales calls
+        - Executive outreach
+        - Professional services
+        - Legal/financial contexts
+        
+        Characteristics:
+        - Formal language
+        - Respectful of time
+        - Clear and concise
+        - Solution-focused
+    ```
+  </Tab>
+  <Tab title="Friendly">
+    ```
+        Tone: Warm, conversational, approachable
+        
+        Best for:
+        - Customer service
+        - B2C outreach
+        - Community engagement
+        - Relationship building
+        
+        Characteristics:
+        - Casual but respectful
+        - Empathetic
+        - Patient
+        - Personable
+    ```
+  </Tab>
+  <Tab title="Consultative">
+    ```
+        Tone: Expert, helpful, educational
+        
+        Best for:
+        - Solution selling
+        - Advisory calls
+        - Technical support
+        - Needs assessment
+        
+        Characteristics:
+        - Asks good questions
+        - Listens actively
+        - Provides insights
+        - Builds trust
+    ```
+  </Tab>
+</Tabs>
+
+### Call Scripts and Structure
+
+<Card title="Effective Call Structure">
+  ```
+    1. Opening (15-30 seconds)
+       - Introduce yourself and company
+       - State reason for call
+       - Confirm they have time
+       - Set expectations
+    
+    2. Body (2-5 minutes typically)
+       - Ask questions / gather information
+       - Provide information as needed
+       - Address concerns
+       - Handle objections
+    
+    3. Closing (30-60 seconds)
+       - Summarize key points
+       - Confirm next steps
+       - Thank them for their time
+       - Confirm contact information
+    
+    Keep total call under 5-7 minutes for best results
+  ```
+</Card>
+
+## Managing Voice Calls
+
+### Monitoring Active Calls
+
+<CodeGroup>
+
+```text Real-Time Monitoring
+Monitor the call for lead qualification
+
+Watch the customer survey call live
+
+Stream the appointment setting conversation
+```
+
+
+```text Wait for Completion
+Wait for the call to complete and get full transcript
+
+Monitor until call ends, then retrieve details
+```
+
+</CodeGroup>
+
+### Ending Calls Early
+
+<CodeGroup>
+
+```text Programmatic Termination
+End the call if customer becomes hostile
+
+Terminate call if agent goes off-script
+
+Stop the call if technical issues occur
+```
+
+
+```text Conditional Ending
+End call early if:
+- Customer requests to end
+- All objectives met early
+- Wrong number reached
+- Voicemail detected
+```
+
+</CodeGroup>
+
+### Retrieving Call Information
+
+<CodeGroup>
+
+```text Get Call Details
+Get the full transcript for call-abc123
+
+Retrieve call details and outcome
+
+Get call transcript with timestamps
+```
+
+
+```text List Call History
+Show me all calls from today
+
+List recent calls with their status
+
+Find calls to specific phone number
+```
+
+</CodeGroup>
+
+## Call Workflow Example
+
+### Complete Sales Call Workflow
+
+<Steps>
+  <Step title="Initiate Call">
+    ```
+        Make call to +1-555-0100
+        Purpose: Qualify lead from website inquiry
+        
+        Agent configured with:
+        - Lead information from CRM
+        - Qualification criteria
+        - Company background
+        - Objection handling
+    ```
+  </Step>
+  <Step title="Monitor Conversation">
+    ```
+        [Real-time transcript streaming...]
+        
+        Agent: Introduces self and company
+        Contact: Confirms availability
+        Agent: References their inquiry
+        Contact: Confirms interest
+        Agent: Asks qualifying questions
+        Contact: Provides information
+        Agent: Addresses concerns
+        Contact: Agrees to demo
+        Agent: Schedules meeting
+    ```
+  </Step>
+  <Step title="Call Completes">
+    ```
+        Call duration: 5 minutes, 18 seconds
+        Outcome: Qualified and meeting scheduled
+    ```
+  </Step>
+  <Step title="Extract Information">
+    ```
+        Get call details and transcript
+        
+        Extracted Data:
+        - Company size: 50-100 employees
+        - Current solution: Competitor A
+        - Pain points: Cost and complexity
+        - Budget: $50K range
+        - Timeline: Q1 2025
+        - Decision maker: Yes
+        - Next step: Demo on Dec 28, 2pm
+    ```
+  </Step>
+  <Step title="Follow-Up Actions">
+    ```
+        Automatically:
+        1. Update CRM with call notes
+        2. Send calendar invite for demo
+        3. Assign to sales rep
+        4. Add to nurture sequence
+        5. Set reminder for pre-demo prep
+    ```
+  </Step>
+</Steps>
+
+## Combining with Other Tools
+
+<CardGroup cols={2}>
+  <Card title="+ CRM Integration" icon="address-book">
+    Update Salesforce/HubSpot with call outcomes and notes
+  </Card>
+  <Card title="+ Calendar" icon="calendar">
+    Schedule meetings directly from call conversations
+  </Card>
+  <Card title="+ Email" icon="envelope">
+    Send follow-up emails based on call outcomes
+  </Card>
+  <Card title="+ Spreadsheets" icon="table">
+    Log call data and track metrics in organized sheets
+  </Card>
+  <Card title="+ Document Creator" icon="file-word">
+    Generate call summaries and reports
+  </Card>
+  <Card title="+ Slack" icon="slack">
+    Notify team of important call outcomes
+  </Card>
+</CardGroup>
+
+### Automated Call Campaign
+
+```text
+Daily Outreach Campaign:
+
+1. Trigger: Every weekday at 9 AM
+2. Get leads from CRM (uncontacted, qualified)
+3. For each lead (max 50 per day):
+   - Make qualification call
+   - Monitor conversation
+   - Extract key information
+   - Update CRM with outcome
+   - Schedule follow-up if qualified
+   - Send personalized email
+   - Log in tracking sheet
+4. Send daily summary to sales team via Slack
+5. Generate performance report
+```
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Respect Time" icon="clock">
+    Keep calls brief and focused—aim for under 5 minutes
+  </Card>
+  <Card title="Clear Purpose" icon="bullseye">
+    State reason for call upfront and set expectations
+  </Card>
+  <Card title="Good Listening" icon="ear-listen">
+    Configure agents to listen actively and respond appropriately
+  </Card>
+  <Card title="Handle Objections" icon="shield-check">
+    Prepare agents with objection handling scripts
+  </Card>
+  <Card title="Natural Conversation" icon="comments">
+    Avoid robotic scripts—allow natural dialogue
+  </Card>
+  <Card title="Compliance" icon="gavel">
+    Follow telemarketing laws and do-not-call regulations
+  </Card>
+  <Card title="Monitor Quality" icon="chart-line">
+    Review call transcripts regularly to improve agent performance
+  </Card>
+  <Card title="Privacy" icon="lock">
+    Never request sensitive financial or personal information
+  </Card>
+</CardGroup>
+
+## Compliance and Regulations
+
+<Warning>
+  **Legal Requirements**:
+
+  - **Do Not Call Lists**: Honor DNC registry and company-specific opt-outs
+  - **Calling Hours**: Respect permitted calling hours (typically 8 AM - 9 PM local time)
+  - **Identification**: Clearly identify your company and purpose of call
+  - **Opt-Out**: Provide easy way to opt out of future calls
+  - **Recording**: Comply with call recording laws (vary by jurisdiction)
+  - **TCPA Compliance**: Follow Telephone Consumer Protection Act rules
+
+  Consult legal counsel for specific compliance requirements in your jurisdiction.
+</Warning>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Call not connecting">
+    Check:
+
+    - Phone number format is correct (+1-555-0100)
+    - Number is valid and active
+    - Not an emergency number (blocked)
+    - Not a premium rate number
+    - Network connectivity
+    - Try again if temporary network issue
+  </Accordion>
+  <Accordion title="Agent going off-script">
+    Improve with:
+
+    - More specific agent instructions
+    - Clear guard rails and boundaries
+    - Example conversations to follow
+    - Explicit prohibited topics
+    - Better objection handling scripts
+    - Review and refine based on transcripts
+  </Accordion>
+  <Accordion title="Low answer rate">
+    Consider:
+
+    - Calling at better times (avoid early morning/late evening)
+    - Multiple attempt strategy
+    - Leaving voicemails (if enabled)
+    - Email + call combination
+    - Verify phone numbers are current
+    - Check if numbers are mobile vs landline
+  </Accordion>
+  <Accordion title="Calls too short/long">
+    Optimize:
+
+    - Review call structure
+    - Tighten agent script
+    - Set time expectations upfront
+    - Have agent politely wrap up when objectives met
+    - Better qualification before calling
+    - End unproductive calls early
+  </Accordion>
+  <Accordion title="Poor call quality or audio issues">
+    Try:
+
+    - Check network connection
+    - Verify phone number is correct format
+    - Try calling back
+    - Check for system-wide issues
+    - Report persistent quality problems
+  </Accordion>
+</AccordionGroup>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Make outbound phone calls with AI voice agents
+</Check>
+
+<Check>
+  Configure agents with appropriate personality and scripts
+</Check>
+
+<Check>
+  Monitor calls in real-time with live transcription
+</Check>
+
+<Check>
+  End calls programmatically when needed
+</Check>
+
+<Check>
+  Retrieve call transcripts and extract information
+</Check>
+
+<Check>
+  Manage call history and track outcomes
+</Check>
+
+<Check>
+  Combine voice calls with CRM and automation workflows
+</Check>
+
+<Check>
+  Apply best practices for effective, compliant calling
+</Check>
+
+The Voice Calls tool enables scalable phone outreach with AI agents that can qualify leads, schedule appointments, conduct surveys, and handle various phone-based tasks—all while maintaining natural conversations and gathering valuable information.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="CRM Integration" icon="address-book" href="/integrations">
+    Connect to Salesforce, HubSpot for automated updates
+  </Card>
+  <Card title="Triggers & Automation" icon="clock" href="/tools/triggers-automation">
+    Automate call campaigns on schedules
+  </Card>
+  <Card title="Spreadsheet Tools" icon="table" href="/tools/spreadsheets">
+    Track call metrics and outcomes
+  </Card>
+  <Card title="Email Integration" icon="envelope" href="/integrations">
+    Send automated follow-ups after calls
+  </Card>
+</CardGroup>

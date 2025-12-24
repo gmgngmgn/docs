@@ -1,4 +1,844 @@
 ---
-title: "Knowledgebase Tool"
-description: "Description of your new file."
+title: "Knowledge Base Tool"
+description: "Store and retrieve information from your personal knowledge library using semantic search, file organization, and intelligent information retrieval capabilities."
 ---
+
+## Overview
+
+The Knowledge Base tool enables your Utari workers to store, organize, and intelligently retrieve information from a personal knowledge library. Using semantic search and natural language queries, agents can find relevant information across documents, maintain organized file structures, and access contextual knowledge to inform their responses and actions.
+
+## Knowledge Base Capabilities
+
+<CardGroup cols={3}>
+  <Card title="Semantic Search" icon="magnifying-glass">
+    Find information using natural language queries across all knowledge base files
+  </Card>
+  <Card title="File Management" icon="folder-tree">
+    Upload, organize, enable/disable, and delete files and folders
+  </Card>
+  <Card title="Sync & Index" icon="arrows-rotate">
+    Synchronize knowledge base to local workspace for fast access
+  </Card>
+  <Card title="List Contents" icon="list">
+    View all folders and files in the knowledge base hierarchy
+  </Card>
+  <Card title="Enable/Disable" icon="toggle-on">
+    Control which files are active and searchable for specific agents
+  </Card>
+  <Card title="Maintenance" icon="broom">
+    Cleanup and optimization operations for knowledge base health
+  </Card>
+</CardGroup>
+
+<Info>
+  The Knowledge Base uses semantic search, meaning it understands the meaning and context of queries rather than just matching keywords. Ask questions naturally, and the system finds relevant information even if exact words don't match.
+</Info>
+
+## Understanding the Knowledge Base
+
+### What is Semantic Search?
+
+<Card title="Semantic Search Explained" icon="brain">
+  Unlike traditional keyword search, semantic search understands:
+
+  - **Meaning and Context**: "How do I improve sales?" finds information about "increasing revenue" and "customer conversion"
+  - **Related Concepts**: Searching for "pricing strategy" finds documents about "monetization" and "value-based pricing"
+  - **Natural Language**: Ask questions as you would ask a person
+  - **Intent Recognition**: Understands what you're really looking for
+
+  **Example**:
+
+  - Query: "How should we position our product?"
+  - Finds: Documents about "market positioning," "competitive advantage," "value proposition," and "target audience definition"
+</Card>
+
+### Global vs. Local Knowledge Base
+
+<Tabs>
+  <Tab title="Global Knowledge Base">
+    **Location**: Cloud-based, accessible across all agents
+
+    **Purpose**:
+
+    - Centralized knowledge repository
+    - Shared across workspace
+    - Persistent storage
+    - Version controlled
+
+    **Management**:
+
+    - Upload files from sandbox
+    - Create folder structure
+    - Enable/disable for specific agents
+    - Delete when no longer needed
+
+    **Use Cases**:
+
+    - Company SOPs and guidelines
+    - Reusable templates
+    - Shared reference materials
+    - Brand guidelines
+    - Product documentation
+  </Tab>
+  <Tab title="Local Sandbox Copy">
+    **Location**: ~/knowledge-base-global in workspace
+
+    **Purpose**:
+
+    - Fast local access
+    - Working copy for agent
+    - Synced from global KB
+    - Temporary processing
+
+    **Creation**:
+
+    - Sync from global KB
+    - Downloads enabled files
+    - Maintains folder structure
+    - Updates when synced
+
+    **Use Cases**:
+
+    - Real-time access during tasks
+    - Processing and analysis
+    - Quick reference
+    - Local file operations
+  </Tab>
+</Tabs>
+
+## Using Semantic Search
+
+### Basic Search
+
+<Steps>
+  <Step title="Ask Natural Language Questions">
+    ```
+        Search the knowledge base for information about our pricing strategy
+        
+        Find documents related to customer onboarding best practices
+        
+        What does our knowledge base say about competitive positioning?
+        
+        Look for information about Q4 marketing campaigns
+    ```
+  </Step>
+  <Step title="Worker Performs Semantic Search">
+    The system:
+
+    - Understands the semantic meaning of your query
+    - Searches all indexed files in knowledge base
+    - Ranks results by relevance
+    - Returns most pertinent information
+  </Step>
+  <Step title="Review Results">
+    ```
+        Found 3 relevant documents:
+        
+        1. "Pricing Strategy 2024.pdf" (95% relevance)
+           "Our tiered pricing model focuses on value-based pricing 
+           aligned with customer segments..."
+        
+        2. "Product Positioning.md" (87% relevance)
+           "Price positioning relative to competitors emphasizes 
+           our premium quality and comprehensive features..."
+        
+        3. "Sales Playbook.docx" (78% relevance)
+           "When discussing pricing with prospects, emphasize 
+           ROI and total cost of ownership..."
+    ```
+  </Step>
+  <Step title="Use Retrieved Information">
+    Worker uses found information to:
+
+    - Answer your questions
+    - Inform recommendations
+    - Create content aligned with guidelines
+    - Reference established procedures
+  </Step>
+</Steps>
+
+### Targeted Search
+
+Search within specific files or folders:
+
+<CodeGroup>
+
+```text Search Specific File
+Search the "Brand Guidelines.pdf" for logo usage rules
+
+Look in "Sales Playbook.docx" for objection handling
+
+Find information about pricing in "Product Documentation"
+```
+
+
+```text Search by Topic
+Search knowledge base for:
+- Brand voice guidelines
+- Customer success strategies  
+- Product roadmap priorities
+- Team workflows and processes
+```
+
+
+```text Search for Examples
+Find examples of:
+- Successful customer case studies
+- Email templates for outreach
+- Presentation formats
+- Report structures
+```
+
+</CodeGroup>
+
+### Advanced Search Techniques
+
+<AccordionGroup>
+  <Accordion title="Conceptual Search" icon="lightbulb">
+    Ask about concepts, not just keywords:
+
+    ```
+        ❌ Search for "increase revenue metrics dashboard reporting"
+        
+        ✅ "How do we track and report on revenue growth?"
+        
+        The semantic search understands the intent and finds:
+        - Revenue tracking methodologies
+        - Dashboard KPIs
+        - Reporting best practices
+        - Metrics definitions
+    ```
+  </Accordion>
+  <Accordion title="Question-Based Search" icon="circle-question">
+    Ask direct questions:
+
+    ```
+        "What are our content approval processes?"
+        "How do we handle customer complaints?"
+        "When should we escalate support issues?"
+        "Who approves marketing budgets?"
+    ```
+
+    The system finds procedural documents and guidelines that answer these questions.
+  </Accordion>
+  <Accordion title="Context-Aware Search" icon="brain">
+    Provide context for better results:
+
+    ```
+        ❌ "Email templates"
+        
+        ✅ "Email templates for following up with warm leads in B2B sales"
+        
+        More context = more relevant results
+    ```
+  </Accordion>
+  <Accordion title="Multi-Aspect Search" icon="layer-group">
+    Search for multiple related aspects:
+
+    ```
+        "Find information about our brand voice, tone guidelines, and content style preferences"
+        
+        Returns documents covering all related aspects of brand communication.
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Managing Knowledge Base Files
+
+### Listing Knowledge Base Contents
+
+<Steps>
+  <Step title="View All Files">
+    ```
+        List all files in the knowledge base
+        Show me what's in the knowledge base
+        What files are indexed and searchable?
+    ```
+  </Step>
+  <Step title="Review Structure">
+    ```
+        Knowledge Base Contents:
+        
+        📁 Marketing/
+          📁 Brand Guidelines/
+            📄 Brand Voice Guide.pdf (enabled, 2.3 MB)
+            📄 Logo Usage.pdf (enabled, 1.1 MB)
+            📄 Color Palette.pdf (enabled, 0.5 MB)
+          📁 Templates/
+            📄 Email Templates.docx (enabled, 0.8 MB)
+            📄 Social Media Guide.pdf (disabled, 1.2 MB)
+        
+        📁 Sales/
+          📄 Sales Playbook.pdf (enabled, 4.5 MB)
+          📄 Pricing Strategy.docx (enabled, 1.3 MB)
+          📄 Objection Handling.pdf (enabled, 0.9 MB)
+        
+        📁 Product/
+          📄 Product Roadmap.pdf (enabled, 2.1 MB)
+          📄 Feature Specs.docx (disabled, 3.2 MB)
+        
+        Total: 10 files (8 enabled, 2 disabled)
+        Total size: 18.9 MB
+    ```
+  </Step>
+  <Step title="Check File Status">
+    ```
+        Show me which files are enabled for this agent
+        List disabled knowledge base files
+        Which files are still indexing?
+    ```
+  </Step>
+</Steps>
+
+### Uploading Files to Knowledge Base
+
+<Steps>
+  <Step title="Ensure File in Sandbox">
+    Files must exist in the workspace before uploading:
+
+    ```
+        Files in workspace:
+        /workspace/documents/New_SOP.pdf ✓
+        /workspace/reports/Q4_Analysis.docx ✓
+    ```
+  </Step>
+  <Step title="Create Folder (Optional)">
+    ```
+        Create a new folder in the knowledge base called "SOPs"
+        
+        Create folder "Customer Success/Onboarding"
+    ```
+  </Step>
+  <Step title="Upload to Knowledge Base">
+    ```
+        Upload "New_SOP.pdf" to the knowledge base in the "SOPs" folder
+        
+        Upload all files from /workspace/documents to knowledge base folder "Documentation"
+    ```
+  </Step>
+  <Step title="Verify Upload">
+    ```
+        File uploaded successfully! ✓
+        
+        File: New_SOP.pdf
+        Location: Knowledge Base/SOPs/
+        Size: 1.2 MB
+        Status: Indexing...
+        
+        The file will be searchable once indexing completes (typically 1-2 minutes)
+    ```
+  </Step>
+  <Step title="Enable for Agent">
+    ```
+        Enable "New_SOP.pdf" for this agent
+        
+        File enabled! ✓
+        Now available for semantic search and retrieval
+    ```
+  </Step>
+</Steps>
+
+### Organizing with Folders
+
+<Steps>
+  <Step title="Create Folder Structure">
+    ```
+        Create knowledge base folders:
+        - Marketing/
+          - Brand Guidelines/
+          - Content Templates/
+          - Campaign Playbooks/
+        - Sales/
+          - Playbooks/
+          - Scripts/
+          - Case Studies/
+        - Product/
+          - Documentation/
+          - Roadmaps/
+          - Specifications/
+    ```
+  </Step>
+  <Step title="Upload to Folders">
+    ```
+        Upload files to appropriate folders:
+        - Brand_Voice.pdf → Marketing/Brand Guidelines/
+        - Sales_Script.docx → Sales/Scripts/
+        - Product_Specs.pdf → Product/Specifications/
+    ```
+  </Step>
+  <Step title="Maintain Organization">
+    ```
+        - Use descriptive folder names
+        - Group related documents
+        - Maintain consistent structure
+        - Regular cleanup of outdated files
+    ```
+  </Step>
+</Steps>
+
+### Enabling and Disabling Files
+
+<Steps>
+  <Step title="Control Agent Access">
+    ```
+        Enable "Sales Playbook.pdf" for Sales Agent
+        Disable "Internal Memo.pdf" for Customer-Facing Agent
+        
+        Enable all files in the "Marketing" folder for Content Agent
+    ```
+  </Step>
+  <Step title="Strategic Enabling">
+    ```
+        Content Agent:
+        ✓ Brand guidelines
+        ✓ Content templates
+        ✓ Style guides
+        ✗ Sales playbooks
+        ✗ Product specs
+        
+        Sales Agent:
+        ✓ Sales playbooks
+        ✓ Pricing strategy
+        ✓ Case studies
+        ✗ Internal HR docs
+        ✗ Engineering specs
+    ```
+  </Step>
+  <Step title="Performance Optimization">
+    ```
+        Only enable files directly relevant to each agent:
+        - Reduces search scope
+        - Improves relevance
+        - Faster search performance
+        - More focused results
+    ```
+  </Step>
+</Steps>
+
+### Deleting Files and Folders
+
+<Steps>
+  <Step title="Identify Items to Delete">
+    ```
+        List all files modified before 2023
+        Show me outdated sales materials
+        Which files haven't been accessed in 6 months?
+    ```
+  </Step>
+  <Step title="Delete Files">
+    ```
+        Delete "Old_Pricing_2022.pdf" from knowledge base
+        Remove the "Archived" folder and all contents
+    ```
+  </Step>
+  <Step title="Confirm Deletion">
+    ```
+        Warning: Deleting "Sales Playbook Old.pdf"
+        
+        This file is enabled for:
+        - Sales Agent
+        - Training Agent
+        
+        Deletion is permanent and cannot be undone.
+        
+        Confirm deletion?
+    ```
+  </Step>
+  <Step title="Cleanup Complete">
+    ```
+        Deleted successfully ✓
+        
+        Removed:
+        - Old_Pricing_2022.pdf (1.2 MB)
+        - Archived/ folder (5 files, 6.8 MB)
+        
+        Freed space: 8.0 MB
+        Remaining files: 15
+    ```
+  </Step>
+</Steps>
+
+## Syncing Knowledge Base
+
+### Global KB Sync
+
+<Steps>
+  <Step title="Initiate Sync">
+    ```
+        Sync knowledge base to local workspace
+        Download all enabled knowledge base files
+        Update local knowledge base copy
+    ```
+  </Step>
+  <Step title="Sync Process">
+    ```
+        Syncing knowledge base...
+        
+        Downloading enabled files:
+        ✓ Brand Guidelines.pdf (2.3 MB)
+        ✓ Sales Playbook.pdf (4.5 MB)
+        ✓ Product Roadmap.pdf (2.1 MB)
+        ✓ Content Templates.docx (0.8 MB)
+        ...
+        
+        Creating folder structure in ~/knowledge-base-global/
+        ✓ Marketing/Brand Guidelines/
+        ✓ Sales/
+        ✓ Product/
+        
+        Total downloaded: 15 files, 18.9 MB
+    ```
+  </Step>
+  <Step title="Access Synced Files">
+    ```
+        Files now available locally at:
+        ~/knowledge-base-global/
+        
+        Can be accessed for:
+        - Fast reading
+        - Processing
+        - Analysis
+        - Reference
+    ```
+  </Step>
+  <Step title="Re-sync as Needed">
+    ```
+        Sync again when:
+        - New files added to global KB
+        - Existing files updated
+        - File enablement changes
+        - Starting new work session
+    ```
+  </Step>
+</Steps>
+
+## Knowledge Base Maintenance
+
+### Cleanup Operations
+
+<Steps>
+  <Step title="Perform Cleanup">
+    ```
+        Run knowledge base cleanup
+        Optimize knowledge base performance
+        Clean up orphaned files
+    ```
+  </Step>
+  <Step title="Cleanup Tasks">
+    ```
+        Performing maintenance...
+        
+        ✓ Removing orphaned index entries
+        ✓ Consolidating file metadata
+        ✓ Optimizing search indices
+        ✓ Clearing temporary files
+        ✓ Validating file integrity
+        ✓ Compacting databases
+        
+        Cleanup complete!
+        
+        Results:
+        - Freed space: 1.2 GB
+        - Optimized search index
+        - Removed 47 orphaned entries
+        - Validated 150 files
+    ```
+  </Step>
+  <Step title="Regular Maintenance">
+    ```
+        Schedule cleanup:
+        - Monthly for active knowledge bases
+        - Quarterly for stable knowledge bases
+        - After bulk uploads or deletions
+        - When search performance degrades
+    ```
+  </Step>
+</Steps>
+
+## Use Cases and Workflows
+
+### Reference-Based Content Creation
+
+<Card title="Creating Brand-Aligned Content">
+  ```
+    User: Create a blog post about our new feature
+    
+    Agent workflow:
+    1. Search knowledge base for:
+       - Brand voice guidelines
+       - Product documentation
+       - Previous blog examples
+    
+    2. Found and referenced:
+       - Brand Voice Guide.pdf: Tone, style, vocabulary
+       - Product Specs.pdf: Feature details
+       - Top Blog Posts.md: Successful examples
+    
+    3. Create blog post following:
+       - Brand voice (professional but approachable)
+       - Accurate feature information
+       - Proven content structure
+    
+    Result: Brand-consistent, accurate content
+  ```
+</Card>
+
+### Procedure-Guided Task Execution
+
+<Card title="Following SOPs">
+  ```
+    User: Process the new client onboarding
+    
+    Agent workflow:
+    1. Search: "client onboarding procedures"
+    
+    2. Found: Customer_Onboarding_SOP.pdf
+    
+    3. Follow procedure:
+       - Welcome email (template from KB)
+       - Account setup checklist (from SOP)
+       - Schedule kickoff meeting (per guidelines)
+       - Send onboarding materials (from KB templates)
+    
+    4. Execute each step according to documented process
+    
+    Result: Consistent, compliant onboarding
+  ```
+</Card>
+
+### Question Answering with Context
+
+<Card title="Informed Responses">
+  ```
+    User: How should we position against Competitor X?
+    
+    Agent workflow:
+    1. Search knowledge base for:
+       - "competitive positioning"
+       - "Competitor X"
+       - "differentiation strategy"
+    
+    2. Found relevant sections in:
+       - Competitive_Analysis_2024.pdf
+       - Market_Positioning.docx
+       - Sales_Battlecard_CompetitorX.pdf
+    
+    3. Synthesize answer using:
+       - Established positioning framework
+       - Competitor-specific intelligence
+       - Approved messaging
+    
+    Result: Strategically sound, aligned response
+  ```
+</Card>
+
+### Multi-Document Synthesis
+
+<Card title="Comprehensive Research">
+  ```
+    User: Create Q4 strategy recommendations
+    
+    Agent workflow:
+    1. Search knowledge base for:
+       - Past quarter performance
+       - Market trends
+       - Strategic priorities
+       - Competitive intelligence
+    
+    2. Found and analyzed:
+       - Q3_Results.pdf
+       - Market_Trends_2024.pdf
+       - Strategic_Plan.docx
+       - Competitor_Analysis.pdf
+       - Customer_Feedback.xlsx
+    
+    3. Synthesize insights across documents
+    
+    4. Generate recommendations based on:
+       - Historical performance
+       - Market conditions
+       - Strategic alignment
+       - Competitive landscape
+    
+    Result: Data-informed, strategically aligned recommendations
+  ```
+</Card>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Organized Structure" icon="folder-tree">
+    Maintain clear folder hierarchy mirroring your organizational structure
+  </Card>
+  <Card title="Descriptive Naming" icon="tag">
+    Use clear, searchable file names: "Brand_Voice_Guide_2024.pdf" not "doc1.pdf"
+  </Card>
+  <Card title="Regular Updates" icon="arrows-rotate">
+    Keep knowledge base current by updating or replacing outdated files
+  </Card>
+  <Card title="Strategic Enabling" icon="toggle-on">
+    Only enable relevant files for each agent to improve search quality
+  </Card>
+  <Card title="Periodic Cleanup" icon="broom">
+    Regularly remove obsolete files and run maintenance
+  </Card>
+  <Card title="Version Control" icon="code-branch">
+    Include version/date in file names for evolving documents
+  </Card>
+  <Card title="Format Consistency" icon="file">
+    Use consistent file formats (PDF for final, DOCX for editable)
+  </Card>
+  <Card title="Document Metadata" icon="circle-info">
+    Include README files in folders explaining contents and purpose
+  </Card>
+</CardGroup>
+
+## Supported File Types
+
+<Tabs>
+  <Tab title="Documents">
+    - **PDF** (.pdf) - Best for final documents, reports, guides
+    - **Word** (.docx, .doc) - Editable documents
+    - **Text** (.txt) - Plain text files
+    - **Markdown** (.md) - Formatted text documentation
+    - **RTF** (.rtf) - Rich text format
+  </Tab>
+  <Tab title="Spreadsheets">
+    - **Excel** (.xlsx, .xls) - Data, tables, analysis
+    - **CSV** (.csv) - Tabular data
+    - **TSV** (.tsv) - Tab-separated values
+  </Tab>
+  <Tab title="Presentations">
+    - **PowerPoint** (.pptx, .ppt) - Presentation decks
+    - **PDF** (converted presentations)
+  </Tab>
+  <Tab title="Code & Data">
+    - **JSON** (.json) - Structured data
+    - **YAML** (.yml, .yaml) - Configuration files
+    - **XML** (.xml) - Structured documents
+    - **Code files** (.py, .js, .java, etc.)
+  </Tab>
+</Tabs>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Search returns no results">
+    Check:
+
+    - Files are enabled for the agent
+    - Files have finished indexing (check with ls_kb)
+    - Try broader or different search terms
+    - Verify files actually contain relevant information
+    - Run sync to update local copy
+    - Check if files are in correct format
+  </Accordion>
+  <Accordion title="File not appearing in knowledge base">
+    Verify:
+
+    - File was successfully uploaded
+    - Check with list contents to see all files
+    - File is not being filtered from view
+    - File finished processing
+    - Refresh or re-list contents
+  </Accordion>
+  <Accordion title="File shows as indexing for long time">
+    Possible causes:
+
+    - Large file size (may take longer)
+    - Complex document structure
+    - High system load
+    - Wait 5-10 minutes for large files
+    - Check file isn't corrupted
+    - Try re-uploading if stuck
+  </Accordion>
+  <Accordion title="Can't upload file to knowledge base">
+    Ensure:
+
+    - File exists in workspace sandbox first
+    - File path is correct
+    - File format is supported
+    - Sufficient storage space
+    - File isn't corrupted
+    - Try smaller file or different format
+  </Accordion>
+  <Accordion title="Search results not relevant">
+    Improve by:
+
+    - Using more specific, natural language queries
+    - Providing context in your search
+    - Checking if right files are enabled
+    - Ensuring files contain expected information
+    - Trying question-based queries
+    - Updating knowledge base with better documents
+  </Accordion>
+  <Accordion title="Sync fails or incomplete">
+    Try:
+
+    - Check network connection
+    - Verify permissions on files
+    - Run sync again
+    - Check available disk space
+    - List contents to see what should sync
+    - Contact support if persists
+  </Accordion>
+</AccordionGroup>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Perform semantic search using natural language queries
+</Check>
+
+<Check>
+  Upload and organize files in the knowledge base
+</Check>
+
+<Check>
+  Create folder structures for organization
+</Check>
+
+<Check>
+  Enable and disable files strategically for agents
+</Check>
+
+<Check>
+  Sync knowledge base to local workspace
+</Check>
+
+<Check>
+  List and review knowledge base contents
+</Check>
+
+<Check>
+  Delete files and folders when no longer needed
+</Check>
+
+<Check>
+  Perform maintenance and cleanup operations
+</Check>
+
+<Check>
+  Apply best practices for knowledge management
+</Check>
+
+The Knowledge Base tool transforms static documents into an intelligent, searchable knowledge library that agents can query naturally to find relevant information, follow established procedures, and create content aligned with organizational guidelines—making institutional knowledge accessible and actionable.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Activate Knowledge" icon="toggle-on" href="/activate-knowledge">
+    Learn to activate knowledge for specific workers
+  </Card>
+  <Card title="Add Knowledge" icon="upload" href="/add-knowledge">
+    Upload SOPs and documents to knowledge base
+  </Card>
+  <Card title="Agent Configuration" icon="sliders" href="/tools/agent-configuration">
+    Configure agents with knowledge access
+  </Card>
+  <Card title="Jeremy SOPs" icon="book" href="/jeremy-sops">
+    Access pre-built knowledge resources
+  </Card>
+</CardGroup>

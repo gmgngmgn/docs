@@ -1,4 +1,291 @@
 ---
-title: "File Upload Tool"
-description: "Description of your new file."
+title: "File Upload"
+description: "Upload files to cloud storage and share them with secure links for easy access and distribution."
 ---
+
+## Overview
+
+The File Upload tool enables your Utari workers to upload files from the workspace to cloud storage and generate secure, shareable links. This simple capability makes it easy to share documents, images, reports, and other files with others or access them from outside the Utari workspace.
+
+## File Upload Capability
+
+<Card title="Upload and Share Files" icon="cloud-arrow-up">
+  Upload any file from your Utari workspace to cloud storage and receive a secure link that can be:
+
+  - Shared with team members
+  - Embedded in emails or messages
+  - Accessed from any device
+  - Downloaded by recipients
+  - Used as public file hosting
+</Card>
+
+## Using File Upload
+
+### Basic Upload Process
+
+<Steps>
+  <Step title="Create or Identify File">
+    Ensure the file exists in your workspace:
+
+    ```
+        Files ready to upload:
+        /workspace/reports/Q4_Analysis.pdf
+        /workspace/images/product_mockup.png
+        /workspace/documents/proposal.docx
+    ```
+  </Step>
+  <Step title="Request Upload">
+    Ask your worker to upload the file:
+
+    ```
+        Upload the Q4 Analysis report to cloud storage
+        
+        Upload product_mockup.png and give me a shareable link
+        
+        Upload proposal.docx so I can share it with the client
+    ```
+  </Step>
+  <Step title="Receive Shareable Link">
+    Worker uploads file and provides secure link:
+
+    ```
+        File uploaded successfully! ✓
+        
+        File: Q4_Analysis.pdf
+        Size: 2.3 MB
+        
+        Shareable link:
+        https://storage.utari.app/files/abc123xyz/Q4_Analysis.pdf
+        
+        This link can be shared with anyone and will remain active.
+    ```
+  </Step>
+  <Step title="Share Link">
+    Copy and share the link via:
+
+    - Email
+    - Slack or Teams
+    - Documents
+    - Web pages
+    - Any communication channel
+  </Step>
+</Steps>
+
+## Common Use Cases
+
+### Sharing Reports and Documents
+
+<CodeGroup>
+
+```text Share with Team
+Upload the weekly report and send the link to the team
+
+Generate a shareable link for the client proposal
+```
+
+
+```text External Sharing
+Upload the presentation so I can share it with external stakeholders
+
+Create a public link for the product documentation
+```
+
+
+```text Email Attachments Alternative
+Upload these files and give me links to include in the email instead of attachments
+```
+
+</CodeGroup>
+
+### Distributing Visual Assets
+
+<CodeGroup>
+
+```text Images and Graphics
+Upload the logo files and provide download links
+
+Upload all product images from the /images folder
+```
+
+
+```text Design Files
+Upload the design mockups so the team can review them
+
+Create shareable links for all the UI screenshots
+```
+
+</CodeGroup>
+
+### Archiving and Backup
+
+<CodeGroup>
+
+```text Document Backup
+Upload all completed reports to cloud storage
+
+Archive the project files and give me the links
+```
+
+
+```text Long-term Storage
+Upload these reference documents for permanent storage
+
+Create backup links for all critical files
+```
+
+</CodeGroup>
+
+## File Upload Workflow Example
+
+<Steps>
+  <Step title="Generate Content">
+    ```
+        Create a competitor analysis report and save as PDF
+    ```
+  </Step>
+  <Step title="Upload to Cloud">
+    ```
+        Upload Competitor_Analysis_2024.pdf to cloud storage
+    ```
+  </Step>
+  <Step title="Share with Team">
+    ```
+        Link generated: https://storage.utari.app/files/def456/Competitor_Analysis_2024.pdf
+        
+        Share this link in the #strategy Slack channel
+    ```
+  </Step>
+</Steps>
+
+## Combining with Other Tools
+
+<CardGroup cols={2}>
+  <Card title="+ Document Creator" icon="file-word">
+    Create documents, then upload and share them immediately
+  </Card>
+  <Card title="+ Image Editor" icon="wand-magic-sparkles">
+    Generate images, upload to cloud, and share links
+  </Card>
+  <Card title="+ Presentations" icon="presentation">
+    Create presentations, upload, and distribute via links
+  </Card>
+  <Card title="+ Web Search" icon="magnifying-glass">
+    Research and create reports, then upload for sharing
+  </Card>
+</CardGroup>
+
+### Example Combined Workflow
+
+```text
+1. Generate monthly analytics report with charts
+2. Create executive summary document
+3. Upload both files to cloud storage
+4. Send shareable links via email to leadership team
+```
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Clear File Names" icon="tag">
+    Use descriptive names before uploading: "Q4_Report_Final.pdf" not "report.pdf"
+  </Card>
+  <Card title="Consider Privacy" icon="shield-check">
+    Remember that anyone with the link can access the file
+  </Card>
+  <Card title="Organize Before Upload" icon="folder">
+    Ensure files are in final form and properly named
+  </Card>
+  <Card title="Track Links" icon="link">
+    Keep record of important shareable links for future reference
+  </Card>
+</CardGroup>
+
+## Supported File Types
+
+File Upload supports all common file types:
+
+<Tabs>
+  <Tab title="Documents">
+    - PDF, DOCX, DOC, TXT, MD, RTF
+    - PPT, PPTX (presentations)
+    - XLS, XLSX, CSV (spreadsheets)
+  </Tab>
+  <Tab title="Images">
+    - JPG, JPEG, PNG, GIF, WebP
+    - SVG, BMP, TIFF
+  </Tab>
+  <Tab title="Other">
+    - ZIP, RAR (archives)
+    - MP4, MOV (videos)
+    - MP3, WAV (audio)
+    - Any other file type
+  </Tab>
+</Tabs>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="File not found for upload">
+    Ensure:
+
+    - File exists in workspace
+    - File path is correct
+    - File was successfully created
+    - Check with `ls` command to verify location
+  </Accordion>
+  <Accordion title="Upload fails">
+    Check:
+
+    - File isn't corrupted
+    - File size is reasonable
+    - Network connection is stable
+    - Try uploading again
+  </Accordion>
+  <Accordion title="Link not working">
+    Verify:
+
+    - Link was copied completely
+    - No extra spaces in URL
+    - Link was successfully generated
+    - Try generating new link if needed
+  </Accordion>
+</AccordionGroup>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Upload files from workspace to cloud storage
+</Check>
+
+<Check>
+  Generate secure shareable links
+</Check>
+
+<Check>
+  Share files with team members and external parties
+</Check>
+
+<Check>
+  Combine file upload with content creation workflows
+</Check>
+
+The File Upload tool provides a simple, effective way to share files generated in your Utari workspace with anyone, anywhere—making collaboration and distribution effortless.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Document Creator" icon="file-word" href="/tools/document-creator">
+    Create documents to upload and share
+  </Card>
+  <Card title="Files and Folder" icon="folder" href="/tools/files-folder">
+    Organize files before uploading
+  </Card>
+  <Card title="Image Editor" icon="wand-magic-sparkles" href="/tools/image-editor">
+    Generate images to upload and share
+  </Card>
+  <Card title="Presentations" icon="presentation" href="/tools/create-presentations">
+    Create presentations to distribute
+  </Card>
+</CardGroup>

@@ -1,4 +1,873 @@
 ---
-title: "Trigger and Automation Tool"
-description: "Description of your new file."
+title: "Triggers & Automation"
+description: "Set up automatic triggers to run agents on schedules or in response to events, enabling fully automated workflows and intelligent responses to real-world changes."
 ---
+
+## Overview
+
+Triggers & Automation enables your Utari workers to execute automatically based on schedules or real-world events. This powerful capability transforms agents from on-demand assistants into autonomous workers that monitor, respond, and act without manual intervention—creating sophisticated automation workflows that run 24/7.
+
+## Trigger Types
+
+<CardGroup cols={2}>
+  <Card title="Scheduled Triggers" icon="clock">
+    Run agents automatically at specified times using flexible cron expressions
+  </Card>
+  <Card title="Event Triggers" icon="bolt">
+    Execute agents in response to real-world events from connected applications
+  </Card>
+</CardGroup>
+
+<Info>
+  Triggers can be combined with template variables to create reusable automation workflows that adapt to different contexts and use cases.
+</Info>
+
+## Trigger Capabilities
+
+### Scheduled Trigger Management
+
+<AccordionGroup>
+  <Accordion title="Create Scheduled Trigger" icon="plus">
+    Set up automatic execution at specific times using cron expressions.
+
+    **Features**:
+
+    - Flexible scheduling with cron syntax
+    - Template variables for reusable prompts
+    - Custom execution instructions
+    - Multiple triggers per agent
+
+    **Example**:
+
+    ```
+        Create a scheduled trigger to run daily at 9 AM:
+        - Monitor {{company_name}} brand mentions
+        - Analyze sentiment
+        - Generate daily report
+    ```
+  </Accordion>
+  <Accordion title="Get Scheduled Triggers" icon="list">
+    View all scheduled triggers for the current agent.
+
+    **Information Shown**:
+
+    - Trigger schedule (cron expression)
+    - Execution instructions
+    - Enabled/disabled status
+    - Last run time
+    - Next scheduled run
+
+    **Example**:
+
+    ```
+        Show me all scheduled triggers for this agent
+    ```
+  </Accordion>
+  <Accordion title="Toggle Scheduled Trigger" icon="toggle-on">
+    Enable or disable triggers without deleting them.
+
+    **Use Cases**:
+
+    - Temporarily pause automation
+    - Seasonal adjustments
+    - Testing and maintenance
+    - Resource management
+
+    **Example**:
+
+    ```
+        Disable the weekend reporting trigger
+        Pause all triggers during holiday period
+    ```
+  </Accordion>
+  <Accordion title="Delete Scheduled Trigger" icon="trash">
+    Permanently remove scheduled triggers.
+
+    **Important**: Deleted triggers cannot be recovered. Consider disabling instead if you might need them again.
+
+    **Example**:
+
+    ```
+        Delete the outdated quarterly report trigger
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Event Trigger Management
+
+<AccordionGroup>
+  <Accordion title="List Event Trigger Apps" icon="grid">
+    Discover which applications support event-based triggers.
+
+    **Information Provided**:
+
+    - App name and slug
+    - App logo
+    - Available integrations
+    - Event capabilities
+
+    **Example**:
+
+    ```
+        Show me all apps that support event triggers
+        What applications can trigger automation?
+    ```
+  </Accordion>
+  <Accordion title="List App Event Triggers" icon="list-check">
+    View available triggers for a specific application.
+
+    **Information Provided**:
+
+    - Trigger slug and name
+    - Description and type
+    - Configuration options
+    - Payload schema
+    - Setup instructions
+
+    **Example**:
+
+    ```
+        What event triggers are available for Slack?
+        Show me Gmail event trigger options
+    ```
+  </Accordion>
+  <Accordion title="Create Event Trigger" icon="bolt-lightning">
+    Set up automation that responds to real-world events.
+
+    **Process**:
+
+    1. Choose application
+    2. Select event type
+    3. Configure trigger settings
+    4. Define agent response
+    5. Use template variables for reusability
+
+    **Example**:
+
+    ```
+        Create a trigger that:
+        - Monitors new emails in Gmail
+        - From {{client_name}}
+        - Automatically drafts response
+        - Saves to drafts for review
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Template Variables
+
+Template variables make triggers reusable across different contexts:
+
+### Using Template Variables
+
+<Steps>
+  <Step title="Define Variables in Prompts">
+    Use `{{variable_name}}` syntax in trigger instructions:
+
+    ```
+        Monitor {{company_name}} brand mentions on social media
+        Track {{competitor_name}} product launches
+        Alert on {{keyword}} discussions in {{industry}}
+    ```
+  </Step>
+  <Step title="Users Provide Values">
+    When installing or using the trigger, users provide their specific values:
+
+    ```
+        company_name: "Acme Corp"
+        competitor_name: "TechRival Inc"
+        keyword: "artificial intelligence"
+        industry: "healthcare"
+    ```
+  </Step>
+  <Step title="Dynamic Execution">
+    The trigger executes with user-specific context:
+
+    ```
+        Result: Monitor Acme Corp brand mentions on social media
+    ```
+  </Step>
+</Steps>
+
+### Common Template Variables
+
+<CodeGroup>
+
+```text Company/Brand
+{{company_name}} - Your company name
+{{brand_name}} - Brand being monitored
+{{competitor_name}} - Competitor to track
+{{product_name}} - Product being analyzed
+```
+
+
+```text Contact Information
+{{client_name}} - Client or customer name
+{{contact_email}} - Email address
+{{team_member}} - Team member name
+{{department}} - Department or division
+```
+
+
+```text Content & Keywords
+{{keyword}} - Monitoring keyword
+{{topic}} - Subject area
+{{hashtag}} - Social media hashtag
+{{category}} - Content category
+```
+
+
+```text Location & Time
+{{location}} - Geographic area
+{{region}} - Business region
+{{timezone}} - Time zone
+{{market}} - Target market
+```
+
+</CodeGroup>
+
+<Tip>
+  **Best Practice**: Use descriptive variable names that make it obvious what value should be provided. `{{primary_competitor}}` is clearer than `{{comp1}}`.
+</Tip>
+
+## Scheduled Trigger Examples
+
+### Using Cron Expressions
+
+Cron expressions provide flexible scheduling:
+
+<Tabs>
+  <Tab title="Common Schedules">
+    ```text
+        Every minute:
+        * * * * *
+        
+        Every 5 minutes:
+        */5 * * * *
+        
+        Every hour:
+        0 * * * *
+        
+        Daily at 9 AM:
+        0 9 * * *
+        
+        Daily at 6 PM:
+        0 18 * * *
+        
+        Every weekday at 8 AM:
+        0 8 * * 1-5
+        
+        Every Monday at 9 AM:
+        0 9 * * 1
+        
+        First day of month at midnight:
+        0 0 1 * *
+        
+        Every Sunday at 10 AM:
+        0 10 * * 0
+    ```
+  </Tab>
+  <Tab title="Advanced Schedules">
+    ```text
+        Every 15 minutes during business hours (9 AM - 5 PM):
+        */15 9-17 * * *
+        
+        Twice daily (morning and evening):
+        0 9,18 * * *
+        
+        Every weekday at noon:
+        0 12 * * 1-5
+        
+        Every quarter (Jan, Apr, Jul, Oct) on 1st at 9 AM:
+        0 9 1 1,4,7,10 *
+        
+        Every 2 hours between 8 AM and 8 PM:
+        0 8-20/2 * * *
+        
+        Every weekday at 9 AM and 5 PM:
+        0 9,17 * * 1-5
+        
+        Last day of month at midnight:
+        0 0 28-31 * *
+    ```
+  </Tab>
+  <Tab title="Cron Format">
+    ```text
+        Format: minute hour day month weekday
+        
+        minute: 0-59
+        hour: 0-23
+        day: 1-31
+        month: 1-12
+        weekday: 0-6 (0 = Sunday)
+        
+        Special characters:
+        * = any value
+        */n = every n units
+        a-b = range from a to b
+        a,b,c = specific values
+    ```
+  </Tab>
+</Tabs>
+
+### Daily Automation Examples
+
+<CodeGroup>
+
+```text Morning Brief
+Schedule: 0 7 * * 1-5 (Weekdays at 7 AM)
+
+Trigger Instructions:
+Search for overnight news about {{industry}}
+Summarize top 5 developments
+Check {{company_name}} stock performance
+Compile into morning briefing document
+Save to "Daily Briefs/{{date}}"
+Send via Slack to #team-updates
+```
+
+
+```text Daily Reporting
+Schedule: 0 18 * * * (Daily at 6 PM)
+
+Trigger Instructions:
+Retrieve today's metrics from {{analytics_platform}}
+Compare to yesterday and last week
+Calculate key performance indicators
+Generate daily dashboard report
+Save to "Reports/Daily/{{date}}.pdf"
+Email to {{manager_email}}
+```
+
+
+```text Social Media Monitoring
+Schedule: 0 */4 * * * (Every 4 hours)
+
+Trigger Instructions:
+Monitor {{brand_name}} mentions on Twitter
+Track sentiment and engagement
+Flag unusual patterns or viral posts
+Update monitoring spreadsheet
+Alert if negative sentiment spike detected
+```
+
+
+```text Competitive Intelligence
+Schedule: 0 9 * * 1 (Mondays at 9 AM)
+
+Trigger Instructions:
+Visit {{competitor_name}} website
+Capture homepage screenshot
+Check for pricing changes
+Monitor new blog posts
+Compare to our offerings
+Generate weekly competitive report
+```
+
+</CodeGroup>
+
+### Weekly & Monthly Automation
+
+<CodeGroup>
+
+```text Weekly Team Sync
+Schedule: 0 9 * * 1 (Mondays at 9 AM)
+
+Trigger Instructions:
+Review last week's completed tasks from {{project_tool}}
+Identify blockers and risks
+Compile team accomplishments
+Generate weekly status report
+Post to {{team_channel}}
+Schedule follow-ups for open items
+```
+
+
+```text Monthly Analytics
+Schedule: 0 9 1 * * (First day of month at 9 AM)
+
+Trigger Instructions:
+Gather previous month's data from all sources
+Calculate month-over-month trends
+Generate performance visualizations
+Create executive summary with insights
+Save to "Reports/Monthly/{{month}}-{{year}}.pdf"
+Send to leadership team
+```
+
+
+```text Quarterly Planning
+Schedule: 0 10 1 1,4,7,10 * (Quarterly on 1st at 10 AM)
+
+Trigger Instructions:
+Review previous quarter performance
+Analyze market trends for {{industry}}
+Research competitive landscape
+Generate strategic recommendations
+Create quarterly planning document
+Schedule planning meetings
+```
+
+</CodeGroup>
+
+## Event Trigger Examples
+
+### Email-Based Automation
+
+<Card title="Client Email Response">
+  **Trigger**: New email from {client_domain}
+
+  **Configuration**:
+
+  - App: Gmail
+  - Event: New email received
+  - Filter: From domain matches {client_domain}
+
+  **Agent Response**:
+
+  ```
+    Read email content and context
+    Draft personalized response based on:
+    - Email subject and content
+    - Previous conversation history
+    - {{client_name}} relationship notes
+    Save draft to Gmail for review
+    Add task to follow-up list if needed
+  ```
+</Card>
+
+### Calendar-Based Automation
+
+<Card title="Meeting Preparation">
+  **Trigger**: Meeting scheduled with {keyword} in title
+
+  **Configuration**:
+
+  - App: Google Calendar
+  - Event: New event created
+  - Filter: Title contains {keyword}
+
+  **Agent Response**:
+
+  ```
+    Extract meeting attendees and topic
+    Research attendee backgrounds on LinkedIn
+    Gather relevant {{company_name}} materials
+    Create meeting prep document with:
+    - Attendee profiles
+    - Discussion topics
+    - Company background
+    - Previous interactions
+    Save to "Meeting Prep/{{date}}-{{title}}"
+  ```
+</Card>
+
+### Task Management Automation
+
+<Card title="High-Priority Task Alert">
+  **Trigger**: High-priority task assigned
+
+  **Configuration**:
+
+  - App: Asana/Trello
+  - Event: Task assigned to you
+  - Filter: Priority = High
+
+  **Agent Response**:
+
+  ```
+    Extract task details and deadline
+    Assess current workload
+    Check for conflicting priorities
+    Generate prioritization recommendation
+    Send Slack notification with context
+    Add to daily planning document
+  ```
+</Card>
+
+### Social Media Monitoring
+
+<Card title="Brand Mention Alert">
+  **Trigger**: {brand_name} mentioned on Twitter
+
+  **Configuration**:
+
+  - App: Twitter
+  - Event: New mention
+  - Filter: Contains {brand_name}
+
+  **Agent Response**:
+
+  ```
+    Capture tweet and context
+    Analyze sentiment (positive/negative/neutral)
+    Assess urgency and required response
+    Draft response if needed
+    Log to brand monitoring spreadsheet
+    Alert team if negative or high-engagement
+  ```
+</Card>
+
+### Sales & CRM Automation
+
+<Card title="New Lead Processing">
+  **Trigger**: New lead created in {crm_name}
+
+  **Configuration**:
+
+  - App: Salesforce/HubSpot
+  - Event: New lead added
+  - Filter: Source = {lead_source}
+
+  **Agent Response**:
+
+  ```
+    Extract lead information
+    Research company on LinkedIn and web
+    Enrich lead data with:
+    - Company size and industry
+    - Decision makers
+    - Recent news
+    - Competitive intel
+    Update CRM with enriched data
+    Generate personalized outreach template
+    Assign to appropriate sales rep
+  ```
+</Card>
+
+## Complex Automation Workflows
+
+### Multi-Stage Triggered Workflow
+
+<Steps>
+  <Step title="Stage 1: Morning Data Collection">
+    **Scheduled Trigger**: Daily at 6 AM
+
+    ```
+        Collect overnight data from:
+        - Yahoo Finance ({{stock_symbols}})
+        - Twitter trends in {{industry}}
+        - News about {{company_name}} and {{competitors}}
+        Save raw data to "Data/Daily/{{date}}/"
+    ```
+  </Step>
+  <Step title="Stage 2: Analysis & Processing">
+    **Scheduled Trigger**: Daily at 7 AM
+
+    ```
+        Analyze collected data:
+        - Calculate market sentiment
+        - Identify emerging trends
+        - Flag unusual patterns
+        Generate analysis report
+        Save to "Analysis/Daily/{{date}}.pdf"
+    ```
+  </Step>
+  <Step title="Stage 3: Distribution">
+    **Scheduled Trigger**: Daily at 8 AM
+
+    ```
+        Read analysis report
+        Create executive summary
+        Generate visualizations
+        Send via email to {{distribution_list}}
+        Post summary to {{team_channel}}
+        Archive in {{document_storage}}
+    ```
+  </Step>
+  <Step title="Stage 4: Event Response">
+    **Event Trigger**: Significant market movement
+
+    ```
+        If {{stock_symbol}} moves >5%:
+        - Generate immediate alert
+        - Analyze cause and context
+        - Send urgent notification
+        - Create deep-dive report
+    ```
+  </Step>
+</Steps>
+
+### Adaptive Automation
+
+Create triggers that adapt based on context:
+
+```text
+Scheduled Trigger: Every 4 hours
+
+Instructions:
+Check current day and time
+If weekday during business hours:
+  - Monitor {{business_channels}}
+  - Track urgent items
+  - Send notifications for high-priority
+If weekend or off-hours:
+  - Monitor critical alerts only
+  - Batch non-urgent items
+  - Send summary once daily
+
+Adjust monitoring intensity based on:
+- {{season}} (busy vs. slow periods)
+- {{event_status}} (during campaigns vs. normal)
+- Recent alert volume (scale up if busy)
+```
+
+## Combining Triggers with Other Tools
+
+<CardGroup cols={2}>
+  <Card title="+ Agent Configuration" icon="sliders">
+    Create triggers that configure other agents dynamically based on events
+  </Card>
+  <Card title="+ Data Providers" icon="database">
+    Schedule regular data collection from LinkedIn, Yahoo Finance, Amazon, etc.
+  </Card>
+  <Card title="+ Web Search" icon="magnifying-glass">
+    Automatically research topics on schedule or when events occur
+  </Card>
+  <Card title="+ Files and Folder" icon="folder">
+    Organize triggered outputs in structured, dated folders
+  </Card>
+  <Card title="+ Document Creator" icon="file-word">
+    Generate reports automatically on schedule
+  </Card>
+  <Card title="+ Integrations" icon="plug">
+    Respond to events from connected apps like Slack, Gmail, Calendar
+  </Card>
+</CardGroup>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Start Simple" icon="seedling">
+    Begin with basic scheduled triggers before creating complex event-based automation
+  </Card>
+  <Card title="Use Template Variables" icon="brackets-curly">
+    Make triggers reusable with {variables} instead of hardcoding values
+  </Card>
+  <Card title="Test Thoroughly" icon="flask">
+    Test triggers manually before setting to automatic execution
+  </Card>
+  <Card title="Monitor Initially" icon="eye">
+    Watch first few executions closely to catch issues early
+  </Card>
+  <Card title="Disable vs. Delete" icon="toggle-off">
+    Disable triggers temporarily rather than deleting if you might need them again
+  </Card>
+  <Card title="Document Triggers" icon="book">
+    Keep clear documentation of what each trigger does and why it exists
+  </Card>
+  <Card title="Batch When Possible" icon="layer-group">
+    Group related checks into single triggers rather than many separate ones
+  </Card>
+  <Card title="Handle Failures" icon="life-ring">
+    Include error handling and fallback instructions in trigger prompts
+  </Card>
+</CardGroup>
+
+## Managing Triggers
+
+### Viewing All Triggers
+
+```text
+Show me all scheduled triggers for this agent
+
+List all active automation for my Marketing Agent
+
+What triggers are configured for the Research Assistant?
+```
+
+### Enabling and Disabling
+
+```text
+Disable the weekend reporting trigger temporarily
+
+Pause all triggers during the holiday period
+
+Re-enable the daily monitoring trigger
+
+Turn off event triggers while we're in maintenance mode
+```
+
+### Updating Triggers
+
+```text
+Update the daily brief trigger to:
+- Run at 8 AM instead of 7 AM
+- Add {{new_competitor}} to monitoring list
+- Include pricing analysis
+
+Modify the email response trigger to:
+- Only respond to priority clients
+- Use updated response template
+- CC {{manager_email}} on all responses
+```
+
+### Organizing Triggers
+
+<Tabs>
+  <Tab title="By Purpose">
+    ```text
+        Monitoring Triggers:
+        - Brand mention monitoring
+        - Competitor tracking
+        - Market surveillance
+        
+        Reporting Triggers:
+        - Daily briefs
+        - Weekly summaries
+        - Monthly analytics
+        
+        Response Triggers:
+        - Email auto-response
+        - Social media engagement
+        - Lead processing
+    ```
+  </Tab>
+  <Tab title="By Frequency">
+    ```text
+        High Frequency (Hourly):
+        - Critical alert monitoring
+        - Time-sensitive responses
+        
+        Medium Frequency (Daily):
+        - Regular reporting
+        - Standard monitoring
+        
+        Low Frequency (Weekly/Monthly):
+        - Periodic analysis
+        - Strategic reviews
+    ```
+  </Tab>
+  <Tab title="By Agent">
+    ```text
+        Research Agent:
+        - Daily industry news scan
+        - Weekly competitor analysis
+        
+        Content Agent:
+        - Daily social media posting
+        - Weekly blog generation
+        
+        Sales Agent:
+        - New lead processing (event)
+        - Daily outreach follow-ups
+    ```
+  </Tab>
+</Tabs>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Trigger not executing as scheduled">
+    Check:
+
+    - Trigger is enabled (not disabled)
+    - Cron expression is correct
+    - Timezone settings are accurate
+    - Agent has necessary tools enabled
+    - No conflicting triggers
+    - View trigger execution history for errors
+  </Accordion>
+  <Accordion title="Event trigger not firing">
+    Verify:
+
+    - Event source app is properly connected
+    - Event filter configuration is correct
+    - App permissions allow event monitoring
+    - Event type is supported
+    - Profile ID and trigger config are valid
+    - Test with manual event if possible
+  </Accordion>
+  <Accordion title="Trigger executes but produces errors">
+    Review:
+
+    - Agent has all required tools and integrations
+    - Instructions are clear and executable
+    - External services are accessible
+    - Template variables have values
+    - Check execution logs for specific errors
+    - Test instructions manually first
+  </Accordion>
+  <Accordion title="Template variables not substituting">
+    Ensure:
+
+    - Using correct {variable_name} syntax
+    - Variable names match exactly (case-sensitive)
+    - Values provided during trigger setup
+    - No typos in variable names
+    - Variables used in supported fields
+  </Accordion>
+  <Accordion title="Too many trigger executions">
+    Optimize:
+
+    - Increase time between scheduled runs
+    - Combine multiple triggers into one
+    - Add filtering to event triggers
+    - Use batch processing instead of real-time
+    - Disable redundant triggers
+  </Accordion>
+  <Accordion title="Triggers running at wrong time">
+    Check:
+
+    - Cron expression matches intended schedule
+    - Timezone is set correctly
+    - Daylight saving time considerations
+    - Server time vs. local time
+    - Use online cron calculator to verify
+  </Accordion>
+</AccordionGroup>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Create scheduled triggers with flexible cron expressions
+</Check>
+
+<Check>
+  Set up event-based triggers that respond to real-world changes
+</Check>
+
+<Check>
+  Use template variables to create reusable automation
+</Check>
+
+<Check>
+  Manage, enable, disable, and delete triggers
+</Check>
+
+<Check>
+  Build complex multi-stage automation workflows
+</Check>
+
+<Check>
+  Apply best practices for reliable automation
+</Check>
+
+<Check>
+  Troubleshoot common trigger issues
+</Check>
+
+<Check>
+  Combine triggers with other Utari tools for powerful workflows
+</Check>
+
+Triggers & Automation transforms your Utari workers from on-demand assistants into autonomous agents that work continuously, monitoring conditions, responding to events, and executing tasks automatically—creating truly intelligent automation that adapts to your business needs.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Agent Configuration" icon="sliders" href="/tools/agent-configuration">
+    Configure agents optimized for automated execution
+  </Card>
+  <Card title="Data Providers" icon="database" href="/tools/data-providers">
+    Automate data collection with scheduled triggers
+  </Card>
+  <Card title="Integrations" icon="plug" href="/integrations">
+    Connect apps for event-based automation
+  </Card>
+  <Card title="Files and Folder" icon="folder" href="/tools/files-folder">
+    Organize automated workflow outputs
+  </Card>
+</CardGroup>

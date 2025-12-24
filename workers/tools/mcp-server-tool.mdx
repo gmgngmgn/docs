@@ -1,4 +1,942 @@
 ---
-title: "MCP Server Tool"
-description: "Description of your new file."
+title: "MCP Server Search"
+description: "Find and add external integrations and tools via the Model Context Protocol (MCP), expanding your agent's capabilities with specialized third-party services and APIs."
 ---
+
+## Overview
+
+MCP Server Search enables your Utari workers to discover, explore, and integrate external tools and services through the Model Context Protocol (MCP). This powerful capability allows agents to connect with specialized APIs, services, and integrations beyond Utari's built-in tools—creating unlimited possibilities for customization and extension.
+
+## What is MCP?
+
+<Card title="Model Context Protocol" icon="puzzle-piece">
+  MCP (Model Context Protocol) is a standardized way for AI agents to connect with external tools, services, and APIs. Think of it as a universal connector that allows your agents to:
+
+  - Access specialized third-party services
+  - Integrate with niche APIs and platforms
+  - Use custom tools built by the community
+  - Extend capabilities beyond built-in features
+  - Connect with proprietary internal systems
+</Card>
+
+<Info>
+  MCP servers are external integrations managed through Composio, providing structured access to hundreds of applications and services.
+</Info>
+
+## MCP Server Capabilities
+
+<CardGroup cols={3}>
+  <Card title="Search MCP Servers" icon="magnifying-glass">
+    Find MCP toolkits and integrations based on your requirements and use cases
+  </Card>
+  <Card title="Get App Details" icon="circle-info">
+    View detailed information about specific toolkits including available tools and auth requirements
+  </Card>
+  <Card title="Discover User Servers" icon="server">
+    See which MCP tools are available for your connected Composio profiles
+  </Card>
+</CardGroup>
+
+## Using MCP Server Search
+
+### Searching for MCP Servers
+
+<Steps>
+  <Step title="Describe Your Needs">
+    Tell your worker what capability you're looking for:
+
+    ```
+        I need to integrate with Notion for document management
+        Find MCP tools for social media posting
+        Search for CRM integrations
+        What MCP servers are available for email automation?
+    ```
+  </Step>
+  <Step title="Worker Searches">
+    Your worker searches Composio toolkits based on your requirements and returns relevant options.
+  </Step>
+  <Step title="Review Results">
+    Worker presents matching MCP servers with:
+
+    - Toolkit name and description
+    - Available capabilities
+    - Authentication requirements
+    - Use cases
+  </Step>
+  <Step title="Select Integration">
+    Choose the MCP server that best fits your needs:
+
+    ```
+        Tell me more about the Notion MCP server
+        What can I do with the Slack integration?
+        How do I set up the HubSpot MCP server?
+    ```
+  </Step>
+</Steps>
+
+### Getting App Details
+
+<Steps>
+  <Step title="Request Details">
+    Ask for detailed information about a specific toolkit:
+
+    ```
+        Get details for the Slack MCP server
+        Show me what the Google Sheets integration can do
+        What tools are available in the Salesforce MCP server?
+    ```
+  </Step>
+  <Step title="Review Capabilities">
+    Worker provides comprehensive information:
+
+    - **Available Tools**: All actions the MCP server can perform
+    - **Authentication**: How to connect (OAuth, API key, etc.)
+    - **Requirements**: Prerequisites and setup steps
+    - **Use Cases**: Common applications and workflows
+    - **Parameters**: What information each tool needs
+  </Step>
+  <Step title="Plan Integration">
+    Decide how to use the MCP server in your workflows based on the detailed information.
+  </Step>
+</Steps>
+
+### Discovering User MCP Servers
+
+<Steps>
+  <Step title="Check Connected Profiles">
+    View MCP tools available for your connected Composio profiles:
+
+    ```
+        What MCP servers are available for my profile?
+        Show me all connected MCP integrations
+        Which tools can I access through my Composio account?
+    ```
+  </Step>
+  <Step title="Review Available Tools">
+    Worker displays all MCP servers accessible through your connected profiles:
+
+    - Already configured servers
+    - Available but not yet added
+    - Recently used integrations
+    - Recommended based on profile
+  </Step>
+  <Step title="Add to Agent">
+    Select which MCP servers to enable for your current agent.
+  </Step>
+</Steps>
+
+## Common MCP Server Categories
+
+### Productivity & Collaboration
+
+<AccordionGroup>
+  <Accordion title="Notion" icon="note">
+    **Capabilities**:
+
+    - Create and update pages
+    - Manage databases
+    - Query and filter content
+    - Add blocks and content
+    - Share and collaborate
+
+    **Use Cases**:
+
+    - Automated documentation
+    - Knowledge base management
+    - Project tracking
+    - Meeting notes automation
+    - Team wikis
+  </Accordion>
+  <Accordion title="Slack" icon="slack">
+    **Capabilities**:
+
+    - Send messages to channels
+    - Post direct messages
+    - Create threads and replies
+    - Upload files
+    - Manage channels
+    - Read message history
+
+    **Use Cases**:
+
+    - Team notifications
+    - Automated alerts
+    - Status updates
+    - Bot interactions
+    - Workflow coordination
+  </Accordion>
+  <Accordion title="Microsoft Teams" icon="microsoft">
+    **Capabilities**:
+
+    - Post to channels
+    - Send chats
+    - Schedule meetings
+    - Share files
+    - Manage team activities
+
+    **Use Cases**:
+
+    - Enterprise communication
+    - Meeting automation
+    - Document sharing
+    - Team collaboration
+  </Accordion>
+  <Accordion title="Google Workspace" icon="google">
+    **Capabilities**:
+
+    - Gmail: Send emails, read inbox, manage labels
+    - Google Drive: Upload, download, organize files
+    - Google Sheets: Read, write, format data
+    - Google Docs: Create, edit documents
+    - Google Calendar: Schedule, manage events
+
+    **Use Cases**:
+
+    - Email automation
+    - Document management
+    - Data analysis
+    - Calendar scheduling
+    - File organization
+  </Accordion>
+</AccordionGroup>
+
+### CRM & Sales
+
+<AccordionGroup>
+  <Accordion title="Salesforce" icon="cloud">
+    **Capabilities**:
+
+    - Create and update leads
+    - Manage opportunities
+    - Track customer interactions
+    - Generate reports
+    - Automate workflows
+
+    **Use Cases**:
+
+    - Lead management
+    - Sales pipeline tracking
+    - Customer data enrichment
+    - Automated follow-ups
+    - Performance reporting
+  </Accordion>
+  <Accordion title="HubSpot" icon="hubspot">
+    **Capabilities**:
+
+    - Contact management
+    - Deal tracking
+    - Email sequences
+    - Marketing automation
+    - Analytics and reporting
+
+    **Use Cases**:
+
+    - Inbound marketing
+    - Lead nurturing
+    - Sales automation
+    - Customer engagement
+    - Campaign management
+  </Accordion>
+  <Accordion title="Pipedrive" icon="pipe">
+    **Capabilities**:
+
+    - Pipeline management
+    - Activity tracking
+    - Deal management
+    - Contact organization
+    - Reporting
+
+    **Use Cases**:
+
+    - Sales process automation
+    - Deal flow management
+    - Activity logging
+    - Performance tracking
+  </Accordion>
+</AccordionGroup>
+
+### Development & Technical
+
+<AccordionGroup>
+  <Accordion title="GitHub" icon="github">
+    **Capabilities**:
+
+    - Create and manage repositories
+    - Handle pull requests
+    - Track issues
+    - Manage branches
+    - Review code
+    - Automate workflows
+
+    **Use Cases**:
+
+    - Code repository management
+    - Issue tracking automation
+    - PR workflow automation
+    - Release management
+    - Documentation updates
+  </Accordion>
+  <Accordion title="Jira" icon="tasks">
+    **Capabilities**:
+
+    - Create and update issues
+    - Manage sprints
+    - Track progress
+    - Comment and collaborate
+    - Generate reports
+
+    **Use Cases**:
+
+    - Project management
+    - Bug tracking
+    - Sprint planning
+    - Development workflow
+    - Status reporting
+  </Accordion>
+  <Accordion title="Linear" icon="chart-line-up">
+    **Capabilities**:
+
+    - Issue management
+    - Project tracking
+    - Roadmap planning
+    - Team collaboration
+    - Automation
+
+    **Use Cases**:
+
+    - Product development
+    - Issue tracking
+    - Sprint management
+    - Workflow automation
+  </Accordion>
+</AccordionGroup>
+
+### Marketing & Social Media
+
+<AccordionGroup>
+  <Accordion title="Twitter/X" icon="twitter">
+    **Capabilities**:
+
+    - Post tweets
+    - Schedule content
+    - Monitor mentions
+    - Track engagement
+    - Manage threads
+
+    **Use Cases**:
+
+    - Social media automation
+    - Brand monitoring
+    - Content scheduling
+    - Engagement tracking
+  </Accordion>
+  <Accordion title="LinkedIn" icon="linkedin">
+    **Capabilities**:
+
+    - Post updates
+    - Manage company pages
+    - Network with connections
+    - Share content
+    - Track engagement
+
+    **Use Cases**:
+
+    - Professional networking
+    - Content distribution
+    - B2B marketing
+    - Thought leadership
+  </Accordion>
+  <Accordion title="Mailchimp" icon="envelope">
+    **Capabilities**:
+
+    - Manage campaigns
+    - Build email lists
+    - Create templates
+    - Track analytics
+    - Automate workflows
+
+    **Use Cases**:
+
+    - Email marketing
+    - Newsletter automation
+    - Subscriber management
+    - Campaign analytics
+  </Accordion>
+</AccordionGroup>
+
+### Data & Analytics
+
+<AccordionGroup>
+  <Accordion title="Airtable" icon="table">
+    **Capabilities**:
+
+    - Create and update records
+    - Manage bases and tables
+    - Query and filter data
+    - Automate workflows
+    - Generate views
+
+    **Use Cases**:
+
+    - Database management
+    - Project tracking
+    - Content calendars
+    - CRM alternatives
+    - Workflow automation
+  </Accordion>
+  <Accordion title="Google Analytics" icon="chart-simple">
+    **Capabilities**:
+
+    - Fetch analytics data
+    - Generate reports
+    - Track metrics
+    - Analyze trends
+    - Export data
+
+    **Use Cases**:
+
+    - Website analytics
+    - Performance tracking
+    - User behavior analysis
+    - Marketing attribution
+  </Accordion>
+</AccordionGroup>
+
+## Search Query Examples
+
+### By Functionality
+
+<CodeGroup>
+
+```text Document Management
+Search for MCP servers for document creation and management
+
+Find integrations for collaborative document editing
+
+What MCP tools are available for knowledge base management?
+```
+
+
+```text Communication
+Find MCP servers for team communication and messaging
+
+Search for email automation integrations
+
+What tools are available for chat and collaboration?
+```
+
+
+```text Project Management
+Search for MCP servers for project and task management
+
+Find integrations for agile development workflows
+
+What tools support sprint planning and issue tracking?
+```
+
+
+```text Marketing Automation
+Find MCP servers for social media management
+
+Search for email marketing integrations
+
+What tools are available for marketing campaign automation?
+```
+
+</CodeGroup>
+
+### By Platform
+
+<CodeGroup>
+
+```text Specific Platforms
+Get details for the Notion MCP server
+
+Find integrations for Salesforce
+
+What capabilities does the Slack MCP server have?
+
+Show me the GitHub integration details
+```
+
+
+```text Platform Categories
+Search for MCP servers in the CRM category
+
+Find all available Google Workspace integrations
+
+What project management MCP servers are available?
+
+List all social media MCP integrations
+```
+
+</CodeGroup>
+
+### By Use Case
+
+<CodeGroup>
+
+```text Sales Automation
+Find MCP servers for automating sales workflows
+
+Search for integrations that support lead management
+
+What tools can help with customer relationship tracking?
+```
+
+
+```text Content Creation
+Find MCP servers for content management and publishing
+
+Search for blogging and CMS integrations
+
+What tools support automated content distribution?
+```
+
+
+```text Data Analysis
+Find MCP servers for data visualization and reporting
+
+Search for spreadsheet and database integrations
+
+What tools support automated data collection?
+```
+
+</CodeGroup>
+
+## Adding MCP Servers to Agents
+
+### Integration Process
+
+<Steps>
+  <Step title="Find the Right Server">
+    ```
+        Search for Notion MCP integration
+    ```
+  </Step>
+  <Step title="Review Capabilities">
+    ```
+        Get details for Notion MCP server
+        
+        Review:
+        - Available tools (create page, update database, etc.)
+        - Authentication requirements (OAuth)
+        - Required parameters
+    ```
+  </Step>
+  <Step title="Add to Agent">
+    ```
+        Add the Notion MCP server to my Documentation Agent
+    ```
+  </Step>
+  <Step title="Configure Authentication">
+    ```
+        Connect Notion account:
+        - Authorize access
+        - Grant permissions
+        - Confirm connection
+    ```
+  </Step>
+  <Step title="Test Integration">
+    ```
+        Create a test page in Notion to verify the integration works
+    ```
+  </Step>
+  <Step title="Build Workflows">
+    ```
+        Now configured, agent can:
+        - Create documentation pages automatically
+        - Update project databases
+        - Sync information to Notion
+    ```
+  </Step>
+</Steps>
+
+## MCP Server Workflow Examples
+
+### Automated Documentation System
+
+<Steps>
+  <Step title="Search and Add MCP Servers">
+    ```
+        Find and add:
+        - GitHub (for code access)
+        - Notion (for documentation)
+        - Slack (for notifications)
+    ```
+  </Step>
+  <Step title="Configure Agent">
+    ```
+        Documentation Agent with:
+        - GitHub: Read code and commits
+        - Notion: Create and update pages
+        - Slack: Send update notifications
+    ```
+  </Step>
+  <Step title="Create Workflow">
+    ```
+        When code is committed to GitHub:
+        1. Analyze code changes
+        2. Update relevant Notion documentation
+        3. Notify team via Slack
+        4. Link to updated docs
+    ```
+  </Step>
+</Steps>
+
+### Sales Intelligence System
+
+<Steps>
+  <Step title="Integrate Multiple Sources">
+    ```
+        Add MCP servers:
+        - LinkedIn (prospect research)
+        - Salesforce (CRM management)
+        - Gmail (email outreach)
+        - Google Sheets (tracking)
+    ```
+  </Step>
+  <Step title="Build Research Pipeline">
+    ```
+        For each new lead:
+        1. Research on LinkedIn
+        2. Enrich data in Salesforce
+        3. Generate personalized email via Gmail
+        4. Log activity in Google Sheets
+    ```
+  </Step>
+  <Step title="Automate Follow-ups">
+    ```
+        Monitor Salesforce for:
+        - Stalled opportunities
+        - Upcoming renewals
+        - Required check-ins
+        
+        Automatically draft and schedule follow-ups
+    ```
+  </Step>
+</Steps>
+
+### Content Distribution System
+
+<Steps>
+  <Step title="Connect Publishing Platforms">
+    ```
+        Add MCP servers:
+        - Notion (content creation)
+        - Twitter (distribution)
+        - LinkedIn (professional network)
+        - WordPress (blog)
+        - Google Analytics (tracking)
+    ```
+  </Step>
+  <Step title="Create Publishing Workflow">
+    ```
+        Content Agent:
+        1. Draft content in Notion
+        2. Generate social media variants
+        3. Post to Twitter and LinkedIn
+        4. Publish blog on WordPress
+        5. Track performance in Analytics
+    ```
+  </Step>
+</Steps>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Search Before Building" icon="magnifying-glass">
+    Always search for existing MCP servers before building custom integrations
+  </Card>
+  <Card title="Review Capabilities Thoroughly" icon="list-check">
+    Get detailed app information to ensure the MCP server meets your needs
+  </Card>
+  <Card title="Test Authentication First" icon="lock">
+    Verify authentication and permissions before building complex workflows
+  </Card>
+  <Card title="Start with Core Features" icon="rocket">
+    Begin with essential tools from an MCP server before exploring advanced features
+  </Card>
+  <Card title="Check User Servers" icon="user">
+    Discover your available MCP servers to avoid duplicate connections
+  </Card>
+  <Card title="Combine Strategically" icon="puzzle-piece">
+    Select MCP servers that work well together for end-to-end workflows
+  </Card>
+  <Card title="Document Integrations" icon="book">
+    Keep track of which MCP servers are used where and for what purpose
+  </Card>
+  <Card title="Monitor Usage" icon="chart-line">
+    Track which MCP tools are actually being used and remove unused integrations
+  </Card>
+</CardGroup>
+
+## Understanding MCP Server Details
+
+When you get app details for an MCP server, you'll receive:
+
+### Authentication Information
+
+<Tabs>
+  <Tab title="OAuth">
+    **Flow**: Browser-based authorization
+
+    **Process**:
+
+    1. Click "Connect" button
+    2. Authorize in browser popup
+    3. Grant requested permissions
+    4. Return to Utari
+
+    **Common for**: Google, Slack, GitHub, Salesforce
+  </Tab>
+  <Tab title="API Key">
+    **Flow**: Manual key entry
+
+    **Process**:
+
+    1. Get API key from service
+    2. Enter key in Utari
+    3. Validate connection
+
+    **Common for**: OpenAI, Anthropic, various APIs
+  </Tab>
+  <Tab title="Credentials">
+    **Flow**: Username/password or token
+
+    **Process**:
+
+    1. Enter credentials
+    2. Authenticate
+    3. Store securely
+
+    **Common for**: Databases, internal tools
+  </Tab>
+</Tabs>
+
+### Available Tools
+
+Each MCP server provides specific tools (actions):
+
+```text
+Example: Slack MCP Server Tools
+
+- send_message: Post message to channel
+  Parameters: channel_id, text, thread_ts (optional)
+  
+- send_dm: Send direct message
+  Parameters: user_id, text
+  
+- upload_file: Upload file to channel
+  Parameters: channel_id, file, filename
+  
+- list_channels: Get all channels
+  Returns: Array of channel objects
+  
+- get_messages: Read channel history
+  Parameters: channel_id, limit, oldest
+  Returns: Array of messages
+```
+
+### Requirements and Prerequisites
+
+<AccordionGroup>
+  <Accordion title="Account Requirements">
+    - Active account on the platform
+    - Appropriate permissions/role
+    - Workspace or organization access
+    - Subscription level (if applicable)
+  </Accordion>
+  <Accordion title="Technical Requirements">
+    - Proper authentication setup
+    - Required scopes and permissions
+    - Network access to platform
+    - Compatible API version
+  </Accordion>
+  <Accordion title="Configuration Requirements">
+    - Specific settings enabled
+    - Webhooks or callbacks configured
+    - API limits and quotas
+    - Rate limiting considerations
+  </Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Can't find a specific MCP server">
+    Try:
+
+    - Search with different terms (platform name, category, functionality)
+    - Get app details by exact name if you know it
+    - Check if the integration exists under a different name
+    - Discover user MCP servers to see all available options
+    - Contact support if a needed integration seems missing
+  </Accordion>
+  <Accordion title="MCP server authentication fails">
+    Verify:
+
+    - You have an active account on the platform
+    - Correct credentials or API key
+    - Sufficient permissions on the account
+    - Required scopes are enabled
+    - Browser popups not blocked (for OAuth)
+    - Try disconnecting and reconnecting
+  </Accordion>
+  <Accordion title="Tool not working as expected">
+    Check:
+
+    - Tool parameters are correctly formatted
+    - Required fields are provided
+    - Data types match requirements
+    - Account has permission for that action
+    - Platform-side settings allow the operation
+    - Review app details for correct usage
+  </Accordion>
+  <Accordion title="Search returns too many/few results">
+    Refine your search:
+
+    - Be more specific about functionality needed
+    - Include platform name if known
+    - Specify category or use case
+    - Try different related keywords
+    - Use get app details for specific platforms
+  </Accordion>
+  <Accordion title="Connected MCP server not appearing">
+    Ensure:
+
+    - Profile is properly connected to Composio
+    - MCP server is actually added to the agent
+    - Connection is active and authenticated
+    - Use discover user MCP servers to verify availability
+    - Refresh connections if recently added
+  </Accordion>
+</AccordionGroup>
+
+## Advanced MCP Usage
+
+### Custom MCP Servers
+
+While Composio provides hundreds of pre-built MCP servers, you can also:
+
+<Steps>
+  <Step title="Build Custom MCP Servers">
+    Create your own MCP servers for:
+
+    - Proprietary internal systems
+    - Specialized APIs
+    - Custom business logic
+    - Unique workflow requirements
+  </Step>
+  <Step title="Host MCP Servers">
+    Deploy and maintain MCP servers:
+
+    - On your infrastructure
+    - Cloud platforms
+    - Containerized environments
+    - Ensure accessibility from Utari
+  </Step>
+  <Step title="Connect Custom Servers">
+    Add your custom MCP servers to Utari agents using the same discovery and integration process.
+  </Step>
+</Steps>
+
+<Info>
+  **Custom MCP Development**: Building custom MCP servers requires technical expertise in API development and the MCP specification. Utari supports connecting to any compliant MCP server.
+</Info>
+
+### MCP Server Combinations
+
+Create powerful workflows by combining multiple MCP servers:
+
+<CodeGroup>
+
+```text Research to Action
+1. LinkedIn (prospect research)
+→ 2. Salesforce (create lead)
+→ 3. Gmail (send outreach)
+→ 4. Google Sheets (log activity)
+```
+
+
+```text Content Pipeline
+1. Notion (create draft)
+→ 2. Grammarly (review)
+→ 3. WordPress (publish)
+→ 4. Twitter (promote)
+→ 5. Google Analytics (track)
+```
+
+
+```text Project Management
+1. GitHub (code commits)
+→ 2. Jira (update tickets)
+→ 3. Slack (notify team)
+→ 4. Notion (update docs)
+```
+
+
+```text Customer Support
+1. Gmail (receive inquiry)
+→ 2. Notion (check knowledge base)
+→ 3. Zendesk (create ticket)
+→ 4. Slack (notify team)
+→ 5. Gmail (send response)
+```
+
+</CodeGroup>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Search for MCP servers based on your requirements
+</Check>
+
+<Check>
+  Get detailed information about specific MCP integrations
+</Check>
+
+<Check>
+  Discover available MCP servers for your connected profiles
+</Check>
+
+<Check>
+  Understand MCP server capabilities, authentication, and tools
+</Check>
+
+<Check>
+  Add MCP servers to agents for extended functionality
+</Check>
+
+<Check>
+  Combine multiple MCP servers for complex workflows
+</Check>
+
+<Check>
+  Apply best practices for MCP integration
+</Check>
+
+<Check>
+  Troubleshoot common MCP server issues
+</Check>
+
+MCP Server Search unlocks unlimited integration possibilities for your Utari agents, allowing them to connect with specialized services, APIs, and platforms far beyond built-in capabilities. By discovering and integrating the right MCP servers, you can create sophisticated automation workflows tailored precisely to your unique needs.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Agent Configuration" icon="sliders" href="/tools/agent-configuration">
+    Configure agents with discovered MCP servers
+  </Card>
+  <Card title="Integrations Guide" icon="plug" href="/integrations">
+    Learn about managing connected integrations
+  </Card>
+  <Card title="Triggers & Automation" icon="clock" href="/tools/triggers-automation">
+    Automate MCP server workflows with triggers
+  </Card>
+  <Card title="Data Providers" icon="database" href="/tools/data-providers">
+    Combine MCP with built-in data providers
+  </Card>
+</CardGroup>

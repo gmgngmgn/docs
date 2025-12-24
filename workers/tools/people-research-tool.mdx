@@ -1,4 +1,597 @@
 ---
-title: "People Research Tool"
-description: "Description of your new file."
+title: "People Research"
+description: "Find and research people with professional background information including career history, skills, education, and professional profiles."
 ---
+
+## Overview
+
+The People Research tool enables your Utari workers to find and gather professional background information about individuals. This capability is invaluable for recruitment, sales prospecting, partnership development, competitive intelligence, and any situation where understanding someone's professional background provides strategic value.
+
+## People Research Capabilities
+
+<CardGroup cols={2}>
+  <Card title="Professional Profiles" icon="user-tie">
+    Find detailed professional information including current role, company, and career history
+  </Card>
+  <Card title="Career Background" icon="briefcase">
+    Access work experience, previous positions, and career progression
+  </Card>
+  <Card title="Skills & Expertise" icon="lightbulb">
+    Identify key skills, competencies, and areas of expertise
+  </Card>
+  <Card title="Education & Credentials" icon="graduation-cap">
+    Discover educational background, degrees, and certifications
+  </Card>
+</CardGroup>
+
+<Info>
+  People Research uses publicly available professional information from sources like LinkedIn and professional databases. All data is ethically sourced from public profiles.
+</Info>
+
+## Using People Research
+
+### Basic Research Process
+
+<Steps>
+  <Step title="Specify Who to Research">
+    Provide information about the person:
+
+    ```
+        Research Sarah Johnson who works at TechCorp as VP of Engineering
+        
+        Find information about John Smith, CEO of StartupXYZ
+        
+        Look up Maria Garcia in the AI/ML space in San Francisco
+        
+        Research the CTO of Acme Corporation
+    ```
+  </Step>
+  <Step title="Worker Conducts Research">
+    Your worker searches professional databases and returns:
+
+    ```
+        Professional Profile: Sarah Johnson
+        
+        Current Position:
+        - Title: VP of Engineering
+        - Company: TechCorp
+        - Location: San Francisco, CA
+        - Started: January 2022
+        
+        Previous Experience:
+        - Senior Engineering Manager, Google (2018-2021)
+        - Engineering Lead, Uber (2015-2018)
+        - Software Engineer, Microsoft (2012-2015)
+        
+        Education:
+        - MS Computer Science, Stanford University
+        - BS Computer Engineering, MIT
+        
+        Key Skills:
+        - Distributed Systems
+        - Team Leadership
+        - Cloud Architecture
+        - Machine Learning
+        
+        Notable:
+        - 500+ connections on LinkedIn
+        - Active speaker at tech conferences
+        - Published author on engineering leadership
+    ```
+  </Step>
+  <Step title="Use Information Strategically">
+    Apply research findings to:
+
+    - Personalize outreach
+    - Prepare for meetings
+    - Assess fit for roles
+    - Understand background
+    - Build context
+  </Step>
+</Steps>
+
+## Common Use Cases
+
+### Recruitment and Hiring
+
+<AccordionGroup>
+  <Accordion title="Candidate Research" icon="user-magnifying-glass">
+    Research potential candidates before interviews:
+
+    ```
+        Research candidates for Senior Developer role:
+        
+        For each candidate, find:
+        - Current employment and role
+        - Years of relevant experience
+        - Technical skills and expertise
+        - Educational background
+        - Notable projects or achievements
+        - Career progression pattern
+        
+        Use to:
+        - Prepare targeted interview questions
+        - Understand career trajectory
+        - Assess cultural fit
+        - Identify talking points
+    ```
+  </Accordion>
+  <Accordion title="Talent Sourcing" icon="magnifying-glass-chart">
+    Find potential candidates with specific backgrounds:
+
+    ```
+        Find people who:
+        - Have experience with Kubernetes and distributed systems
+        - Previously worked at top-tier tech companies
+        - Based in or open to Seattle area
+        - Currently in senior engineering roles
+        
+        Generate list with:
+        - Names and current companies
+        - Relevant experience
+        - Contact information (if public)
+        - Key qualifications
+    ```
+  </Accordion>
+  <Accordion title="Reference Checking" icon="clipboard-check">
+    Research professional connections:
+
+    ```
+        Research candidate's previous managers:
+        - Where are they now?
+        - What are their current roles?
+        - How to reach them?
+        - Mutual connections?
+        
+        Prepare for reference calls with context
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Sales and Business Development
+
+<AccordionGroup>
+  <Accordion title="Prospect Research" icon="bullseye">
+    Understand decision-makers before outreach:
+
+    ```
+        Research key stakeholders at target company:
+        
+        For VP of Sales at Enterprise Corp:
+        - Career background
+        - Previous companies and roles
+        - Areas of expertise
+        - Recent activity or posts
+        - Mutual connections
+        - Common interests
+        
+        Use to personalize outreach:
+        "I noticed your experience scaling sales teams at [Previous Company]..."
+    ```
+  </Accordion>
+  <Accordion title="Account Planning" icon="sitemap">
+    Map decision-makers and influencers:
+
+    ```
+        Research buying committee at Target Account:
+        
+        1. CEO - Technical background, previous startup founder
+        2. CTO - Former engineer, cares about scalability
+        3. VP Finance - ROI-focused, risk-averse
+        4. VP Operations - Process-oriented, efficiency focus
+        
+        Tailor messaging for each stakeholder
+    ```
+  </Accordion>
+  <Accordion title="Partnership Development" icon="handshake">
+    Research potential partners:
+
+    ```
+        Research leadership at potential partner company:
+        - Decision-makers and influencers
+        - Previous partnerships they've done
+        - Strategic priorities (based on background)
+        - Personal interests and motivations
+        
+        Identify partnership champions and build relationships
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Competitive Intelligence
+
+<AccordionGroup>
+  <Accordion title="Competitor Tracking" icon="binoculars">
+    Monitor competitor team changes:
+
+    ```
+        Track key hires at competitor:
+        
+        Recent additions:
+        - New VP Product from Google
+        - Senior ML Engineer from Meta
+        - Enterprise Sales Director from Salesforce
+        
+        Insights:
+        - Building ML capabilities
+        - Investing in enterprise sales
+        - Hiring from top-tier companies
+    ```
+  </Accordion>
+  <Accordion title="Industry Expertise Mapping" icon="network-wired">
+    Identify domain experts:
+
+    ```
+        Find leading experts in [specific technology]:
+        - Who are the recognized authorities?
+        - Where do they work now?
+        - What are they working on?
+        - Who follows their work?
+        
+        Use for: Advisory board, partnerships, thought leadership
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Meeting Preparation
+
+<AccordionGroup>
+  <Accordion title="Pre-Meeting Research" icon="handshake-angle">
+    Prepare for important meetings:
+
+    ```
+        Meeting tomorrow with [Name] from [Company]
+        
+        Research:
+        - Current role and responsibilities
+        - Career path to current position
+        - Relevant experience for our discussion
+        - Recent work or achievements
+        - Mutual connections or interests
+        
+        Preparation notes:
+        - "Congratulate on recent promotion"
+        - "Reference their work at [Previous Company]"
+        - "Discuss mutual connection with [Name]"
+    ```
+  </Accordion>
+  <Accordion title="Speaker/Event Research" icon="microphone">
+    Research speakers or attendees:
+
+    ```
+        Conference speakers research:
+        - Background and expertise
+        - Speaking topics
+        - Companies and roles
+        - Best questions to ask
+        - Networking opportunities
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Research Query Examples
+
+### By Name and Company
+
+<CodeGroup>
+
+```text Specific Person
+Research Jane Doe who works at Acme Corp
+
+Find information about John Smith, VP of Marketing at TechStartup
+
+Look up the background of Sarah Wilson at Google
+```
+
+
+```text By Role
+Research the CTO of Competitor Inc
+
+Find information about the Head of Product at [Company]
+
+Look up the VP of Sales at our target account
+```
+
+</CodeGroup>
+
+### By Criteria and Background
+
+<CodeGroup>
+
+```text Skill-Based
+Find people with expertise in:
+- Kubernetes and cloud architecture
+- Previously at FAANG companies
+- Currently in senior roles
+
+Research professionals specializing in machine learning for healthcare
+```
+
+
+```text Industry-Specific
+Find executives in the fintech space with:
+- Background in traditional banking
+- Experience scaling startups
+- Based in New York
+
+Research leaders in sustainable energy sector
+```
+
+
+```text Location-Based
+Find senior developers in Seattle with:
+- 10+ years experience
+- Background at Microsoft or Amazon
+- Open to new opportunities
+```
+
+</CodeGroup>
+
+### Multi-Person Research
+
+<CodeGroup>
+
+```text Team Research
+Research the leadership team at [Company]:
+- CEO
+- CTO
+- VP Product
+- VP Sales
+
+Provide background on each for account planning
+```
+
+
+```text Candidate Comparison
+Research three candidates for our role:
+1. Alex Johnson - current at Google
+2. Maria Garcia - current at Meta  
+3. David Chen - current at Amazon
+
+Compare backgrounds, experience, and fit
+```
+
+</CodeGroup>
+
+## Information Typically Available
+
+### Professional Information
+
+<Tabs>
+  <Tab title="Current Position">
+    - Job title
+    - Company name
+    - Department/division
+    - Start date
+    - Location
+    - Reporting structure (sometimes)
+  </Tab>
+  <Tab title="Career History">
+    - Previous companies
+    - Previous roles and titles
+    - Employment dates
+    - Career progression
+    - Industry experience
+    - Years in field
+  </Tab>
+  <Tab title="Skills & Expertise">
+    - Technical skills
+    - Domain expertise
+    - Certifications
+    - Competencies
+    - Endorsements
+    - Specializations
+  </Tab>
+  <Tab title="Education">
+    - Universities attended
+    - Degrees earned
+    - Fields of study
+    - Graduation years
+    - Academic achievements
+    - Continuing education
+  </Tab>
+  <Tab title="Additional Info">
+    - Publications
+    - Speaking engagements
+    - Awards and recognition
+    - Professional associations
+    - Volunteer work
+    - Interests (sometimes)
+  </Tab>
+</Tabs>
+
+## Combining with Other Tools
+
+<CardGroup cols={2}>
+  <Card title="+ Document Creator" icon="file-word">
+    Create research profiles and candidate summaries
+  </Card>
+  <Card title="+ Spreadsheet Tools" icon="table">
+    Organize research findings in structured databases
+  </Card>
+  <Card title="+ Web Search" icon="magnifying-glass">
+    Supplement with additional public information
+  </Card>
+  <Card title="+ Email Integration" icon="envelope">
+    Use research to personalize outreach emails
+  </Card>
+</CardGroup>
+
+### Example Combined Workflow
+
+<Steps>
+  <Step title="Research Target Prospects">
+    ```
+        Research 10 VP-level contacts at target accounts in fintech
+    ```
+  </Step>
+  <Step title="Organize in Spreadsheet">
+    ```
+        Create tracking sheet with:
+        - Name, title, company
+        - Background summary
+        - Relevant experience
+        - Contact info
+        - Personalization notes
+    ```
+  </Step>
+  <Step title="Generate Personalized Outreach">
+    ```
+        For each prospect, draft personalized email using:
+        - Their specific background
+        - Relevant experience
+        - Mutual connections
+        - Tailored value proposition
+    ```
+  </Step>
+  <Step title="Track Engagement">
+    ```
+        Update spreadsheet with:
+        - Outreach dates
+        - Response status
+        - Meeting scheduled
+        - Notes from conversations
+    ```
+  </Step>
+</Steps>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Respect Privacy" icon="shield-check">
+    Only use publicly available professional information
+  </Card>
+  <Card title="Verify Information" icon="check-double">
+    Cross-reference important details when possible
+  </Card>
+  <Card title="Use Ethically" icon="scale-balanced">
+    Use research for legitimate business purposes only
+  </Card>
+  <Card title="Keep Current" icon="clock-rotate-left">
+    Information may become outdated—re-research when needed
+  </Card>
+  <Card title="Personalize Thoughtfully" icon="heart">
+    Use research to add value, not to be creepy
+  </Card>
+  <Card title="Document Sources" icon="link">
+    Note where information came from for reference
+  </Card>
+</CardGroup>
+
+## Ethical Guidelines
+
+<Warning>
+  **Important Ethical Considerations**:
+
+  - ✅ Use for legitimate business purposes
+  - ✅ Respect publicly available information boundaries
+  - ✅ Personalize outreach to add value
+  - ✅ Be transparent about research when appropriate
+  - ❌ Don't use for harassment or stalking
+  - ❌ Don't access private or protected information
+  - ❌ Don't share sensitive personal details publicly
+  - ❌ Don't use research to discriminate
+  - ❌ Don't pretend to know someone personally based solely on research
+</Warning>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Can't find information on specific person">
+    Try:
+
+    - Including more identifying details (company, location, role)
+    - Checking name spelling variations
+    - Searching by company and role instead
+    - Providing additional context
+    - Understanding some people have minimal public profiles
+  </Accordion>
+  <Accordion title="Information seems outdated">
+    Note:
+
+    - Professional information changes frequently
+    - People change jobs and roles
+    - Profiles may not be updated regularly
+    - Re-research if information is critical
+    - Verify current employment when important
+  </Accordion>
+  <Accordion title="Multiple people with same name">
+    Specify:
+
+    - Company name
+    - Location
+    - Industry or field
+    - Additional identifying details
+    - Previous companies if known
+  </Accordion>
+  <Accordion title="Limited information available">
+    Understand:
+
+    - Not everyone maintains public profiles
+    - Some industries/roles are less visible online
+    - Privacy settings may limit visibility
+    - Junior roles often have less information
+    - Use what's available, supplement with other research
+  </Accordion>
+</AccordionGroup>
+
+## Privacy and Compliance
+
+<Info>
+  **Data Sources**: People Research uses only publicly available professional information from sources like:
+
+  - Professional networking sites (LinkedIn, etc.)
+  - Company websites and press releases
+  - Public databases and directories
+  - Conference speaker listings
+  - Published articles and interviews
+
+  All information is ethically sourced and publicly accessible.
+</Info>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Research professional backgrounds and career histories
+</Check>
+
+<Check>
+  Find people based on skills, experience, and criteria
+</Check>
+
+<Check>
+  Use research for recruitment, sales, and business development
+</Check>
+
+<Check>
+  Prepare for meetings with relevant background context
+</Check>
+
+<Check>
+  Organize and track research findings
+</Check>
+
+<Check>
+  Apply ethical guidelines for people research
+</Check>
+
+The People Research tool enables informed, personalized engagement by providing professional background context. Whether recruiting talent, developing business relationships, or preparing for important meetings, understanding people's professional backgrounds creates opportunities for meaningful, relevant interactions.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Data Providers" icon="database" href="/tools/data-providers">
+    Access LinkedIn and other professional data sources
+  </Card>
+  <Card title="Web Search" icon="magnifying-glass" href="/tools/web-search">
+    Supplement research with additional information
+  </Card>
+  <Card title="Document Creator" icon="file-word" href="/tools/document-creator">
+    Create research profiles and summaries
+  </Card>
+  <Card title="Spreadsheet Tools" icon="table" href="/tools/spreadsheets">
+    Organize research in structured databases
+  </Card>
+</CardGroup>

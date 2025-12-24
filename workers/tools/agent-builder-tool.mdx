@@ -1,4 +1,866 @@
 ---
-title: "Agent Building Tool"
-description: "Description of your new file."
+title: "Agent Builder"
+description: "Create and configure new AI agents with custom capabilities, integrations, scheduled triggers, and specialized configurations through conversational agent construction."
 ---
+
+## Overview
+
+The Agent Builder enables your Utari workers to create entirely new AI agents from scratch through conversation. This meta-capability allows workers to design, configure, and deploy specialized agents with custom instructions, integrated services, scheduled automation, and tailored tool sets—all without manual configuration interfaces.
+
+<Warning>
+  **User Permission Required**: Agent Builder MUST ask for explicit user confirmation before creating any new agent. Workers will provide details about the planned agent and wait for your approval before proceeding.
+</Warning>
+
+## Agent Builder Capabilities
+
+<CardGroup cols={3}>
+  <Card title="Create Agent" icon="user-plus">
+    Build completely new AI agents with custom configurations and capabilities
+  </Card>
+  <Card title="Update Config" icon="pen-to-square">
+    Modify existing agents including prompts, tools, and settings
+  </Card>
+  <Card title="MCP Integration" icon="puzzle-piece">
+    Search, configure, and connect external services via MCP
+  </Card>
+  <Card title="Credential Management" icon="key">
+    Create and configure credential profiles for service authentication
+  </Card>
+  <Card title="Schedule Triggers" icon="clock">
+    Set up automated execution on schedules using cron expressions
+  </Card>
+  <Card title="Discover Tools" icon="magnifying-glass">
+    Find available tools for authenticated services
+  </Card>
+</CardGroup>
+
+## Creating a New Agent
+
+### Agent Creation Process
+
+<Steps>
+  <Step title="Define Requirements">
+    Describe what you need the agent to do:
+
+    ```
+        I need an agent that monitors competitor websites daily and generates reports
+        
+        Create an agent for automating social media content distribution
+        
+        Build me a research agent that tracks AI industry news
+    ```
+  </Step>
+  <Step title="Worker Proposes Agent">
+    Your worker analyzes requirements and proposes an agent configuration:
+
+    ```
+        I'll create a "Competitor Intelligence Agent" with:
+        
+        Name: Competitor Monitor
+        Purpose: Daily competitive intelligence tracking and reporting
+        
+        System Prompt:
+        - Monitor competitor websites for changes
+        - Track pricing, features, and announcements
+        - Generate daily comparison reports
+        - Flag significant changes for review
+        
+        Tools to Enable:
+        - Web Browser (for site monitoring)
+        - Web Search (for additional research)
+        - Document Creator (for reports)
+        - Files and Folder (for organization)
+        - Spreadsheet tools (for tracking)
+        
+        Integrations:
+        - Slack (for notifications)
+        - Google Sheets (for data logging)
+        
+        Scheduled Trigger:
+        - Daily at 8 AM
+        - Prompt: "Check competitor sites and generate daily report"
+        
+        Shall I create this agent?
+    ```
+  </Step>
+  <Step title="Confirm Creation">
+    Review and approve the proposed agent:
+
+    ```
+        Yes, create this agent
+        
+        or
+        
+        Create it, but change the schedule to 9 AM and add Twitter monitoring
+    ```
+  </Step>
+  <Step title="Worker Creates Agent">
+    After confirmation, the worker:
+
+    - Creates the new agent
+    - Configures all specified tools
+    - Sets up system prompts
+    - Returns agent details and next steps
+  </Step>
+  <Step title="Complete Setup">
+    ```
+        Agent created successfully! ✓
+        
+        Agent Name: Competitor Monitor
+        Agent ID: agent-comp-123
+        
+        Next steps:
+        1. Authenticate integrations (Slack, Google Sheets)
+        2. Test with a manual run
+        3. Scheduled trigger will start tomorrow at 8 AM
+        
+        Would you like to test the agent now?
+    ```
+  </Step>
+</Steps>
+
+### Confirming Before Creation
+
+<Info>
+  **Critical Requirement**: Workers MUST use the 'ask' tool to request explicit user permission before creating agents. The confirmation request includes full details of the proposed agent configuration.
+</Info>
+
+Example confirmation request:
+
+```text
+🤖 Agent Creation Proposal
+
+I'd like to create a new agent with the following configuration:
+
+Name: Daily News Curator
+Purpose: Aggregate and summarize AI industry news
+
+System Prompt Additions:
+- Search for AI news from top 10 sources daily
+- Summarize key developments in 5 bullet points
+- Categorize by: Research, Business, Policy, Applications
+- Flag breakthrough announcements
+- Maintain consistent format across reports
+
+Tools:
+- Web Search ✓
+- Web Browser ✓
+- Document Creator ✓
+- Files and Folder ✓
+
+Integrations:
+- Slack (for distribution)
+- Notion (for archival)
+
+Scheduled Trigger:
+- Every weekday at 7 AM
+- Prompt: "Generate daily AI news digest"
+
+Do you want me to create this agent?
+```
+
+## Agent Configuration Components
+
+### System Prompt Design
+
+The system prompt defines the agent's personality, behavior, and operating procedures:
+
+<AccordionGroup>
+  <Accordion title="Role Definition" icon="user-tie">
+    **Purpose**: Define what the agent is and does
+
+    **Example**:
+
+    ```
+        You are a Competitive Intelligence Analyst specializing in SaaS companies. Your role is to monitor competitor activities, track market trends, and provide actionable insights to the product and marketing teams.
+    ```
+  </Accordion>
+  <Accordion title="Behavioral Guidelines" icon="compass">
+    **Purpose**: Establish how the agent should operate
+
+    **Example**:
+
+    ```
+        - Always cite sources for competitive data
+        - Present findings objectively without bias
+        - Flag significant changes immediately
+        - Maintain consistent report formatting
+        - Distinguish between facts and speculation
+        - Respect competitor intellectual property
+    ```
+  </Accordion>
+  <Accordion title="Workflow Instructions" icon="list-check">
+    **Purpose**: Define step-by-step processes
+
+    **Example**:
+
+    ```
+        Daily Monitoring Workflow:
+        1. Visit each competitor website
+        2. Capture screenshots of key pages
+        3. Compare against previous day's captures
+        4. Document any changes detected
+        5. Analyze significance of changes
+        6. Generate summary report
+        7. Update tracking spreadsheet
+        8. Send alert if major changes found
+    ```
+  </Accordion>
+  <Accordion title="Output Standards" icon="file-check">
+    **Purpose**: Specify formatting and quality expectations
+
+    **Example**:
+
+    ```
+        Report Format:
+        - Executive Summary (3-5 bullet points)
+        - Detailed Findings (by competitor)
+        - Change Impact Analysis
+        - Recommended Actions
+        - Supporting Screenshots
+        - Data Tracking Table
+        
+        Save to: "Competitive Intelligence/Daily Reports/[DATE]"
+    ```
+  </Accordion>
+  <Accordion title="Domain Expertise" icon="brain">
+    **Purpose**: Embed specialized knowledge
+
+    **Example**:
+
+    ```
+        Focus Areas:
+        - Pricing changes and packaging updates
+        - New feature announcements
+        - Marketing messaging shifts
+        - Customer case studies
+        - Partnership announcements
+        - Team expansions (especially leadership)
+        - Funding or acquisition news
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Tool Selection Strategy
+
+<Tabs>
+  <Tab title="Research Agents">
+    **Essential Tools**:
+
+    - Web Search (finding information)
+    - Web Browser (accessing sites)
+    - Data Providers (structured data)
+    - Document Creator (reports)
+    - Spreadsheet tools (data organization)
+
+    **Optional Tools**:
+
+    - Image Vision (analyzing screenshots)
+    - Files and Folder (organization)
+
+    **Avoid**: Image generation, presentations (not needed)
+  </Tab>
+  <Tab title="Content Agents">
+    **Essential Tools**:
+
+    - Web Search (research)
+    - Document Creator (writing)
+    - Image Search (visuals)
+    - Image Editor (custom graphics)
+    - Files and Folder (management)
+
+    **Optional Tools**:
+
+    - Presentation Creator (slide decks)
+    - Web Browser (reference)
+
+    **Avoid**: Data Providers, spreadsheets (unless analytics-focused)
+  </Tab>
+  <Tab title="Automation Agents">
+    **Essential Tools**:
+
+    - Integration-specific MCP servers
+    - Document Creator (logging)
+    - Files and Folder (organization)
+
+    **Optional Tools**:
+
+    - Web Search (enrichment)
+    - Spreadsheet tools (tracking)
+
+    **Avoid**: Heavy research or content creation tools
+  </Tab>
+  <Tab title="Analysis Agents">
+    **Essential Tools**:
+
+    - Data Providers (data sources)
+    - Spreadsheet tools (analysis)
+    - Web Search (context)
+    - Document Creator (reports)
+
+    **Optional Tools**:
+
+    - Presentation Creator (dashboards)
+    - Web Browser (verification)
+
+    **Avoid**: Image generation, social media tools
+  </Tab>
+</Tabs>
+
+## Integration Configuration
+
+### Searching for MCP Servers
+
+<Steps>
+  <Step title="Search Based on Needs">
+    ```
+        Search for MCP servers for email automation
+        Find integrations for project management
+        What MCP servers are available for CRM?
+    ```
+  </Step>
+  <Step title="Review Options">
+    Worker returns matching MCP servers:
+
+    ```
+        Found MCP Servers for Email:
+        
+        1. Gmail
+           - Send emails
+           - Read inbox
+           - Manage labels
+           - Search messages
+           Auth: OAuth
+        
+        2. Outlook
+           - Send/receive emails
+           - Calendar management
+           - Contact management
+           Auth: OAuth
+        
+        3. SendGrid
+           - Bulk email sending
+           - Template management
+           - Analytics
+           Auth: API Key
+    ```
+  </Step>
+  <Step title="Get Details">
+    ```
+        Get details for Gmail MCP server
+        
+        Gmail MCP Server:
+        Toolkit: Google (Gmail, Drive, Calendar, Sheets)
+        
+        Available Tools:
+        - send_email: Send email messages
+        - read_emails: Fetch inbox messages
+        - search_emails: Search by criteria
+        - create_draft: Create email draft
+        - manage_labels: Organize with labels
+        - get_attachments: Download attachments
+        
+        Authentication: OAuth 2.0
+        Required Scopes: gmail.send, gmail.readonly, gmail.modify
+        
+        Setup Process:
+        1. Create credential profile
+        2. Complete OAuth flow
+        3. Configure for agent
+        4. Select tools to enable
+    ```
+  </Step>
+</Steps>
+
+### Creating Credential Profiles
+
+<Steps>
+  <Step title="Create Profile for Service">
+    ```
+        Create a credential profile for Gmail for the new agent
+    ```
+  </Step>
+  <Step title="Receive Auth Link">
+    ```
+        Credential profile created: gmail-daily-reporter
+        
+        Complete authentication:
+        https://auth.composio.dev/connect/gmail-daily-reporter
+        
+        Click the link to:
+        1. Select your Google account
+        2. Grant Gmail permissions
+        3. Complete OAuth flow
+        4. Return here when done
+    ```
+  </Step>
+  <Step title="Complete Authentication">
+    Click link → Authorize → Grant permissions → Confirm
+  </Step>
+  <Step title="Discover Available Tools">
+    ```
+        Discover tools for gmail-daily-reporter profile
+        
+        Available Gmail Tools:
+        - Send email ✓
+        - Read emails ✓
+        - Search emails ✓
+        - Create draft ✓
+        - Manage labels ✓
+        - Delete emails ✗ (not recommended for automation)
+    ```
+  </Step>
+  <Step title="Configure for Agent">
+    ```
+        Configure gmail-daily-reporter profile for Daily Reporter Agent
+        
+        Enable tools:
+        ✓ Send email
+        ✓ Read emails
+        ✓ Search emails
+        ✓ Create draft
+        
+        Configuration complete!
+        Agent can now access Gmail with selected tools.
+    ```
+  </Step>
+</Steps>
+
+## Scheduled Trigger Configuration
+
+### Creating Scheduled Triggers
+
+<Steps>
+  <Step title="Define Schedule">
+    ```
+        Create a scheduled trigger for Daily Reporter Agent:
+        - Run every weekday at 8 AM
+        - Execute daily reporting workflow
+    ```
+  </Step>
+  <Step title="Specify Execution Prompt">
+    ```
+        Trigger Prompt:
+        "Generate today's daily digest report by:
+        1. Searching for news in {{industry}}
+        2. Analyzing top 10 most relevant articles
+        3. Creating summary document
+        4. Saving to Daily Reports/{{date}}
+        5. Sending via email to {{distribution_list}}"
+    ```
+  </Step>
+  <Step title="Set Cron Expression">
+    ```
+        Schedule: 0 8 * * 1-5
+        
+        Translation: At 8:00 AM, Monday through Friday
+        
+        Timezone: America/Los_Angeles
+    ```
+  </Step>
+  <Step title="Worker Creates Trigger">
+    ```
+        Scheduled trigger created! ✓
+        
+        Trigger ID: trigger-daily-8am
+        Agent: Daily Reporter Agent
+        Schedule: Weekdays at 8:00 AM PST
+        Status: Active
+        
+        Next execution: Tomorrow at 8:00 AM
+        
+        The agent will now run automatically on this schedule.
+    ```
+  </Step>
+</Steps>
+
+### Managing Triggers
+
+<CodeGroup>
+
+```text List Triggers
+Show me all scheduled triggers for the Marketing Agent
+
+List scheduled automation for Sales Agent
+```
+
+
+```text Toggle Triggers
+Disable the weekend reporting trigger
+
+Pause all triggers for the Content Agent during vacation
+
+Re-enable the daily monitoring trigger
+```
+
+
+```text Delete Triggers
+Delete the old quarterly report trigger
+
+Remove the outdated monitoring schedule
+```
+
+</CodeGroup>
+
+## Complete Agent Creation Examples
+
+### Example 1: Competitive Intelligence Agent
+
+<Steps>
+  <Step title="User Request">
+    ```
+        Create an agent that monitors our top 3 competitors daily and generates analysis reports
+    ```
+  </Step>
+  <Step title="Worker Proposes">
+    ```
+        I'll create a "Competitive Intelligence Agent":
+        
+        Name: Competitor Tracker
+        
+        System Prompt:
+        - Monitor {{competitor_1}}, {{competitor_2}}, {{competitor_3}} daily
+        - Track: pricing, features, marketing, news
+        - Generate comparative analysis
+        - Flag significant changes
+        - Maintain historical tracking
+        
+        Tools:
+        - Web Browser (site monitoring)
+        - Web Search (news tracking)
+        - Image Vision (screenshot analysis)
+        - Spreadsheet tools (data tracking)
+        - Document Creator (reports)
+        
+        Integrations:
+        - Google Sheets (tracking database)
+        - Slack (alerts)
+        
+        Scheduled Trigger:
+        - Daily at 9 AM
+        - "Check all competitor sites and generate daily intelligence report"
+        
+        Create this agent?
+    ```
+  </Step>
+  <Step title="User Confirms">
+    ```
+        Yes, create it
+    ```
+  </Step>
+  <Step title="Worker Builds">
+    ```
+        Creating Competitor Tracker agent...
+        ✓ Agent created
+        ✓ Tools configured
+        ✓ System prompt set
+        
+        Next: Set up integrations
+        
+        1. Creating Google Sheets credential profile...
+           Auth link: [URL]
+           
+        2. Creating Slack credential profile...
+           Auth link: [URL]
+           
+        Please authenticate both services.
+    ```
+  </Step>
+  <Step title="Complete Setup">
+    ```
+        After authentication:
+        
+        ✓ Google Sheets connected
+        ✓ Slack connected
+        ✓ Tools configured for agent
+        ✓ Scheduled trigger created
+        
+        Competitor Tracker Agent is ready!
+        
+        Would you like to run a test?
+    ```
+  </Step>
+</Steps>
+
+### Example 2: Content Distribution Agent
+
+<Steps>
+  <Step title="Define Requirements">
+    ```
+        I need an agent that takes blog posts from Notion and distributes them to Twitter, LinkedIn, and our newsletter
+    ```
+  </Step>
+  <Step title="Agent Proposal">
+    ```
+        I'll create a "Content Distribution Agent":
+        
+        Name: Content Distributor
+        
+        Capabilities:
+        - Read new posts from Notion
+        - Generate platform-specific variants:
+          * Twitter: Thread format (280 char)
+          * LinkedIn: Professional post
+          * Newsletter: Email format
+        - Post to each platform
+        - Track engagement
+        
+        Tools:
+        - Document Creator (content adaptation)
+        - Image Editor (social graphics)
+        
+        Integrations:
+        - Notion (source)
+        - Twitter (distribution)
+        - LinkedIn (distribution)
+        - Mailchimp (newsletter)
+        - Google Analytics (tracking)
+        
+        Trigger Options:
+        - Event: When new post published in Notion
+        or
+        - Schedule: Check for new posts daily at 10 AM
+        
+        Which trigger type do you prefer?
+    ```
+  </Step>
+  <Step title="User Selects">
+    ```
+        Use event trigger - distribute immediately when post is published
+    ```
+  </Step>
+  <Step title="Agent Created">
+    ```
+        Content Distributor Agent created! ✓
+        
+        Configuration:
+        ✓ Agent created with content adaptation capabilities
+        ✓ Event trigger: Notion → New page published
+        
+        Required authentications:
+        1. Notion: [Auth URL]
+        2. Twitter: [Auth URL]
+        3. LinkedIn: [Auth URL]
+        4. Mailchimp: [Auth URL]
+        5. Google Analytics: [Auth URL]
+        
+        After authentication, agent will automatically:
+        - Detect new Notion publications
+        - Create platform-specific content
+        - Distribute across channels
+        - Track engagement
+    ```
+  </Step>
+</Steps>
+
+### Example 3: Sales Intelligence Agent
+
+<Steps>
+  <Step title="Describe Need">
+    ```
+        Build me an agent that enriches new Salesforce leads with LinkedIn data and sends personalized outreach emails
+    ```
+  </Step>
+  <Step title="Proposed Configuration">
+    ```
+        I'll create a "Sales Intelligence Agent":
+        
+        Name: Lead Enrichment Assistant
+        
+        Workflow:
+        1. Monitor Salesforce for new leads
+        2. Research lead on LinkedIn:
+           - Company info
+           - Role and background
+           - Recent activity
+           - Mutual connections
+        3. Enrich Salesforce record with data
+        4. Generate personalized email using:
+           - Company context
+           - Pain points for their role
+           - Relevant case studies
+        5. Save draft in Gmail for review
+        6. Log activity in tracking sheet
+        
+        Integrations:
+        - Salesforce (lead source)
+        - LinkedIn (research)
+        - Gmail (outreach)
+        - Google Sheets (tracking)
+        
+        Trigger:
+        - Event-based: New lead created in Salesforce
+        - Automatic execution within 5 minutes
+        
+        Create this agent?
+    ```
+  </Step>
+</Steps>
+
+## Updating Existing Agents
+
+### Update Agent Configuration
+
+<Steps>
+  <Step title="Request Update">
+    ```
+        Update my Research Agent to:
+        - Add the Data Providers tool
+        - Include LinkedIn in the system prompt
+        - Change the name to "Market Research Agent"
+    ```
+  </Step>
+  <Step title="Worker Applies Updates">
+    ```
+        Updating Research Agent configuration...
+        
+        Changes:
+        ✓ Added tool: Data Providers
+        ✓ Updated system prompt: Added LinkedIn research guidelines
+        ✓ Changed name: "Market Research Agent"
+        ✓ Created new version: v2
+        
+        Previous configuration preserved in v1 for rollback if needed
+        
+        Market Research Agent updated successfully!
+    ```
+  </Step>
+</Steps>
+
+<Info>
+  **Version Control**: Updates create new agent versions, preserving history. You can rollback to previous versions if needed.
+</Info>
+
+## Best Practices for Agent Creation
+
+<CardGroup cols={2}>
+  <Card title="Single Responsibility" icon="bullseye">
+    Design agents for one primary purpose rather than trying to do everything
+  </Card>
+  <Card title="Clear System Prompts" icon="message-lines">
+    Write detailed, specific instructions about expected behavior and outputs
+  </Card>
+  <Card title="Minimal Tools" icon="toolbox">
+    Only enable tools directly needed for the agent's purpose
+  </Card>
+  <Card title="Test Before Scheduling" icon="flask">
+    Run agents manually several times before setting up automated triggers
+  </Card>
+  <Card title="Use Template Variables" icon="brackets-curly">
+    Make agents reusable with {variable} syntax in prompts and triggers
+  </Card>
+  <Card title="Document Purpose" icon="book">
+    Keep notes on why the agent exists and what workflows it supports
+  </Card>
+  <Card title="Start Simple" icon="seedling">
+    Begin with basic configuration, add complexity as you understand behavior
+  </Card>
+  <Card title="Monitor Performance" icon="chart-line">
+    Review agent outputs regularly to ensure quality and accuracy
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Worker won't create agent without confirmation">
+    This is expected behavior:
+
+    - Agent Builder REQUIRES explicit user permission
+    - Worker will always ask for confirmation first
+    - Review the proposed configuration
+    - Reply with clear approval or modifications
+    - This safety measure prevents accidental agent creation
+  </Accordion>
+  <Accordion title="Integration authentication fails">
+    Try:
+
+    - Opening auth link in different browser
+    - Checking popup blockers
+    - Verifying account permissions
+    - Ensuring correct account selected
+    - Requesting new credential profile if link expired
+  </Accordion>
+  <Accordion title="Scheduled trigger not executing">
+    Verify:
+
+    - Trigger is enabled (not disabled)
+    - Cron expression is correct
+    - Timezone is set appropriately
+    - Agent has all required tools
+    - Check trigger execution logs
+  </Accordion>
+  <Accordion title="Agent doesn't behave as expected">
+    Review:
+
+    - System prompt clarity and specificity
+    - Whether all required tools are enabled
+    - If integrations are properly authenticated
+    - Execution logs for errors
+    - Consider updating configuration
+  </Accordion>
+  <Accordion title="Can't find created agent">
+    Check:
+
+    - Navigate to Workers/Agents section
+    - Look for the agent name
+    - Search by agent purpose or ID
+    - Verify creation completed successfully
+    - Check if logged into correct workspace
+  </Accordion>
+</AccordionGroup>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Create completely new AI agents with custom configurations
+</Check>
+
+<Check>
+  Design effective system prompts and behavioral guidelines
+</Check>
+
+<Check>
+  Select and configure appropriate tools for agent purposes
+</Check>
+
+<Check>
+  Search for and integrate MCP servers for external services
+</Check>
+
+<Check>
+  Create and configure credential profiles for authentication
+</Check>
+
+<Check>
+  Set up scheduled triggers for automated execution
+</Check>
+
+<Check>
+  Update existing agent configurations with version control
+</Check>
+
+<Check>
+  Apply best practices for reliable, effective agent design
+</Check>
+
+The Agent Builder enables sophisticated meta-automation where workers can create specialized agents tailored to exact requirements. This allows you to rapidly build teams of focused agents, each optimized for specific tasks, creating a comprehensive automation ecosystem through conversational commands.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Agent Configuration" icon="sliders" href="/tools/agent-configuration">
+    Learn advanced configuration techniques
+  </Card>
+  <Card title="MCP Server Search" icon="puzzle-piece" href="/tools/mcp-server-search">
+    Discover available integrations
+  </Card>
+  <Card title="Triggers & Automation" icon="clock" href="/tools/triggers-automation">
+    Master scheduled and event-based triggers
+  </Card>
+  <Card title="Credentials Manager" icon="key" href="/tools/credentials-manager">
+    Manage authentication for services
+  </Card>
+</CardGroup>

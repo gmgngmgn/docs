@@ -1,4 +1,822 @@
 ---
-title: "Image Search Tool"
-description: "Description of your new file."
+title: "Image Search"
+description: "Find images on the internet for any topic or subject, enabling visual content discovery for presentations, documents, and creative projects."
 ---
+
+## Overview
+
+The Image Search tool enables your Utari workers to find images from across the internet based on any topic, subject, or search criteria. This powerful capability allows workers to discover relevant visuals for presentations, documents, marketing materials, and any other content that requires imagery—all through simple conversational requests.
+
+## Image Search Capabilities
+
+<CardGroup cols={2}>
+  <Card title="Topic-Based Search" icon="magnifying-glass">
+    Find images related to any subject, concept, or theme
+  </Card>
+  <Card title="Specific Criteria" icon="filter">
+    Search with detailed specifications like style, color, orientation, and type
+  </Card>
+  <Card title="Multiple Results" icon="images">
+    Get multiple image options to choose from for your needs
+  </Card>
+  <Card title="High-Quality Sources" icon="star">
+    Access images from reputable sources across the web
+  </Card>
+</CardGroup>
+
+<Info>
+  Image Search finds images but doesn't automatically download them. Use this tool in combination with image downloading capabilities to save images to your workspace.
+</Info>
+
+## Using Image Search
+
+### Basic Image Search
+
+<Steps>
+  <Step title="Request Image Search">
+    Ask your worker to find images on a specific topic:
+
+    ```
+        Find images of modern office workspaces
+    ```
+  </Step>
+  <Step title="Review Results">
+    Your worker will:
+
+    - Execute the image search
+    - Present multiple image options
+    - Provide image URLs and descriptions
+    - Show preview information
+  </Step>
+  <Step title="Select Images">
+    Choose which images you want to use:
+
+    ```
+        Download images 2, 4, and 7
+    ```
+  </Step>
+  <Step title="Download or Reference">
+    Images can be downloaded to your workspace or referenced by URL for use in documents and presentations.
+  </Step>
+</Steps>
+
+### Detailed Search Requests
+
+For better results, provide specific search criteria:
+
+<CodeGroup>
+
+```text Subject + Style
+Find professional photographs of business meetings in modern offices
+```
+
+
+```text Subject + Color
+Search for images of sunset landscapes with orange and purple colors
+```
+
+
+```text Subject + Orientation
+Find vertical images of coffee cups for Instagram Stories
+```
+
+
+```text Subject + Type
+Look for minimalist illustrations of cloud computing concepts
+```
+
+
+```text Subject + Mood
+Find energetic and dynamic images of athletes training
+```
+
+</CodeGroup>
+
+## Search Query Best Practices
+
+### Writing Effective Search Queries
+
+<CardGroup cols={2}>
+  <Card title="Be Specific" icon="bullseye">
+    ❌ "Find product images"
+
+    ✅ "Find professional product photography of wireless headphones on white backgrounds"
+  </Card>
+  <Card title="Include Context" icon="circle-info">
+    ❌ "Get nature pictures"
+
+    ✅ "Find high-resolution nature photography of mountain landscapes at sunrise"
+  </Card>
+  <Card title="Specify Style" icon="palette">
+    ❌ "Search for tech images"
+
+    ✅ "Find modern, minimalist illustrations of technology and innovation"
+  </Card>
+  <Card title="Define Purpose" icon="flag">
+    ❌ "Look for food photos"
+
+    ✅ "Find professional food photography suitable for restaurant menus and marketing"
+  </Card>
+</CardGroup>
+
+### Search Modifiers
+
+Enhance your searches with descriptive modifiers:
+
+<AccordionGroup>
+  <Accordion title="Style Modifiers" icon="paintbrush">
+    - Professional photography
+    - Minimalist design
+    - Vintage aesthetic
+    - Modern and clean
+    - Artistic illustration
+    - Photorealistic
+    - Abstract composition
+    - Hand-drawn style
+    - 3D rendered
+    - Watercolor painting
+  </Accordion>
+  <Accordion title="Quality Modifiers" icon="star">
+    - High resolution
+    - High quality
+    - Professional grade
+    - Commercial quality
+    - Studio photography
+    - Premium quality
+    - Detailed
+    - Sharp and clear
+    - Print quality
+  </Accordion>
+  <Accordion title="Color Modifiers" icon="droplet">
+    - Vibrant colors
+    - Warm tones
+    - Cool colors
+    - Black and white
+    - Monochromatic
+    - Pastel colors
+    - Bold and bright
+    - Natural colors
+    - Muted tones
+    - High contrast
+  </Accordion>
+  <Accordion title="Composition Modifiers" icon="frame">
+    - Close-up shot
+    - Wide angle
+    - Aerial view
+    - Portrait orientation
+    - Landscape orientation
+    - Centered composition
+    - Minimal background
+    - Detailed foreground
+    - Bokeh effect
+    - Symmetrical layout
+  </Accordion>
+  <Accordion title="Mood Modifiers" icon="face-smile">
+    - Energetic and dynamic
+    - Calm and peaceful
+    - Professional and corporate
+    - Fun and playful
+    - Dramatic and moody
+    - Bright and cheerful
+    - Elegant and sophisticated
+    - Rustic and authentic
+    - Futuristic and modern
+  </Accordion>
+</AccordionGroup>
+
+## Common Use Cases
+
+### Presentation Content
+
+<Card title="Building Slide Decks" icon="presentation">
+  Search for images to enhance presentations:
+
+  **Typical Searches**:
+
+  - "Find professional business team collaboration images"
+  - "Search for data visualization and analytics graphics"
+  - "Get modern technology and innovation illustrations"
+  - "Find corporate office environment photographs"
+  - "Look for success and growth metaphor images"
+
+  **Best Practices**:
+
+  - Search for consistent style across all images
+  - Specify aspect ratio (landscape for slides)
+  - Request professional, high-quality images
+  - Consider brand colors and themes
+</Card>
+
+### Marketing Materials
+
+<Card title="Creating Marketing Assets" icon="bullhorn">
+  Find images for marketing campaigns:
+
+  **Typical Searches**:
+
+  - "Find lifestyle product photography for social media"
+  - "Search for hero banner images with diverse people"
+  - "Get premium product shots on minimal backgrounds"
+  - "Find authentic customer testimonial-style photos"
+  - "Look for eye-catching advertisement visuals"
+
+  **Best Practices**:
+
+  - Specify platform (Instagram, Facebook, web)
+  - Mention target audience demographics
+  - Request authentic, relatable imagery
+  - Consider orientation and dimensions
+</Card>
+
+### Content Creation
+
+<Card title="Blog Posts and Articles" icon="newspaper">
+  Discover images for written content:
+
+  **Typical Searches**:
+
+  - "Find featured images for tech blog posts"
+  - "Search for in-article illustrations about productivity"
+  - "Get header images for travel articles"
+  - "Find infographic-style visuals for tutorials"
+  - "Look for concept photography for thought leadership"
+
+  **Best Practices**:
+
+  - Match content tone and subject
+  - Request horizontal images for headers
+  - Consider reading experience
+  - Ensure images support the narrative
+</Card>
+
+### E-commerce
+
+<Card title="Product and Lifestyle Imagery" icon="cart-shopping">
+  Find product-related visuals:
+
+  **Typical Searches**:
+
+  - "Find lifestyle images of people using fitness equipment"
+  - "Search for product photography inspiration"
+  - "Get images showing product scale and size"
+  - "Find contextual product usage scenarios"
+  - "Look for professional product display examples"
+
+  **Best Practices**:
+
+  - Show products in use
+  - Include context and scale
+  - Request clean backgrounds
+  - Consider multiple angles
+</Card>
+
+### Social Media Content
+
+<Card title="Social Media Graphics" icon="share-nodes">
+  Discover images optimized for social platforms:
+
+  **Typical Searches**:
+
+  - "Find square format images for Instagram posts"
+  - "Search for vertical images for Instagram Stories"
+  - "Get wide landscape images for LinkedIn banners"
+  - "Find attention-grabbing visuals for Pinterest"
+  - "Look for authentic behind-the-scenes style photos"
+
+  **Best Practices**:
+
+  - Specify platform requirements
+  - Mention aspect ratio needs
+  - Request mobile-friendly images
+  - Consider scroll-stopping appeal
+</Card>
+
+## Search by Category
+
+### Business and Professional
+
+<CodeGroup>
+
+```text Corporate Settings
+Find professional images of modern office spaces with natural lighting and collaborative work environments
+```
+
+
+```text Business People
+Search for diverse business professionals in meetings, presentations, and collaborative settings
+```
+
+
+```text Technology
+Find images of cutting-edge technology, digital interfaces, and innovation concepts
+```
+
+
+```text Data and Analytics
+Look for data visualization, charts, graphs, and analytics dashboard imagery
+```
+
+</CodeGroup>
+
+### Creative and Artistic
+
+<CodeGroup>
+
+```text Abstract Concepts
+Find abstract geometric compositions with bold colors for modern design backgrounds
+```
+
+
+```text Illustrations
+Search for hand-drawn illustrations in minimalist style about sustainability
+```
+
+
+```text Artistic Photography
+Find artistic photography with dramatic lighting and creative composition
+```
+
+
+```text Patterns and Textures
+Look for seamless patterns and textures suitable for backgrounds and design elements
+```
+
+</CodeGroup>
+
+### Nature and Landscapes
+
+<CodeGroup>
+
+```text Landscapes
+Find breathtaking landscape photography of mountains during golden hour
+```
+
+
+```text Wildlife
+Search for high-quality wildlife photography showing animals in natural habitats
+```
+
+
+```text Plants and Flowers
+Find close-up botanical photography of flowers with soft natural lighting
+```
+
+
+```text Seasons
+Look for seasonal imagery capturing autumn colors and fall atmosphere
+```
+
+</CodeGroup>
+
+### Lifestyle and People
+
+<CodeGroup>
+
+```text Lifestyle
+Find authentic lifestyle photography of people enjoying coffee at cafes
+```
+
+
+```text Activities
+Search for active lifestyle images of people exercising and staying healthy
+```
+
+
+```text Family and Relationships
+Find warm, authentic images of families spending time together
+```
+
+
+```text Food and Dining
+Look for professional food photography with appetizing presentation
+```
+
+</CodeGroup>
+
+## Image Specifications
+
+### Orientation Requirements
+
+<Tabs>
+  <Tab title="Landscape (Horizontal)">
+    **Best For**:
+
+    - Presentation slides
+    - Website headers
+    - Blog post banners
+    - YouTube thumbnails
+    - LinkedIn posts
+
+    **Search Examples**:
+
+    ```
+        Find landscape-oriented images of city skylines
+        Search for horizontal format business photos
+    ```
+  </Tab>
+  <Tab title="Portrait (Vertical)">
+    **Best For**:
+
+    - Instagram Stories
+    - TikTok content
+    - Pinterest pins
+    - Mobile screens
+    - Print posters
+
+    **Search Examples**:
+
+    ```
+        Find vertical format images for Instagram Stories
+        Search for portrait-oriented product photography
+    ```
+  </Tab>
+  <Tab title="Square">
+    **Best For**:
+
+    - Instagram posts
+    - Profile pictures
+    - App icons
+    - Thumbnails
+    - Social media grids
+
+    **Search Examples**:
+
+    ```
+        Find square format images for Instagram feed
+        Search for 1:1 ratio product shots
+    ```
+  </Tab>
+</Tabs>
+
+### Resolution and Quality
+
+<CardGroup cols={2}>
+  <Card title="High Resolution" icon="image">
+    For print, large displays, and professional use
+
+    ```
+        Find high-resolution images suitable for print
+        Search for 4K quality landscape photography
+    ```
+  </Card>
+  <Card title="Web Optimized" icon="globe">
+    For websites, blogs, and digital use
+
+    ```
+        Find web-optimized images for blog headers
+        Search for digital-ready marketing visuals
+    ```
+  </Card>
+  <Card title="Detailed" icon="magnifying-glass-plus">
+    For close inspection and detailed viewing
+
+    ```
+        Find detailed close-up images of products
+        Search for macro photography with sharp details
+    ```
+  </Card>
+  <Card title="Print Quality" icon="print">
+    For physical marketing materials
+
+    ```
+        Find print-quality images for brochures
+        Search for high-DPI photography for posters
+    ```
+  </Card>
+</CardGroup>
+
+## Combining with Other Tools
+
+Image Search becomes more powerful when combined with other Utari capabilities:
+
+<CardGroup cols={2}>
+  <Card title="+ Image Editor" icon="wand-magic-sparkles">
+    Search for images, then edit them to match your brand or requirements
+  </Card>
+  <Card title="+ Create Presentations" icon="presentation">
+    Search for images and automatically include them in slide decks
+  </Card>
+  <Card title="+ Document Creator" icon="file-word">
+    Find images and insert them into professional documents and reports
+  </Card>
+  <Card title="+ Files and Folder" icon="folder">
+    Organize downloaded images in structured folders for easy access
+  </Card>
+  <Card title="+ Web Search" icon="magnifying-glass">
+    Research topics first, then search for relevant supporting imagery
+  </Card>
+  <Card title="+ Image Vision" icon="eye">
+    Search for images, then use image vision to analyze and verify relevance
+  </Card>
+</CardGroup>
+
+### Example Combined Workflows
+
+<Steps>
+  <Step title="Research and Content Creation">
+    ```
+        1. Use web search to research "sustainable energy trends 2024"
+        2. Use image search to find "modern solar panel installations"
+        3. Download selected images to workspace
+        4. Create presentation with researched content and images
+    ```
+  </Step>
+  <Step title="Brand-Aligned Marketing">
+    ```
+        1. Search for "lifestyle product photography inspiration"
+        2. Download 5 best examples
+        3. Use image editor to adjust colors to match brand palette
+        4. Save edited images in "Marketing/Product Photos" folder
+        5. Create social media graphics using branded images
+    ```
+  </Step>
+  <Step title="Complete Presentation Package">
+    ```
+        1. Image search for "business growth metaphors"
+        2. Image search for "data analytics visualizations"
+        3. Image search for "successful business teams"
+        4. Download all selected images
+        5. Organize in "Presentations/Q4_Review/Images" folder
+        6. Create presentation using custom theme and downloaded images
+    ```
+  </Step>
+</Steps>
+
+## Search Strategies
+
+### Broad to Specific
+
+Start broad, then refine:
+
+<Steps>
+  <Step title="Initial Broad Search">
+    ```
+        Find images of technology
+    ```
+  </Step>
+  <Step title="Review Results">
+    Assess what types of technology images appear
+  </Step>
+  <Step title="Refine Search">
+    ```
+        Find images of cloud computing technology with modern interface design
+    ```
+  </Step>
+  <Step title="Further Refinement">
+    ```
+        Find minimalist illustrations of cloud computing infrastructure with blue color scheme
+    ```
+  </Step>
+</Steps>
+
+### Batch Searching
+
+Search for multiple related topics at once:
+
+```text
+Find the following types of images for my presentation:
+1. Professional business meeting photos
+2. Data visualization and analytics graphics
+3. Modern office workspace images
+4. Success and growth metaphor visuals
+5. Team collaboration illustrations
+
+For each category, find 3-5 options.
+```
+
+### Reference-Based Searching
+
+Describe a reference image:
+
+```text
+Find images similar to professional product photography on white backgrounds with soft shadows, like Apple's product marketing style
+```
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Search Multiple Times" icon="arrows-rotate">
+    Don't settle for first results—try different search terms and variations
+  </Card>
+  <Card title="Be Descriptive" icon="comment">
+    Include style, mood, color, and composition details in your search
+  </Card>
+  <Card title="Consider Context" icon="context">
+    Think about where and how the image will be used when searching
+  </Card>
+  <Card title="Verify Relevance" icon="check-circle">
+    Review images to ensure they actually match your needs and message
+  </Card>
+  <Card title="Check Quality" icon="star">
+    Request high-quality, professional images suitable for your use case
+  </Card>
+  <Card title="Maintain Consistency" icon="layer-group">
+    When searching for multiple images, use similar search criteria for visual consistency
+  </Card>
+  <Card title="Organize Downloads" icon="folder-tree">
+    Save downloaded images in organized folders by project or purpose
+  </Card>
+  <Card title="Respect Usage Rights" icon="shield-check">
+    Be mindful of image licenses and usage restrictions
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Search returns irrelevant images">
+    Improve your search by:
+
+    - Being more specific about subject matter
+    - Adding style and quality modifiers
+    - Specifying what you DON'T want (e.g., "without people")
+    - Including context about intended use
+    - Using different synonyms or related terms
+    - Breaking complex concepts into simpler searches
+  </Accordion>
+  <Accordion title="Not enough image options returned">
+    Try:
+
+    - Broadening your search terms
+    - Removing overly specific modifiers
+    - Searching for related or similar concepts
+    - Using more general category terms
+    - Trying alternative phrasings
+    - Splitting into multiple separate searches
+  </Accordion>
+  <Accordion title="Images don't match desired style">
+    Be more explicit about:
+
+    - Specific style keywords (minimalist, vintage, modern)
+    - Color preferences and palettes
+    - Photographic vs. illustrated
+    - Professional vs. casual
+    - Realistic vs. abstract
+    - Specific artistic movements or references
+  </Accordion>
+  <Accordion title="Wrong orientation or aspect ratio">
+    Clearly specify:
+
+    - "Landscape orientation" or "horizontal format"
+    - "Portrait orientation" or "vertical format"
+    - "Square format" or "1:1 aspect ratio"
+    - Specific dimensions if known
+    - Platform requirements (e.g., "Instagram Story format")
+  </Accordion>
+  <Accordion title="Quality not suitable for intended use">
+    Request explicitly:
+
+    - "High resolution" or "print quality"
+    - "Professional photography" or "commercial grade"
+    - "Sharp and detailed" or "high definition"
+    - "Suitable for [specific use case]"
+    - Minimum resolution requirements
+  </Accordion>
+</AccordionGroup>
+
+## Image Search for Specific Platforms
+
+### Social Media Platforms
+
+<Tabs>
+  <Tab title="Instagram">
+    **Post (1:1)**:
+
+    ```
+        Find square format images with vibrant colors for Instagram feed
+    ```
+
+    **Story (9:16)**:
+
+    ```
+        Find vertical images suitable for Instagram Stories with space for text overlay
+    ```
+
+    **Reel Cover**:
+
+    ```
+        Find eye-catching portrait images for Instagram Reel covers
+    ```
+  </Tab>
+  <Tab title="LinkedIn">
+    **Post**:
+
+    ```
+        Find professional business images suitable for LinkedIn posts
+    ```
+
+    **Banner (4:1)**:
+
+    ```
+        Find wide landscape images for LinkedIn profile banner
+    ```
+
+    **Article Header**:
+
+    ```
+        Find professional photography for LinkedIn article headers
+    ```
+  </Tab>
+  <Tab title="Twitter/X">
+    **Post (16:9)**:
+
+    ```
+        Find landscape images optimized for Twitter posts
+    ```
+
+    **Header (3:1)**:
+
+    ```
+        Find wide banner images for Twitter profile header
+    ```
+  </Tab>
+  <Tab title="Facebook">
+    **Post**:
+
+    ```
+        Find engaging images for Facebook posts that work on mobile and desktop
+    ```
+
+    **Cover (2.7:1)**:
+
+    ```
+        Find wide landscape images for Facebook page cover
+    ```
+  </Tab>
+</Tabs>
+
+### Website Usage
+
+<CodeGroup>
+
+```text Hero Sections
+Find wide landscape hero images with space for text overlay, professional and modern aesthetic
+```
+
+
+```text Blog Headers
+Find horizontal format images suitable for blog post headers, visually engaging and relevant to content topics
+```
+
+
+```text Background Images
+Find subtle background images with low contrast suitable for text overlay
+```
+
+
+```text Product Pages
+Find clean product photography on neutral backgrounds, professional ecommerce quality
+```
+
+</CodeGroup>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Use Image Search to find images for any topic or subject
+</Check>
+
+<Check>
+  Write effective search queries with specific modifiers
+</Check>
+
+<Check>
+  Search for images based on style, quality, color, and composition
+</Check>
+
+<Check>
+  Find images optimized for specific platforms and use cases
+</Check>
+
+<Check>
+  Combine Image Search with other Utari tools for complete workflows
+</Check>
+
+<Check>
+  Apply best practices for discovering relevant, high-quality imagery
+</Check>
+
+<Check>
+  Troubleshoot common search issues to get better results
+</Check>
+
+The Image Search tool transforms your Utari workers into visual content researchers, capable of finding the perfect images for presentations, marketing materials, documents, and any other content that requires professional imagery—all through simple conversational requests.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Image Editor" icon="wand-magic-sparkles" href="/tools/image-editor">
+    Edit and customize found images
+  </Card>
+  <Card title="Create Presentations" icon="presentation" href="/tools/create-presentations">
+    Use found images in slide decks
+  </Card>
+  <Card title="Document Creator" icon="file-word" href="/tools/document-creator">
+    Include images in professional documents
+  </Card>
+  <Card title="Files and Folder" icon="folder" href="/tools/files-folder">
+    Organize your image library
+  </Card>
+</CardGroup>

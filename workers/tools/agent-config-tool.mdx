@@ -1,4 +1,839 @@
 ---
-title: "Agent Config Tool"
-description: "Description of your new file."
+title: "Agent Configuration"
+description: "Modify agent settings, tools, and behaviors to customize workers for specific tasks and workflows through conversational configuration management."
 ---
+
+## Overview
+
+The Agent Configuration tool enables your Utari workers to modify and customize other agents dynamically. This meta-capability allows workers to adapt agent configurations, enable or disable tools, adjust instructions, and connect integrations—all through natural conversation. It's particularly powerful for creating specialized agents on-the-fly or adapting existing agents to new requirements.
+
+## Agent Configuration Capabilities
+
+<CardGroup cols={2}>
+  <Card title="Get Current Config" icon="eye">
+    View the current configuration of any agent including tools, settings, and instructions
+  </Card>
+  <Card title="Update Agent" icon="pen">
+    Modify agent name, enabled tools, MCP servers, and system prompt additions
+  </Card>
+  <Card title="Tool Management" icon="toolbox">
+    Enable or disable specific tools for an agent's capabilities
+  </Card>
+  <Card title="Instruction Customization" icon="message">
+    Add high-priority instructions to guide agent behavior
+  </Card>
+</CardGroup>
+
+<Info>
+  Agent Configuration allows one worker to configure another agent, enabling sophisticated automation workflows and dynamic agent creation.
+</Info>
+
+## Configuration Capabilities Explained
+
+### Get Current Agent Config
+
+Review an agent's existing configuration before making changes:
+
+**What You Can See**:
+
+- Agent name and description
+- Currently enabled tools
+- Connected MCP servers
+- System prompt additions
+- Other configuration settings
+
+**When to Use**:
+
+- Before updating an agent to see current state
+- To verify what's already configured
+- When troubleshooting agent behavior
+- To document existing configurations
+- Before duplicating or templating agents
+
+**Example Usage**:
+
+```text
+Show me the current configuration for my Content Writer agent
+What tools are enabled for the Research Assistant?
+Check the settings for my Sales Agent
+```
+
+### Update Agent
+
+Modify any aspect of an agent's configuration:
+
+**What You Can Update**:
+
+- **Name**: Change the agent's display name
+- **Tools**: Enable or disable specific capabilities
+- **MCP Servers**: Add or remove integration connections
+- **System Prompt Additions**: Add high-priority behavioral instructions
+
+**How Updates Work**:
+
+- Changes apply immediately to the agent
+- System prompt additions are appended to existing instructions
+- New instructions receive high priority markers
+- Existing configuration is preserved unless explicitly changed
+
+<Warning>
+  **System Prompt Additions**: When you add instructions to the system prompt, they are appended to the agent's existing instructions with high-priority markers. They don't replace existing instructions but add additional guidance.
+</Warning>
+
+## Using Agent Configuration
+
+### Basic Configuration Review
+
+<Steps>
+  <Step title="Request Current Config">
+    ```
+        Show me the current configuration for my Marketing Agent
+    ```
+  </Step>
+  <Step title="Review Configuration">
+    Worker displays:
+
+    ```
+        Marketing Agent Configuration:
+        
+        Name: Marketing Campaign Manager
+        
+        Enabled Tools:
+        - Web Search
+        - Image Search
+        - Image Editor
+        - Document Creator
+        - Files and Folder
+        
+        MCP Servers:
+        - Google Drive
+        - Slack
+        
+        System Prompt Additions:
+        - Always maintain brand voice guidelines
+        - Use data-driven insights in recommendations
+    ```
+  </Step>
+  <Step title="Identify Changes Needed">
+    Determine what you want to modify based on current state.
+  </Step>
+</Steps>
+
+### Updating Agent Configuration
+
+<Steps>
+  <Step title="Specify Changes">
+    Tell your worker what to update:
+
+    ```
+        Update my Marketing Agent to:
+        - Add the Presentation Creator tool
+        - Enable the LinkedIn integration
+        - Add instruction: "Always include competitor analysis in campaign plans"
+    ```
+  </Step>
+  <Step title="Worker Applies Updates">
+    Your worker:
+
+    - Gets current configuration
+    - Applies requested changes
+    - Updates the agent
+    - Confirms changes made
+  </Step>
+  <Step title="Verify Updates">
+    ```
+        Confirmed updates to Marketing Agent:
+        ✓ Added tool: Presentation Creator
+        ✓ Connected MCP server: LinkedIn
+        ✓ Added system prompt: "Always include competitor analysis in campaign plans"
+    ```
+  </Step>
+  <Step title="Test Agent">
+    Interact with the updated agent to verify it behaves as configured.
+  </Step>
+</Steps>
+
+## Common Configuration Tasks
+
+### Adding Tools to Agents
+
+<AccordionGroup>
+  <Accordion title="Enable Single Tool" icon="plus">
+    ```text
+        Add the Web Browser tool to my Research Agent
+        
+        Enable Image Vision for my Content Creator
+        
+        Give my Data Analyst the Spreadsheet tool
+    ```
+  </Accordion>
+  <Accordion title="Enable Multiple Tools" icon="layer-group">
+    ```text
+        Add the following tools to my Sales Agent:
+        - LinkedIn integration
+        - Document Creator
+        - Email integration
+        - Calendar integration
+        
+        Enable all communication tools for my Assistant Agent
+    ```
+  </Accordion>
+  <Accordion title="Disable Tools" icon="minus">
+    ```text
+        Remove the Web Browser tool from my Writing Agent (to keep it focused)
+        
+        Disable all image tools for my Data Processing Agent
+        
+        Turn off social media integrations for my Internal Documentation Agent
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Customizing Agent Behavior
+
+<AccordionGroup>
+  <Accordion title="Add Behavioral Instructions" icon="message">
+    ```text
+        Add this instruction to my Customer Support Agent:
+        "Always respond with empathy and offer solutions before escalating"
+        
+        Update my Research Agent with:
+        "Cite all sources and verify information from multiple providers"
+        
+        Configure my Writing Agent to:
+        "Match the user's tone and formality level in all responses"
+    ```
+  </Accordion>
+  <Accordion title="Domain-Specific Guidance" icon="brain">
+    ```text
+        Add to my Legal Assistant:
+        "Always include disclaimers that this is not legal advice"
+        
+        Update my Medical Research Agent:
+        "Prioritize peer-reviewed sources and note when information is preliminary"
+        
+        Configure my Financial Advisor:
+        "Include risk disclaimers and remind users to consult professionals"
+    ```
+  </Accordion>
+  <Accordion title="Output Format Preferences" icon="align-left">
+    ```text
+        Add instruction to my Report Generator:
+        "Always use bullet points for lists and include executive summaries"
+        
+        Update my Data Analyst:
+        "Present findings in tables with clear headers and visual hierarchies"
+        
+        Configure my Email Drafter:
+        "Keep emails under 200 words and always include clear call-to-action"
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Managing Integrations
+
+<AccordionGroup>
+  <Accordion title="Connect MCP Servers" icon="plug">
+    ```text
+        Connect Google Drive to my Document Manager agent
+        
+        Add Slack integration to my Team Communications agent
+        
+        Enable the following integrations for my Sales Agent:
+        - Salesforce
+        - HubSpot
+        - Gmail
+    ```
+  </Accordion>
+  <Accordion title="Remove Integrations" icon="plug-circle-xmark">
+    ```text
+        Disconnect Twitter integration from my Content Agent
+        
+        Remove all social media integrations from my Internal Tools Agent
+        
+        Disable the database integration for my Public Facing Agent
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Specialized Agent Configurations
+
+### Content Creation Agent
+
+<Card title="Optimized for Content Production">
+  **Tools to Enable**:
+
+  - Web Search (research)
+  - Image Search (visuals)
+  - Image Editor (custom graphics)
+  - Document Creator (articles, posts)
+  - Files and Folder (organization)
+
+  **Integrations**:
+
+  - Google Drive (storage)
+  - WordPress or CMS (publishing)
+
+  **System Prompt Additions**:
+
+  ```
+    - Always research topics thoroughly before writing
+    - Match brand voice and style guidelines
+    - Include relevant images and visual elements
+    - Optimize content for SEO when appropriate
+    - Cite sources for factual claims
+  ```
+</Card>
+
+### Research and Analysis Agent
+
+<Card title="Optimized for Data Collection and Insights">
+  **Tools to Enable**:
+
+  - Web Search
+  - Web Browser
+  - Data Providers (LinkedIn, Yahoo Finance, etc.)
+  - Spreadsheet tools
+  - Document Creator
+
+  **Integrations**:
+
+  - Google Sheets (data storage)
+  - Research databases
+
+  **System Prompt Additions**:
+
+  ```
+    - Verify information from multiple sources
+    - Clearly cite all data sources
+    - Present findings in structured formats
+    - Note confidence levels and limitations
+    - Distinguish facts from analysis
+  ```
+</Card>
+
+### Sales and Outreach Agent
+
+<Card title="Optimized for Sales Activities">
+  **Tools to Enable**:
+
+  - LinkedIn integration
+  - Email integration
+  - Document Creator (proposals)
+  - Calendar integration
+  - CRM tools
+
+  **Integrations**:
+
+  - Salesforce or CRM
+  - Gmail/Outlook
+  - Google Calendar
+
+  **System Prompt Additions**:
+
+  ```
+    - Maintain professional and friendly tone
+    - Personalize all outreach based on prospect research
+    - Follow up systematically
+    - Track all interactions in CRM
+    - Focus on providing value, not just selling
+  ```
+</Card>
+
+### Customer Support Agent
+
+<Card title="Optimized for Customer Service">
+  **Tools to Enable**:
+
+  - Knowledge Base access
+  - Document Creator (responses)
+  - Email integration
+  - Ticketing system integration
+
+  **Integrations**:
+
+  - Help desk software
+  - Knowledge base
+  - Communication platforms
+
+  **System Prompt Additions**:
+
+  ```
+    - Always respond with empathy and patience
+    - Reference knowledge base articles when applicable
+    - Escalate complex issues appropriately
+    - Follow up to ensure resolution
+    - Maintain professional tone even when challenged
+  ```
+</Card>
+
+### Development and Technical Agent
+
+<Card title="Optimized for Technical Tasks">
+  **Tools to Enable**:
+
+  - Terminal Commands
+  - Port Exposure
+  - Files and Folder
+  - Web Search (documentation)
+  - Code execution tools
+
+  **Integrations**:
+
+  - GitHub
+  - Development databases
+
+  **System Prompt Additions**:
+
+  ```
+    - Follow coding best practices and conventions
+    - Include error handling in all code
+    - Write clear comments and documentation
+    - Test code before presenting
+    - Explain technical concepts clearly
+  ```
+</Card>
+
+### Marketing Campaign Agent
+
+<Card title="Optimized for Marketing Execution">
+  **Tools to Enable**:
+
+  - Image Search
+  - Image Editor
+  - Presentation Creator
+  - Web Search
+  - Social media integrations
+
+  **Integrations**:
+
+  - Social media platforms
+  - Marketing automation tools
+  - Analytics platforms
+
+  **System Prompt Additions**:
+
+  ```
+    - Align all content with brand guidelines
+    - Include calls-to-action in all materials
+    - Track and report on performance metrics
+    - Stay current with marketing trends
+    - A/B test when possible
+  ```
+</Card>
+
+## Configuration Workflows
+
+### Creating a Specialized Agent from Scratch
+
+<Steps>
+  <Step title="Define Purpose">
+    ```
+        I need an agent for competitive analysis in the SaaS industry
+    ```
+  </Step>
+  <Step title="Configure Tools">
+    ```
+        Update the Competitive Analysis Agent to enable:
+        - Web Search
+        - Web Browser
+        - Data Providers (LinkedIn, Twitter)
+        - Spreadsheet tools
+        - Document Creator
+    ```
+  </Step>
+  <Step title="Add Integrations">
+    ```
+        Connect the following integrations:
+        - Google Sheets (for data tracking)
+        - Slack (for reports)
+    ```
+  </Step>
+  <Step title="Set Behavioral Instructions">
+    ```
+        Add these instructions:
+        - Focus on SaaS companies with 50-500 employees
+        - Track pricing, features, and market positioning
+        - Update competitive spreadsheet weekly
+        - Highlight significant changes or new competitors
+        - Present findings in executive summary format
+    ```
+  </Step>
+  <Step title="Test and Refine">
+    ```
+        Test the agent with a sample task and refine configuration based on results
+    ```
+  </Step>
+</Steps>
+
+### Adapting an Existing Agent
+
+<Steps>
+  <Step title="Review Current Config">
+    ```
+        Show me the current configuration for my Content Writer agent
+    ```
+  </Step>
+  <Step title="Identify Gaps">
+    ```
+        Current config shows it lacks social media tools and scheduling capabilities
+    ```
+  </Step>
+  <Step title="Add Missing Capabilities">
+    ```
+        Update Content Writer agent to add:
+        - Twitter integration
+        - LinkedIn integration
+        - Calendar integration for scheduling
+    ```
+  </Step>
+  <Step title="Update Instructions">
+    ```
+        Add instruction:
+        "When creating social media content, optimize for each platform's best practices and character limits"
+    ```
+  </Step>
+</Steps>
+
+### Creating Agent Templates
+
+<Steps>
+  <Step title="Configure Master Agent">
+    Set up a fully configured agent with all desired tools and instructions
+  </Step>
+  <Step title="Document Configuration">
+    ```
+        Get current configuration and save to document:
+        "Agent Templates/Social Media Manager Template"
+    ```
+  </Step>
+  <Step title="Clone for New Use Cases">
+    ```
+        Create new agent using the same configuration:
+        - Copy all enabled tools
+        - Copy MCP servers
+        - Copy system prompt additions
+        - Adjust name and specific instructions
+    ```
+  </Step>
+</Steps>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Check Before Updating" icon="magnifying-glass">
+    Always get current config before making changes to understand existing state
+  </Card>
+  <Card title="Be Specific" icon="bullseye">
+    Provide clear, detailed instructions about what to change and why
+  </Card>
+  <Card title="Test After Changes" icon="vial">
+    Always test agent behavior after configuration updates
+  </Card>
+  <Card title="Document Configurations" icon="book">
+    Save configuration details for important agents for reference and replication
+  </Card>
+  <Card title="Incremental Updates" icon="stairs">
+    Make changes incrementally rather than all at once for easier troubleshooting
+  </Card>
+  <Card title="Purpose-Driven Tools" icon="wrench">
+    Only enable tools directly relevant to the agent's purpose
+  </Card>
+  <Card title="Clear Instructions" icon="message-lines">
+    Write behavioral instructions clearly and specifically
+  </Card>
+  <Card title="Version Control" icon="code-branch">
+    Keep track of configuration changes over time
+  </Card>
+</CardGroup>
+
+## Advanced Configuration Techniques
+
+### Conditional Behavior Instructions
+
+<CodeGroup>
+
+```text Context-Aware Responses
+Add instruction:
+"When user indicates urgency, prioritize speed over comprehensiveness. When user has time, provide detailed analysis with multiple options."
+```
+
+
+```text Role-Based Behavior
+Add instruction:
+"Adjust technical depth based on user expertise: beginner (explain all terms), intermediate (assume basic knowledge), expert (use technical language freely)."
+```
+
+
+```text Output Format Adaptation
+Add instruction:
+"For quick questions, provide concise answers. For research requests, create structured documents with sections, citations, and visualizations."
+```
+
+</CodeGroup>
+
+### Multi-Stage Workflows
+
+Configure agents for complex, multi-step processes:
+
+```text
+Update my Research Agent with this workflow instruction:
+
+"For comprehensive research tasks:
+1. First, conduct broad web search to understand topic landscape
+2. Then, use Data Providers for specific data points
+3. Cross-reference findings across multiple sources
+4. Organize findings in spreadsheet with source tracking
+5. Create executive summary document with key insights
+6. Flag any conflicting information for manual review"
+```
+
+### Quality Control Instructions
+
+<CodeGroup>
+
+```text Accuracy Standards
+Add instruction:
+"Before presenting financial data, verify from at least two independent sources. Flag any discrepancies for user review."
+```
+
+
+```text Compliance Requirements
+Add instruction:
+"All medical information must include disclaimer: 'This is for informational purposes only and not medical advice. Consult healthcare professionals for medical decisions.'"
+```
+
+
+```text Brand Consistency
+Add instruction:
+"All content must align with brand voice guidelines: professional but approachable, data-driven, optimistic about technology, inclusive language."
+```
+
+</CodeGroup>
+
+## Combining with Other Tools
+
+Agent Configuration becomes more powerful when combined with other capabilities:
+
+<CardGroup cols={2}>
+  <Card title="+ Triggers" icon="clock">
+    Create triggers that use configured agents for scheduled tasks
+  </Card>
+  <Card title="+ Knowledge Base" icon="database">
+    Configure agents to reference specific SOPs and guidelines
+  </Card>
+  <Card title="+ Files and Folder" icon="folder">
+    Save agent configurations as templates for reuse
+  </Card>
+  <Card title="+ Task Management" icon="list-check">
+    Assign different configured agents to specific task types
+  </Card>
+</CardGroup>
+
+### Example Combined Workflow
+
+<Steps>
+  <Step title="Create Specialized Team">
+    ```
+        1. Configure Research Agent with data providers and web search
+        2. Configure Content Agent with writing and image tools
+        3. Configure Distribution Agent with social media integrations
+        4. Configure Analytics Agent with data analysis tools
+    ```
+  </Step>
+  <Step title="Set Up Workflows">
+    ```
+        - Research Agent gathers information daily (trigger)
+        - Content Agent creates posts from research (manual or trigger)
+        - Distribution Agent publishes to platforms (manual approval)
+        - Analytics Agent tracks performance weekly (trigger)
+    ```
+  </Step>
+  <Step title="Knowledge Sharing">
+    ```
+        - All agents reference brand guidelines from knowledge base
+        - Agents can access each other's outputs from shared folders
+        - Coordinated through task management system
+    ```
+  </Step>
+</Steps>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Configuration update doesn't seem to apply">
+    Try:
+
+    - Get current config to verify changes were saved
+    - Start a new conversation with the agent
+    - Clear any cached sessions
+    - Re-apply the update explicitly
+    - Check if conflicting instructions exist
+  </Accordion>
+  <Accordion title="Agent behavior unchanged after adding instructions">
+    Check:
+
+    - Instructions are clear and specific enough
+    - No conflicting existing instructions
+    - Instructions don't contradict core agent capabilities
+    - Try rephrasing instructions more explicitly
+    - Use "always" or "never" for clarity
+  </Accordion>
+  <Accordion title="Can't enable certain tools">
+    Verify:
+
+    - Tool name is spelled correctly
+    - Tool is actually available in Utari
+    - You have permissions to enable that tool
+    - Tool is compatible with agent type
+    - Check tool documentation for requirements
+  </Accordion>
+  <Accordion title="Integration won't connect">
+    Ensure:
+
+    - MCP server name is correct
+    - Integration is properly set up in workspace
+    - You have authenticated the integration
+    - Integration is compatible with agent use case
+    - Try disconnecting and reconnecting
+  </Accordion>
+  <Accordion title="Too many tools causing confusion">
+    Solutions:
+
+    - Disable tools not directly needed for core purpose
+    - Be more specific in prompts about which tool to use
+    - Add instruction prioritizing certain tools
+    - Create multiple specialized agents instead of one generalist
+    - Review and streamline enabled tools list
+  </Accordion>
+</AccordionGroup>
+
+## Configuration Templates
+
+### Template: Blog Content Creator
+
+```text
+Tools:
+- Web Search
+- Image Search
+- Image Editor
+- Document Creator
+- Files and Folder
+
+Integrations:
+- Google Drive
+- WordPress (if available)
+
+System Prompt Additions:
+- Research topics thoroughly using web search before writing
+- Include relevant images from image search or create custom graphics
+- Follow SEO best practices: target keyword, meta description, headers
+- Match company blog voice: professional but conversational, data-driven
+- Aim for 1500-2000 words for long-form content
+- Always include call-to-action at the end
+- Save drafts to "Blog Drafts/[Topic]" folder
+```
+
+### Template: Sales Outreach Specialist
+
+```text
+Tools:
+- LinkedIn integration
+- Email integration
+- Document Creator
+- Web Search
+
+Integrations:
+- Salesforce
+- Gmail
+- Google Calendar
+
+System Prompt Additions:
+- Research prospect on LinkedIn before outreach
+- Personalize every message with specific company/role details
+- Keep initial emails under 150 words
+- Focus on value proposition, not features
+- Always include clear next step or call-to-action
+- Log all interactions in Salesforce
+- Follow up 3-5 business days after initial contact
+- Maintain friendly but professional tone
+```
+
+### Template: Data Analyst
+
+```text
+Tools:
+- Data Providers (LinkedIn, Yahoo Finance, Amazon, Zillow, Twitter)
+- Spreadsheet tools
+- Document Creator
+- Web Search
+
+Integrations:
+- Google Sheets
+- Data visualization tools (if available)
+
+System Prompt Additions:
+- Verify data from multiple sources when possible
+- Always cite data sources with timestamps
+- Present findings in tables and charts
+- Include methodology section in reports
+- Flag any anomalies or unexpected patterns
+- Calculate confidence intervals for estimates
+- Distinguish correlation from causation
+- Save raw data and analysis separately
+```
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  View current agent configurations to understand existing state
+</Check>
+
+<Check>
+  Update agent settings including tools, integrations, and instructions
+</Check>
+
+<Check>
+  Add behavioral guidance through system prompt additions
+</Check>
+
+<Check>
+  Create specialized agents optimized for specific tasks
+</Check>
+
+<Check>
+  Manage tools and integrations dynamically
+</Check>
+
+<Check>
+  Apply best practices for agent configuration
+</Check>
+
+<Check>
+  Troubleshoot common configuration issues
+</Check>
+
+<Check>
+  Use configuration templates for common agent types
+</Check>
+
+The Agent Configuration tool enables sophisticated meta-automation, allowing workers to create and customize other agents dynamically. This creates powerful workflows where agents can adapt to changing needs, spawn specialized workers for specific tasks, and continuously optimize their own capabilities.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Create Your First Worker" icon="user-plus" href="/create-first-worker">
+    Learn the full worker creation process
+  </Card>
+  <Card title="Available Tools" icon="toolbox" href="/tools">
+    Explore all tools you can enable for agents
+  </Card>
+  <Card title="Integrations" icon="plug" href="/integrations">
+    See all available MCP servers and integrations
+  </Card>
+  <Card title="Knowledge Base" icon="database" href="/knowledge">
+    Configure agents with custom knowledge
+  </Card>
+</CardGroup>

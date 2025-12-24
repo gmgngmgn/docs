@@ -1,4 +1,709 @@
 ---
-title: "Port Exposure Tool"
-description: "Description of your new file."
+title: "Expose Development Servers"
+description: "Make custom development servers accessible by exposing ports beyond the default 8080, enabling testing and access to locally running applications."
 ---
+
+## Overview
+
+The port exposure capability allows your Utari workers to make custom development servers and applications accessible by exposing specific ports. While port 8080 is automatically exposed, you can expose additional ports for applications running on different ports, enabling you to test multiple services simultaneously or work with applications that require specific port configurations.
+
+<Info>
+  **Port 8080 Note**: Port 8080 is automatically exposed and does NOT require manual exposure. Use this tool for all other ports.
+</Info>
+
+## Understanding Port Exposure
+
+### What is Port Exposure?
+
+Port exposure creates a tunnel that makes locally running applications accessible:
+
+<CardGroup cols={2}>
+  <Card title="Local Development" icon="laptop-code">
+    Applications running in your Utari workspace on specific ports
+  </Card>
+  <Card title="External Access" icon="globe">
+    Makes these applications accessible via public URLs
+  </Card>
+  <Card title="Multiple Services" icon="layer-group">
+    Run and access multiple servers simultaneously on different ports
+  </Card>
+  <Card title="Testing & Debugging" icon="bug">
+    Test applications in development before deployment
+  </Card>
+</CardGroup>
+
+### Default vs. Custom Ports
+
+<Tabs>
+  <Tab title="Port 8080 (Auto-Exposed)">
+    **Automatically Available**
+
+    - No configuration needed
+    - Immediately accessible
+    - Default for most development servers
+
+    **Common Uses**:
+
+    - Python HTTP server: `python -m http.server 8080`
+    - Node.js apps configured for 8080
+    - Default development server port
+
+    ✅ **Already works** - no exposure tool needed
+  </Tab>
+  <Tab title="Custom Ports (Require Exposure)">
+    **Require Manual Exposure**
+
+    - Need to use expose port tool
+    - Any port except 8080
+    - Multiple ports can be exposed
+
+    **Common Ports**:
+
+    - 3000: React, Next.js default
+    - 4200: Angular default
+    - 5000: Flask default
+    - 5173: Vite default
+    - 8000: Django, Python alt HTTP server
+    - 8888: Jupyter Notebook
+    - 9000: Custom applications
+
+    ⚠️ **Requires exposure tool**
+  </Tab>
+</Tabs>
+
+## When to Expose Ports
+
+### Use Cases for Port Exposure
+
+<AccordionGroup>
+  <Accordion title="Framework-Specific Development Servers" icon="code">
+    Many frameworks use specific default ports:
+
+    - **React/Create React App**: Port 3000
+    - **Next.js**: Port 3000
+    - **Angular**: Port 4200
+    - **Vue.js**: Port 8080 (auto-exposed) or 5173 (Vite)
+    - **Flask**: Port 5000
+    - **Django**: Port 8000
+    - **Express.js**: Configurable, often 3000
+    - **Svelte**: Port 5000 or 8080
+  </Accordion>
+  <Accordion title="Multiple Services Running Simultaneously" icon="layer-group">
+    When you need multiple servers running at once:
+
+    ```
+        Frontend: React on port 3000 (expose)
+        Backend API: Express on port 5000 (expose)
+        Database Admin: Port 5432 (expose if needed)
+        Monitoring: Port 9090 (expose)
+    ```
+  </Accordion>
+  <Accordion title="Specific Application Requirements" icon="gears">
+    Some applications require specific ports:
+
+    - Database interfaces and admin tools
+    - Monitoring dashboards
+    - Development tools (Webpack dev server, etc.)
+    - API documentation servers
+    - Testing frameworks
+  </Accordion>
+  <Accordion title="Custom Configuration" icon="sliders">
+    When you've configured your application for a specific port:
+
+    ```javascript
+        // Server configured for port 4000
+        app.listen(4000, () => {
+          console.log('Server running on port 4000');
+        });
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Exposing Ports
+
+### Basic Port Exposure
+
+<Steps>
+  <Step title="Start Your Application">
+    Launch your development server on the desired port:
+
+    ```bash
+        # React development server
+        npm start  # Typically runs on port 3000
+        
+        # Flask application
+        python app.py  # Typically runs on port 5000
+        
+        # Custom Node.js server
+        node server.js  # Runs on configured port
+    ```
+  </Step>
+  <Step title="Request Port Exposure">
+    Ask your worker to expose the port:
+
+    ```
+        Please expose port 3000 so I can access my React app
+    ```
+  </Step>
+  <Step title="Receive Access URL">
+    Your worker provides a public URL:
+
+    ```
+        Port 3000 exposed successfully!
+        Access your application at: https://[unique-url].utari.app
+    ```
+  </Step>
+  <Step title="Access Your Application">
+    Click the provided URL to access your running application.
+  </Step>
+</Steps>
+
+### Multiple Port Exposure
+
+You can expose multiple ports simultaneously:
+
+<Steps>
+  <Step title="Start Multiple Services">
+    ```bash
+        # Terminal 1: Frontend on port 3000 (non-blocking)
+        npm run dev
+        
+        # Terminal 2: Backend on port 5000 (non-blocking)
+        python api_server.py
+        
+        # Terminal 3: Database UI on port 8081 (non-blocking)
+        npm run db-admin
+    ```
+  </Step>
+  <Step title="Expose All Ports">
+    ```
+        Please expose ports 3000, 5000, and 8081
+    ```
+  </Step>
+  <Step title="Get All URLs">
+    ```
+        Ports exposed successfully:
+        - Port 3000: https://[url1].utari.app (Frontend)
+        - Port 5000: https://[url2].utari.app (API)
+        - Port 8081: https://[url3].utari.app (Database UI)
+    ```
+  </Step>
+</Steps>
+
+## Common Development Server Configurations
+
+### React Applications
+
+<CodeGroup>
+
+```bash Create React App (Default: 3000)
+# Start development server
+npm start
+
+# Request exposure
+"Please expose port 3000 for my React app"
+```
+
+
+```bash Vite React (Default: 5173)
+# Start Vite dev server
+npm run dev
+
+# Request exposure
+"Please expose port 5173 for my Vite React app"
+```
+
+
+```bash Custom Port
+# Configure in package.json or .env
+PORT=4000 npm start
+
+# Request exposure
+"Please expose port 4000 for my React app"
+```
+
+</CodeGroup>
+
+### Node.js/Express Applications
+
+<CodeGroup>
+
+```javascript Express Server (Custom Port)
+const express = require('express');
+const app = express();
+const PORT = 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
+// Request exposure for port 3000
+```
+
+
+```javascript Multiple Ports
+// Main API on 5000
+apiServer.listen(5000);
+
+// Admin panel on 5001
+adminServer.listen(5001);
+
+// Request exposure: "Expose ports 5000 and 5001"
+```
+
+</CodeGroup>
+
+### Python Applications
+
+<CodeGroup>
+
+```bash Flask (Default: 5000)
+# Run Flask app
+python app.py
+# or
+flask run
+
+# Request exposure
+"Please expose port 5000 for my Flask app"
+```
+
+
+```bash Django (Default: 8000)
+# Run Django development server
+python manage.py runserver 8000
+
+# Request exposure
+"Please expose port 8000 for my Django app"
+```
+
+
+```bash Custom Python HTTP Server
+# Run on port 9000
+python -m http.server 9000
+
+# Request exposure
+"Please expose port 9000"
+```
+
+</CodeGroup>
+
+### Angular Applications
+
+```bash
+# Angular CLI dev server (Default: 4200)
+ng serve
+
+# Request exposure
+"Please expose port 4200 for my Angular app"
+```
+
+### Vue.js Applications
+
+<CodeGroup>
+
+```bash Vue CLI (Default: 8080)
+# Auto-exposed - no action needed
+npm run serve
+```
+
+
+```bash Vite Vue (Default: 5173)
+# Start Vite dev server
+npm run dev
+
+# Request exposure
+"Please expose port 5173 for my Vue app"
+```
+
+</CodeGroup>
+
+## Complete Development Workflow
+
+### Full-Stack Application Setup
+
+<Steps>
+  <Step title="Install Dependencies">
+    ```bash
+        # Frontend dependencies
+        cd frontend && npm install
+        
+        # Backend dependencies
+        cd ../backend && pip install -r requirements.txt --break-system-packages
+    ```
+  </Step>
+  <Step title="Start Backend (Non-Blocking)">
+    ```bash
+        # Start Flask API on port 5000
+        python api.py
+        # Running in background
+    ```
+  </Step>
+  <Step title="Start Frontend (Non-Blocking)">
+    ```bash
+        # Start React app on port 3000
+        cd frontend && npm start
+        # Running in background
+    ```
+  </Step>
+  <Step title="Expose Ports">
+    ```
+        Please expose ports 3000 and 5000
+    ```
+  </Step>
+  <Step title="Access Applications">
+    ```
+        Frontend URL: https://[url1].utari.app
+        Backend API: https://[url2].utari.app/api
+    ```
+  </Step>
+  <Step title="Test Integration">
+    - Visit frontend URL
+    - Verify API calls to backend URL work
+    - Test application functionality
+  </Step>
+</Steps>
+
+### Microservices Architecture
+
+<Steps>
+  <Step title="Start All Services">
+    ```bash
+        # Service 1: Authentication (port 4000)
+        node services/auth/server.js &
+        
+        # Service 2: User Management (port 4001)
+        node services/users/server.js &
+        
+        # Service 3: Data API (port 4002)
+        node services/data/server.js &
+        
+        # Gateway (port 3000)
+        node gateway/server.js &
+    ```
+  </Step>
+  <Step title="Expose All Service Ports">
+    ```
+        Please expose ports 3000, 4000, 4001, and 4002
+    ```
+  </Step>
+  <Step title="Map Services">
+    ```
+        Gateway: https://[url1].utari.app
+        Auth Service: https://[url2].utari.app
+        User Service: https://[url3].utari.app
+        Data Service: https://[url4].utari.app
+    ```
+  </Step>
+</Steps>
+
+## Port Exposure Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Use Standard Ports" icon="hashtag">
+    Stick with framework defaults when possible for easier collaboration and documentation
+  </Card>
+  <Card title="Document Port Usage" icon="book">
+    Keep a list of which services run on which ports for easy reference
+  </Card>
+  <Card title="Avoid Conflicts" icon="triangle-exclamation">
+    Ensure no two services try to use the same port simultaneously
+  </Card>
+  <Card title="Remember 8080" icon="clock">
+    Use port 8080 when possible since it's auto-exposed (one less step)
+  </Card>
+  <Card title="Non-Blocking Execution" icon="server">
+    Always run servers in non-blocking mode so they continue running in the background
+  </Card>
+  <Card title="Test After Exposure" icon="vial">
+    Always verify the exposed URL works after requesting port exposure
+  </Card>
+  <Card title="Clean Up" icon="broom">
+    Stop unused servers and unexpose ports when done to free resources
+  </Card>
+  <Card title="Use Environment Variables" icon="key">
+    Configure ports via environment variables for flexibility
+  </Card>
+</CardGroup>
+
+## Common Port Reference
+
+<Tabs>
+  <Tab title="Web Frameworks">
+    | Framework   | Default Port | Exposure Needed |
+    | ----------- | ------------ | --------------- |
+    | React (CRA) | 3000         | ✅ Yes           |
+    | Next.js     | 3000         | ✅ Yes           |
+    | Angular     | 4200         | ✅ Yes           |
+    | Vue (CLI)   | 8080         | ❌ No (auto)     |
+    | Vite        | 5173         | ✅ Yes           |
+    | Svelte      | 5000/8080    | 5000: ✅ Yes     |
+    | Nuxt.js     | 3000         | ✅ Yes           |
+  </Tab>
+  <Tab title="Backend Frameworks">
+    | Framework     | Default Port  | Exposure Needed |
+    | ------------- | ------------- | --------------- |
+    | Express.js    | 3000 (common) | ✅ Yes           |
+    | Flask         | 5000          | ✅ Yes           |
+    | Django        | 8000          | ✅ Yes           |
+    | FastAPI       | 8000          | ✅ Yes           |
+    | Ruby on Rails | 3000          | ✅ Yes           |
+    | Spring Boot   | 8080          | ❌ No (auto)     |
+    | Laravel       | 8000          | ✅ Yes           |
+  </Tab>
+  <Tab title="Development Tools">
+    | Tool               | Default Port | Exposure Needed |
+    | ------------------ | ------------ | --------------- |
+    | Webpack Dev Server | 8080         | ❌ No (auto)     |
+    | Jupyter Notebook   | 8888         | ✅ Yes           |
+    | Storybook          | 6006         | ✅ Yes           |
+    | Grafana            | 3000         | ✅ Yes           |
+    | phpMyAdmin         | 8080         | ❌ No (auto)     |
+    | Adminer            | 8080         | ❌ No (auto)     |
+  </Tab>
+  <Tab title="Databases & Services">
+    | Service       | Default Port | Exposure Needed |
+    | ------------- | ------------ | --------------- |
+    | PostgreSQL    | 5432         | ✅ Yes (if UI)   |
+    | MySQL         | 3306         | ✅ Yes (if UI)   |
+    | MongoDB       | 27017        | ✅ Yes (if UI)   |
+    | Redis         | 6379         | ✅ Yes (if UI)   |
+    | Elasticsearch | 9200         | ✅ Yes           |
+  </Tab>
+</Tabs>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Port exposure requested but URL not working">
+    Verify:
+
+    - Server is actually running on that port
+    - Check server logs for startup errors
+    - Use `netstat -tuln | grep [PORT]` to confirm port is listening
+    - Ensure no firewall blocking
+    - Try restarting the server
+    - Re-request port exposure
+  </Accordion>
+  <Accordion title="Port already in use error">
+    Solutions:
+
+    - Check what's using the port: `lsof -i :[PORT]`
+    - Stop the existing process
+    - Or use a different port
+    - Kill stuck processes: `kill -9 [PID]`
+    - Restart with new port number
+  </Accordion>
+  <Accordion title="Can't access exposed port from browser">
+    Check:
+
+    - URL copied correctly (no typos)
+    - Server started successfully
+    - No CORS issues (check browser console)
+    - Server bound to 0.0.0.0 not localhost
+    - Try accessing from incognito/private window
+  </Accordion>
+  <Accordion title="Multiple ports needed but only one working">
+    Ensure:
+
+    - All servers started successfully
+    - All ports explicitly exposed
+    - No port conflicts
+    - Check each service individually
+    - Verify each exposed URL
+  </Accordion>
+  <Accordion title="Server running but shows connection refused">
+    Check that server is bound to all interfaces:
+
+    ❌ **Wrong** (localhost only):
+
+    ```javascript
+        app.listen(3000, 'localhost')
+    ```
+
+    ✅ **Correct** (all interfaces):
+
+    ```javascript
+        app.listen(3000, '0.0.0.0')
+        // or simply
+        app.listen(3000)
+    ```
+  </Accordion>
+  <Accordion title="Exposed URL returns 404">
+    Verify:
+
+    - Server is running (check with list_commands)
+    - Correct route/path being accessed
+    - Server has proper route handlers
+    - No typos in URL path
+    - Check server logs for requests
+  </Accordion>
+</AccordionGroup>
+
+## Environment-Specific Configuration
+
+### Using Environment Variables
+
+<CodeGroup>
+
+```bash .env File
+# .env file
+PORT=3000
+API_PORT=5000
+DB_PORT=5432
+
+# Start app (reads from .env)
+npm start
+```
+
+
+```javascript Node.js
+// server.js
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server on port ${PORT}`);
+});
+```
+
+
+```python Python/Flask
+# app.py
+import os
+
+port = int(os.environ.get('PORT', 5000))
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=port)
+```
+
+</CodeGroup>
+
+### Package.json Scripts
+
+```json
+{
+  "scripts": {
+    "dev": "PORT=3000 react-scripts start",
+    "dev:custom": "PORT=4000 react-scripts start",
+    "api": "PORT=5000 node server.js",
+    "start:all": "concurrently \"npm run dev\" \"npm run api\""
+  }
+}
+```
+
+## Advanced Usage
+
+### Proxy Configuration
+
+When frontend needs to communicate with backend on different port:
+
+<CodeGroup>
+
+```json React package.json
+{
+  "proxy": "http://localhost:5000"
+}
+```
+
+
+```javascript Vite vite.config.js
+export default {
+  server: {
+    port: 3000,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true
+      }
+    }
+  }
+}
+```
+
+
+```javascript Next.js next.config.js
+module.exports = {
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'http://localhost:5000/api/:path*'
+      }
+    ]
+  }
+}
+```
+
+</CodeGroup>
+
+### Docker Compose with Port Mapping
+
+```yaml
+version: '3.8'
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"  # Expose 3000
+  
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"  # Expose 5000
+  
+  database:
+    image: postgres
+    ports:
+      - "5432:5432"  # Expose 5432 if UI needed
+```
+
+## Summary
+
+You've successfully learned:
+
+<Check>
+  How port exposure works in Utari
+</Check>
+
+<Check>
+  When to use port exposure (all ports except 8080)
+</Check>
+
+<Check>
+  How to expose single and multiple ports
+</Check>
+
+<Check>
+  Common framework default ports and configurations
+</Check>
+
+<Check>
+  Best practices for development server management
+</Check>
+
+<Check>
+  Troubleshooting port exposure issues
+</Check>
+
+<Check>
+  Advanced configurations for multi-service applications
+</Check>
+
+Port exposure enables your development workflow in Utari, allowing you to run and access multiple development servers, test full-stack applications, and work with framework-specific tooling—all through simple conversational requests.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Terminal Commands" icon="terminal" href="/tools/terminal-commands">
+    Learn to start and manage development servers
+  </Card>
+  <Card title="Files and Folder" icon="folder" href="/tools/files-folder">
+    Organize your application code and assets
+  </Card>
+  <Card title="Web Browser" icon="globe" href="/tools/web-browser">
+    Test your exposed applications visually
+  </Card>
+  <Card title="Triggers" icon="clock" href="/triggers">
+    Automate server startup and port exposure
+  </Card>
+</CardGroup>

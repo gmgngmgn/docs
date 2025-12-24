@@ -1,4 +1,785 @@
 ---
-title: "Terminal Tool"
-description: "Description of your new file."
+title: "Terminal Commands"
+description: "Run commands, install packages, and execute scripts in your Utari workspace with blocking and non-blocking execution modes."
 ---
+
+## Overview
+
+The terminal commands capability gives your Utari workers the power to execute shell commands, install packages, run scripts, and interact with the command line interface in your workspace. This powerful tool enables workers to perform technical tasks like setting up environments, running builds, executing scripts, and managing processes.
+
+## Terminal Command Capabilities
+
+Your workers can execute four types of terminal operations:
+
+<CardGroup cols={2}>
+  <Card title="Execute Command" icon="terminal">
+    Run shell commands in blocking or non-blocking mode with full control over execution
+  </Card>
+  <Card title="Check Command Output" icon="magnifying-glass">
+    Monitor the progress and output of non-blocking commands running in background sessions
+  </Card>
+  <Card title="List Commands" icon="list">
+    View all running tmux sessions and their current status
+  </Card>
+  <Card title="Terminate Command" icon="stop">
+    Stop running commands by killing their tmux sessions
+  </Card>
+</CardGroup>
+
+<Info>
+  Terminal commands execute in your workspace directory and have access to standard shell utilities, package managers, and installed tools.
+</Info>
+
+## Execute Command
+
+The core capability for running shell commands with two execution modes:
+
+### Blocking Mode (Synchronous)
+
+**When to Use:**
+
+- Quick commands that complete in seconds
+- Package installations
+- File operations (copy, move, delete)
+- Build processes
+- Script execution that completes quickly
+- Any command where you need immediate results
+
+**How It Works:**
+
+```text
+blocking=true
+- Command runs synchronously
+- Waits for completion
+- Returns full output directly
+- Automatically cleans up session
+- NO need to call check_command_output
+```
+
+**Example Commands:**
+
+<CodeGroup>
+
+```bash Install Package
+npm install express
+pip install pandas --break-system-packages
+apt-get update && apt-get install -y curl
+```
+
+
+```bash File Operations
+cp source.txt destination.txt
+mkdir -p /workspace/new-folder
+rm -rf temp-files/
+```
+
+
+```bash Build Commands
+npm run build
+python setup.py install
+make all
+```
+
+
+```bash Quick Scripts
+node script.js
+python data_processor.py
+bash deploy.sh
+```
+
+</CodeGroup>
+
+### Non-Blocking Mode (Asynchronous)
+
+**When to Use:**
+
+- Long-running processes
+- Development servers
+- Watch processes
+- Background jobs
+- Continuous monitoring tasks
+- Any command that runs indefinitely
+
+**How It Works:**
+
+```text
+blocking=false (default)
+- Command runs in background tmux session
+- Returns immediately
+- Use check_command_output to monitor
+- Session persists until terminated
+- Must manually check output
+```
+
+**Example Commands:**
+
+<CodeGroup>
+
+```bash Development Servers
+npm run dev
+python -m http.server 8000
+node server.js
+```
+
+
+```bash Watch Processes
+npm run watch
+webpack --watch
+nodemon app.js
+```
+
+
+```bash Background Jobs
+python long_running_analysis.py
+node background_processor.js
+bash monitoring_script.sh
+```
+
+</CodeGroup>
+
+## Command Execution Examples
+
+### Installing Dependencies
+
+<Tabs>
+  <Tab title="Node.js/NPM">
+    ```bash
+        # Install single package (blocking)
+        npm install express
+        
+        # Install dev dependencies (blocking)
+        npm install --save-dev jest
+        
+        # Install from package.json (blocking)
+        npm install
+        
+        # Global installation (blocking)
+        npm install -g typescript
+    ```
+  </Tab>
+  <Tab title="Python/Pip">
+    ```bash
+        # Install package (blocking)
+        # ALWAYS use --break-system-packages flag
+        pip install pandas --break-system-packages
+        
+        # Install from requirements (blocking)
+        pip install -r requirements.txt --break-system-packages
+        
+        # Install specific version (blocking)
+        pip install requests==2.28.0 --break-system-packages
+        
+        # Upgrade package (blocking)
+        pip install --upgrade numpy --break-system-packages
+    ```
+  </Tab>
+  <Tab title="System Packages">
+    ```bash
+        # Update package list (blocking)
+        apt-get update
+        
+        # Install package (blocking)
+        apt-get install -y curl
+        
+        # Install multiple packages (blocking)
+        apt-get install -y git wget vim
+    ```
+  </Tab>
+</Tabs>
+
+<Warning>
+  **Python Package Installation**: Always use the `--break-system-packages` flag when installing Python packages with pip to avoid system package conflicts.
+</Warning>
+
+### Running Scripts
+
+<CodeGroup>
+
+```bash Node.js Scripts
+# Run script (blocking for quick scripts)
+node script.js
+
+# Run with arguments (blocking)
+node process.js --input data.json --output results.json
+
+# Start development server (non-blocking)
+npm run dev
+
+# Run build (blocking)
+npm run build
+```
+
+
+```bash Python Scripts
+# Execute script (blocking for quick scripts)
+python script.py
+
+# Run with arguments (blocking)
+python analyze.py --data input.csv --output report.pdf
+
+# Start server (non-blocking)
+python -m http.server 8000
+
+# Run in background (non-blocking)
+python long_process.py
+```
+
+
+```bash Bash Scripts
+# Execute shell script (blocking)
+bash setup.sh
+
+# Run with permissions (blocking)
+chmod +x deploy.sh && ./deploy.sh
+
+# Background execution (non-blocking)
+bash monitor.sh
+```
+
+</CodeGroup>
+
+### File and Directory Operations
+
+<CodeGroup>
+
+```bash Create Operations
+# Create directory (blocking)
+mkdir -p /workspace/project/src
+
+# Create multiple directories (blocking)
+mkdir -p logs temp data
+
+# Create file (blocking)
+touch README.md
+
+# Create with content (blocking)
+echo "# Project Title" > README.md
+```
+
+
+```bash Copy and Move
+# Copy file (blocking)
+cp source.txt destination.txt
+
+# Copy directory recursively (blocking)
+cp -r source_folder/ destination_folder/
+
+# Move/rename (blocking)
+mv old_name.txt new_name.txt
+
+# Move to directory (blocking)
+mv file.txt /workspace/documents/
+```
+
+
+```bash Delete Operations
+# Remove file (blocking)
+rm file.txt
+
+# Remove directory and contents (blocking)
+rm -rf temp_folder/
+
+# Remove with confirmation (blocking)
+rm -i important_file.txt
+```
+
+
+```bash List and Search
+# List files (blocking)
+ls -la
+
+# Find files (blocking)
+find . -name "*.js"
+
+# Search content (blocking)
+grep -r "TODO" ./src/
+
+# Count lines (blocking)
+wc -l *.py
+```
+
+</CodeGroup>
+
+## Check Command Output
+
+Monitor non-blocking commands running in background sessions.
+
+<Steps>
+  <Step title="Execute Non-Blocking Command">
+    Start a command in non-blocking mode (blocking=false).
+  </Step>
+  <Step title="Get Session Information">
+    Note the tmux session ID returned when the command starts.
+  </Step>
+  <Step title="Check Output">
+    Use check_command_output with the session ID to view progress and output.
+  </Step>
+  <Step title="Monitor Periodically">
+    Call check_command_output multiple times to track ongoing progress.
+  </Step>
+</Steps>
+
+<Warning>
+  **IMPORTANT**: Only use check_command_output for commands executed with `blocking=false`.
+
+  Blocking commands return output directly and automatically clean up their sessions—calling check_command_output on them will fail.
+</Warning>
+
+### Example Workflow
+
+```text
+1. Start server (non-blocking):
+   execute_command("npm run dev", blocking=false)
+   → Returns: session_id = "tmux-session-123"
+
+2. Check if server started:
+   check_command_output(session_id="tmux-session-123")
+   → Returns: Output showing "Server running on port 3000"
+
+3. Continue monitoring:
+   check_command_output(session_id="tmux-session-123")
+   → Returns: Latest logs and status
+```
+
+## List Commands
+
+View all active tmux sessions to see what's currently running.
+
+**Use Cases:**
+
+- Check which background processes are active
+- Identify session IDs for monitoring
+- Verify servers are still running
+- Audit workspace processes
+- Troubleshoot command execution
+
+**Example Output:**
+
+```text
+Active tmux sessions:
+- session-abc123: npm run dev (running)
+- session-def456: python server.py (running)
+- session-ghi789: bash watch.sh (running)
+```
+
+## Terminate Command
+
+Stop running commands by killing their tmux sessions.
+
+<Steps>
+  <Step title="Identify Session">
+    Use list_commands to find the session ID of the command you want to stop.
+  </Step>
+  <Step title="Terminate Session">
+    Call terminate_command with the session ID.
+  </Step>
+  <Step title="Verify Termination">
+    Optionally use list_commands again to confirm the session is stopped.
+  </Step>
+</Steps>
+
+**Common Scenarios:**
+
+<CodeGroup>
+
+```text Stop Development Server
+1. List running commands
+2. Find dev server session ID
+3. Terminate the session
+4. Server stops immediately
+```
+
+
+```text Kill Stuck Process
+1. Identify stuck command session
+2. Terminate to free resources
+3. Restart if needed
+```
+
+
+```text Clean Up Background Jobs
+1. List all running sessions
+2. Terminate completed or unnecessary processes
+3. Keep workspace clean
+```
+
+</CodeGroup>
+
+<Warning>
+  Terminating a session immediately kills the process. Ensure you don't need the output or that important work is saved before terminating.
+</Warning>
+
+## Choosing Execution Mode
+
+### Use Blocking Mode (blocking=true) For:
+
+<CardGroup cols={2}>
+  <Card title="Quick Operations" icon="bolt">
+    Commands that complete in seconds or minutes
+  </Card>
+  <Card title="Package Installation" icon="download">
+    npm install, pip install, apt-get install
+  </Card>
+  <Card title="File Operations" icon="file">
+    Copy, move, delete, create files and folders
+  </Card>
+  <Card title="Build Processes" icon="hammer">
+    npm run build, make, compilation tasks
+  </Card>
+  <Card title="Script Execution" icon="scroll">
+    Short scripts that complete and exit
+  </Card>
+  <Card title="System Commands" icon="gears">
+    Configuration, setup, one-time operations
+  </Card>
+</CardGroup>
+
+### Use Non-Blocking Mode (blocking=false) For:
+
+<CardGroup cols={2}>
+  <Card title="Servers" icon="server">
+    Development servers, web servers, API servers
+  </Card>
+  <Card title="Watch Processes" icon="eye">
+    File watchers, auto-recompiling tools
+  </Card>
+  <Card title="Long-Running Jobs" icon="hourglass">
+    Data processing, large file operations
+  </Card>
+  <Card title="Monitoring" icon="chart-line">
+    Continuous monitoring scripts
+  </Card>
+  <Card title="Background Tasks" icon="layer-group">
+    Tasks that should run while you do other work
+  </Card>
+  <Card title="Interactive Programs" icon="terminal">
+    Programs that require ongoing interaction
+  </Card>
+</CardGroup>
+
+## Common Workflows
+
+### Setting Up a Development Environment
+
+<Steps>
+  <Step title="Update System">
+    ```bash
+        apt-get update (blocking)
+    ```
+  </Step>
+  <Step title="Install Dependencies">
+    ```bash
+        apt-get install -y nodejs npm python3-pip (blocking)
+    ```
+  </Step>
+  <Step title="Install Project Packages">
+    ```bash
+        npm install (blocking)
+        pip install -r requirements.txt --break-system-packages (blocking)
+    ```
+  </Step>
+  <Step title="Start Development Server">
+    ```bash
+        npm run dev (non-blocking)
+    ```
+  </Step>
+  <Step title="Verify Server">
+    ```bash
+        check_command_output (monitor server startup)
+    ```
+  </Step>
+</Steps>
+
+### Running Tests and Builds
+
+<Steps>
+  <Step title="Install Test Dependencies">
+    ```bash
+        npm install --save-dev jest (blocking)
+    ```
+  </Step>
+  <Step title="Run Tests">
+    ```bash
+        npm test (blocking)
+    ```
+  </Step>
+  <Step title="Build Project">
+    ```bash
+        npm run build (blocking)
+    ```
+  </Step>
+  <Step title="Verify Build Output">
+    ```bash
+        ls -la dist/ (blocking)
+    ```
+  </Step>
+</Steps>
+
+### Managing Long-Running Processes
+
+<Steps>
+  <Step title="Start Background Process">
+    ```bash
+        python data_processor.py (non-blocking)
+    ```
+
+    Save the session ID returned
+  </Step>
+  <Step title="Monitor Progress">
+    ```bash
+        check_command_output(session_id)
+    ```
+
+    Repeat periodically to track progress
+  </Step>
+  <Step title="List All Processes">
+    ```bash
+        list_commands
+    ```
+
+    View all active sessions
+  </Step>
+  <Step title="Terminate When Complete">
+    ```bash
+        terminate_command(session_id)
+    ```
+
+    Or let it complete naturally
+  </Step>
+</Steps>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Choose Right Mode" icon="toggle-on">
+    Use blocking for quick tasks, non-blocking for long-running processes
+  </Card>
+  <Card title="Monitor Non-Blocking" icon="desktop">
+    Always check output of non-blocking commands to verify they're running correctly
+  </Card>
+  <Card title="Clean Up Sessions" icon="broom">
+    Terminate completed non-blocking commands to free resources
+  </Card>
+  <Card title="Handle Errors" icon="triangle-exclamation">
+    Check command exit codes and output for errors
+  </Card>
+  <Card title="Use Full Paths" icon="route">
+    Specify complete file paths to avoid ambiguity
+  </Card>
+  <Card title="Test Commands First" icon="flask">
+    Test complex commands manually before automating
+  </Card>
+  <Card title="Include Flags" icon="flag">
+    Always use required flags (like --break-system-packages for pip)
+  </Card>
+  <Card title="Document Sessions" icon="note-sticky">
+    Keep track of what each non-blocking session is doing
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Command fails with permission error">
+    Try:
+
+    - Using `sudo` if appropriate (apt-get, system operations)
+    - Checking file/directory permissions with `ls -la`
+    - Ensuring you're in the correct directory
+    - Verifying the command syntax is correct
+  </Accordion>
+  <Accordion title="Package installation fails">
+    For pip:
+
+    - Always include `--break-system-packages` flag
+    - Try updating pip: `pip install --upgrade pip --break-system-packages`
+    - Check internet connectivity
+
+    For npm:
+
+    - Clear cache: `npm cache clean --force`
+    - Delete node_modules and reinstall
+    - Check package.json for syntax errors
+  </Accordion>
+  <Accordion title="Can't check output of blocking command">
+    Remember:
+
+    - Blocking commands return output directly
+    - They automatically clean up sessions
+    - Don't use check_command_output for them
+    - The output is in the execute_command response
+  </Accordion>
+  <Accordion title="Non-blocking command not running">
+    Verify:
+
+    - Use list_commands to see active sessions
+    - Check output with check_command_output
+    - Look for errors in the command syntax
+    - Ensure required dependencies are installed
+    - Try running in blocking mode first to debug
+  </Accordion>
+  <Accordion title="Session appears stuck">
+    Solutions:
+
+    - Check output to see if it's waiting for input
+    - Verify the command is appropriate for non-blocking
+    - Terminate and restart if necessary
+    - Check for errors in the command output
+  </Accordion>
+  <Accordion title="Command works locally but fails in Utari">
+    Check:
+
+    - Environment differences (paths, installed packages)
+    - Missing dependencies
+    - Different shell or system configuration
+    - Required system packages not installed
+  </Accordion>
+</AccordionGroup>
+
+## Security Considerations
+
+<Warning>
+  **Security Best Practices:**
+
+  - Never expose sensitive credentials in commands
+  - Use environment variables for secrets
+  - Be cautious with `rm -rf` commands
+  - Validate user input before executing
+  - Limit permissions where possible
+  - Avoid running untrusted scripts
+  - Monitor command execution for unusual activity
+</Warning>
+
+## Advanced Usage
+
+### Chaining Commands
+
+<CodeGroup>
+
+```bash Sequential Execution (&&)
+# Run second only if first succeeds
+npm install && npm run build
+
+# Multi-step setup
+apt-get update && apt-get install -y curl && curl --version
+```
+
+
+```bash Conditional Execution (||)
+# Run second only if first fails
+npm start || npm install && npm start
+```
+
+
+```bash Piping Output (|)
+# Pass output to next command
+cat log.txt | grep ERROR | wc -l
+
+# Process and save
+ls -la | grep ".js" > javascript_files.txt
+```
+
+
+```bash Background with Redirection
+# Save output to file
+npm run build > build.log 2>&1
+```
+
+</CodeGroup>
+
+### Environment Variables
+
+```bash
+# Set for single command
+NODE_ENV=production npm start
+
+# Export for session
+export API_KEY=abc123 && node server.js
+
+# Use in script
+DATABASE_URL=postgres://localhost/db python migrate.py
+```
+
+### Working with Files
+
+<CodeGroup>
+
+```bash Reading Files
+# Display contents
+cat file.txt
+
+# Page through large files
+less large_file.log
+
+# Show first/last lines
+head -n 20 file.txt
+tail -n 50 file.txt
+
+# Follow growing file
+tail -f app.log
+```
+
+
+```bash Editing Files
+# Quick edits with sed
+sed -i 's/old/new/g' config.txt
+
+# Append to file
+echo "new line" >> file.txt
+
+# Overwrite file
+echo "content" > file.txt
+```
+
+</CodeGroup>
+
+## Summary
+
+You've successfully learned:
+
+<Check>
+  How to execute commands in blocking vs non-blocking mode
+</Check>
+
+<Check>
+  When to use each execution mode for optimal performance
+</Check>
+
+<Check>
+  How to monitor non-blocking commands with check_command_output
+</Check>
+
+<Check>
+  How to list and terminate running command sessions
+</Check>
+
+<Check>
+  Best practices for package installation and script execution
+</Check>
+
+<Check>
+  Common workflows for development environment setup
+</Check>
+
+<Check>
+  Troubleshooting techniques for command execution issues
+</Check>
+
+Terminal commands give your Utari workers powerful capabilities to set up environments, run scripts, manage processes, and perform technical operations—all through natural language instructions.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Files and Folder Tool" icon="folder" href="/tools/files-folder">
+    Manage files created or modified by terminal commands
+  </Card>
+  <Card title="Worker Configuration" icon="sliders" href="/create-first-worker">
+    Set up workers optimized for technical tasks
+  </Card>
+  <Card title="Triggers" icon="clock" href="/triggers">
+    Automate terminal commands on a schedule
+  </Card>
+  <Card title="Integrations" icon="plug" href="/integrations">
+    Combine terminal commands with third-party apps
+  </Card>
+</CardGroup>

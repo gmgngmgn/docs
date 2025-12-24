@@ -1,4 +1,634 @@
 ---
-title: "Chat Messages Tool"
-description: "Description of your new file."
+title: "Chat & Messages"
+description: "Talk with users, ask questions, and share updates about your work through natural conversational interactions and status communication."
 ---
+
+## Overview
+
+Chat & Messages is the core communication interface between you and your Utari workers. Through natural conversation, workers can ask for clarification, share progress updates, seek confirmation for important actions, offer options, and communicate about their work—creating a collaborative, interactive experience.
+
+## Chat & Message Capabilities
+
+<CardGroup cols={3}>
+  <Card title="Ask Questions" icon="circle-question">
+    Request clarification, confirmation, or additional information from users
+  </Card>
+  <Card title="Share Updates" icon="comment">
+    Communicate progress, findings, and status throughout task execution
+  </Card>
+  <Card title="Wait & Pace" icon="hourglass">
+    Pause execution to maintain thoughtful, quality work rhythm
+  </Card>
+  <Card title="Complete Tasks" icon="circle-check">
+    Signal when all work is finished and ready for review
+  </Card>
+  <Card title="Natural Dialogue" icon="comments">
+    Converse naturally like talking with a helpful colleague
+  </Card>
+  <Card title="Share Attachments" icon="paperclip">
+    Include relevant files, screenshots, and resources in messages
+  </Card>
+</CardGroup>
+
+<Info>
+  Chat & Messages enables collaborative work where workers communicate naturally, ask when uncertain, and keep you informed—just like working with a thoughtful human colleague.
+</Info>
+
+## Using the Ask Tool
+
+### When Workers Ask Questions
+
+Workers use the Ask tool to request input when it's essential to proceed effectively:
+
+<AccordionGroup>
+  <Accordion title="Requesting Clarification" icon="lightbulb">
+    **When**: Requirements are ambiguous or unclear
+
+    **Examples**:
+
+    ```
+        "You mentioned creating a report about Q4 performance. Would you like me to focus on:
+        1. Sales metrics and revenue
+        2. Product performance and user engagement
+        3. Team productivity and operations
+        4. All of the above in a comprehensive report?"
+        
+        "I found two Sarah Johnsons at TechCorp:
+        1. Sarah Johnson, VP of Engineering
+        2. Sarah Johnson, Senior Product Manager
+        Which one should I research for the outreach?"
+        
+        "Should the presentation be:
+        - Formal and detailed (for board meeting)
+        - High-level and visual (for executive summary)
+        - Technical and comprehensive (for team review)?"
+    ```
+  </Accordion>
+  <Accordion title="Seeking Confirmation" icon="shield-check">
+    **When**: Before high-impact changes or irreversible actions
+
+    **Examples**:
+
+    ```
+        "I'm about to delete 47 old files from the Archive folder. 
+        This action cannot be undone. Proceed?"
+        
+        "I'll send this email to 500 customers. The message includes 
+        the promotion code and starts the campaign. Ready to send?"
+        
+        "I'm going to create a new agent called 'Sales Qualifier' with 
+        access to your CRM and email. This agent will automatically 
+        contact leads. Should I proceed with this configuration?"
+    ```
+  </Accordion>
+  <Accordion title="Gathering Additional Information" icon="circle-info">
+    **When**: Missing critical details needed to complete the task
+
+    **Examples**:
+
+    ```
+        "To schedule the meeting, I need a few more details:
+        - Preferred date and time?
+        - Duration (30 min, 60 min)?
+        - Should I include the slide deck as an attachment?"
+        
+        "I'm creating the social media posts. What's the:
+        - Target audience for this campaign?
+        - Preferred posting schedule?
+        - Specific hashtags you want included?"
+        
+        "For the competitor analysis, which companies should I focus on?
+        I found these mentioned in your notes:
+        - Company A, Company B, Company C
+        Are there others I should include?"
+    ```
+  </Accordion>
+  <Accordion title="Offering Options" icon="list-check">
+    **When**: Multiple valid approaches exist and user preference matters
+
+    **Examples**:
+
+    ```
+        "I can structure the report in two ways:
+        
+        Option A: By department (Sales, Marketing, Product, Engineering)
+        - Pros: Easy to see each team's contribution
+        - Cons: Harder to see company-wide trends
+        
+        Option B: By metric (Revenue, Users, Efficiency, Innovation)
+        - Pros: Clear performance tracking
+        - Cons: Department contributions less obvious
+        
+        Which approach would be more useful for your needs?"
+        
+        "For the automation, I can:
+        1. Run it every morning and send you a summary email
+        2. Run it hourly and only notify on important changes
+        3. Run on-demand when you trigger it manually
+        
+        What's your preference?"
+    ```
+  </Accordion>
+  <Accordion title="Validating Assumptions" icon="check-double">
+    **When**: Assumptions are critical to task success
+
+    **Examples**:
+
+    ```
+        "I'm assuming this data should be filtered to show only 
+        US customers from the last 90 days. Is that correct, or 
+        should I include international customers and/or a different 
+        timeframe?"
+        
+        "I'm planning to use your standard email template for this 
+        outreach. Should I customize it for this specific campaign, 
+        or is the standard template appropriate?"
+        
+        "I see you want me to 'update the documentation.' Should I:
+        - Update existing docs with new information
+        - Create entirely new documentation
+        - Both update existing and add new sections?"
+    ```
+  </Accordion>
+  <Accordion title="Handling Ambiguous Results" icon="triangle-exclamation">
+    **When**: Tool results don't match expectations or are unclear
+
+    **Examples**:
+
+    ```
+        "I searched for 'Project Phoenix' in your files but found 
+        three different projects with that name:
+        1. Project Phoenix (2023 Marketing Campaign)
+        2. Project Phoenix (2024 Product Launch)
+        3. Phoenix Initiative (Internal Process Improvement)
+        
+        Which one did you need information about?"
+        
+        "The data provider returned conflicting stock prices for ACME Corp:
+        - Yahoo Finance: $45.23
+        - Google Finance: $45.67
+        - Bloomberg: $45.45
+        
+        Should I use a specific source or average them?"
+        
+        "I found the person you mentioned, but they have two LinkedIn 
+        profiles with different employment information. Which one is 
+        current or should I research both?"
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Responding to Worker Questions
+
+### How to Provide Clear Answers
+
+<Tabs>
+  <Tab title="Direct Answers">
+    **Best for**: Simple yes/no or specific choices
+
+    ```
+        Worker: "Should I include charts in the report?"
+        You: "Yes, include charts"
+        
+        Worker: "Delete these old files?"
+        You: "Yes, go ahead"
+        
+        Worker: "Option A or Option B?"
+        You: "Option A"
+    ```
+  </Tab>
+  <Tab title="Detailed Guidance">
+    **Best for**: Complex scenarios requiring explanation
+
+    ```
+        Worker: "How should I structure the presentation?"
+        You: "Structure it like this:
+        1. Executive summary on slide 1
+        2. Key metrics on slides 2-3
+        3. Detailed breakdown on slides 4-7
+        4. Recommendations on slide 8
+        Keep it under 10 slides total, use our brand template"
+        
+        Worker: "Which leads should I prioritize?"
+        You: "Focus on leads that:
+        - Responded within last 24 hours
+        - Work at companies with 100+ employees
+        - Have decision-making authority
+        Deprioritize the rest for now"
+    ```
+  </Tab>
+  <Tab title="Conditional Instructions">
+    **Best for**: Situations requiring judgment calls
+
+    ```
+        Worker: "What if the client doesn't respond?"
+        You: "If no response in 48 hours, send one follow-up.
+        If still no response after another 48 hours, move to 
+        low-priority nurture sequence and focus on other leads"
+        
+        Worker: "How should I handle errors?"
+        You: "If it's a minor error (typo, formatting), fix it 
+        automatically. If it's a data issue or structural problem, 
+        flag it for my review before proceeding"
+    ```
+  </Tab>
+  <Tab title="Reference Examples">
+    **Best for**: Learning from previous work
+
+    ```
+        Worker: "What style should the blog post be?"
+        You: "Write it in the same style as the 'AI Trends 2024' 
+        post we published last month. Same tone, similar structure, 
+        around 1500 words"
+        
+        Worker: "How formal should the email be?"
+        You: "Use the same tone as our usual customer outreach 
+        emails—professional but friendly, like the template in 
+        the Marketing folder"
+    ```
+  </Tab>
+</Tabs>
+
+## Worker Communication Patterns
+
+### Natural Conversation Style
+
+Workers communicate naturally, like helpful colleagues:
+
+<CodeGroup>
+
+```text Progress Updates
+"I've found 15 relevant research papers. Reading through them now to identify key themes..."
+
+"Halfway through the data analysis. I'm noticing an interesting trend in Q3 numbers that might be worth highlighting..."
+
+"Just finished the first draft of the report. Taking a moment to review it before moving to the next section..."
+```
+
+
+```text Discoveries & Insights
+"Interesting finding: Your competitor just hired 3 senior engineers from Google. This might indicate they're building out their ML capabilities."
+
+"I noticed the conversion rate dropped significantly in August. Looking into what might have caused that..."
+
+"Found a potential issue: Two customers have the same email address in the CRM. Should I flag this for cleanup?"
+```
+
+
+```text Problem Solving
+"I'm running into a rate limit with the API. Going to wait 60 seconds before continuing..."
+
+"The original data source doesn't have information on Q1 2023. Should I try finding it elsewhere or note it as unavailable?"
+
+"This task is taking longer than expected because of the large dataset. I'm optimizing the approach to speed it up..."
+```
+
+
+```text Thoughtful Pauses
+"Taking a moment to carefully review this before sending—want to make sure everything is accurate..."
+
+"Pausing to verify these numbers against the source data..."
+
+"Let me double-check this logic before proceeding..."
+```
+
+</CodeGroup>
+
+### When Workers Use the Wait Tool
+
+Workers pause execution deliberately to maintain quality:
+
+<AccordionGroup>
+  <Accordion title="Preventing Rushed Work" icon="gauge-simple-high">
+    ```
+        "I'm going to wait 30 seconds between each API call to avoid 
+        hitting rate limits and ensure all data is retrieved correctly."
+        
+        "Taking a brief pause to let the previous operation complete 
+        before starting the next step..."
+        
+        "Waiting 60 seconds for the database to fully index before 
+        running the query..."
+    ```
+  </Accordion>
+  <Accordion title="Quality Control" icon="magnifying-glass-chart">
+    ```
+        "Pausing for 15 seconds to carefully review the output before 
+        proceeding to the next section..."
+        
+        "Taking a moment to verify these calculations are correct..."
+        
+        "Waiting to ensure the file upload completed successfully 
+        before moving on..."
+    ```
+  </Accordion>
+  <Accordion title="System Constraints" icon="server">
+    ```
+        "API rate limit reached. Waiting 120 seconds before resuming..."
+        
+        "Large file processing in progress. Pausing 45 seconds to 
+        allow completion..."
+        
+        "Database operation queued. Waiting 30 seconds for execution..."
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Task Completion Signals
+
+### When Workers Mark Tasks Complete
+
+Workers use the Complete tool only when ALL work is finished:
+
+<Steps>
+  <Step title="All Tasks Completed">
+    ```
+        ✓ All items in todo list marked complete
+        ✓ User's original request fully addressed
+        ✓ No pending actions remaining
+        ✓ All outputs delivered to user
+    ```
+  </Step>
+  <Step title="Final Verification">
+    ```
+        Worker reviews:
+        - Did I answer the original question?
+        - Are all deliverables provided?
+        - Did I address follow-up requests?
+        - Are files properly organized and accessible?
+        - Is anything left incomplete?
+    ```
+  </Step>
+  <Step title="Completion Message">
+    ```
+        "I've completed all the tasks:
+        
+        ✓ Created Q4 performance report with charts
+        ✓ Analyzed competitor pricing strategies
+        ✓ Generated 5 social media posts for campaign
+        ✓ Uploaded all files to 'Q4 Campaign' folder
+        
+        All deliverables are ready in the outputs folder. 
+        Let me know if you need any adjustments!"
+    ```
+  </Step>
+</Steps>
+
+<Warning>
+  **Important**: Workers only use the Complete tool when genuinely finished. If there's any uncertainty, they'll ask before completing rather than assuming work is done.
+</Warning>
+
+## Communication Best Practices
+
+### For Users
+
+<CardGroup cols={2}>
+  <Card title="Be Specific" icon="bullseye">
+    Clear instructions lead to better results and fewer clarifying questions
+  </Card>
+  <Card title="Provide Context" icon="circle-info">
+    Share relevant background so workers understand the bigger picture
+  </Card>
+  <Card title="Answer Promptly" icon="clock">
+    Workers wait for your input when they ask questions—respond to keep work flowing
+  </Card>
+  <Card title="Give Examples" icon="images">
+    Reference previous work or examples to clarify expectations
+  </Card>
+  <Card title="Confirm Understanding" icon="handshake">
+    If a worker's question seems off-base, clarify the original request
+  </Card>
+  <Card title="Provide Preferences" icon="heart">
+    Share your working style and communication preferences
+  </Card>
+</CardGroup>
+
+### For Workers (What to Expect)
+
+<CardGroup cols={2}>
+  <Card title="Ask When Needed" icon="hand-raised">
+    Workers will ask for clarification rather than guessing
+  </Card>
+  <Card title="Share Progress" icon="chart-line">
+    Workers communicate what they're doing and what's next
+  </Card>
+  <Card title="Explain Decisions" icon="message-lines">
+    Workers share reasoning when making judgment calls
+  </Card>
+  <Card title="Flag Issues" icon="flag">
+    Workers alert you to problems, risks, or unexpected findings
+  </Card>
+  <Card title="Verify Important Actions" icon="shield-check">
+    Workers confirm before high-impact or irreversible operations
+  </Card>
+  <Card title="Communicate Delays" icon="hourglass-half">
+    Workers explain if tasks take longer than expected
+  </Card>
+</CardGroup>
+
+## Example Conversations
+
+### Collaborative Problem Solving
+
+<Card title="Working Through Ambiguity">
+  ```
+    You: "Create a presentation about our product"
+    
+    Worker: "I'd like to clarify a few things to make the 
+    presentation most useful:
+    
+    1. What's the audience?
+       - Internal team
+       - Potential customers
+       - Investors
+    
+    2. What's the main purpose?
+       - Educational overview
+       - Sales pitch
+       - Product roadmap
+    
+    3. How detailed should it be?
+       - High-level overview (5-10 slides)
+       - Comprehensive deep-dive (20+ slides)
+    
+    This will help me create exactly what you need."
+    
+    You: "It's for potential customers, sales pitch, 
+    keep it high-level around 8-10 slides"
+    
+    Worker: "Perfect! I'll create a sales-focused 
+    presentation with:
+    - Problem statement
+    - Our solution
+    - Key benefits
+    - Customer success stories
+    - Pricing overview
+    - Call to action
+    
+    Starting now..."
+  ```
+</Card>
+
+### Handling Discovered Issues
+
+<Card title="Proactive Problem Flagging">
+  ```
+    Worker: "I'm working on the email campaign and noticed 
+    something concerning:
+    
+    The customer list has 500 contacts, but 127 of them 
+    have bounced emails from previous campaigns. Should I:
+    
+    1. Remove bounced emails and send to 373 valid contacts
+    2. Attempt to verify and update bounced email addresses first
+    3. Send to all 500 and let the system filter bounces
+    
+    Option 1 is cleanest but smaller reach. Option 2 takes 
+    more time but could recover some contacts. What's your 
+    preference?"
+    
+    You: "Good catch. Go with option 1 for now—let's focus 
+    on the valid contacts. We can do a separate cleanup 
+    project for the bounced emails later"
+    
+    Worker: "Got it. Proceeding with 373 verified contacts. 
+    I'll also create a report of the bounced emails for the 
+    future cleanup project."
+  ```
+</Card>
+
+### Iterative Refinement
+
+<Card title="Collaborative Improvement">
+  ```
+    Worker: "I've completed the first draft of the blog post. 
+    It's about 1,200 words covering:
+    - Introduction to the topic
+    - Three main benefits
+    - Implementation guide
+    - Conclusion with CTA
+    
+    Would you like me to:
+    - Expand it to include more examples?
+    - Add technical details in specific sections?
+    - Make it more concise?
+    - It's good as-is?"
+    
+    You: "Looks good overall. Can you add a section about 
+    common mistakes to avoid? That would be really valuable 
+    for readers"
+    
+    Worker: "Absolutely! Adding a 'Common Pitfalls and How 
+    to Avoid Them' section with 4-5 key mistakes and 
+    solutions. This will fit well between the implementation 
+    guide and conclusion..."
+    
+    [Later]
+    
+    Worker: "Added the common mistakes section with 5 
+    pitfalls and solutions. The post is now about 1,500 
+    words. Ready for your review!"
+  ```
+</Card>
+
+## Troubleshooting Communication
+
+<AccordionGroup>
+  <Accordion title="Worker asks too many questions">
+    **Cause**: Instructions may be too vague or worker lacks context
+
+    **Solution**:
+
+    - Provide more detailed initial instructions
+    - Share examples of previous similar work
+    - Give explicit preferences and constraints upfront
+    - Build up worker's knowledge base with SOPs
+  </Accordion>
+  <Accordion title="Worker doesn't ask when they should">
+    **Cause**: Worker may be making assumptions
+
+    **Solution**:
+
+    - Explicitly encourage questions: "Ask if anything is unclear"
+    - Review outputs and provide feedback
+    - Clarify expectations about when to ask
+    - Update agent configuration to ask more proactively
+  </Accordion>
+  <Accordion title="Communication feels too formal">
+    **Cause**: Default professional tone
+
+    **Solution**:
+
+    - Update agent personality in configuration
+    - Specify preferred communication style
+    - Provide examples of your preferred tone
+    - Use casual language yourself to set the tone
+  </Accordion>
+  <Accordion title="Worker doesn't explain their work">
+    **Cause**: Agent may be configured for efficiency over explanation
+
+    **Solution**:
+
+    - Ask for progress updates: "Keep me posted as you work"
+    - Request explanations: "Explain your approach"
+    - Update system prompt to be more communicative
+    - Encourage transparency in decision-making
+  </Accordion>
+  <Accordion title="Unclear what worker is waiting for">
+    **Cause**: Question wasn't clear or got lost in conversation
+
+    **Solution**:
+
+    - Ask directly: "What do you need from me?"
+    - Review the last question posed
+    - Clarify what information or decision is needed
+    - Respond to the most recent ask question
+  </Accordion>
+</AccordionGroup>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Communicate naturally with workers through conversational interface
+</Check>
+
+<Check>
+  Recognize when and why workers ask questions
+</Check>
+
+<Check>
+  Provide clear, helpful answers to worker inquiries
+</Check>
+
+<Check>
+  Understand worker progress updates and status communication
+</Check>
+
+<Check>
+  Interpret task completion signals
+</Check>
+
+<Check>
+  Apply communication best practices for effective collaboration
+</Check>
+
+Chat & Messages creates a collaborative working relationship where workers communicate clearly, ask when uncertain, share progress transparently, and keep you informed—enabling effective teamwork between human and AI.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Agent Configuration" icon="sliders" href="/tools/agent-configuration">
+    Configure agent communication style and personality
+  </Card>
+  <Card title="Create First Worker" icon="user-plus" href="/create-first-worker">
+    Set up workers with clear instructions
+  </Card>
+  <Card title="Knowledge Base" icon="database" href="/tools/knowledge-base">
+    Provide context through documented SOPs and guidelines
+  </Card>
+  <Card title="Task Management" icon="list-check" href="/tools/task-management">
+    Organize multi-step work with clear task tracking
+  </Card>
+</CardGroup>

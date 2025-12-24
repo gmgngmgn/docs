@@ -1,0 +1,517 @@
+---
+title: "Local Git Commit"
+description: "Create local git commits in the sandbox workspace to track changes, maintain version history, and manage code iterations without remote repositories."
+---
+
+## Overview
+
+The Local Git Commit tool enables your Utari workers to create git commits directly in the sandbox workspace at `/workspace`. This capability provides version control for your work, tracking changes over time and maintaining a history of iterations—all locally without requiring remote repositories or origins.
+
+## Local Git Commit Capability
+
+<Card title="Version Control in Workspace" icon="code-branch">
+  Create git commits to:
+
+  - Track changes to files and code
+  - Maintain version history
+  - Document work progress
+  - Enable rollback to previous states
+  - Organize development iterations
+  - Keep audit trail of modifications
+
+  **Important**: All commits are local only—no remote repositories, pushing, or pulling.
+</Card>
+
+<Info>
+  Local git commits work entirely within the `/workspace` directory. No connection to GitHub, GitLab, or other remote services is required or used.
+</Info>
+
+## Using Local Git Commit
+
+### Basic Commit Process
+
+<Steps>
+  <Step title="Make Changes">
+    Work on files in the workspace:
+
+    ```
+        - Create new files
+        - Modify existing code
+        - Update documentation
+        - Develop features
+    ```
+  </Step>
+  <Step title="Request Commit">
+    Ask your worker to create a git commit:
+
+    ```
+        Create a git commit with the message "Add user authentication feature"
+        
+        Commit these changes with message "Fix bug in data processing"
+        
+        Make a git commit: "Update documentation for API endpoints"
+    ```
+  </Step>
+  <Step title="Worker Creates Commit">
+    ```
+        Creating local git commit...
+        
+        Changes staged:
+        - src/auth.py (modified)
+        - src/user.py (new file)
+        - tests/test_auth.py (new file)
+        
+        Commit created: abc123f
+        Message: "Add user authentication feature"
+        Author: Utari Worker
+        Date: 2024-12-24 14:30:22
+        
+        3 files changed, 247 insertions(+), 12 deletions(-)
+    ```
+  </Step>
+  <Step title="Continue Working">
+    Your changes are now committed locally. Continue development and create more commits as needed.
+  </Step>
+</Steps>
+
+## Common Use Cases
+
+### Development Workflow
+
+<AccordionGroup>
+  <Accordion title="Feature Development" icon="code">
+    Track progress on new features:
+
+    ```
+        1. Start feature: "Begin user dashboard implementation"
+        2. Add components: "Add dashboard layout components"
+        3. Wire functionality: "Connect dashboard to data API"
+        4. Test and refine: "Fix dashboard refresh bug"
+        5. Complete: "Finalize user dashboard feature"
+    ```
+
+    Each commit captures a logical unit of work.
+  </Accordion>
+  <Accordion title="Bug Fixes" icon="bug">
+    Document bug resolution:
+
+    ```
+        1. "Identify login timeout bug"
+        2. "Fix session handling in auth module"
+        3. "Add tests for session timeout scenarios"
+        4. "Update error handling documentation"
+    ```
+
+    Clear history of what was fixed and how.
+  </Accordion>
+  <Accordion title="Iterative Refinement" icon="arrows-rotate">
+    Track improvements over time:
+
+    ```
+        1. "Initial implementation of search feature"
+        2. "Improve search performance with indexing"
+        3. "Add fuzzy matching to search"
+        4. "Optimize search query caching"
+    ```
+
+    Shows evolution of the feature.
+  </Accordion>
+  <Accordion title="Experimentation" icon="flask">
+    Try different approaches:
+
+    ```
+        1. "Experiment with Algorithm A for sorting"
+        2. "Try Algorithm B approach"
+        3. "Revert to Algorithm A - better performance"
+        4. "Optimize Algorithm A implementation"
+    ```
+
+    Can revert to previous attempts if needed.
+  </Accordion>
+</AccordionGroup>
+
+### Documentation and Content
+
+<AccordionGroup>
+  <Accordion title="Documentation Updates" icon="book">
+    Track documentation changes:
+
+    ```
+        "Add API authentication section to docs"
+        "Update installation instructions for v2.0"
+        "Add troubleshooting guide for common errors"
+        "Revise getting started tutorial"
+    ```
+  </Accordion>
+  <Accordion title="Content Creation" icon="pen">
+    Version control for written content:
+
+    ```
+        "Draft initial blog post outline"
+        "Add introduction and main sections"
+        "Incorporate feedback and revisions"
+        "Final edits and polish"
+    ```
+  </Accordion>
+  <Accordion title="Configuration Management" icon="gear">
+    Track configuration changes:
+
+    ```
+        "Add development environment config"
+        "Update database connection settings"
+        "Add API rate limiting configuration"
+        "Update security headers"
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Commit Message Best Practices
+
+### Writing Effective Commit Messages
+
+<Tabs>
+  <Tab title="Good Examples">
+    ```text
+        ✅ "Add user authentication with JWT tokens"
+        ✅ "Fix null pointer exception in data parser"
+        ✅ "Update README with installation instructions"
+        ✅ "Refactor database connection handling"
+        ✅ "Remove deprecated API endpoints"
+        ✅ "Optimize image loading performance"
+    ```
+
+    **Why these work**:
+
+    - Clear, specific action
+    - Describes what changed
+    - Concise but informative
+    - Starts with imperative verb
+  </Tab>
+  <Tab title="Poor Examples">
+    ```text
+        ❌ "Updates"
+        ❌ "Fixed stuff"
+        ❌ "More changes"
+        ❌ "WIP"
+        ❌ "asdf"
+        ❌ "Changed some files"
+    ```
+
+    **Why these fail**:
+
+    - Too vague
+    - No context
+    - Unhelpful for history
+    - Doesn't describe what changed
+  </Tab>
+</Tabs>
+
+### Commit Message Format
+
+<Card title="Recommended Format">
+  ```
+    <type>: <short description>
+    
+    Examples:
+    feat: Add dark mode toggle to settings
+    fix: Resolve memory leak in worker threads
+    docs: Update API reference documentation
+    refactor: Simplify error handling logic
+    test: Add unit tests for auth module
+    chore: Update dependencies to latest versions
+  ```
+
+  **Common types**:
+
+  - `feat`: New feature
+  - `fix`: Bug fix
+  - `docs`: Documentation changes
+  - `refactor`: Code refactoring
+  - `test`: Adding/updating tests
+  - `chore`: Maintenance tasks
+  - `perf`: Performance improvements
+</Card>
+
+## Workflow Examples
+
+### Complete Feature Development
+
+<Steps>
+  <Step title="Initial Commit">
+    ```
+        Create git commit: "feat: Initialize payment processing module"
+        
+        Files:
+        - src/payments/__init__.py (new)
+        - src/payments/processor.py (new)
+    ```
+  </Step>
+  <Step title="Add Functionality">
+    ```
+        Create git commit: "feat: Add Stripe integration for payments"
+        
+        Files:
+        - src/payments/stripe_handler.py (new)
+        - src/payments/processor.py (modified)
+    ```
+  </Step>
+  <Step title="Add Tests">
+    ```
+        Create git commit: "test: Add payment processing tests"
+        
+        Files:
+        - tests/test_payments.py (new)
+        - tests/fixtures/payment_data.json (new)
+    ```
+  </Step>
+  <Step title="Fix Issues">
+    ```
+        Create git commit: "fix: Handle payment timeout errors correctly"
+        
+        Files:
+        - src/payments/processor.py (modified)
+        - src/payments/exceptions.py (new)
+    ```
+  </Step>
+  <Step title="Document">
+    ```
+        Create git commit: "docs: Add payment integration documentation"
+        
+        Files:
+        - docs/payments.md (new)
+        - README.md (modified)
+    ```
+  </Step>
+</Steps>
+
+### Collaborative Development Tracking
+
+<Steps>
+  <Step title="Agent A: Backend Work">
+    ```
+        Commit: "feat: Add REST API endpoints for user management"
+        
+        Worker commits backend changes
+    ```
+  </Step>
+  <Step title="Agent B: Frontend Work">
+    ```
+        Commit: "feat: Add user management UI components"
+        
+        Different worker commits frontend changes
+    ```
+  </Step>
+  <Step title="Integration">
+    ```
+        Commit: "feat: Connect frontend to user management API"
+        
+        Worker integrates both parts
+    ```
+  </Step>
+  <Step title="Review History">
+    ```
+        View git log to see:
+        - Who worked on what
+        - When changes were made
+        - Progression of work
+        - Integration points
+    ```
+  </Step>
+</Steps>
+
+## Combining with Other Tools
+
+<CardGroup cols={2}>
+  <Card title="+ Terminal Commands" icon="terminal">
+    Use git commands to view history, diff changes, and manage commits
+  </Card>
+  <Card title="+ Files and Folder" icon="folder">
+    Organize code before committing for clean history
+  </Card>
+  <Card title="+ Code Execution" icon="play">
+    Test code before committing to ensure it works
+  </Card>
+  <Card title="+ Document Creator" icon="file-word">
+    Generate documentation and commit it with code
+  </Card>
+</CardGroup>
+
+### Example Combined Workflow
+
+```text
+Development Workflow:
+
+1. Write code and tests
+   - Create feature implementation
+   - Write unit tests
+   - Test execution to verify
+
+2. Create git commit
+   - Commit: "feat: Add data export functionality"
+   - Track version in git history
+
+3. Generate documentation
+   - Create API docs
+   - Update README
+   - Commit: "docs: Document export feature"
+
+4. Create release notes
+   - Document changes
+   - Save to changelog
+   - Commit: "chore: Update changelog for v1.5"
+```
+
+## Viewing Git History
+
+Use terminal commands to view your commit history:
+
+<CodeGroup>
+
+```bash View Recent Commits
+git log --oneline -10
+
+# Shows last 10 commits with short hashes and messages
+```
+
+
+```bash View Detailed History
+git log -5
+
+# Shows last 5 commits with full details
+```
+
+
+```bash View Changes in Commit
+git show abc123f
+
+# Shows what changed in specific commit
+```
+
+
+```bash View File History
+git log -- src/auth.py
+
+# Shows commits that modified specific file
+```
+
+
+```bash Search Commits
+git log --grep="authentication"
+
+# Find commits with "authentication" in message
+```
+
+</CodeGroup>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Commit Often" icon="clock">
+    Make small, frequent commits rather than large, infrequent ones
+  </Card>
+  <Card title="Meaningful Messages" icon="message">
+    Write clear commit messages that explain what and why
+  </Card>
+  <Card title="Logical Units" icon="puzzle-piece">
+    Each commit should represent one logical change
+  </Card>
+  <Card title="Working State" icon="check-circle">
+    Commit code that works—don't commit broken code
+  </Card>
+  <Card title="Consistent Format" icon="align-left">
+    Use consistent commit message format throughout project
+  </Card>
+  <Card title="Document Progress" icon="list-check">
+    Use commits to document development progress and decisions
+  </Card>
+</CardGroup>
+
+## Limitations
+
+<Warning>
+  **Local Only**:
+
+  - No remote repositories
+  - No pushing to GitHub/GitLab
+  - No pulling from remotes
+  - No collaboration via git
+  - Commits exist only in `/workspace`
+
+  This tool is for local version control and tracking, not for sharing code via git remotes.
+</Warning>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Commit fails with error">
+    Check:
+
+    - Git is initialized in workspace (`git init` if needed)
+    - Files actually have changes to commit
+    - Commit message is provided
+    - No merge conflicts present
+  </Accordion>
+  <Accordion title="Can't see commit history">
+    Verify:
+
+    - You're in correct directory
+    - Git repository exists
+    - Commits have actually been created
+    - Use `git log` to view history
+  </Accordion>
+  <Accordion title="Changes not included in commit">
+    Ensure:
+
+    - Files are in `/workspace` directory
+    - Changes were saved before committing
+    - Files aren't in .gitignore
+    - Git is tracking the files
+  </Accordion>
+</AccordionGroup>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Create local git commits in the sandbox workspace
+</Check>
+
+<Check>
+  Write effective commit messages
+</Check>
+
+<Check>
+  Track development progress with version control
+</Check>
+
+<Check>
+  Use commits for documentation and experimentation
+</Check>
+
+<Check>
+  View and manage commit history
+</Check>
+
+<Check>
+  Apply best practices for commit organization
+</Check>
+
+Local Git Commit provides essential version control capabilities directly in your Utari workspace, enabling you to track changes, maintain development history, and manage iterations—all without needing remote repositories or complex git workflows.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Terminal Commands" icon="terminal" href="/tools/terminal-commands">
+    Use git commands to manage your repository
+  </Card>
+  <Card title="Files and Folder" icon="folder" href="/tools/files-folder">
+    Organize code and files for clean commits
+  </Card>
+  <Card title="Code Execution" icon="play" href="/tools/code-execution">
+    Test code before committing
+  </Card>
+  <Card title="Document Creator" icon="file-word" href="/tools/document-creator">
+    Create documentation to commit with code
+  </Card>
+</CardGroup>
