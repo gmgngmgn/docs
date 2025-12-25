@@ -1,4 +1,641 @@
 ---
-title: "How To Use MCP Integrations"
-description: "Description of your new file."
+title: "Connect MCP Servers"
+description: "Connect to Model Context Protocol (MCP) servers to expand your agent's capabilities with new tools, integrations, and data sources through standardized protocols."
 ---
+
+## Overview
+
+MCP (Model Context Protocol) Server Connection enables your Utari agents to connect with external tools and services through a standardized protocol. By connecting to MCP servers via HTTP, you can extend your agent's capabilities with custom integrations, specialized tools, and external data sources—creating unlimited possibilities for customization.
+
+## MCP Server Connection Process
+
+<Steps>
+  <Step title="Setup MCP Server">
+    **What You Need**:
+
+    - MCP server endpoint URL
+    - Memorable name for the connection
+    - Server must be accessible via HTTP
+
+    **Process**:
+
+    ```
+        1. Get your MCP server URL
+           Example: https://mcp.yourservice.com/api
+        
+        2. Choose a descriptive name
+           Example: "Customer Data API" or "Internal CRM Tools"
+        
+        3. Enter connection details in Utari
+    ```
+  </Step>
+  <Step title="Select Tools">
+    **After Connection**:
+
+    - Browse available tools from the MCP server
+    - Review tool descriptions and capabilities
+    - Select which tools to enable for your agent
+    - Configure tool permissions and access
+
+    **Example Tools Discovered**:
+
+    ```
+        From "Customer Data API" MCP Server:
+        ✓ get_customer_profile - Retrieve customer information
+        ✓ update_customer_data - Modify customer records
+        ✓ search_customers - Query customer database
+        ✓ get_purchase_history - View transaction history
+        ✗ delete_customer - (Not enabled for safety)
+    ```
+  </Step>
+  <Step title="Test Connection">
+    **Verify Setup**:
+
+    - Test with a simple tool call
+    - Confirm data is returned correctly
+    - Check permissions are working
+    - Validate agent can access tools
+  </Step>
+  <Step title="Use in Workflows">
+    **Integration Complete**:
+
+    - Tools now available to agent
+    - Use in conversations naturally
+    - Combine with other Utari tools
+    - Build automated workflows
+  </Step>
+</Steps>
+
+<Info>
+  MCP provides a standardized way for AI applications to securely connect to external tools and data sources, making it easy to extend functionality without custom development.
+</Info>
+
+## What is MCP?
+
+### Model Context Protocol Explained
+
+<Card title="Understanding MCP">
+  **MCP (Model Context Protocol)** is a universal standard that allows AI agents to connect with external tools and services.
+
+  **Think of it as**:
+
+  - USB for AI tools - standardized connection
+  - Plugin system for agents
+  - API gateway specifically designed for AI
+
+  **Key Benefits**:
+
+  - ✅ Standardized: Works across different AI platforms
+  - ✅ Secure: Built-in authentication and access control
+  - ✅ Flexible: Connect to any HTTP-accessible service
+  - ✅ Discoverable: Tools self-describe their capabilities
+  - ✅ Composable: Combine multiple MCP servers
+
+  **How It Works**:
+
+  ```
+    Your Agent → MCP Protocol → MCP Server → Your Service/API
+    
+    1. Agent requests available tools from MCP server
+    2. MCP server describes its capabilities
+    3. Agent calls tools through standardized interface
+    4. MCP server executes and returns results
+    5. Agent uses results in conversation/workflow
+  ```
+</Card>
+
+## Setting Up MCP Server Connection
+
+### Step 1: Prepare Your MCP Server
+
+<Tabs>
+  <Tab title="Using Existing Server">
+    **If you have an MCP server URL**:
+
+    ```
+        Information Needed:
+        1. Server endpoint URL
+           Example: https://api.company.com/mcp
+        
+        2. Authentication method (if required)
+           - API key
+           - OAuth token
+           - Basic auth
+           - None (public server)
+        
+        3. Any required headers or configuration
+        
+        Ready to connect!
+    ```
+  </Tab>
+  <Tab title="Composio MCP Servers">
+    **Using pre-built Composio servers**:
+
+    ```
+        Browse available integrations:
+        - Slack, Gmail, Google Drive
+        - Salesforce, HubSpot
+        - GitHub, Jira, Linear
+        - 100+ other services
+        
+        Process:
+        1. Search for service in MCP Server Search
+        2. Get MCP server endpoint
+        3. Create credential profile
+        4. Connect via HTTP endpoint
+    ```
+
+    See [MCP Server Search](/tools/mcp-server-search) for details.
+  </Tab>
+  <Tab title="Custom MCP Server">
+    **Hosting your own MCP server**:
+
+    ```
+        Requirements:
+        - HTTP-accessible endpoint
+        - Implements MCP protocol specification
+        - Returns tool definitions
+        - Handles tool execution requests
+        
+        Implementation:
+        - Use MCP SDK for your language
+        - Define your tools and functions
+        - Host on accessible infrastructure
+        - Provide HTTP endpoint URL
+        
+        Resources:
+        - MCP Protocol Specification
+        - MCP Server SDKs
+        - Example implementations
+    ```
+  </Tab>
+</Tabs>
+
+### Step 2: Connect in Utari
+
+<Steps>
+  <Step title="Initiate Connection">
+    ```
+        Ask your worker:
+        "Connect to MCP server at https://mcp.myservice.com/api"
+        
+        or
+        
+        "Set up MCP server connection for our internal tools"
+    ```
+  </Step>
+  <Step title="Provide Details">
+    ```
+        Worker will ask for:
+        
+        1. Server URL (required)
+           "Enter the complete URL to your MCP server endpoint"
+           → https://mcp.myservice.com/api
+        
+        2. Server Name (required)
+           "Give this MCP server a memorable name"
+           → "Internal Customer Tools"
+        
+        3. Authentication (if needed)
+           - API key
+           - Bearer token
+           - Custom headers
+    ```
+  </Step>
+  <Step title="Test Connection">
+    ```
+        Worker attempts to connect:
+        
+        Connecting to https://mcp.myservice.com/api...
+        ✓ Connection successful
+        ✓ Server responded
+        ✓ MCP protocol version compatible
+        
+        Discovering available tools...
+    ```
+  </Step>
+  <Step title="Review Available Tools">
+    ```
+        Found 8 tools from "Internal Customer Tools":
+        
+        1. get_customer_info
+           Description: Retrieve customer profile data
+           Parameters: customer_id (required)
+        
+        2. update_customer_email
+           Description: Change customer email address
+           Parameters: customer_id, new_email
+        
+        3. get_order_history
+           Description: Fetch customer purchase history
+           Parameters: customer_id, date_range (optional)
+        
+        [...]
+        
+        Which tools should I enable?
+    ```
+  </Step>
+  <Step title="Select Tools">
+    ```
+        You: "Enable get_customer_info, get_order_history, 
+        and search_customers. Don't enable any update or 
+        delete functions"
+        
+        Worker:
+        ✓ Enabled: get_customer_info
+        ✓ Enabled: get_order_history
+        ✓ Enabled: search_customers
+        ✗ Disabled: update_customer_email
+        ✗ Disabled: delete_customer
+        
+        MCP server configured successfully!
+    ```
+  </Step>
+</Steps>
+
+## Using Connected MCP Servers
+
+### Natural Tool Usage
+
+Once connected, agents use MCP tools naturally in conversation:
+
+<CodeGroup>
+
+```text Direct Requests
+"Look up customer ID 12345 using the customer tools"
+
+"Get the order history for john@example.com"
+
+"Search for customers in the San Francisco area"
+```
+
+
+```text Workflow Integration
+"For each lead in the spreadsheet:
+1. Look up their customer profile
+2. Check their order history
+3. Determine if they're a good fit for upsell
+4. Create personalized outreach email"
+```
+
+
+```text Combined with Other Tools
+"Use web search to research the company,
+then use our customer tools to check if they're
+already in our system, then draft a personalized
+email using both sources of information"
+```
+
+</CodeGroup>
+
+### Example MCP Server Workflows
+
+<Tabs>
+  <Tab title="Customer Support">
+    **Scenario**: Customer support agent with internal tools
+
+    ```
+        MCP Server: "Support Tools API"
+        
+        Connected Tools:
+        - get_customer_info
+        - get_ticket_history
+        - get_product_details
+        - check_warranty_status
+        - get_return_policy
+        
+        Workflow:
+        User: "Customer asks about returning product"
+        
+        Agent:
+        1. Looks up customer info via MCP
+        2. Checks their order history
+        3. Verifies warranty status
+        4. References return policy
+        5. Provides personalized answer with specifics
+        
+        Result: Fast, accurate, context-aware support
+    ```
+  </Tab>
+  <Tab title="Sales Intelligence">
+    **Scenario**: Sales agent with CRM and enrichment tools
+
+    ```
+        MCP Servers Connected:
+        - "Internal CRM" - Customer data
+        - "Clearbit API" - Company enrichment
+        - "LinkedIn Tools" - Professional data
+        
+        Workflow:
+        User: "Research and qualify this lead"
+        
+        Agent:
+        1. Check if lead exists in CRM (Internal CRM MCP)
+        2. Enrich company data (Clearbit MCP)
+        3. Research decision makers (LinkedIn MCP)
+        4. Synthesize findings
+        5. Provide qualification recommendation
+        
+        Result: Comprehensive lead intelligence from multiple sources
+    ```
+  </Tab>
+  <Tab title="Data Analysis">
+    **Scenario**: Analytics agent with database access
+
+    ```
+        MCP Server: "Analytics Database API"
+        
+        Connected Tools:
+        - query_sales_data
+        - get_user_metrics
+        - calculate_conversion_rates
+        - get_cohort_analysis
+        - export_report_data
+        
+        Workflow:
+        User: "Analyze Q4 performance"
+        
+        Agent:
+        1. Queries sales data for Q4
+        2. Calculates key metrics
+        3. Compares to previous quarters
+        4. Identifies trends
+        5. Generates report with insights
+        
+        Result: Data-driven analysis with actual company data
+    ```
+  </Tab>
+  <Tab title="Internal Operations">
+    **Scenario**: Operations agent with multiple systems
+
+    ```
+        MCP Servers:
+        - "JIRA API" - Project management
+        - "Slack API" - Team communication
+        - "GitHub API" - Code repository
+        - "PagerDuty API" - Incident management
+        
+        Workflow:
+        User: "Create post-incident report"
+        
+        Agent:
+        1. Gets incident details (PagerDuty MCP)
+        2. Finds related tickets (JIRA MCP)
+        3. Reviews code changes (GitHub MCP)
+        4. Compiles timeline
+        5. Generates report
+        6. Posts to team channel (Slack MCP)
+        
+        Result: Automated cross-system workflow
+    ```
+  </Tab>
+</Tabs>
+
+## MCP Server Management
+
+### Managing Multiple MCP Servers
+
+<Steps>
+  <Step title="Connect Multiple Servers">
+    ```
+        You can connect multiple MCP servers:
+        
+        1. "Customer Database Tools" (internal)
+        2. "Payment Processing API" (Stripe)
+        3. "Analytics Platform" (internal)
+        4. "Communication Tools" (Slack, Email)
+        
+        Each provides different capabilities
+    ```
+  </Step>
+  <Step title="Organize by Purpose">
+    ```
+        Group servers logically:
+        
+        Customer Data:
+        - CRM MCP server
+        - Support tools MCP
+        - Analytics MCP
+        
+        Communication:
+        - Slack MCP
+        - Email MCP
+        - SMS MCP
+        
+        External Services:
+        - Payment MCP
+        - Shipping MCP
+        - Verification MCP
+    ```
+  </Step>
+  <Step title="Control Access">
+    ```
+        Different agents get different MCP access:
+        
+        Sales Agent:
+        ✓ CRM MCP (read/write)
+        ✓ Email MCP (send only)
+        ✗ Payment MCP (no access)
+        
+        Support Agent:
+        ✓ CRM MCP (read only)
+        ✓ Ticket MCP (read/write)
+        ✓ Product MCP (read only)
+        
+        Admin Agent:
+        ✓ All MCP servers (full access)
+    ```
+  </Step>
+</Steps>
+
+### Updating MCP Connections
+
+<AccordionGroup>
+  <Accordion title="Update Server URL" icon="link">
+    ```
+        If your MCP server endpoint changes:
+        
+        1. Update the connection URL
+        2. Retest the connection
+        3. Verify tools still work
+        4. Update agent configurations if needed
+        
+        Example:
+        Old: https://api-v1.company.com/mcp
+        New: https://api-v2.company.com/mcp
+    ```
+  </Accordion>
+  <Accordion title="Add/Remove Tools" icon="toolbox">
+    ```
+        As your MCP server adds new tools:
+        
+        1. Refresh connection to discover new tools
+        2. Review new tool descriptions
+        3. Enable tools that are relevant
+        4. Update agent instructions if needed
+        
+        When tools are deprecated:
+        1. Disable unused tools
+        2. Update workflows using old tools
+        3. Test agent still works correctly
+    ```
+  </Accordion>
+  <Accordion title="Update Authentication" icon="key">
+    ```
+        When credentials change:
+        
+        1. Update API keys/tokens
+        2. Test connection with new auth
+        3. Verify all enabled tools work
+        4. Monitor for auth errors
+        
+        Best practice: Rotate credentials regularly
+    ```
+  </Accordion>
+  <Accordion title="Disconnect Server" icon="plug-circle-xmark">
+    ```
+        To remove an MCP server:
+        
+        1. Verify no agents are actively using it
+        2. Document which agents had access
+        3. Disconnect the server
+        4. Update agent configurations
+        
+        Warning: This removes all tools from that server
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Security Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Secure Endpoints" icon="shield-check">
+    Only connect to MCP servers you control or trust completely
+  </Card>
+  <Card title="Least Privilege" icon="shield-halved">
+    Enable only the tools agents actually need to use
+  </Card>
+  <Card title="Authentication" icon="key">
+    Always use authentication when available (API keys, tokens)
+  </Card>
+  <Card title="HTTPS Only" icon="lock">
+    Only connect to MCP servers using HTTPS, never HTTP
+  </Card>
+  <Card title="Monitor Access" icon="eye">
+    Track which agents use which MCP tools and how often
+  </Card>
+  <Card title="Rotate Credentials" icon="arrows-rotate">
+    Regularly update API keys and authentication tokens
+  </Card>
+  <Card title="Audit Logs" icon="file-lines">
+    Review MCP server logs for unusual access patterns
+  </Card>
+  <Card title="Test Safely" icon="flask">
+    Test MCP connections with non-production data first
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Connection fails">
+    Check:
+
+    - Server URL is correct and accessible
+    - Server is currently running
+    - No firewall blocking the connection
+    - HTTPS certificate is valid
+    - Authentication credentials are correct
+    - MCP server implements protocol correctly
+  </Accordion>
+  <Accordion title="No tools discovered">
+    Verify:
+
+    - MCP server is returning tool definitions
+    - Server implements MCP protocol correctly
+    - API endpoint is the correct path
+    - Authentication is working
+    - Check server logs for errors
+  </Accordion>
+  <Accordion title="Tool calls fail">
+    Debug:
+
+    - Verify tool is enabled for agent
+    - Check parameters are correct format
+    - Confirm authentication is still valid
+    - Review MCP server logs
+    - Test tool manually if possible
+    - Check for rate limiting
+  </Accordion>
+  <Accordion title="Slow response times">
+    Consider:
+
+    - MCP server performance/load
+    - Network latency to server
+    - Complex operations taking time
+    - Rate limiting causing delays
+    - Optimize tool calls if possible
+    - Cache frequently accessed data
+  </Accordion>
+  <Accordion title="Authentication errors">
+    Resolve:
+
+    - Verify credentials are current
+    - Check if tokens expired
+    - Confirm API key has required permissions
+    - Ensure auth headers formatted correctly
+    - Rotate credentials if compromised
+    - Contact server admin if persistent
+  </Accordion>
+</AccordionGroup>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Understand what MCP servers are and how they work
+</Check>
+
+<Check>
+  Connect to MCP servers via HTTP endpoints
+</Check>
+
+<Check>
+  Select and enable specific tools from MCP servers
+</Check>
+
+<Check>
+  Use MCP tools naturally in agent workflows
+</Check>
+
+<Check>
+  Manage multiple MCP server connections
+</Check>
+
+<Check>
+  Apply security best practices for MCP connections
+</Check>
+
+<Check>
+  Troubleshoot common connection and tool issues
+</Check>
+
+MCP Server Connection provides unlimited extensibility for your Utari agents, allowing them to connect with any HTTP-accessible service through a standardized protocol—transforming agents from general-purpose assistants into specialized tools with deep integration into your systems and workflows.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="MCP Server Search" icon="magnifying-glass" href="/tools/mcp-server-search">
+    Discover pre-built MCP servers for popular services
+  </Card>
+  <Card title="Credentials Manager" icon="key" href="/tools/credentials-manager">
+    Manage authentication for MCP server connections
+  </Card>
+  <Card title="Agent Configuration" icon="sliders" href="/tools/agent-configuration">
+    Configure agents with MCP server access
+  </Card>
+  <Card title="Agent Builder" icon="user-plus" href="/tools/agent-builder">
+    Create specialized agents with MCP integrations
+  </Card>
+</CardGroup>
