@@ -67,7 +67,6 @@
               "workers/tools/people-research-tool",
               "workers/tools/company-research-tool",
               "workers/tools/academic-research-tool",
-              "workers/tools/voice-call-tool",
               "workers/tools/chat-messages-tool"
             ]
           },
