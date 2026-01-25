@@ -74,10 +74,10 @@
           {
             "group": "Worker Integrations",
             "pages": [
-              "guides/worker-integrations/utari-webhooks",
               "workers/integrations/how-to-add-integrations",
               "workers/integrations/using-integrations-in-workers",
-              "workers/integrations/how-to-use-mcp-integrations"
+              "workers/integrations/how-to-use-mcp-integrations",
+              "guides/worker-integrations/utari-webhooks"
             ]
           },
           {
