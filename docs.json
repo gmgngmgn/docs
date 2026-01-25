@@ -9,6 +9,20 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Documentation",
+          "icon": "book-open-cover",
+          "href": "https://docs.utari.ai"
+        },
+        {
+          "anchor": "Blog",
+          "icon": "newspaper",
+          "href": "https://blog.utari.ai"
+        }
+      ]
+    },
     "tabs": [
       {
         "tab": "Guides",
@@ -21,7 +35,7 @@
             ]
           },
           {
-            "group":"Getting Started With Workers",
+            "group": "Getting Started With Workers",
             "pages": [
               "workers/creating-a-new-worker"
             ]
@@ -60,6 +74,7 @@
           {
             "group": "Worker Integrations",
             "pages": [
+              "guides/worker-integrations/utari-webhooks",
               "workers/integrations/how-to-add-integrations",
               "workers/integrations/using-integrations-in-workers",
               "workers/integrations/how-to-use-mcp-integrations"
@@ -68,7 +83,7 @@
           {
             "group": "Worker Knowledge",
             "pages": [
-               "workers/knowledge/how-to-add-knowledge-to-your-worker",
+              "workers/knowledge/how-to-add-knowledge-to-your-worker",
               "workers/knowledge/how-to-use-jeremy-sop",
               "workers/knowledge/using-your-knowledge-in-a-worker"
             ]
@@ -101,21 +116,7 @@
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://docs.utari.ai",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://blog.utari.ai",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/dark.svg",

@@ -1,0 +1,803 @@
+---
+title: "Webhook Integrations"
+description: "Connect third-party apps to Utari workers using webhooks for automated, event-driven workflows that respond to external triggers in real-time."
+---
+
+## Overview
+
+Webhook Integrations enable your Utari workers to respond automatically to events from external applications. When something happens in a third-party app—like a meeting ending, a form submission, or a payment completing—that app can trigger your Utari worker to process the information and take action, creating powerful automated workflows.
+
+## How Webhook Integrations Work
+
+<Steps>
+  <Step title="Event Occurs in External App">
+    Something happens in the third-party application:
+    - Meeting recording completes (Fathom, Zoom)
+    - Form submitted (Typeform, Google Forms)
+    - Payment received (Stripe, PayPal)
+    - Email received (Gmail, SendGrid)
+    - Calendar event created (Google Calendar)
+  </Step>
+  
+  <Step title="App Sends Webhook">
+    The external app sends data to your Utari webhook URL with information about what happened.
+  </Step>
+  
+  <Step title="Utari Worker Activated">
+    Your configured worker receives the webhook data and executes your custom prompt.
+  </Step>
+  
+  <Step title="Worker Takes Action">
+    The worker processes the information and performs configured tasks:
+    - Extract and analyze data
+    - Update other systems
+    - Send notifications
+    - Create documents
+    - Trigger workflows
+  </Step>
+</Steps>
+
+<Info>
+  Webhooks enable real-time automation—workers respond immediately when events occur, without manual intervention or scheduled checking.
+</Info>
+
+## Setting Up Webhook Integrations
+
+### Part 1: Configure Utari Worker
+
+<Steps>
+  <Step title="Choose or Create Worker">
+    Select a worker for handling webhook events:
+    
+    **Option A: Use Existing Worker**
+    - Good for general-purpose automation
+    - Can handle multiple webhook types
+    
+    **Option B: Create Dedicated Worker** (Recommended)
+    - Specialized for specific webhook events
+    - Tailored instructions for consistent handling
+    - Easier to track and manage
+```
+    Example: "Meeting Transcription Processor"
+    Purpose: Handle meeting recording webhooks from Fathom
+```
+  </Step>
+  
+  <Step title="Add Required Integration (If Needed)">
+    If the webhook source requires API access:
+```
+    1. Go to worker → Integrations → Browse Apps
+    2. Search for the service (e.g., "Fathom")
+    3. Click "Add" → "Create new connection"
+    4. Get API key from service:
+       - Log into third-party service
+       - Find API/Developer settings
+       - Generate new API key
+       - Copy key
+    5. Paste API key into Utari
+    6. Click "Connect"
+    7. Enable relevant tools
+```
+    
+    <Info>
+      Not all webhooks require integration. Some only send data without needing API access back to the service.
+    </Info>
+  </Step>
+  
+  <Step title="Create Webhook Trigger">
+    Set up the webhook endpoint:
+    
+    **Method 1: From Worker**
+```
+    1. Go to worker → Triggers tab
+    2. Click "Create new trigger"
+    3. Select "Webhook trigger"
+```
+    
+    **Method 2: From Triggers Dashboard**
+```
+    1. Go to Triggers → Add Trigger
+    2. Select "Webhook trigger"
+    3. Choose the worker
+```
+  </Step>
+  
+  <Step title="Configure Webhook Details">
+    **Trigger Name**:
+    
+    Give your webhook a descriptive name
+    
+    Examples: "Fathom Meeting Processor" or "Typeform Submission Handler"
+    
+    **Description (Optional)**:
+    
+    Brief description of what this webhook handles
+    
+    **Security**:
+    
+    Toggle "Require Secret Token" (Recommended)
+    - Enables security verification
+    - Ensures data comes from legitimate source
+    - Prevents unauthorized webhook calls
+    
+    Webhook calls must include a secret token for authentication
+  </Step>
+  
+  <Step title="Configure Prompt Template">
+    **Agent Instructions**:
+    
+    Define what your agent should do when a webhook is received
+    
+    **Basic Structure**:
+```
+    Process the following [event type].
+    
+    Extract:
+    - [Key information 1]
+    - [Key information 2]
+    - [Key information 3]
+    
+    Then:
+    1. [Action step 1]
+    2. [Action step 2]
+    3. [Action step 3]
+    
+    Do not ask for confirmation—execute automatically.
+```
+    
+    **Available Variables**:
+    
+    Use these placeholders in your template - they'll be replaced with actual webhook data:
+    
+    - `{{payload}}` - Full webhook payload as JSON
+    - `{{payload.field}}` - Specific field from payload (e.g., payload.title)
+    - `{{payload.nested.field}}` - Nested field access
+    - `{{timestamp}}` - When the webhook was received
+    - `{{trigger_name}}` - Name of this trigger
+    
+    **Example Template**:
+```
+    Process the following meeting recording:
+    
+    Title: {{payload.meeting_title}}
+    Recording URL: {{payload.recording_url}}
+    
+    Please summarize the key points and action items.
+```
+    
+    **Model Selection**:
+    
+    Choose which model to use for processing webhooks
+    
+    - **Utari Basic** (Recommended for most webhook processing tasks)
+  </Step>
+  
+  <Step title="Create Trigger">
+    Click "Create Trigger"
+    
+    You'll receive:
+    - **Webhook URL**: Starts with `https://utari.up.railway.app/v1/triggers/...`
+    - **Secret Token**: One-time display (if enabled)
+    
+    **IMPORTANT: Copy both immediately!**
+    
+    Example webhook URL:
+```
+    https://utari.up.railway.app/v1/triggers/373a2...
+```
+    
+    The secret token should be included in the `x-webhook-secret` header
+    
+    <Warning>
+      **Save the secret token now!** It won't be shown again. You'll need to include it in the `x-webhook-secret` header when the third-party service calls your webhook.
+    </Warning>
+  </Step>
+</Steps>
+
+### Webhook URL and Secret Token
+
+After creating your webhook trigger, you'll receive:
+
+**Webhook URL**:
+
+Configure your external service to send POST requests to this URL:
+```
+https://utari.up.railway.app/v1/triggers/[your-trigger-id]
+```
+
+Copy this URL and paste it into the webhook configuration of your third-party service (Fathom, Typeform, Stripe, etc.)
+
+**Secret Token**:
+
+If you enabled "Require Secret Token", include this in the `x-webhook-secret` header:
+
+**Example Request**:
+```bash
+curl -X POST 'https://utari.up.railway.app/v1/triggers/373a2...' \
+  -H 'Content-Type: application/json' \
+  -H 'x-webhook-secret: sk_trigger_So1ECq1Dat9hxcPip0OMPq912fvL9rPwKbu8bph3sW8' \
+  -d '{"event": "example", "data": "your payload"}'
+```
+
+### Part 2: Configure Third-Party App
+
+<Steps>
+  <Step title="Find Webhook Settings">
+    In the third-party application:
+```
+    Common locations:
+    - Settings → Webhooks
+    - Settings → Integrations → Webhooks
+    - Settings → API → Webhooks
+    - Developer → Webhooks
+    - Automation → Webhooks
+```
+  </Step>
+  
+  <Step title="Create New Webhook">
+```
+    1. Click "Add Webhook" or "Create Webhook"
+    2. Paste Utari webhook URL as destination
+    3. Select event types to trigger webhook
+    4. Configure additional settings (if available)
+```
+  </Step>
+  
+  <Step title="Select Trigger Events">
+    Choose which events should activate the webhook:
+```
+    Examples:
+    - Meeting completed
+    - Form submitted
+    - Payment received
+    - File uploaded
+    - Record created/updated
+    
+    Select only events you want to process
+```
+  </Step>
+  
+  <Step title="Add Secret Token (If Required)">
+```
+    Some services request authentication:
+    - Look for "Secret" or "Authentication" field
+    - Paste the secret token from Utari
+    - May be labeled as "Signing Secret" or "Verification Token"
+    - Should be sent in x-webhook-secret header
+    
+    Not all services support custom headers
+```
+  </Step>
+  
+  <Step title="Configure Data Scope">
+    Select what data to send:
+```
+    Common options:
+    - Full payload (all data)
+    - Transcript only
+    - Metadata only
+    - Custom fields
+    
+    Choose based on your processing needs
+```
+  </Step>
+  
+  <Step title="Save and Activate">
+```
+    Save the webhook configuration
+    
+    Webhook is now active!
+    Events will trigger your Utari worker automatically
+```
+  </Step>
+</Steps>
+
+## Example Webhook Integrations
+
+### Meeting Recording Automation (Fathom Example)
+
+<Card title="Fathom Meeting Processor">
+  **Setup**:
+```
+  Worker: "Meeting Transcription Processor"
+  Integration: Fathom (with API key)
+  Trigger: Webhook - Meeting completed
+```
+  
+  **Agent Instructions**:
+```
+  Process this completed meeting recording.
+  
+  The meeting data is: {{payload}}
+  
+  Steps:
+  1. Extract the transcript ID from the payload
+  2. Use the Fathom integration to retrieve full transcript
+  3. Analyze the transcript and extract:
+     - Key discussion points
+     - Action items and owners
+     - Decisions made
+     - Follow-up questions
+  4. Create a meeting summary document
+  5. Save to "Meeting Notes/[Date]/" folder
+  6. Send summary to #meetings Slack channel
+  
+  Execute automatically without asking for confirmation.
+```
+  
+  **Result**: Every meeting automatically processed and documented
+</Card>
+
+### Form Submission Processing
+
+<Card title="Typeform Lead Capture">
+  **Setup**:
+```
+  Worker: "Lead Qualification Bot"
+  Integration: CRM (Salesforce/HubSpot)
+  Trigger: Webhook - Form submitted
+```
+  
+  **Agent Instructions**:
+```
+  Process this form submission: {{payload}}
+  
+  Extract:
+  - Name: {{payload.name}}
+  - Email: {{payload.email}}
+  - Company: {{payload.company}}
+  - Interest: {{payload.product_interest}}
+  
+  Actions:
+  1. Create new lead in CRM with extracted data
+  2. Research company on LinkedIn for additional context
+  3. Score lead based on:
+     - Company size
+     - Industry fit
+     - Product interest
+  4. If score > 7: Notify sales team via Slack immediately
+  5. If score 4-7: Add to nurture sequence
+  6. If score < 4: Add to general newsletter
+  
+  Log all actions in "Lead Processing Log" spreadsheet.
+```
+  
+  **Result**: Instant lead qualification and routing
+</Card>
+
+### Payment Processing
+
+<Card title="Stripe Payment Automation">
+  **Setup**:
+```
+  Worker: "Payment Processor"
+  Integration: Email, Accounting system
+  Trigger: Webhook - Payment succeeded
+```
+  
+  **Agent Instructions**:
+```
+  Process successful payment: {{payload}}
+  
+  Payment details:
+  - Amount: {{payload.amount}}
+  - Customer: {{payload.customer_email}}
+  - Product: {{payload.product_name}}
+  
+  Tasks:
+  1. Send payment confirmation email to customer
+  2. Log transaction in accounting spreadsheet
+  3. If first payment: Send onboarding email sequence
+  4. If renewal: Extend subscription, send thank you
+  5. Notify finance team in Slack
+  6. Update customer record in CRM
+  
+  Execute immediately.
+```
+  
+  **Result**: Automatic payment processing and customer communication
+</Card>
+
+### Calendar Event Automation
+
+<Card title="Meeting Preparation Assistant">
+  **Setup**:
+```
+  Worker: "Meeting Prep Bot"
+  Integration: Calendar, CRM, Email
+  Trigger: Webhook - Event created with "Client Meeting" in title
+```
+  
+  **Agent Instructions**:
+```
+  Prepare for upcoming meeting: {{payload}}
+  
+  Meeting details:
+  - Time: {{payload.start_time}}
+  - Attendees: {{payload.attendees}}
+  - Title: {{payload.title}}
+  
+  Preparation:
+  1. Extract company name from meeting title
+  2. Research company and attendees on LinkedIn
+  3. Check CRM for previous interactions
+  4. Gather relevant product materials
+  5. Create meeting prep document with:
+     - Attendee backgrounds
+     - Company context
+     - Previous conversation summary
+     - Suggested talking points
+  6. Email prep document to meeting owner
+  
+  Execute 24 hours before meeting.
+```
+  
+  **Result**: Automatic meeting preparation and briefings
+</Card>
+
+## Monitoring and Managing Webhooks
+
+### Viewing Webhook Activity
+
+<Steps>
+  <Step title="Access Trigger History">
+```
+    Go to: Worker → Triggers → Select webhook trigger
+    
+    or
+    
+    Go to: Triggers dashboard → Find webhook trigger
+```
+  </Step>
+  
+  <Step title="Review Recent Runs">
+```
+    See all webhook executions:
+    - Timestamp
+    - Status (success/failed)
+    - Execution duration
+    - Data received
+    
+    Click on individual run to see details
+```
+  </Step>
+  
+  <Step title="Examine Run Details">
+```
+    For each webhook execution:
+    
+    View:
+    - Prompt template used
+    - Payload data received
+    - Worker's response
+    - Actions taken
+    - Any errors
+    
+    Use this to debug and improve prompts
+```
+  </Step>
+</Steps>
+
+### Refining Webhook Prompts
+
+<Tabs>
+  <Tab title="Be Specific">
+    ❌ **Vague**: "Process this data"
+    
+    ✅ **Specific**: 
+```
+    Process this meeting recording.
+    Extract transcript ID from payload.transcript_id.
+    Retrieve full transcript using Fathom integration.
+    Analyze for action items and decisions.
+    Create summary document.
+    Send to Slack #meetings channel.
+```
+  </Tab>
+  
+  <Tab title="Avoid Questions">
+    ❌ **Asks for input**:
+```
+    I received meeting data. What should I do with it?
+```
+    
+    ✅ **Direct execution**:
+```
+    Process automatically without asking for confirmation.
+    Execute all steps immediately upon receiving webhook.
+```
+  </Tab>
+  
+  <Tab title="Handle Edge Cases">
+    ❌ **Assumes success**:
+```
+    Get the transcript and summarize it
+```
+    
+    ✅ **Handles errors**:
+```
+    Get the transcript using the transcript_id.
+    If transcript not available yet, wait 30 seconds and retry.
+    If still unavailable after 3 attempts, log error and notify admin.
+    If successful, proceed with summarization.
+```
+  </Tab>
+  
+  <Tab title="Use Payload Variables">
+    ❌ **Generic**:
+```
+    Process the meeting
+```
+    
+    ✅ **Uses specific fields**:
+```
+    Process meeting: {{payload.title}}
+    Date: {{payload.date}}
+    Duration: {{payload.duration}}
+    Participants: {{payload.attendees}}
+    
+    Use transcript_id: {{payload.transcript_id}} to retrieve full transcript
+```
+  </Tab>
+</Tabs>
+
+## Webhook Security
+
+<CardGroup cols={2}>
+  <Card title="Use Secret Tokens" icon="key">
+    Always enable secret token requirement to verify webhook authenticity
+  </Card>
+  
+  <Card title="Validate Payload" icon="shield-check">
+    Configure worker to validate expected data structure
+  </Card>
+  
+  <Card title="Monitor Activity" icon="eye">
+    Regularly review webhook logs for unusual patterns
+  </Card>
+  
+  <Card title="Limit Scope" icon="filter">
+    Only subscribe to events you actually need to process
+  </Card>
+  
+  <Card title="HTTPS Only" icon="lock">
+    Webhook URLs use HTTPS by default (utari.up.railway.app)
+  </Card>
+  
+  <Card title="Error Handling" icon="triangle-exclamation">
+    Include error handling in prompts for failed operations
+  </Card>
+</CardGroup>
+
+## Common Webhook Providers
+
+<Tabs>
+  <Tab title="Meeting & Communication">
+    **Supported Services**:
+    - **Fathom**: Meeting recordings and transcripts
+    - **Zoom**: Meeting completed, recording available
+    - **Google Meet**: Recording uploaded
+    - **Slack**: Message posted, file shared
+    - **Discord**: Message sent, member joined
+    - **Microsoft Teams**: Meeting ended
+    
+    **Common Use Cases**:
+    - Transcription and summarization
+    - Action item extraction
+    - Meeting notes distribution
+    - CRM updates from call notes
+  </Tab>
+  
+  <Tab title="Forms & Surveys">
+    **Supported Services**:
+    - **Typeform**: Form submitted
+    - **Google Forms**: Response received
+    - **Jotform**: Submission completed
+    - **SurveyMonkey**: Survey response
+    
+    **Common Use Cases**:
+    - Lead capture and qualification
+    - Survey response analysis
+    - Customer feedback processing
+    - Registration automation
+  </Tab>
+  
+  <Tab title="E-commerce & Payments">
+    **Supported Services**:
+    - **Stripe**: Payment succeeded, subscription created
+    - **PayPal**: Payment received
+    - **Shopify**: Order created, fulfillment updated
+    - **WooCommerce**: New order
+    
+    **Common Use Cases**:
+    - Order processing
+    - Payment confirmations
+    - Subscription management
+    - Customer onboarding
+  </Tab>
+  
+  <Tab title="Project Management">
+    **Supported Services**:
+    - **Jira**: Issue created/updated
+    - **Asana**: Task completed
+    - **Trello**: Card moved
+    - **Monday.com**: Item created
+    
+    **Common Use Cases**:
+    - Status updates
+    - Cross-platform syncing
+    - Automated reporting
+    - Team notifications
+  </Tab>
+  
+  <Tab title="CRM & Sales">
+    **Supported Services**:
+    - **Salesforce**: Lead created, opportunity updated
+    - **HubSpot**: Contact created, deal stage changed
+    - **Pipedrive**: Deal moved
+    
+    **Common Use Cases**:
+    - Lead enrichment
+    - Automated follow-ups
+    - Pipeline updates
+    - Sales notifications
+  </Tab>
+</Tabs>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Webhook not triggering">
+    Check:
+    - Webhook URL copied correctly to third-party app
+    - URL starts with `https://utari.up.railway.app/v1/triggers/`
+    - Third-party app webhook is enabled/active
+    - Event type selected in third-party app
+    - Test webhook manually in third-party settings
+    - Check third-party app webhook logs for errors
+    - Verify worker is active in Utari
+  </Accordion>
+  
+  <Accordion title="Worker asking for input instead of executing">
+    Fix prompt to be more directive:
+    
+    ❌ Current: "What should I do with this data?"
+    
+    ✅ Updated: "Process automatically without confirmation. Execute these steps immediately: [specific steps]"
+    
+    Add explicit instruction to not ask questions
+  </Accordion>
+  
+  <Accordion title="Can't access specific data fields">
+    Debug payload structure:
+    
+    1. Check a recent webhook run in trigger history
+    2. View the raw payload received
+    3. Identify correct field names
+    4. Update prompt with correct variable syntax
+    
+    Examples:
+    - `{{payload.field}}` for top-level fields
+    - `{{payload.nested.field}}` for nested fields
+    
+    Note: If payload shows `transcriptId` but you used `transcript_id`, match the exact field name
+  </Accordion>
+  
+  <Accordion title="Integration tools not available">
+    Verify:
+    - Integration is connected in worker
+    - API key is valid and active
+    - Required tools are enabled
+    - Worker has permission to use integration
+    - Integration connection wasn't disconnected
+  </Accordion>
+  
+  <Accordion title="Webhook timing issues">
+    Consider:
+    - Some webhooks fire before data fully processed
+    - Add wait time: "Wait 30 seconds after receiving webhook"
+    - Implement retry logic for data retrieval
+    - Check if third-party offers "processing complete" event
+  </Accordion>
+  
+  <Accordion title="Secret token authentication failing">
+    Verify:
+    - Secret token is included in `x-webhook-secret` header
+    - Token was copied correctly (no extra spaces)
+    - Third-party service supports custom headers
+    - Token hasn't expired or been regenerated
+    
+    If you lost the token, you'll need to create a new webhook trigger
+  </Accordion>
+  
+  <Accordion title="Too many webhook triggers">
+    Optimize:
+    - Filter events more specifically in third-party app
+    - Add conditional logic to prompt: "Only process if status equals completed"
+    - Consider batching: Process every N minutes instead of real-time
+    - Disable webhook temporarily if testing
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Dedicated Workers" icon="user">
+    Create specialized workers for each webhook type for better control
+  </Card>
+  
+  <Card title="Detailed Prompts" icon="file-lines">
+    Write comprehensive prompts that handle all scenarios
+  </Card>
+  
+  <Card title="Test Thoroughly" icon="vial">
+    Test webhooks multiple times with different data before production
+  </Card>
+  
+  <Card title="Monitor Regularly" icon="chart-line">
+    Review webhook execution logs to catch issues early
+  </Card>
+  
+  <Card title="Error Handling" icon="life-ring">
+    Include fallback actions for when operations fail
+  </Card>
+  
+  <Card title="Document Workflow" icon="book">
+    Keep notes on what each webhook does and why
+  </Card>
+  
+  <Card title="Use Secret Tokens" icon="shield">
+    Always enable secret token authentication
+  </Card>
+  
+  <Card title="Iterative Improvement" icon="arrows-rotate">
+    Refine prompts based on actual execution results
+  </Card>
+</CardGroup>
+
+## Summary
+
+You've successfully learned how to:
+
+<Check>
+  Set up webhook integrations between third-party apps and Utari
+</Check>
+
+<Check>
+  Configure workers to process webhook events automatically
+</Check>
+
+<Check>
+  Write effective webhook processing prompts with payload variables
+</Check>
+
+<Check>
+  Monitor and troubleshoot webhook executions
+</Check>
+
+<Check>
+  Apply security best practices with secret tokens
+</Check>
+
+<Check>
+  Create automated workflows triggered by external events
+</Check>
+
+Webhook integrations transform Utari workers into event-driven automation engines that respond immediately to real-world triggers, creating seamless workflows across your entire application ecosystem.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Triggers & Automation" icon="clock" href="/tools/triggers-automation">
+    Learn about other trigger types beyond webhooks
+  </Card>
+  <Card title="Integrations" icon="plug" href="/integrations">
+    Explore available app integrations
+  </Card>
+  <Card title="Agent Configuration" icon="sliders" href="/tools/agent-configuration">
+    Optimize workers for webhook processing
+  </Card>
+  <Card title="MCP Servers" icon="puzzle-piece" href="/tools/mcp-server-search">
+    Connect additional services for webhook workflows
+  </Card>
+</CardGroup>
