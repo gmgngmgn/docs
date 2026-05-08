@@ -121,7 +121,9 @@
           "getting-started-with-jeremy-ai",
           {
             "group": "JeremyAI Skills",
-            "pages": []
+            "pages": [
+              "untitled-page"
+            ]
           },
           {
             "group": "JeremyAI Workers",
