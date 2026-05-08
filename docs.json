@@ -114,6 +114,23 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "JeremyAI",
+        "pages": [
+          "getting-started-with-jeremy-ai",
+          {
+            "group": "JeremyAI Skills",
+            "pages": []
+          },
+          {
+            "group": "JeremyAI Workers",
+            "pages": [
+              "create-a-focused-jeremy-ai-worker"
+            ]
+          },
+          "calling-jeremy-ai"
+        ]
       }
     ]
   },
