@@ -128,7 +128,8 @@
           {
             "group": "JeremyAI Workers",
             "pages": [
-              "create-a-focused-jeremy-ai-worker"
+              "create-a-focused-jeremy-ai-worker",
+              "Bottleneck-Diagnosis-Worker"
             ]
           },
           "calling-jeremy-ai"
