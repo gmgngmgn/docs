@@ -18,9 +18,15 @@ Instead of sending a one-line question, give JeremyAI the context and ask it to 
 \
 `Compare the likely constraints across ads, offer, booking, show rate, sales, follow-up, economics, and operations.`\
 \
-`Tell me the most likely bottleneck, the attack point for the next 7 to 14 days, what we should not do yet, and what data would change your diagnosis.`\
+`Tell me the most likely bottleneck, the attack point for the next 7 to 14 days, what we should not do yet, and what data would change your diagnosis.`\\
 
 The worker may calculate stage conversion rates, rank competing issues, ask focused follow-up questions, and go deeper when the diagnosis points to a specific business area. The outcome should still be simple: one attack point, the evidence behind it, and the next actions to take.
+
+## Watch the walkthrough
+
+Use this walkthrough to see how to choose Bottleneck Diagnosis, give JeremyAI the right business context, and read the diagnosis it returns.
+
+<iframe src="https://demo.arcade.software/IAplHjHrKWdQQHRosECF?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Run a Bottleneck Diagnosis in JeremyAI" className="w-full aspect-video rounded-xl" frameBorder="0" loading="lazy" allow="clipboard-write" allowFullScreen />
 
 ## **When to use Bottleneck Diagnosis**
 
@@ -152,7 +158,7 @@ Use this structure:
 `Data attached or connected:`\
 `[Screenshots, exports, CRM, booking tool, payment data, call notes, Meta CLI output]`\
 \
-`Please diagnose the most likely bottleneck, rank the other possible constraints, pick the one attack point for the next 7 to 14 days, tell me what not to do yet, and explain what data would change your diagnosis.`\
+`Please diagnose the most likely bottleneck, rank the other possible constraints, pick the one attack point for the next 7 to 14 days, tell me what not to do yet, and explain what data would change your diagnosis.`\\
 
 Shorter prompts can still work, especially when you are early. Good diagnostic prompts can also sound like:
 
@@ -177,7 +183,7 @@ Use this format when you have basic funnel numbers:
 \
 `I'm not sure if the problem is the ads, the offer, the booking process, the show rate, the sales consult, or the follow-up.`\
 \
-`Please diagnose the biggest bottleneck and tell me what to fix first.`\
+`Please diagnose the biggest bottleneck and tell me what to fix first.`\\
 
 The worker should respond with a direct diagnosis, not a generic checklist:
 
@@ -185,7 +191,7 @@ The worker should respond with a direct diagnosis, not a generic checklist:
 \
 `The biggest leak is show rate: only 18 of 42 booked consults showed up.`\
 \
-`Do not scale spend yet. Attack confirmation, reminder, and speed-to-lead for the next 7 days before changing the ads.`\
+`Do not scale spend yet. Attack confirmation, reminder, and speed-to-lead for the next 7 days before changing the ads.`\\
 
 ## **What the worker should give you**
 
@@ -288,7 +294,7 @@ Example scheduled trigger prompt:
 \
 `Calculate the key stage conversion rates. Identify the most likely bottleneck, rank likely constraints by probability, severity, and downstream risk, and give one attack point for the next 7 to 14 days.`\
 \
-`If a source is missing, say what is missing, give the best provisional diagnosis from the available data, and list the data that would make the diagnosis stronger.`\
+`If a source is missing, say what is missing, give the best provisional diagnosis from the available data, and list the data that would make the diagnosis stronger.`\\
 
 Before turning on a trigger, run the same instruction manually in chat. After the trigger is active, check the first few runs and pause it if the output is incomplete, too broad, or running at the wrong time.
 
@@ -302,13 +308,13 @@ If the worker gives you several things to fix, ask it to pick one and explain wh
 
 Try prompts like:
 
-`Pick one attack point. Do not give me a list. Explain why this comes first.`\
+`Pick one attack point. Do not give me a list. Explain why this comes first.`\\
 
-`What are you assuming here, and what data would change your diagnosis?`\
+`What are you assuming here, and what data would change your diagnosis?`\\
 
-`Use the numbers I gave you and rank the possible bottlenecks by probability, severity, and downstream risk.`\
+`Use the numbers I gave you and rank the possible bottlenecks by probability, severity, and downstream risk.`\\
 
-`Use this Meta CLI output for the ad data.`\
+`Use this Meta CLI output for the ad data.`\\
 
 If the worker cannot access a source directly, paste the key numbers, upload an export, or share a screenshot with sensitive information hidden.
 
