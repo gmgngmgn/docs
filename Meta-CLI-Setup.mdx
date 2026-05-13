@@ -1,0 +1,125 @@
+---
+title: "Meta CLI Setup"
+---
+
+## **What this setup does**
+
+Meta CLI setup connects Meta Ads access to Utari from the Integrations area. Once the connection is saved and verified, approved JeremyAI workflows can use the connected Meta Ads account when workspace permissions and enabled tools allow it.
+
+In this guide, **Meta CLI setup** means adding the Meta access Utari needs. It does not mean installing Meta's Ads CLI locally.
+
+## **Watch the walkthrough**
+
+Use the walkthrough if you want to see the Utari connection flow and the Meta-side setup context before following the written steps.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YsxpouBtwoI" title="Utari - Meta CLI Setup" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+## **How this supports JeremyAI**
+
+JeremyAI can use Meta Ads context only when the workspace has the right permissions, the connection is enabled, and the specific workflow supports that data.
+
+For example, Meta Ads context can help with ad diagnosis, bottleneck diagnosis, reporting, and paid-traffic review. If a direct connection is not available, a JeremyAI workflow may ask for exported reports, screenshots, pasted metrics, or Meta CLI output instead.
+
+## **Before you start**
+
+Make sure you have:
+
+- access to the Utari account where the Meta Ads connection should be added
+- permission to manage integrations in Utari
+- admin access to the correct Meta Business Suite business portfolio
+- a Meta system-user access token for the ad account you want to connect
+- the Meta ad account ID, if you want Utari to default to one specific account
+
+Do not use a personal access token. Use a Meta system-user token so the connection is not tied to an individual person's login.
+
+## **Use Meta's setup docs for the Meta side**
+
+Meta owns the setup flow for Ads CLI, system users, access tokens, ad accounts, apps, and business portfolio configuration. Use Meta's official documentation as the source of truth for creating or confirming your token:
+
+- [Meta Ads CLI overview](https://developers.facebook.com/documentation/ads-commerce/ads-ai-connectors/ads-cli/ads-cli-overview)
+- [Introducing Ads CLI](https://developers.facebook.com/blog/post/2026/04/29/introducing-ads-cli/)
+
+Meta's screens and requirements may change. If Meta asks you to complete additional app, business, policy, or permission steps, follow Meta's current instructions.
+
+## **Recommended Meta-side checks**
+
+Before adding the token to Utari, confirm these items in Meta:
+
+- the token is a Meta system-user token
+- the system user is in the same business portfolio as the ad account you want to connect
+- the system user has access to the correct ad account
+- the system user has access to the relevant app and Page when your Meta setup requires them
+- the token includes the Meta permissions needed for Ads CLI or Marketing API workflows
+- you have the ad account ID if you want to set a default account in Utari
+
+These checks are included because they are the most common setup details that determine whether Utari can verify the connection successfully.
+
+## **Add the connection in Utari**
+
+1. Open your Utari account.
+2. Go to **Integrations**.
+3. Find the Meta Ads connection card.
+4. Click **Add connection**.
+5. Enter a clear connection name.
+
+Example:
+
+`Meta Ads Integration`\
+
+6. Paste the Meta system-user access token into the access token field.
+7. Add the default ad account ID if needed.
+
+Use a default ad account ID when you have multiple ad accounts or want this connection to point to one specific account.
+
+Example format:
+
+`act_1234567890`\
+
+8. Save the connection.
+9. Click **Verify**.
+
+10. Confirm the verification shows the expected ad account, connected Pages, and approved permission scopes.
+11. If this should be the default Meta Ads connection, mark it as the default connection.
+
+## **Token and access safety notes**
+
+- Use a Meta system-user token, not a personal access token.
+- Do not share the token in chat, email, screenshots, support messages, or screen recordings.
+- If you need help, hide the access token before sending screenshots.
+- If a token is exposed, rotate it in Meta and update the saved Utari connection.
+- Only connect Meta accounts you are authorized to use with Utari.
+- Make sure the selected Meta business portfolio, developer app, ad account, and Page all belong to the setup you intend to connect.
+
+## **Verify the connection**
+
+A successful verification should show the Meta ad account Utari can access, the connected Pages, and the permission scopes granted to the token.
+
+After saving the connection, run a small test before relying on the connection for important work. For example, ask JeremyAI or Utari to use a small, non-sensitive Meta Ads data check that the workflow is allowed to access.
+
+## **Troubleshooting**
+
+If the connection does not verify, check:
+
+- the token was copied completely
+- the token belongs to the Meta system user you created for this setup
+- the system user has access to the correct ad account
+- the system user has access to the relevant app and Page when required by your Meta setup
+- the developer app is connected to the correct business portfolio
+- the default ad account ID is correct
+- there are no extra spaces before or after the token
+
+If the connection verifies but later stops working, the token may have expired, been rotated, lost permissions, or been removed from the Meta system user.
+
+## **When to contact support**
+
+Contact Utari support if you cannot verify or save the connection after checking the steps above.
+
+Include:
+
+- the email on your Utari account
+- the connection name
+- the step that failed
+- the error or message you saw
+- a screenshot with the access token hidden
+
+Do not send your Meta access token to support.

@@ -132,7 +132,13 @@
               "Bottleneck-Diagnosis-Worker"
             ]
           },
-          "calling-jeremy-ai"
+          "calling-jeremy-ai",
+          {
+            "group": "Meta CLI",
+            "pages": [
+              "Meta-CLI-Setup"
+            ]
+          }
         ]
       }
     ]
