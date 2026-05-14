@@ -119,6 +119,7 @@
         "tab": "JeremyAI",
         "pages": [
           "getting-started-with-jeremy-ai",
+          "calling-jeremy-ai",
           {
             "group": "JeremyAI Skills",
             "pages": [
@@ -129,10 +130,10 @@
             "group": "JeremyAI Workers",
             "pages": [
               "create-a-focused-jeremy-ai-worker",
-              "Bottleneck-Diagnosis-Worker"
+              "Bottleneck-Diagnosis-Worker",
+              "Ad-Creative-Diagnosis-Worker"
             ]
           },
-          "calling-jeremy-ai",
           {
             "group": "Meta CLI",
             "pages": [
