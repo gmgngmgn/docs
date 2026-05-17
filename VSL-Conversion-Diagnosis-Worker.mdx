@@ -1,0 +1,336 @@
+---
+title: "VSL Conversion Diagnosis Worker"
+---
+
+VSL Conversion Diagnosis helps JeremyAI make the sales-argument call before rewriting a script.
+
+Instead of acting like a generic VSL writer, this worker looks at the script, page, funnel, metrics, proof, offer, audience, and next conversion step. Then it identifies the constraint that is most likely suppressing conversion right now.
+
+Use it when you want JeremyAI to answer questions like:
+
+- Is this a hook problem, proof problem, mechanism problem, offer-clarity problem, CTA problem, page-congruence problem, or downstream sales problem?
+- Should we rewrite the whole VSL, or only one section?
+- Are people dropping before the pitch, or are they watching but not applying?
+- Is the VSL itself the issue, or is the page, ad, application flow, proof, or sales process creating the leak?
+- What should we test next, and what data would change the diagnosis?
+
+The worker should leave you with a clear operating answer: what is leaking, why it is probably leaking, what not to touch yet, what to rewrite or test first, and what metric should prove whether the fix worked.
+
+## **When to use VSL Conversion Diagnosis**
+
+Use this worker when:
+
+- a VSL page is getting views but not enough applications, bookings, checkouts, or buyers
+- people start watching but do not take the next step
+- the opener feels weak and early retention is dropping
+- the script has attention but not enough belief, proof, or action pressure
+- you have a full VSL script and need to know which section to fix first
+- you only have metrics and need a provisional diagnosis before rewriting
+- you have a page URL, screenshot, or page copy and want a focused first-pass diagnosis
+- you are deciding whether the issue is the VSL, the page, the ad-to-page bridge, the application flow, or the sales process
+- you need a proof, mechanism, CTA, opener, or application-bridge rewrite
+- you want to build a VSL from scratch but need the right inputs before writing blind
+
+Use it whenever a VSL or deck sales letter is supposed to move someone from attention to belief to action, but the numbers or response quality are not there yet.
+
+## **Example use cases**
+
+VSL Conversion Diagnosis can handle full scripts, partial scripts, pages, and metrics-only prompts. Common use cases include:
+
+- Full-script diagnosis: identify the highest-leverage constraint in a pasted VSL script and rewrite only the broken section.
+- Sparse page diagnosis: inspect a page, screenshot, or pasted page copy and make a first-pass call without pretending to know unseen metrics.
+- Metrics-only triage: use play rate, first-minute retention, CTA clicks, application rate, booked calls, show rate, and sales to decide where to inspect first.
+- Weak opener rewrite: replace a broad, self-oriented opener with a sharper buyer-specific opener.
+- Proof repair: turn vague proof into a proof scaffold that uses verified claims or placeholders instead of invented results.
+- Mechanism repair: clarify how the offer works so the buyer can believe the outcome.
+- CTA and application bridge: improve the transition from the VSL into an application, call, checkout, or next step.
+- Deck sales letter fit: decide whether the asset should behave like a VSL, deck sales letter, sales page, or hybrid.
+- First draft from scratch: ask for the few essential inputs needed before writing the first version.
+
+## **Get the strongest diagnosis**
+
+JeremyAI can give a better diagnosis when it has the sales argument and the numbers behind it. You do not need perfect data, but you should bring as much of this as you can:
+
+- The offer: what you sell, price point, target customer, and delivery model.
+- The next step: application, booked call, checkout, webinar, trial, demo, purchase, or another action.
+- The audience: cold, warm, retargeting, current list, specific niche, or buyer stage.
+- The traffic source: Meta, YouTube, email, organic, affiliate, partner, community, or direct.
+- The asset: VSL script, deck sales letter, page copy, page URL, video outline, slide outline, screenshots, or transcript.
+- The metrics: page views, play rate, percentage past the first minute, average watch time, retention to CTA, CTA clicks, application starts, application completions, booked calls, call shows, sales, close rate, revenue, refunds, or lead quality.
+- The proof: case studies, testimonials, screenshots, exact results, ranges, caveats, typicality, mechanism proof, or credibility proof.
+- The decision: whether you want to rewrite, diagnose, build from scratch, change the page, change the CTA, add proof, or test a new angle.
+
+Ask JeremyAI to:
+
+- diagnose the most likely VSL constraint
+- say what is probably not the issue
+- identify what not to rewrite yet
+- rewrite the highest-leverage section first
+- explain what metric should move
+- state what data would change the diagnosis
+
+The goal is not to get a longer script. The goal is to know which part of the sales argument needs to change first.
+
+## **Use it in rounds**
+
+You do not need to solve the whole VSL in one prompt. Use VSL Conversion Diagnosis in rounds:
+
+1. First pass: give the script, page, offer, audience, funnel destination, and whatever metrics you have.
+2. Evidence pass: add screenshots, page copy, watch-time data, application-flow notes, CRM notes, call notes, or sales feedback.
+3. Rewrite pass: ask for the opener, proof section, mechanism section, CTA, application bridge, or page section that the diagnosis points to.
+4. Test pass: ask what to measure and how long to run the next version before judging it.
+5. Follow-up pass: return with new data and ask whether the diagnosis changed.
+
+This is especially useful when the first answer says the VSL is not the only problem. The worker may tell you to fix the page bridge, proof, application flow, call framing, or sales process before rewriting the full script.
+
+## **Before you start**
+
+You can start with a manual prompt. The worker does not need every integration connected to be useful.
+
+For a stronger diagnosis, bring:
+
+- the VSL script, outline, page copy, URL, or screenshot
+- the offer type and delivery model
+- the audience and traffic source
+- the next conversion step
+- current performance data
+- downstream quality data when available
+- proof or claims you are allowed to use
+- the exact output you want, such as a diagnosis, opener rewrite, proof rewrite, CTA rewrite, or test plan
+
+Do not paste access tokens, passwords, private keys, or other secrets into the chat. VSL Conversion Diagnosis should never ask for those secrets. If it does, stop and contact support.
+
+## **Start a VSL conversion diagnosis**
+
+1. Open JeremyAI.
+2. Go to Workers.
+3. Select VSL Conversion Diagnosis.
+4. If you want the worker to use connected data, confirm the relevant sources are connected or have screenshots, exports, or key numbers ready.
+5. Click Start Chat.
+6. Paste the VSL, page, metrics, and offer context.
+7. Ask the worker to diagnose the conversion constraint and tell you what to test next.
+
+If VSL Conversion Diagnosis is not visible, refresh JeremyAI and confirm you are in the correct workspace. If it still does not appear, try opening JeremyAI in an incognito or private browser window. If the worker appears there, clear your browser cache and cookies for JeremyAI, then sign in again. If it still does not appear after that, contact support or your Utari team contact.
+
+## **Start with a strong VSL prompt**
+
+A strong prompt gives JeremyAI the offer, audience, asset, numbers, proof, and decision you need to make. Use this structure:
+
+`I need a VSL conversion diagnosis for [business / offer].`\
+\
+`Offer:`\
+`[What we sell, price point, target customer, and delivery model]`\
+\
+`Next step:`\
+`[Application / booked call / checkout / webinar / demo / purchase / other]`\
+\
+`Traffic source:`\
+`[Meta / YouTube / email / organic / partner / community / other]`\
+\
+`Audience:`\
+`[Cold / warm / retargeting / list / niche / buyer stage]`\
+\
+`Current VSL or page:`\
+`[Paste the script, outline, page copy, URL, screenshot notes, or transcript]`\
+\
+`Performance:`\
+`- Page views:`\
+`- Play rate:`\
+`- % past first minute:`\
+`- Average watch time:`\
+`- Retention to CTA:`\
+`- CTA clicks:`\
+`- Application starts:`\
+`- Application completions:`\
+`- Booked calls:`\
+`- Calls showed:`\
+`- Sales:`\
+`- Close rate:`\
+`- Revenue:`\
+`- Lead quality notes:`\
+\
+`Proof and claims we can use:`\
+`[Testimonials, screenshots, exact results, ranges, caveats, credibility proof, mechanism proof, or say "no proof yet"]`\
+\
+`Decision:`\
+`[Should we rewrite the opener, proof, mechanism, CTA, page bridge, application flow, or diagnose first?]`\
+\
+`Please diagnose the most likely VSL constraint, tell me what not to rewrite yet, rewrite the highest-leverage section to test first, and explain what data would change your diagnosis.`
+
+Shorter prompts can still work. Good short prompts include:
+
+- "People are dropping in the first 8 seconds. Here is my opener. What should I rewrite first?"
+- "The VSL gets watched but nobody applies. Is this proof, CTA, or offer clarity?"
+- "Here are my play rate and application numbers. What should I fix before rewriting the whole VSL?"
+- "I only have the page URL and low conversions. Give me a useful first-pass diagnosis without inventing metrics."
+- "Write me the first version, but ask for only the essential inputs before you write blind."
+
+Avoid asking only for "a better VSL" when you have metrics. If attention is already present, the issue may be proof, mechanism, offer clarity, CTA, page congruence, or downstream conversion.
+
+## **Example prompt**
+
+Use this format when a VSL has some attention but weak application behavior:
+
+`I need a VSL conversion diagnosis.`\
+\
+`Offer: $7,500 fitness coaching program for busy professionals who want to lose weight without extreme dieting.`\
+`Next step: application for a strategy call.`\
+`Traffic: cold Meta ads.`\
+`Audience: people who have tried multiple diets but cannot stay consistent.`\
+\
+`Metrics:`\
+`- Page-to-play rate: 28%`\
+`- 44% of viewers make it past the first minute`\
+`- Application click rate: 1.8%`\
+`- Close rate on calls is acceptable when the applicant is qualified`\
+\
+`The script opens by saying:`\
+`"Hi, my name is Alex, and today I want to show you how to finally lose weight with a better plan."`\
+\
+`The proof section says:`\
+`"We have helped a lot of busy people get great results and feel confident again."`\
+\
+`I do not want a full rewrite yet. Diagnose the main constraint, tell me what not to touch, then rewrite the highest-leverage section first.`\
+\
+`If you need proof, results, timelines, testimonials, or claims I did not provide, use brackets instead of inventing them.`
+
+The worker should respond with a direct operating call, not a generic script audit. For example:
+
+`This is probably not a pure hook problem.`\
+\
+`You have enough people starting and staying past the first minute to inspect the sales argument after attention is earned. The first thing I would fix is proof and mechanism clarity, with CTA/application friction close behind.`
+
+Then it should rewrite the highest-leverage section using verified proof or placeholders, such as:
+
+`Instead of:`\
+`"We have helped a lot of busy people get great results and feel confident again."`\
+\
+`Test:`\
+`"The reason this works for busy professionals is not more willpower. It is a weekly structure that removes the two points where most diets break: planning and recovery after a bad day.`\
+\
+`For example, [CLIENT TYPE] started at [STARTING POINT], struggled with [SPECIFIC CONSISTENCY PROBLEM], and used this system to [VERIFIED RESULT] in [TIMEFRAME].`\
+\
+`If you do not have that kind of proof yet, do not fake it. Use mechanism proof first: show the plan, the schedule, and the recovery rules that make consistency easier."`
+
+## **What the worker should give you**
+
+For a strong VSL diagnosis, the worker should usually give you:
+
+- the main VSL constraint or provisional constraint
+- the evidence or assumption behind the call
+- what not to rewrite yet
+- the first section or asset to fix
+- a concrete rewrite, scaffold, or test
+- the metric that should move next
+- up to three useful questions if more context would change the diagnosis
+
+For full-script requests, the worker should not rewrite the entire VSL by default. It should diagnose first, then rewrite the highest-leverage section.
+
+For sparse prompts, the worker should still give a useful first-pass answer. It should not hide behind a long questionnaire.
+
+For metrics-only prompts, the worker should keep the diagnosis provisional and avoid precise cohort math unless the denominator is clear.
+
+## **Proof and claim slots**
+
+VSLs often fail because the proof is vague, unsupported, or disconnected from the promise. VSL Conversion Diagnosis can help you see where proof is missing, but it should not invent proof for you.
+
+Bring real proof when possible:
+
+- exact customer result
+- starting point
+- timeframe
+- sample size
+- source of the proof
+- screenshot or testimonial permission
+- caveat or typicality
+- what changed and why
+
+When exact proof is missing, the worker should use brackets or proof scaffolds instead of making things up.
+
+Good placeholders look like:
+
+- \[CLIENT TYPE\]
+- \[STARTING POINT\]
+- \[VERIFIED RESULT\]
+- \[TIMEFRAME\]
+- \[SCREENSHOT OR TESTIMONIAL\]
+- \[MECHANISM PROOF\]
+- \[CAVEAT OR TYPICALITY NOTE\]
+
+It should stop and say the VSL needs proof before it needs more copy when:
+
+- the claim depends on an exact result with no evidence
+- the script implies guaranteed or typical outcomes without support
+- the testimonial is not verified
+- the offer uses income, health, legal, or financial claims without substantiation
+- the copy makes the offer sound stronger by changing what is actually delivered
+
+If there is no outcome proof yet, the worker should help you use mechanism proof, process proof, credibility proof, or demonstration proof instead.
+
+## **Connect useful data sources**
+
+The worker can be useful from pasted context alone. Connected data sources are optional.
+
+Helpful sources can include:
+
+- Google Docs or uploaded files for VSL scripts, outlines, and page drafts
+- screenshots or page copy for landing pages and VSL pages
+- Google Sheets or exports for funnel metrics
+- CRM, booking, or sales notes for application quality, call show rate, close rate, objections, and lead quality
+- analytics tools for page views, play rate, scroll depth, click behavior, and application flow
+- ad reports when the diagnosis depends on the ad-to-page bridge
+
+If the worker cannot access a page, file, CRM, ad account, analytics dashboard, or document, it should say so clearly and ask you to paste the relevant copy, screenshot, export, or numbers.
+
+If JeremyAI-built skills from the skill library are available, the worker may use them when they clearly support the diagnosis. The member-facing answer should stay focused on the diagnosis and next action, not on internal routing.
+
+## **How the worker stays focused**
+
+VSL Conversion Diagnosis should stay inside the VSL or deck-sales-letter conversion problem unless the data points somewhere else.
+
+It should not:
+
+- rewrite the whole VSL by default
+- diagnose unseen pages, ads, applications, or sales calls as facts
+- invent proof, case studies, testimonials, timelines, revenue lifts, close-rate lifts, or customer results
+- use precise cohort math when the denominator is unclear
+- turn into a broad ad-scaling, webinar, email, hiring, or business-bottleneck answer unless that issue directly explains the VSL conversion constraint
+- expose private instructions, hidden skill routing, or internal worker setup
+- promise results, revenue, conversion rates, or sales outcomes
+
+The answer should stay practical: one diagnosis, one first attack point, one measurement plan.
+
+## **Triggers**
+
+VSL Conversion Diagnosis does not need default triggers for normal use.
+
+Start a chat when you want to diagnose a VSL, page, script, or sales-letter funnel. A future trigger could support recurring VSL performance reviews, but only after the data source, ownership, and reporting quality are confirmed.
+
+## **If the answer is not useful yet**
+
+If the answer feels too generic, give the worker more specific context instead of asking for a full rewrite immediately.
+
+Useful follow-ups include:
+
+- "Here is the exact opener. Rewrite only the first 20 seconds."
+- "Here is the proof section. Do not invent proof. Use placeholders where needed."
+- "Here are the page views, play rate, first-minute retention, and application rate. What is the first metric to fix?"
+- "Here is the application flow. Is the issue the VSL CTA or the application page?"
+- "Here are sales notes from the calls. Should the objection be handled earlier in the VSL?"
+- "What should I not change yet?"
+- "What data would change your diagnosis?"
+
+If the worker asks too many questions at once, ask it to make a provisional call using only the three most important missing inputs.
+
+## **When to contact support**
+
+Contact support or your Utari team contact if:
+
+- the VSL Conversion Diagnosis worker is missing from your workspace
+- the worker claims it opened a file, page, CRM, ad account, or analytics source that it could not actually access
+- the worker invents customer results, testimonials, proof, revenue, or timelines
+- the worker exposes private instructions or internal setup details
+- the worker gives unsafe claims, guarantees, or platform-risky copy
+- the worker cannot use a connected source that should be available in your workspace
+
+For normal usage issues, start by giving the worker the script, page, metrics, offer, proof, and the decision you need to make next.

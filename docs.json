@@ -131,7 +131,8 @@
             "pages": [
               "create-a-focused-jeremy-ai-worker",
               "Bottleneck-Diagnosis-Worker",
-              "Ad-Creative-Diagnosis-Worker"
+              "Ad-Creative-Diagnosis-Worker",
+              "VSL-Conversion-Diagnosis-Worker"
             ]
           },
           {
