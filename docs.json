@@ -132,7 +132,8 @@
               "create-a-focused-jeremy-ai-worker",
               "Bottleneck-Diagnosis-Worker",
               "Ad-Creative-Diagnosis-Worker",
-              "VSL-Conversion-Diagnosis-Worker"
+              "VSL-Conversion-Diagnosis-Worker",
+              "webinar-funnel-diagnosis-worker"
             ]
           },
           {
