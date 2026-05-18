@@ -1,0 +1,320 @@
+---
+title: "Access, Members, Usage, Notifications, and Team Handoff"
+---
+
+This guide covers the operating layer of your Utari instance: who can join, what members are allowed to do, how invites and removals work, how to review usage patterns, and how to configure owner notifications.
+
+By the end, you should know how to control member access, review the member list, use analytics to spot knowledge gaps, and decide who owns the main post-launch checks.
+
+## **How to use this guide**
+
+Use this guide from top to bottom when preparing an instance for members.
+
+Access controls who can get in. Members shows who is already inside or invited. Analytics shows what members are doing and asking. Notifications tell the owner or approved setup team when something needs attention.
+
+## **What this guide covers**
+
+- Access mode and member permissions.
+- Manual invites, CSV imports, resend actions, and removals.
+- Payment webhooks for paid membership access.
+- Analytics and recent-query review.
+- Notification configuration, trigger rules, delivery health, and delivery review.
+- Team handoff and post-launch operating rhythm.
+
+## **Before you begin**
+
+Decide who is allowed to manage access before changing settings.
+
+For most paid, private, or staged communities, **Invite Only** is the best starting access mode. Use a more open mode only when the instance is intentionally free or open to the public.
+
+Before launch, make sure the owner and approved setup team know who can:
+
+- Change access settings.
+- Invite members.
+- Import a CSV member list.
+- Remove members.
+- Connect Whop or Stripe webhooks.
+- Configure notifications.
+- Review analytics and recent queries.
+
+Do not share real webhook secrets, signing secrets, or private member details unless the person receiving them is approved to manage that setup.
+
+## **Setup map**
+
+Open the profile or workspace menu at the bottom-left of the dashboard.
+
+For this guide, the important areas are **Instance Config**, **Members**, **Analytics**, and **Notifications**.
+
+- Use **Instance Config** for access settings.
+- Use **Members** for invites, CSV imports, resends, removals, and payment webhooks.
+- Use **Analytics** for usage review and recent-query review.
+- Use **Notifications** for owner alerts and delivery review.
+
+<Frame>
+  ![Sop5 Setup Map](/images/sop5-setup-map.jpg)
+</Frame>
+
+## **Access settings**
+
+Open **Instance Config**, then choose the **Access** tab.
+
+Use Access to decide who can join the instance and what members can do after they join.
+
+<Frame>
+  ![Sop5 Access Settings](/images/sop5-access-settings.jpg)
+</Frame>
+
+The Access screen includes three access modes:
+
+- **Public:** anyone can join.
+- **Authenticated:** anyone with an email can join.
+- **Invite Only:** only pre-invited emails can join.
+
+For paid communities, private communities, staged launches, or any launch where you need to control who gets in, choose **Invite Only**.
+
+Use **Public** only when the instance is intentionally free and open.
+
+The Access screen also includes member permissions:
+
+- **Allow creating workers**
+- **Allow creating triggers**
+- **Hide knowledge base sources**
+
+These settings do not turn a member into an owner or administrator. They only control what members can create or see inside the member-facing instance experience.
+
+Leave worker or trigger creation off unless you want members to create their own workers or automations inside the instance.
+
+## **Members: payment webhooks and invites**
+
+Open the profile or workspace menu, then choose **Members**.
+
+Use Members to manage payment webhooks, one-off invites, CSV imports, member search, invite resends, and member removals.
+
+<Frame>
+  ![Sop5 Members Webhooks Invite](/images/sop5-members-webhooks-invite.jpg)
+</Frame>
+
+Payment webhooks help keep paid member access in sync with a payment or membership provider.
+
+Use **Whop** or **Stripe** when access should follow payment or membership events. This makes it easier to add and remove paying community members when their membership status changes.
+
+Payment webhooks are different from app credentials:
+
+- **Payment webhooks** manage member access.
+- **App Credentials** give workers or workflows permission to use connected business apps.
+
+When reviewing Whop or Stripe setup, check:
+
+- Whether the provider is enabled.
+- The webhook URL.
+- The signing secret field.
+- The **Save secret** action.
+
+Use **Invite Members** when you only need to invite a small number of people manually.
+
+Use **Import CSV** when you already have a large community or member list. This is the best route for bulk invites.
+
+Download and use the CSV template provided on the Members page. Fill out that template, then import it back into Utari.
+
+At minimum, the CSV needs an email column. Include name only if the provided template includes it and you want member names included.
+
+## **Members: search, resend, and remove**
+
+Use the lower Members area to search for people and manage existing member rows.
+
+<Frame>
+  ![Sop5 Member Management](/images/sop5-member-management.jpg)
+</Frame>
+
+Use search when you need to find a member by name or email.
+
+Each member row shows the member record and the actions available for that member.
+
+Use **Resend** when a person was invited but did not receive or complete the invite.
+
+Use **Remove** only when the person should no longer have access to the instance.
+
+Removing a member removes their Utari access. Utari does not automatically send a separate removal notice unless your team has connected that notification through a payment provider, webhook, or separate automation.
+
+## **Analytics**
+
+Open the profile or workspace menu, then choose **Analytics**.
+
+Use Analytics to understand how the instance is being used and what members are asking.
+
+<Frame>
+  ![Sop5 Analytics Overview](/images/sop5-analytics-overview.jpg)
+</Frame>
+
+Use the usage areas as operational signals. They help the owner understand member activity, spot spikes, and decide when to review the knowledge base or ask Utari for support.
+
+If usage looks unusually high, confusing, or hard to interpret, email [**hey@utari.ai**](mailto:hey@utari.ai).
+
+Use **Recent Queries** to find:
+
+- Knowledge gaps.
+- Repeated member questions.
+- Confusing onboarding topics.
+- Worker instructions that may need adjustment.
+- High-intent members who may need follow-up.
+
+When a recent query shows a gap, inspect the related thread and decide what needs to be fixed:
+
+- If the AI lacks information, update the knowledge base or connected sources.
+- If the AI sounds wrong, update the personality and behavior setup.
+- If members are confused about how to use the instance, update onboarding material or examples.
+- If the query is about access, invites, or payment membership, review Access, Members, and payment webhooks.
+- If the issue looks product-related or unclear, email [**hey@utari.ai**](mailto:hey@utari.ai).
+
+During launch, review Analytics frequently. After the launch window, set a recurring owner review rhythm for Analytics and Recent Queries.
+
+## **Notifications: configuration**
+
+Open the profile or workspace menu, then choose **Notifications**.
+
+Start at the top of the Notifications page and work downward.
+
+<Frame>
+  ![Sop5 Notifications Configuration](/images/sop5-notifications-configuration.jpg)
+</Frame>
+
+Configure notifications in this order:
+
+1. Turn on the master notifications switch when the owner is ready to receive alerts.
+2. Add email recipients deliberately.
+3. Add a webhook URL and secret only if notifications should go into another system.
+4. Review trigger rules.
+5. Turn on only the alerts the team will actually monitor.
+6. Save once the configuration is intentional.
+
+Treat notification webhook secrets like passwords. Only approved setup owners should view, enter, or rotate them.
+
+## **Notifications: trigger rules**
+
+Use trigger rules to decide what should create an alert.
+
+<Frame>
+  ![Sop5 Notifications Trigger Rules](/images/sop5-notifications-trigger-rules.jpg)
+</Frame>
+
+Common trigger types include:
+
+- **First login**
+- **Low engagement**
+
+For each trigger, review:
+
+- The event being monitored.
+- Whether the alert goes to email, webhook, or both.
+- Whether delivery is realtime or digest-based.
+- The cadence if a digest is used.
+
+Do not turn on every trigger just because it exists. Turn on the alerts someone is responsible for reviewing.
+
+## **Notifications: member health and test delivery**
+
+The lower notification sections can help the owner review member health alerts and test webhook delivery.
+
+<Frame>
+  ![Sop5 Notifications Health](/images/sop5-notifications-health.jpg)
+</Frame>
+
+Review member-health rules such as:
+
+- Has not returned.
+- Heavy use.
+- Inactive.
+
+For each rule, check the review window, threshold, channel, delivery method, digest cadence, and re-alert settings.
+
+Use **Send test webhook** only after the webhook URL and secret are configured.
+
+Use **Last delivery health** to check whether notification delivery appears healthy.
+
+## **Notifications: delivery review**
+
+Use the Delivery area to audit recent notification activity.
+
+<Frame>
+  ![Sop5 Notifications Delivery Review](/images/sop5-notifications-delivery-review.jpg)
+</Frame>
+
+Use **Refresh** to pull the latest delivery state.
+
+Review:
+
+- Fires in the last 24 hours.
+- Recent fires.
+- Recent deliveries.
+- Recent failures.
+
+Do not use **Replay DLQ** unless Utari or the approved technical owner asks you to retry failed notifications.
+
+If delivery fails:
+
+1. Refresh and confirm the failure.
+2. Confirm notifications are enabled.
+3. Confirm the trigger is turned on.
+4. Confirm email recipients or webhook URL and secret are correct.
+5. If it is still unclear, email [**hey@utari.ai**](mailto:hey@utari.ai) with the instance name, trigger, and failure details.
+
+## **Decide the launch operating rhythm**
+
+Before launch, decide who owns each recurring responsibility.
+
+Assign clear owners for:
+
+- Access mode and member permissions.
+- One-off invites.
+- CSV imports.
+- Invite resends.
+- Member removals.
+- Payment webhook setup and maintenance.
+- Analytics review.
+- Recent-query review.
+- Knowledge base updates based on analytics.
+- Notification recipients.
+- Webhook setup and delivery health.
+- Escalations to Utari.
+
+Recommended rhythm:
+
+- During the first launch window, check Members, Analytics, and Notifications daily.
+- After the launch window, review Analytics and Recent Queries weekly.
+- Review access settings and member lists whenever the offer, cohort, or community structure changes.
+- Review notification delivery any time the owner expected an alert and did not receive it.
+
+The team does not need to memorize every screen. They need to know which area they own, how often to review it, and when to escalate to Utari.
+
+## **What to avoid**
+
+Do not leave access more open than intended.
+
+Do not allow members to create workers or triggers unless that matches how you want the instance managed.
+
+Do not share webhook secrets, signing secrets, or private member details with unapproved people.
+
+Do not connect Whop, Stripe, notification recipients, or webhooks unless someone owns the setup after launch.
+
+Do not ignore Recent Queries. They are one of the fastest ways to find missing knowledge, confusing onboarding, or member support patterns.
+
+## **Quick check**
+
+You are ready to move on when you can answer:
+
+- Which access mode should this instance use?
+- Which member permissions should be on or off?
+- Who can invite, import, resend, or remove members?
+- Which payment webhooks need to be connected?
+- Who checks Analytics and Recent Queries?
+- What happens when Recent Queries show a knowledge gap?
+- Who receives owner notifications?
+- Which notification triggers are enabled for launch?
+- Who monitors delivery failures?
+- What gets escalated to Utari?
+
+## **Final launch check**
+
+After this guide, the owner and approved setup team should know how to manage access, members, analytics, notifications, and the post-launch operating rhythm.
+
+If anything looks unclear, incomplete, or unusual during launch, email [**hey@utari.ai**](mailto:hey@utari.ai) with the instance name and the screen where the issue appears.

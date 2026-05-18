@@ -1,0 +1,214 @@
+---
+title: "Voice, Channels, and Integrations"
+---
+
+This guide shows where voice setup, external channels, and approved app credentials live inside your Utari instance.
+
+Voice and channels determine how members can interact with the AI outside the normal chat experience. Integrations and app credentials determine which approved connected accounts workers or workflows can use.
+
+By the end, you should know what has to be prepared before voice can go live, where channel setup lives, and how to keep connected-account details private during setup.
+
+## **How to use this guide**
+
+Use this guide to decide what is ready to turn on and what still needs owner approval, Utari support, or a connected account before members use it.
+
+A feature can appear in the dashboard before it is fully live for members, so review the setup requirements before enabling anything.
+
+## **What this guide covers**
+
+- Where voice setup lives.
+- Why voice requires an uploaded and activated voice sample first.
+- What the voice-call experience looks like once voice is active.
+- Where Email, Telegram, Slack, and other channel setup lives.
+- Where approved app credentials are managed.
+- What connected-account details should stay private during setup.
+
+## **Before you begin**
+
+Voice and channels can affect how people interact with your instance outside the dashboard. Integrations can affect which connected accounts workers or workflows can use.
+
+Only connect or create something when the owner and setup team know exactly what account, token, or workflow is being used.
+
+Treat bot tokens, app credentials, and access tokens like passwords. Keep them private, and only share them with the approved person handling that connection.
+
+## **Setup map**
+
+Open the profile or workspace menu at the bottom-left of the dashboard.
+
+For this SOP, the important areas are **Instance Config \> Voice**, **Voice Calls**, **Integrations**, and **Channels**.
+
+- Use **Instance Config \> Voice** to configure voice.
+- Use **Voice Calls** to review or use the call experience once voice is active.
+- Use **Integrations / App Credentials** for approved connected accounts that workers or workflows need permission to use.
+- Use **Channels** for member-facing communication paths like Email, Telegram, or Slack.
+
+<Frame>
+  ![Sop4 Setup Map Current With Voice Tab](/images/sop4-setup-map-current-with-voice-tab.jpg)
+</Frame>
+
+## **Voice setup**
+
+Open **Instance Config**, then choose the **Voice** tab.
+
+Use this screen to configure voice before expecting the **Voice Calls** page or member-facing voice options to work.
+
+<Frame>
+  ![Sop4 Voice Setup Current](/images/sop4-voice-setup-current.jpg)
+</Frame>
+
+Voice is not available as a member-facing voice chat or call option until a voice sample has been uploaded and activated. If no voice sample is active, the dashboard can still show the voice setup fields, but the actual voice-call experience is not ready to use.
+
+Follow this setup order:
+
+1. Upload the voice sample.
+2. Wait for the voice clone to be available and activated.
+3. Choose the **Voice Agent** that should handle voice calls.
+4. Review the **Greeting Message** and **Thinking Message**.
+5. Save the configuration.
+6. Enable voice calls when the control becomes available.
+7. Test the voice-call experience before sending members to use it.
+
+On the Voice screen, review these areas:
+
+- **Voice Clones:** where the owner uploads a voice sample.
+- **Upload Sample:** accepts a 30-second to 5-minute audio sample in WAV, MP3, or M4A. Use natural conversational audio with one speaker, a quiet room, consistent input level, and minimal background music, background noise, or cross-talk.
+- **Voice Agent:** selects which agent will be used during voice calls. The selected agent controls the worker behavior, personality, and knowledge the voice call uses.
+
+Audio voice samples are for voice calls. This is different from SOP 3's **Voice / Style Source** folders, which are writing and tone reference materials inside the knowledge layer.
+
+## **Voice messages and enabling voice calls**
+
+Scroll lower on the Voice tab to review the voice messages and enablement controls.
+
+Use **Greeting Message** for the AI's opening line when a voice call starts.
+
+Use **Thinking Message** for the filler message played while the AI is processing during a voice call.
+
+<Frame>
+  ![Sop4 Voice Messages Current](/images/sop4-voice-messages-current.jpg)
+</Frame>
+
+The **Enable Voice Calls** control should stay unavailable until a voice clone has been uploaded and activated. When voice is not ready yet, the helper text may say **Upload and activate a voice clone first**.
+
+## **Voice Calls page**
+
+Open the profile or workspace menu, then choose **Voice Calls**.
+
+Review this page after the Voice tab setup has a sample uploaded, a voice clone activated, and a Voice Agent selected.
+
+If the page says voice calls are not set up, finish the voice sample and activation flow before testing voice calls or sending members to use voice.
+
+## **After the voice sample is active**
+
+Once a voice sample is uploaded and activated, the dashboard can show a **New Voice Call** option and a voice-call screen for the selected worker.
+
+The worker name, avatar, and available minutes may differ by instance.
+
+If the instance runs out of voice minutes, email [**hey@utari.ai**](mailto:hey@utari.ai) to refill.
+
+<Frame>
+  ![04b Voice Call Active](/images/04b-voice-call-active.jpg)
+</Frame>
+
+## **Channels**
+
+Open the profile or workspace menu, then choose **Channels**.
+
+Channels are the external places people can interact with workers. Use Channels for member-facing communication paths, not for general business app permissions.
+
+<Frame>
+  ![05 Channels](/images/05-channels.jpg)
+</Frame>
+
+The Channels page shows:
+
+- **Email:** email channel option for the instance.
+- **Telegram:** requires a Telegram bot token from BotFather.
+- **Slack:** has an **Add to Slack** button for installing the Utari bot.
+
+For Telegram, use the BotFather token field only when you have the approved bot token ready.
+
+For Slack, use the setup button only when Slack is part of the approved setup plan.
+
+Do not assume a channel is live just because it appears on the Channels page. A visible channel means it is available for setup; it still needs to be connected and tested.
+
+## **Integrations and app credentials**
+
+Open the profile or workspace menu, then choose **Integrations**. This opens **App Credentials**.
+
+<Frame>
+  ![Sop4 Integrations Current](/images/sop4-integrations-current.jpg)
+</Frame>
+
+Use App Credentials when a connected business app needs an approved account connection.
+
+Start by clicking **Connect New App**, even if there are no existing connections yet.
+
+Connect the app here first. After the app is connected, attach or use that connection with the relevant worker or workflow as needed.
+
+If a connection opens a provider-specific credential form, review the fields carefully before saving.
+
+<Frame>
+  ![07 Meta Connection Modal](/images/07-meta-connection-modal.jpg)
+</Frame>
+
+A Meta Ads connection, for example, may ask for:
+
+- **Connection name**
+- **Access token**
+- **Default ad account ID**
+- **Set as default Meta Ads connection**
+- **Verify**
+- **Save connection**
+
+Do not enter or share real tokens or credentials unless you are actively completing the approved setup.
+
+If Meta Ads setup is required, connect the approved Meta account for the ad account that should power this instance.
+
+The connection is account-based: if the instance owner connects Meta Ads, Utari can only use the ad account access available through that owner's connected Meta account. It does not grant access to unrelated accounts.
+
+## **Decide who is allowed to connect external systems**
+
+Before voice, channels, or app credentials are used broadly, decide who owns the setup and who is allowed to manage connected accounts, tokens, credentials, and external channels.
+
+Assign clear owners for:
+
+- Voice sample recording and upload.
+- Voice agent selection.
+- Voice greeting and thinking messages.
+- Email, Telegram, or Slack setup.
+- App credentials such as Meta Ads.
+- Credential rotation and removal if access changes.
+
+The owner should understand what each connection does, who owns it, and who can rotate or remove it later if account access changes.
+
+Utari or the approved technical owner should help when setup involves tokens, bot credentials, app credentials, or external accounts.
+
+## **What to avoid**
+
+Do not share real bot tokens, app credentials, access tokens, or connected-account values with anyone who does not need them for the approved setup.
+
+Do not assume a channel is live just because it appears on the Channels page. A visible channel means it is available for setup; it still needs to be connected and tested.
+
+Do not expect voice chat or voice calls to appear until a voice sample has been uploaded and activated.
+
+Do not add app credentials unless there is a real setup plan and someone owns the credential afterward.
+
+## **Quick check**
+
+You are ready to move on when you can answer:
+
+- What is the order for making voice ready?
+- What makes a usable voice sample?
+- What does the selected Voice Agent control?
+- Where do you review whether voice calls are set up?
+- What appears once the voice sample is active?
+- What should you do if voice minutes run out?
+- Where do you connect Email, Telegram, or Slack?
+- When should you use Channels instead of App Credentials?
+- Where do you manage app credentials?
+- Who on the team is allowed to manage, rotate, or remove tokens and credentials?
+
+## **Next guide**
+
+Continue to **Access, Members, Usage, Notifications, and Team Handoff** when you are ready to configure member access, invites, analytics review, owner notifications, and the launch operating rhythm.

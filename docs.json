@@ -152,7 +152,9 @@
             "pages": [
               "instance-owner-dashboard-setup-map",
               "Brand-Identity-and-AI-Behavior",
-              "Knowledge-Base-and-Source-Material"
+              "Knowledge-Base-and-Source-Material",
+              "voice-channels-and-integrations",
+              "access-members-usage-notifications-and-team-handoff"
             ]
           }
         ]
