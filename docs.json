@@ -146,8 +146,15 @@
       },
       {
         "tab": "Utari Eternal",
-        "pages": [
-          "instance-owner-dashboard-setup-map"
+        "groups": [
+          {
+            "group": "Instance Owners",
+            "pages": [
+              "instance-owner-dashboard-setup-map",
+              "Brand-Identity-and-AI-Behavior",
+              "Knowledge-Base-and-Source-Material"
+            ]
+          }
         ]
       }
     ]
