@@ -143,6 +143,12 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Utari Eternal",
+        "pages": [
+          "instance-owner-dashboard-setup-map"
+        ]
       }
     ]
   },
