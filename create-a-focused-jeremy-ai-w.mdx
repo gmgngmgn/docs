@@ -1,0 +1,134 @@
+JeremyAI can help broadly in a normal chat. A worker is for the repeat business problems you want JeremyAI to handle in a more focused way.
+
+Use a worker when you want to turn one Jeremy-style consulting pattern into a reusable workflow: diagnosing a bottleneck, improving follow-up, reviewing ads, pressure-testing an offer, or working through another business problem you come back to often.
+
+## **Watch the walkthrough**
+
+<iframe src="https://demo.arcade.software/oKO5PqXa2YBHy9Plb8Kb?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Build a Bottleneck Diagnosis Worker in JeremyAI" className="w-full aspect-video rounded-xl" frameBorder="0" loading="lazy" allow="clipboard-write" allowFullScreen />
+
+## **When to create a worker**
+
+Create a worker when the job is specific enough that you want JeremyAI to follow the same pattern each time.
+
+A good worker is not "help me with marketing." That is usually better as a normal JeremyAI chat.
+
+A better worker has a clear job:
+
+- diagnose the biggest bottleneck in a funnel or business process
+- review ad performance and identify what is breaking
+- improve ghosted-lead follow-up
+- build direct-response ads from a real offer
+- turn source material into a stronger messaging framework
+
+If JeremyAI provides a shared worker for a specific use case, use that worker as provided. Create your own worker when you want a member-owned setup for your offer, workflow, source material, or repeat process.
+
+## **Example: bottleneck diagnosis**
+
+The walkthrough creates a bottleneck-diagnosis-worker.
+
+A bottleneck diagnosis worker can help look across ads, offer, booking, show rate, sales consults, follow-up, conversion, and broader business constraints.
+
+The job is simple:
+
+1. Take the real numbers and context.
+2. Identify where the biggest drop-off is happening.
+3. Explain why that stage is likely the first bottleneck.
+4. Recommend what to review or fix first.
+
+## **Shape the worker with Instructions**
+
+Instructions tell the worker how to think and what kind of output to produce.
+
+For the bottleneck diagnosis example, the Instructions should make the worker focus on diagnosis before tactics. The worker should ask for missing context, compare each stage of the business path, identify the first constraint, and recommend the first fix instead of trying to improve everything at once.
+
+Useful instruction points include:
+
+- what the worker is responsible for
+- what context it should ask for when the request is too thin
+- how it should compare stages like leads, booked calls, show rate, close rate, follow-up, and offer clarity
+- how it should explain the likely bottleneck
+- what first action it should recommend
+
+## **Add JeremyAI-built skills from the skill library**
+
+Skills help the worker handle a focused use case with more specific JeremyAI workflows.
+
+In the walkthrough, the worker uses JeremyAI-built skills from the skill library, including:
+
+- ad-scaling-framework
+- diagnose-ad-fatigue
+- ghosted-lead-followup
+- craft-messaging-frameworks
+- direct-response-ad-creation
+
+You do not need to add every related skill. A good focused worker usually has 3-5 skills that directly support the job.
+
+If you add too many skills, JeremyAI has more possible directions to choose from. Keep the skill mix tight so the worker is guided toward the workflow you actually want.
+
+For a bottleneck diagnosis worker, ad, messaging, follow-up, and offer-related skills can help JeremyAI reason through what might be breaking and what should be fixed first.
+
+## **Use tools, integrations, knowledge, and triggers when they fit the job**
+
+Workers can include configuration areas such as Tools, Integrations, Knowledge, Skills, and Triggers.
+
+For a focused JeremyAI worker, start with the job, Instructions, and Skills first. Add the other configuration only when it supports the workflow.
+
+- Use **Tools** when the worker needs a specific capability to complete the job.
+- Use **Integrations** when the worker needs to connect to an outside system.
+- Use **Knowledge** when the worker should use specific source material, saved context, or reference material.
+- Use **Triggers** when the workflow should run from a specific event or schedule.
+
+If the worker can do the job well with clear instructions and the right JeremyAI-built skills, keep the setup simple.
+
+## **Test the worker with a real prompt**
+
+After the worker is created, test it with a real business situation.
+
+The walkthrough uses this bottleneck diagnosis prompt:
+
+`I own a high-ticket med spa.`\
+\
+`Our main offer is a $2,500 body contouring and skin tightening package.`\
+\
+`We spend about $500/day on Meta ads. Last week we got 90 leads, 42 booked consults, 18 showed up, and 3 bought.`\
+\
+`Our team usually follows up with leads within 12-24 hours.`\
+\
+`I am not sure if the problem is the ads, the offer, the booking process, the show rate, the sales consult, or the follow-up.`\
+\
+`Please diagnose the biggest bottleneck and tell me what to fix first.`\\
+
+A strong response should compare the path:
+
+`90 leads -> 42 booked consults -> 18 showed -> 3 bought`\\
+
+Then it should calculate the key rates:
+
+- 42 booked consults from 90 leads = 47% booking rate
+- 18 showed from 42 booked consults = 43% show rate
+- 3 bought from 18 who showed = 17% close rate on shows
+
+In this example, the likely first bottleneck is the sales consult or close-rate stage. The first fix is not to rewrite every ad. It is to review the next five consults and look for problems in qualification, urgency, offer positioning, objection handling, and the close process.
+
+## **Make the worker better over time**
+
+After testing the worker, adjust the Instructions if the answer is too broad, too tactical too early, or missing the business logic you wanted.
+
+Good improvements look like:
+
+- asking the worker to identify the first bottleneck before giving recommendations
+- telling the worker to calculate each stage before deciding what is broken
+- adding the exact output format you want
+- adding missing context the worker should request before answering
+- removing skills or configuration that do not support the job
+
+The goal is not to make the worker complicated. The goal is to make it useful for one repeat workflow you care about.
+
+## **Related guides**
+
+- How to Use JeremyAI Skills
+- Getting Started With JeremyAI
+- Worker tools
+- Worker integrations
+- Worker knowledge
+- Worker triggers
